@@ -1,0 +1,27 @@
+default: &defaults
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: postgres
+  password: loldesign 
+  host: localhost
+
+development:
+  <<: *defaults
+  adapter: postgresql
+  database: wingle_development
+
+test:
+  <<: *defaults
+  adapter: postgresql
+  database: wingle_test
+
+production:
+  <<: *defaults
+  adapter: postgresql
+  database: wingle_production
+
+  staging:
+  <<: *defaults
+  adapter: postgresql
+  database: wingle_staging

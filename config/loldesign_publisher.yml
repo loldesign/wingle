@@ -1,0 +1,31 @@
+paths:
+  logo:   'loldesign_publisher/logo.svg'
+  logout: 'root_path'
+
+  menu_links:
+    admins:
+      name: 'Administradores'
+      path: admin_admins_path
+    positions:
+      name: 'Cargos'
+      path: admin_positions_path
+    specialties:
+      name: 'Especialidades'
+      path: admin_specialties_path
+    questionaries:
+      name: 'Questionários'
+      path: admin_questionaries_path
+    translations:
+      name: 'Textos'
+      path: admin_translations_path
+    terms:
+      name: 'Termos'
+      path: admin_terms_path
+    services:
+      name: 'Pacote de Serviços'
+      path: admin_services_path
+    locales:
+      name: 'Localidade'
+      path: admin_locales_path
+
+page_title: 'Wingle'
