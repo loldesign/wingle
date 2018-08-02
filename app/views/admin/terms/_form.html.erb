@@ -1,1 +1,20 @@
-Admin Form
+<%= simple_form_for [:admin, @term] , html: {class: 'form'} do |f| %>
+
+  <section class='fields-wrapper one-column'>
+    <header>
+      <h2><%= "#{@term.persisted? ? 'Editar' : 'Criar'} Cargo" %></h2>
+    </header>
+    
+    <article>
+      <%= f.input :title, wrapper_html: {class: 'col-12' } %>
+    </article>
+
+    <article>
+      <%= f.input :term, wrapper_html: {class: 'col-12' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_terms_path) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>

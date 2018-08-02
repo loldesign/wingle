@@ -5,6 +5,7 @@ class CreatePackageServices < ActiveRecord::Migration[5.1]
       t.text :description
       t.boolean :signature
       t.decimal :value
+      t.timestamps
     end
   end
 end

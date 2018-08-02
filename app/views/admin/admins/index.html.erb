@@ -1,1 +1,19 @@
-Admins Index
+<%= title_page 'Administradores' %>
+
+<%= add_resource 'Novo Administrador', new_admin_admin_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>E-mail</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@admins, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @admins %>

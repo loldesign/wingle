@@ -1,0 +1,23 @@
+<%= title_page 'Pacote de Serviços' %>
+
+<section class="fields-wrapper two-columns margin-top">
+  <header>
+    <h2>
+      <%= @package_service.package_title %>
+    </h2>
+  </header>
+
+  <article>
+    <p>
+      <%= @package_service.description %>
+    </p>
+
+    <p>
+      <%= @package_service.signature %>
+    </p>
+
+    <p>
+      R$ <%= @package_service.value %>
+    </p>
+  </article>
+</section>

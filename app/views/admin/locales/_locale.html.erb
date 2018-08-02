@@ -1,1 +1,9 @@
-Admin
+<tr>
+  <td><%= locale.name %></td>
+  <td><%= l locale.created_at, format: :short %></td>
+  <td>
+    <%= show_resource_with_icon admin_locale_path(locale) %>
+    <%= edit_resource edit_admin_locale_path(locale) %>
+    <%= remove_resource admin_locale_path(locale), {}%>
+  </td>
+</tr>

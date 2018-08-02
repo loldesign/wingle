@@ -1,0 +1,22 @@
+<%= simple_form_for [:admin, @package_service] , html: {class: 'form'} do |f| %>
+
+  <section class='fields-wrapper two-columns'>
+    <header>
+      <h2><%= "#{@package_service.persisted? ? 'Editar' : 'Criar'} Cargo" %></h2>
+    </header>
+    
+    <article>
+      <%= f.input :package_title, wrapper_html: {class: 'col-12' } %>
+      <%= f.input :description, wrapper_html: {class: 'col-12' } %>
+    </article>
+
+    <article>
+      <%= f.input :signature, wrapper_html: {class: 'col-12' } %>
+      <%= f.input :value, wrapper_html: {class: 'col-12' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_package_services_path) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>

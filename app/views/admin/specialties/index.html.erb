@@ -1,1 +1,19 @@
-Especialidades Index
+<%= title_page 'Especialidades' %>
+
+<%= add_resource 'Nova Especialidade', new_admin_specialty_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Especialidade</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@specialties, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @specialties %>

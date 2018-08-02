@@ -1,0 +1,22 @@
+<%= title_page 'Pacotes de Serviço' %>
+
+<%= add_resource 'Novo Pacote de Serviço', new_admin_package_service_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Assinatura</th>
+      <th>Criado em</th>
+      <th>Valor</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@package_services, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @package_services %>

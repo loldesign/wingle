@@ -1,1 +1,8 @@
-Especialidades Index
+<tr>
+  <td><%= specialty.specialty %></td>
+  <td><%= l specialty.created_at %></td>
+  <td>
+    <%= edit_resource edit_admin_specialty_path(specialty) %>
+    <%= remove_resource admin_specialty_path(specialty), {}%>
+  </td>
+</tr>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :questionaries,    path: :questionarios
     resources :translations,     path: :translations
     resources :terms,            path: :termos
-    resources :services,         path: :pacotes_de_servico
+    resources :package_services, path: :pacotes_de_servico
     resources :locales,          path: :localidades
   end
 

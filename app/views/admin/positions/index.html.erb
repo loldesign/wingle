@@ -1,1 +1,19 @@
-Cargos Index
+<%= title_page 'Cargos' %>
+
+<%= add_resource 'Novo Cargo', new_admin_position_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Cargo</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@positions, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @positions %>

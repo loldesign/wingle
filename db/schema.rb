@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180731173042) do
+ActiveRecord::Schema.define(version: 20180801154316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,12 +33,28 @@ ActiveRecord::Schema.define(version: 20180731173042) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.bigint "state_id"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_cities_on_name", unique: true
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locales", force: :cascade do |t|
-    t.string "country"
-    t.string "state"
-    t.string "state_region"
-    t.string "city"
-    t.string "city_region"
+    t.bigint "city_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_locales_on_city_id"
+    t.index ["name"], name: "index_locales_on_name", unique: true
   end
 
   create_table "package_services", force: :cascade do |t|
@@ -46,6 +62,8 @@ ActiveRecord::Schema.define(version: 20180731173042) do
     t.text "description"
     t.boolean "signature"
     t.decimal "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "positions", force: :cascade do |t|
@@ -58,6 +76,15 @@ ActiveRecord::Schema.define(version: 20180731173042) do
     t.string "specialty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.bigint "country_id"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_states_on_country_id"
+    t.index ["name"], name: "index_states_on_name", unique: true
   end
 
   create_table "terms", force: :cascade do |t|

@@ -47,6 +47,7 @@ gem 'lol_auth', '~> 0.1'
 gem 'enumerize'
 gem 'kaminari',               '1.0.1'
 gem 'truncate_html'
+gem 'will_paginate'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

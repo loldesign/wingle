@@ -1,0 +1,9 @@
+<tr>
+  <td><%= term.title %></td>
+  <td><%= truncate term.term, length: 10 %></td>
+  <td>
+    <%= show_resource_with_icon admin_term_path(term) %>
+    <%= edit_resource edit_admin_term_path(term) %>
+    <%= remove_resource admin_term_path(term), {}%>
+  </td>
+</tr>

@@ -1,1 +1,15 @@
-Admin Form
+<%= simple_form_for [:admin,  @locale] , html: {class: 'form'} do |f| %>
+  <section class='fields-wrapper two-columns'>
+    <header>
+      <h2><%= "#{@locale.persisted? ? 'Editar' : 'Criar'} Localidade" %></h2>
+    </header>
+    
+    <article>
+      <%= f.input :name, wrapper_html: {class: 'col-12' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_locales_path) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>

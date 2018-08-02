@@ -1,6 +1,6 @@
 paths:
   logo:   'loldesign_publisher/logo.svg'
-  logout: 'root_path'
+  logout: '/admins/sign_out'
 
   menu_links:
     admins:
@@ -23,7 +23,7 @@ paths:
       path: admin_terms_path
     services:
       name: 'Pacote de Serviços'
-      path: admin_services_path
+      path: admin_package_services_path
     locales:
       name: 'Localidade'
       path: admin_locales_path

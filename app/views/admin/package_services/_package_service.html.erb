@@ -1,0 +1,12 @@
+<tr>
+  <td><%= package_service.package_title %></td>
+  <td><%= package_service.description %></td>
+  <td><%= package_service.signature %></td>
+  <td><%= l package_service.created_at, format: :short %></td>
+  <td> R$ <%= package_service.value %></td>
+  <td>
+    <%= show_resource_with_icon admin_package_service_path(package_service) %>
+    <%= edit_resource edit_admin_package_service_path(package_service) %>
+    <%= remove_resource admin_package_service_path(package_service), {}%>
+  </td>
+</tr>

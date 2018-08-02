@@ -1,0 +1,3 @@
+class PackageService < ApplicationRecord
+
+end

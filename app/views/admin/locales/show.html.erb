@@ -1,1 +1,23 @@
-Admin Show
+<%= title_page 'Localidades' %>
+
+<section class="fields-wrapper two-columns margin-top">
+  <header>
+    <h2>
+      <%= @country.name %>
+    </h2>
+  </header>
+
+  <article>
+    <p>
+      <strong>Estado:</strong> <%= @state.name %>
+    </p>
+
+    <p>
+      <strong>Cidade:</strong> <%= @city.name %>
+    </p>
+
+    <p>
+      <strong>Região:</strong> <%= @locale.name %>
+    </p>
+  </article>
+</section>

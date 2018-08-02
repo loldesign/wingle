@@ -1,1 +1,8 @@
-Admin
+<tr>
+  <td><%= position.position %></td>
+  <td><%= l position.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_position_path(position) %>
+    <%= remove_resource admin_position_path(position), {}%>
+  </td>
+</tr>

@@ -1,1 +1,19 @@
-Localidade Index
+<%= title_page 'Localidades' %>
+
+<%= add_resource 'Nova Localidade', new_admin_locale_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Região</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@locales, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @locales %>

@@ -1,1 +1,16 @@
-Admin Form
+<%= simple_form_for [:admin, @specialty] , html: {class: 'form'} do |f| %>
+
+  <section class='fields-wrapper one-column'>
+    <header>
+      <h2><%= "#{@specialty.persisted? ? 'Editar' : 'Criar'} Cargo" %></h2>
+    </header>
+    
+    <article>
+      <%= f.input :specialty, wrapper_html: {class: 'col-12' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_specialties_path) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>

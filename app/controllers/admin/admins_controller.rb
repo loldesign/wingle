@@ -1,9 +1,8 @@
 class Admin::AdminsController < AdminController
-
   before_action :set_admin, except: [:new, :create, :index]
 
   def index
-    
+    @admins = Admin.order(created_at: :desc).page(params[:page] || 1).per_page(30)
   end
 
   def new

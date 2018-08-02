@@ -1,1 +1,21 @@
-Admin Form
+<%= simple_form_for [:admin, @admin] , html: {class: 'form'} do |f| %>
+
+  <section class='fields-wrapper two-columns'>
+    <header>
+      <h2><%= "#{@admin.persisted? ? 'Editar' : 'Criar'} Administrador" %></h2>
+    </header>
+    <!-- LEFT COLUMN -->
+    <article>
+      <%= f.input :email, wrapper_html: {class: 'col-9' } %>
+    </article>
+    <!-- RIGHT COLUMN -->
+    <article>
+      <%= f.input :password, wrapper_html: {class: 'col-9 input string' } %>
+      <%= f.input :password_confirmation, wrapper_html: {class: 'col-9 input string' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_admins_path) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>
