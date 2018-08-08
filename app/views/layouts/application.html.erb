@@ -20,7 +20,11 @@
 
   <body>
     <header>
-      <%= render :partial => "layouts/header" %>
+      <% if current_candidate || current_company %>
+        <%= render :partial => "layouts/header" %>
+      <% else %>
+        <%= render :partial => "layouts/header_login" %>
+      <% end %>
     </header>
 
     <main class="site-content">
@@ -28,7 +32,7 @@
     </main>
 
     <footer>
-      <%= render :partial => "layouts/footer" %>
+      <%= render :partial => "layouts/footer" if current_candidate || current_company %>
     </footer>
   </body>
 </html>

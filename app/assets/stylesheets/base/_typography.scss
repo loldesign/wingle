@@ -1,0 +1,191 @@
+@font-face {
+  font-family: 'Museo 900';
+  src: font-url('fonts/Museo900-Regular.woff2') format('woff2'),
+      font-url('fonts/Museo900-Regular.woff') format('woff'),
+      font-url('fonts/Museo900-Regular.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo 300';
+  src: font-url('fonts/Museo300-Regular.woff2') format('woff2'),
+      font-url('fonts/Museo300-Regular.woff') format('woff'),
+      font-url('fonts/Museo300-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo 500';
+  src: font-url('fonts/Museo500-Regular.woff2') format('woff2'),
+      font-url('fonts/Museo500-Regular.woff') format('woff'),
+      font-url('fonts/Museo500-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo 100';
+  src: font-url('fonts/Museo100-Regular.woff2') format('woff2'),
+      font-url('fonts/Museo100-Regular.woff') format('woff'),
+      font-url('fonts/Museo100-Regular.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo 700';
+  src: font-url('fonts/Museo700-Regular.woff2') format('woff2'),
+      font-url('fonts/Museo700-Regular.woff') format('woff'),
+      font-url('fonts/Museo700-Regular.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-feature-settings: "kern", "liga", "pnum";
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  font-size: $base-font-size;
+  line-height: $heading-line-height;
+  margin: 0 0 $small-spacing;
+}
+
+
+p,
+figcaption {
+  margin: 0 0 $small-spacing;
+}
+
+a {
+  color: $action-color;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: shade($action-color, 25%);
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+/* Custom Font Styles */
+h2 {
+  font-family: 'Museo 700';
+}
+
+h3 {
+  font-family: 'Museo 700';
+  font-size: 21px;
+}
+
+p,
+figcaption {
+  font-family: 'Museo 500';
+  font-size: 15px;
+}
+
+/* Colors */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+i,
+figcaption,
+a,
+span {
+  &.white {
+    color: $white;
+  }
+
+  &.medium-gray {
+    color: $medium-gray;
+  }
+
+  &.gray-text {
+    color: $gray-text;
+  }
+
+  &.gray-bg {
+    color: $gray-bg;
+  }
+
+  &.dark-gray {
+    color: $dark-gray;
+  }
+
+  &.light-black {
+    color: $light-black;
+  }
+
+  &.blue {
+    color: $blue;
+  }
+
+  &.blue-text {
+    color: $blue-text;
+  }
+
+  &.navy-blue-text {
+    color: $navy-blue-text;
+  }
+
+  &.light-blue-nav-text {
+    colot: $light-blue-nav-text;
+  }
+
+  &.light-blue-text {
+    color: $light-blue-text;
+  }
+
+  &.light-blue-nav-drop {
+    color: $light-blue-nav-drop;
+  }
+
+  &.semi-bold {
+    font-family: "Museo 500";
+  }
+}

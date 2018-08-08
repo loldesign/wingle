@@ -1,0 +1,60 @@
+// Typography
+$base-font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+// $base-font-family: "Myriad Pro", Myriad;
+$heading-font-family: $base-font-family;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$blue: #319DD1;
+$blue-text: #26527c;
+$navy-blue-text: #175681;
+$light-blue-nav-text: #2897d4;
+$light-blue-text: #0084c7;
+$light-blue-header: #2bb3e1;
+$light-blue-nav-drop: #1B97D4;
+$gray: #d3d5d6;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #ddd;
+$gray-text: #878c93;
+$gray-bg: #ecf2f6;
+$black: #000000;
+$light-black: #808284;
+$white: #FFFFFF;
+$gondola: #281627;
+$mantle: #319DD1;
+$rolling-stone: #808183;
+$button-active-color: #789E91;
+$button-base-color: #2B1024;
+
+// Font Colors
+$base-font-color: $dark-gray;
+$action-color: $blue;
+
+// Border
+$base-border-color: $blue-text;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Forms
+$form-box-shadow: $blue-text;
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
