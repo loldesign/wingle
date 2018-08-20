@@ -1,4 +1,5 @@
-.login {
+.login,
+.register {
   &.candidate {
     background: image-url(asset_path("background_header_home.jpg")) no-repeat;
     background-attachment: fixed;

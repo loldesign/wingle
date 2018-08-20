@@ -37,7 +37,8 @@ header {
 
 /* VEX ALERTS */
 .vex {
-  &.alert {
+  &.alert,
+  &.notice {
     position: absolute;
     right: 20%;
     left: 20%;
@@ -62,16 +63,26 @@ header {
         border-radius: 100px;
         padding: 10px 0;
 
-        .vex-dialog-message {
-          font-size: 18px;
-          font-weight: bold;
-          color: #c0392b;
-        }
-
         .vex-dialog-buttons {
           display: none;
         }
       }
+    }
+  }
+
+  &.alert {
+    .vex-dialog-message {
+      font-size: 18px;
+      font-weight: bold;
+      color: #c0392b;
+    }
+  }
+
+  &.notice {
+    .vex-dialog-message {
+      font-size: 18px;
+      font-weight: bold;
+      color: $notice;
     }
   }
 }

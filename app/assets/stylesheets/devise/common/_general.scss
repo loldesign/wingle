@@ -1,13 +1,46 @@
 /* GENERAL DEVISE CONFIG */
-#login-page {
-  &.login {
+#login-page,
+#register-page {
+  &.login,
+  &.register {
     width: 100%;
     height: 100%;
     float: left;
     background-attachment: fixed;
     background-size: cover;
 
-    #login-content {
+    &.candidate,
+    &.company {
+      .wrapper-form {
+        form {
+          .form-actions {
+            display: flex;
+
+            a {
+              margin: 25px auto;
+              text-align: center;
+              font-size: 22px;
+              color: white;
+              text-transform: uppercase;
+              line-height: 50px;
+              height: 50px;
+              width: 150px;
+              padding: 0;
+              background: #319DD1;
+              float: none;
+              display: block;
+              outline: none;
+              border-radius: 5px;
+              border: none;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+    }
+
+    #login-content,
+    #register-content {
       display: flex;
       align-items: center;
     }
@@ -44,11 +77,27 @@
         flex-direction: column;
         align-items: center;
 
+        .error_notification {
+          color: $white;
+        }
+
         .form-inputs {
           display: flex;
           flex-direction: column;
           align-items: center;
           width: 100%;
+
+          .hint {
+            float: left;
+            color: $white;
+          }
+
+          .error {
+            float: left;
+            clear: left;
+            color: $error;
+            font-weight: bold;
+          }
         }
 
         .form-actions {
@@ -64,6 +113,7 @@
 
         .input {
           width: 100%; 
+          margin-top: 30px;
 
           input[type='text'],
           input[type='email'],
@@ -71,7 +121,6 @@
             width: 100%;
             height: 50px;
             line-height: 50px;
-            margin-bottom: 30px;
             padding: 0 20px;
             border: 1px solid #d1d3d4;
             padding: 5px;
@@ -113,7 +162,7 @@
         font-size: 12px;
 
         &.alert {
-          color: #a94442;
+          color: $error;
           background-color: #f2dede;
           border-color: #ebccd1;
         }

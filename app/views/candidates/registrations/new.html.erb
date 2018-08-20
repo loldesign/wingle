@@ -1,17 +1,29 @@
-<h2>Sign up</h2>
+<section id="register-page" class='register candidate'>
+  <div class="mask"></div>
+  <div id="register-content" class="content">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <div class="wrapper-form">
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+      <h1>Cadastro Candidato</h1>
+
+      <%= render partial: '/layouts/loldesign_publisher/modules/messages' %>
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Cadastrar", data: {disable_with: '...'} %>
+          <%= link_to "Login", new_candidate_session_path, :class => "register-button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "candidates/shared/links" %>
+  
+  <%= render "candidates/shared/links" %>
+</section>

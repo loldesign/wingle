@@ -3,9 +3,7 @@
   <div id="login-content" class="content">
 
     <div class="wrapper-form">
-      <%= link_to root_path do %>
-        <%= image_tag 'loldesign_publisher/logo_white.svg' %>
-      <% end %>
+      <%= image_tag 'loldesign_publisher/logo_white.svg' %>
 
       <h1>Candidato</h1>
 
@@ -20,6 +18,7 @@
 
         <div class="form-actions">
           <%= f.button :submit, "Entrar", data: {disable_with: '...'} %>
+          <%= link_to "Cadastrar", new_candidate_registration_path, :class => "register-button" %>
         </div>
       <% end %>
     </div>
