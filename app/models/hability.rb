@@ -1,0 +1,2 @@
+class Hability < ApplicationRecord
+end

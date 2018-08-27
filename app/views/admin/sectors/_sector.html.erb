@@ -1,0 +1,9 @@
+<tr>
+  <td><%= sector.name %></td>
+  <td><%= sector.description %></td>
+  <td><%= l sector.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_sector_path(sector) %>
+    <%= remove_resource admin_sector_path(sector), {}%>
+  </td>
+</tr>

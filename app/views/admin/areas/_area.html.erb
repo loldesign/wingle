@@ -1,0 +1,8 @@
+<tr>
+  <td><%= area.name %></td>
+  <td><%= l area.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_area_path(area) %>
+    <%= remove_resource admin_area_path(area), {}%>
+  </td>
+</tr>

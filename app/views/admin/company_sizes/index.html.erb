@@ -1,0 +1,20 @@
+<%= title_page 'Portes' %>
+
+<%= add_resource 'Novo Porte', new_admin_company_size_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Porte</th>
+      <th>Descrição</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@company_sizes, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @company_sizes %>

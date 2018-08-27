@@ -27,5 +27,20 @@ paths:
     locales:
       name: 'Localidade'
       path: admin_locales_path
+    sectors:
+      name: 'Setores'
+      path: admin_sectors_path
+    sizes:
+      name: 'Portes'
+      path: admin_company_sizes_path
+    modes:
+      name: 'Modes'
+      path: admin_modes_path
+    relevances:
+      name: 'Relevâncias'
+      path: admin_relevances_path
+    areas:
+      name: 'Áreas'
+      path: admin_areas_path
 
 page_title: 'Wingle'

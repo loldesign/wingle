@@ -1,0 +1,9 @@
+<tr>
+  <td><%= company_size.name %></td>
+  <td><%= company_size.description %></td>
+  <td><%= l company_size.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_company_size_path(company_size) %>
+    <%= remove_resource admin_company_size_path(company_size), {}%>
+  </td>
+</tr>

@@ -1,0 +1,9 @@
+<tr>
+  <td><%= mode.name %></td>
+  <td><%= mode.description %></td>
+  <td><%= l mode.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_mode_path(mode) %>
+    <%= remove_resource admin_mode_path(mode), {}%>
+  </td>
+</tr>

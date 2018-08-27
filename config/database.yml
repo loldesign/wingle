@@ -2,7 +2,7 @@ default: &defaults
   adapter: postgresql
   encoding: utf8
   pool: 5
-  username: postgres
+  username: loldesign
   password: loldesign 
   host: localhost
 

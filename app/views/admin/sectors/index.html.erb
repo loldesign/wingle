@@ -1,0 +1,20 @@
+<%= title_page 'Setores' %>
+
+<%= add_resource 'Novo Setor', new_admin_sector_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Setor</th>
+      <th>Descrição</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@sectors, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @sectors %>

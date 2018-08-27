@@ -1,0 +1,17 @@
+<%= simple_form_for [:admin, @sector] , html: {class: 'form'} do |f| %>
+
+  <section class='fields-wrapper one-column'>
+    <header>
+      <h2><%= "#{@sector.persisted? ? 'Editar' : 'Criar'} Setor" %></h2>
+    </header>
+    
+    <article>
+      <%= f.input :name, wrapper_html: {class: 'col-12' } %>
+      <%= f.input :description, wrapper_html: {class: 'col-12' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_sectors_path) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>

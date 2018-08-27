@@ -41,6 +41,11 @@ Rails.application.routes.draw do
     resources :terms,            path: :termos
     resources :package_services, path: :pacotes_de_servico
     resources :locales,          path: :localidades
+    resources :sectors,          path: :setores
+    resources :company_sizes,    path: :portes
+    resources :modes,            path: :modes
+    resources :relevances,       path: :relevancias
+    resources :areas,            path: :areas
   end
 
   root 'admin/admins#index'
