@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
   namespace :candidate do
     get '/dashboard', to: 'dashboard#index', as: :dashboard
+    get '/step-1'   , to: 'steps#first'
+    get '/step-2'   , to: 'steps#second'
+    get '/step-3'   , to: 'steps#third'
+    get '/step-4'   , to: 'steps#fourth'
+    get '/step-5'   , to: 'steps#fifth'
   end
 
 
@@ -43,5 +48,5 @@ Rails.application.routes.draw do
     resources :locales,          path: :localidades
   end
 
-  root 'admin/admins#index'
+  root 'landing_page#session_type'
 end
