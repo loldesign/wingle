@@ -32,6 +32,10 @@ pt-BR:
     attributes:
       hability:
         name: "Nome"
+      function:
+        name: "Nome"
+      area:
+        name: "Nome"
     errors:
       models:
         user:
