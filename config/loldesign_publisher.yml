@@ -1,5 +1,5 @@
 paths:
-  logo:   'loldesign_publisher/logo.svg'
+  logo:   'logo.svg'
   logout: '/admins/sign_out'
 
   menu_links:
@@ -12,12 +12,9 @@ paths:
     specialties:
       name: 'Especialidades'
       path: admin_specialties_path
-    questionaries:
-      name: 'Questionários'
-      path: admin_questionaries_path
-    translations:
-      name: 'Textos'
-      path: admin_translations_path
+    # translations:
+    #   name: 'Textos'
+    #   path: admin_translations_path
     terms:
       name: 'Termos'
       path: admin_terms_path
@@ -34,7 +31,7 @@ paths:
       name: 'Portes'
       path: admin_company_sizes_path
     modes:
-      name: 'Modes'
+      name: 'Momentos da Empresa'
       path: admin_modes_path
     relevances:
       name: 'Relevâncias'

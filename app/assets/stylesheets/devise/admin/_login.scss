@@ -1,18 +1,25 @@
 .login {
   &.admin {
-    background: image-url(asset_path("background_header_home.jpg")) no-repeat;
+    background-color: #e5f5ef;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
 
-    .mask {
-      z-index: 1;
-      background: rgba($gondola, 0.3);
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
+    .wrapper-form{
+      border-radius: 20px;
+      padding-top: 30px;
+      padding-bottom: 5px;
+      background-color: #51BE99;
+
+      form{
+        padding: 0 10%;
+
+        .form-actions{
+          input[type='submit']{
+            background-color: #369072 !important;
+          }
+        }
+      }
     }
   }
 }

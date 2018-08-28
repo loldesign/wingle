@@ -36,7 +36,6 @@ Rails.application.routes.draw do
     resources :admins,           path: :administradores
     resources :positions,        path: :cargos
     resources :specialties,      path: :especialidades
-    resources :questionaries,    path: :questionarios
     resources :translations,     path: :translations
     resources :terms,            path: :termos
     resources :package_services, path: :pacotes_de_servico
@@ -45,7 +44,7 @@ Rails.application.routes.draw do
     resources :company_sizes,    path: :portes
     resources :modes,            path: :modes
     resources :relevances,       path: :relevancias
-    resources :areas,            path: :areas  do 
+    resources :areas,            path: :areas  do
       resources :functions do
         resources :habilities
       end
