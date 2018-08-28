@@ -2,9 +2,9 @@
 
   <section class='fields-wrapper two-columns'>
     <header>
-      <h2><%= "#{@package_service.persisted? ? 'Editar' : 'Criar'} Cargo" %></h2>
+      <h2><%= "#{@package_service.persisted? ? 'Editar' : 'Criar'} Pacote de Serviço" %></h2>
     </header>
-    
+
     <article>
       <%= f.input :package_title, wrapper_html: {class: 'col-12' } %>
       <%= f.input :description, wrapper_html: {class: 'col-12' } %>
