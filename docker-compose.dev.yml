@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  cache:
+    image: memcached:1.4-alpine
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: loldesign
+      POSTGRES_PASSWORD: c8d2xtvfdd
+    ports:
+      - '5433:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - '1080:1080'
+
+  wingle:
+    extends:
+      file: common.yml
+      service: wingle
+    tty: true
+    stdin_open: true
+
+volumes:
+  db:
+    external: false

@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  wingle:
+    extends:
+      file: common.yml
+      service: wingle

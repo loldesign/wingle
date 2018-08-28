@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  wingle:
+    tty: true
+    stdin_open: true
+    build: .
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/wingle
+    env_file:
+      - .env

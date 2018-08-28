@@ -1,27 +1,28 @@
-default: &defaults
+default: &default
   adapter: postgresql
+  host:     <%= ENV["POSTGRES_HOST"] %>
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
   encoding: utf8
-  pool: 5
-  username: loldesign
-  password: loldesign 
-  host: localhost
+  min_messages: warning
+  pool: 2
+  timeout: 5000
 
 development:
-  <<: *defaults
-  adapter: postgresql
+  <<: *default
   database: wingle_development
 
-test:
-  <<: *defaults
-  adapter: postgresql
+deployment:
+  <<: *default
+  database: wingle_development
+
+test: &test
+  <<: *default
   database: wingle_test
 
 production:
-  <<: *defaults
-  adapter: postgresql
+  <<: *default
   database: wingle_production
 
-  staging:
-  <<: *defaults
-  adapter: postgresql
-  database: wingle_staging
+cucumber:
+  <<: *test
