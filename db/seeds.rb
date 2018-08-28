@@ -73,3 +73,17 @@ if Relevance.count == 0
   Relevance.create(name: 'SETOR DE ATUAÇÃO')
   Relevance.create(name: 'LOCALIZAÇÃO')
 end
+
+if Area.count == 0
+  # AREAS
+  area_01 = Area.create(name: 'Vendas & Marketing')
+
+  #FUNCOES AREA 01
+  function_01 = Function.create(name: 'Vendas', area: area_01) 
+  
+  #HABILIDADES FUNCAO 01 
+  Hability.create(name: 'B2B', function: function_01)
+
+
+  function_02 = Function.create(name: 'CRM', area: area_01)
+end

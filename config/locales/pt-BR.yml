@@ -21,6 +21,13 @@
 
 pt-BR:
   activerecord:
+    models:
+      area: "Área"
+      function: "Função"
+      hability: "Habilidade"
+    attributes:
+      hability:
+        name: "Nome"
     errors:
       models:
         user:

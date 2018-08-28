@@ -1,0 +1,16 @@
+<%= simple_form_for [:admin, @area, @function] , html: {class: 'form'} do |f| %>
+
+  <section class='fields-wrapper one-column'>
+    <header>
+      <h2><%= "#{@function.persisted? ? 'Editar' : 'Criar'} Função" %></h2>
+    </header>
+    
+    <article>
+      <%= f.input :name, wrapper_html: {class: 'col-12' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_area_functions_path) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>

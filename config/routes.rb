@@ -45,7 +45,11 @@ Rails.application.routes.draw do
     resources :company_sizes,    path: :portes
     resources :modes,            path: :modes
     resources :relevances,       path: :relevancias
-    resources :areas,            path: :areas
+    resources :areas,            path: :areas  do 
+      resources :functions do
+        resources :habilities
+      end
+    end
   end
 
   root 'admin/admins#index'

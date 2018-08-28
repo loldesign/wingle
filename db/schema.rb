@@ -97,14 +97,18 @@ ActiveRecord::Schema.define(version: 20180827195141) do
 
   create_table "functions", force: :cascade do |t|
     t.string "name"
+    t.bigint "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_functions_on_area_id"
   end
 
   create_table "habilities", force: :cascade do |t|
     t.string "name"
+    t.bigint "function_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["function_id"], name: "index_habilities_on_function_id"
   end
 
   create_table "locales", force: :cascade do |t|

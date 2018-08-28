@@ -1,0 +1,20 @@
+<%= title_page "Funções da Área #{@area.name}" %>
+
+<%= add_resource 'Nova Função', new_admin_area_function_path(@area) %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Função</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@functions, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @functions %>

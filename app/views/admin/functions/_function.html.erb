@@ -1,0 +1,9 @@
+<tr>
+  <td><%= function.name %></td>
+  <td><%= l function.created_at, format: :short %></td>
+  <td><%= link_to "Habilidades (#{function.habilities.count})", admin_area_function_habilities_path(@area, function) %></td>
+  <td>
+    <%= edit_resource edit_admin_area_function_path(@area, function) %>
+    <%= remove_resource admin_area_function_path(@area, function), {}%>
+  </td>
+</tr>

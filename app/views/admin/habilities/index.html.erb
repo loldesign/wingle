@@ -1,0 +1,19 @@
+<%= title_page "Habilidades da Função #{@function.name}" %>
+
+<%= add_resource 'Nova Habilidade', new_admin_area_function_hability_path(@area, @function) %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Habilidade</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@habilities, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @habilities %>
