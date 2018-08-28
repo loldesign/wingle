@@ -1,6 +1,6 @@
 <tr>
   <td><%= admin.email %></td>
-  <td><%= l admin.created_at %></td>
+  <td><%= l admin.created_at, scope: [:resource] %></td>
   <td>
     <%= edit_resource edit_admin_admin_path(admin) %>
     <%= remove_resource admin_admin_path(admin), {}%>

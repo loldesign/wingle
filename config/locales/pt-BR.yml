@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  resource:
+    time:
+      formats:
+        default: '%d/%m/%Y %H:%M:%S'
   activerecord:
     models:
       area: "Área"
