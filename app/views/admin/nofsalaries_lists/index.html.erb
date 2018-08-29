@@ -1,0 +1,19 @@
+<%= title_page 'Lista de Nofsalaries' %>
+
+<%= add_resource 'Novo Nofsalarie', new_admin_nofsalaries_list_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Nofsalaries</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@nofsalaries_lists, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @nofsalaries_lists %>

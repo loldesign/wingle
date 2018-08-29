@@ -1,0 +1,8 @@
+<tr>
+  <td><%= range_list.name %></td>
+  <td><%= l range_list.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_range_list_path(range_list) %>
+    <%= remove_resource admin_range_list_path(range_list), {}%>
+  </td>
+</tr>

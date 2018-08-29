@@ -1,0 +1,2 @@
+class NofsalariesList < ApplicationRecord
+end

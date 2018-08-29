@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180827195141) do
+ActiveRecord::Schema.define(version: 20180829205135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,19 @@ ActiveRecord::Schema.define(version: 20180827195141) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "annual_claim_rate_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "benefits_lists", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -95,6 +107,12 @@ ActiveRecord::Schema.define(version: 20180827195141) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "education_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "functions", force: :cascade do |t|
     t.string "name"
     t.bigint "area_id"
@@ -109,6 +127,18 @@ ActiveRecord::Schema.define(version: 20180827195141) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["function_id"], name: "index_habilities_on_function_id"
+  end
+
+  create_table "language_level_lists", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "language_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "locales", force: :cascade do |t|
@@ -127,6 +157,12 @@ ActiveRecord::Schema.define(version: 20180827195141) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "nofsalaries_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "package_services", force: :cascade do |t|
     t.string "package_title"
     t.text "description"
@@ -138,6 +174,12 @@ ActiveRecord::Schema.define(version: 20180827195141) do
 
   create_table "positions", force: :cascade do |t|
     t.string "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "range_lists", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -173,6 +215,12 @@ ActiveRecord::Schema.define(version: 20180827195141) do
   create_table "terms", force: :cascade do |t|
     t.string "title"
     t.text "term"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "title_lists", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

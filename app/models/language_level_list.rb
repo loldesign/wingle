@@ -1,0 +1,2 @@
+class LanguageLevelList < ApplicationRecord
+end

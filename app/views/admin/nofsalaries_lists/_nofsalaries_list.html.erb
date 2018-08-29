@@ -1,0 +1,8 @@
+<tr>
+  <td><%= nofsalaries_list.name %></td>
+  <td><%= l nofsalaries_list.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_nofsalaries_list_path(nofsalaries_list) %>
+    <%= remove_resource admin_nofsalaries_list_path(nofsalaries_list), {}%>
+  </td>
+</tr>

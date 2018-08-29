@@ -39,5 +39,29 @@ paths:
     areas:
       name: 'Áreas'
       path: admin_areas_path
+    title_list:
+      name: 'Lista de Títulos'
+      path: admin_title_lists_path
+    range_list:
+      name: 'Lista de Alcances'
+      path: admin_range_lists_path
+    education_list:
+      name: 'Lista de Escolaridades'
+      path: admin_education_lists_path
+    language_list:
+      name: 'Lista de Línguas'
+      path: admin_language_lists_path
+    language_level_list:
+      name: 'Lista de Níveis de Línguas'
+      path: admin_language_level_lists_path
+    nofsalaries_list:
+      name: 'Lista de Nofsalaries'
+      path: admin_nofsalaries_lists_path
+    benefits_list:
+      name: 'Lista de Benefícios'
+      path: admin_benefits_lists_path
+    annual_claim_rate_list:
+      name: 'Lista de Reinvidicações Anuais'
+      path: admin_annual_claim_rate_lists_path
 
 page_title: 'Wingle'

@@ -1,0 +1,8 @@
+<tr>
+  <td><%= annual_claim_rate_list.name %></td>
+  <td><%= l annual_claim_rate_list.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_annual_claim_rate_list_path(annual_claim_rate_list) %>
+    <%= remove_resource admin_annual_claim_rate_list_path(annual_claim_rate_list), {}%>
+  </td>
+</tr>

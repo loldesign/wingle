@@ -1,0 +1,8 @@
+<tr>
+  <td><%= education_list.name %></td>
+  <td><%= l education_list.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_education_list_path(education_list) %>
+    <%= remove_resource admin_education_list_path(education_list), {}%>
+  </td>
+</tr>
