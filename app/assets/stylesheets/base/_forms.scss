@@ -20,7 +20,7 @@ select {
 label {
   font-weight: 600;
   margin-bottom: $small-spacing / 2;
-  color: $blue;
+  color: $gray;
   font-size: 1.2vw;
 
   &.required::after {
@@ -36,13 +36,13 @@ label {
 #{$all-text-inputs},
 select[multiple=multiple] {
   background-color: #FFF;
-  border: solid .7px $blue-text;
-  border-radius: $base-border-radius;
+  border: solid 1px $gray;
+  border-radius: 10px;
   box-shadow: $form-box-shadow;
   box-sizing: border-box;
   font-family: $base-font-family;
-  font-size: 1em;
-  color: $blue-text;
+  font-size: 1.3vw;
+  color: $gray;
   margin-bottom: $small-spacing;
   padding: .5em .5em .5em 1em;
   transition: border-color $base-duration $base-timing;
@@ -50,16 +50,16 @@ select[multiple=multiple] {
   height: 35px;
 
   &::-webkit-input-placeholder {
-    color: $blue;
+    color: $gray;
     font-weight: normal;
   }
 
   &:hover {
-    border-color: shade($blue-text, 20%);
+    border-color: shade($gray, 20%);
   }
 
   &:focus {
-    border-color: #blue-text;
+    border-color: $gray;
     box-shadow: $form-box-shadow-focus;
     outline: none;
   }
@@ -82,7 +82,7 @@ textarea {
   resize: vertical;
 
   &::-webkit-input-placeholder {
-    color: $blue;
+    color: $gray;
     font-weight: normal;
   }
 }

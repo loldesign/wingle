@@ -1,4 +1,16 @@
 /* SESSION TYPE (CANDIDATE OR COMPANY) */
 #session_type {
-  
+  .session-type-options {
+    padding-top: 14vh;
+
+    a {
+      @include span-columns (8 of 20);
+      @include shift (6 of 20);
+      font-size: 1.3vw;
+
+      &:first-of-type {
+        margin-bottom: 5vh;
+      }
+    }
+  }
 }

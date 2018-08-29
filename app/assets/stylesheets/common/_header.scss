@@ -1,0 +1,60 @@
+/* SESSION TYPE (CANDIDATE OR COMPANY) */
+header { 
+  padding: 4vh 0;
+
+  .not-logged-in-header {
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      img {
+        width: 13%;
+        margin: 0 4vw;
+
+        &.wingle-title {
+          width: 15%;
+        }
+      }
+    }
+  }
+  
+  .questions-header {
+    display: flex;
+    align-items: center;
+    padding: 0 4vw;
+
+    .left-box {
+      width: 20%;
+      float: left;
+
+      a {
+        font-size: 3.5vw;
+        color: $medium-gray;
+      }
+    }
+
+    .logo-title-box {
+      width: 60%;
+
+      img {
+        width: 30%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.cloud-bg {
+  padding-top: 4vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    text-align: center;
+    font-size: 2vw;
+    line-height: 1;
+  }
+}

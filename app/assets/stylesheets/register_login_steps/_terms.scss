@@ -1,0 +1,59 @@
+.terms {
+  .content-box {
+    @include span-columns (12 of 20);
+    @include shift (4 of 20);
+
+    .title {
+      margin: 0 0 6vh 0;
+    }
+
+    .term-box {
+      h2 {
+        font-size: 2.3vw;
+        margin-bottom: 3vh;
+      }
+
+      ul {
+        @include span-columns (11 of 12);
+        @include shift (1 of 12);
+        margin-bottom: 3vh;
+
+        li {
+          font-size: .9vw;
+
+          &:first-of-type {
+            margin-bottom: 3vh;
+          }
+
+          &:before {
+            content: "• ";
+            color: $gray;
+          }
+        }
+      }
+
+      p {
+        font-size: .9vw;
+        margin-bottom: 3vh;
+
+        &.term-title {
+          font-size: 1.1vw;
+        }
+      }
+    }
+  }
+
+  .candidate-terms-actions {
+    @include span-columns (20 of 20);
+    padding-top: 5vh;
+
+    a {
+      @include span-columns (8 of 20);
+      font-size: 1.3vw;
+
+      &:first-of-type {
+        @include shift (6 of 20);
+      }
+    }
+  }
+}

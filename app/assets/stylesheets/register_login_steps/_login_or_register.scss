@@ -1,0 +1,34 @@
+#login_or_register {
+  .content-box {
+    @include span-columns (20 of 20);
+    padding-top: 6vh;
+
+    form {
+      @include span-columns (12 of 20);
+      @include shift (4 of 20);
+    }
+
+    a {
+      @include span-columns (12 of 20);
+      @include shift (4 of 20);
+      padding-top: 2vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: underline;
+    }
+  }
+
+  .login-or-register-actions {
+    @include span-columns (20 of 20);
+    padding-top: 7vh;
+
+    a {
+      @include span-columns (6 of 20);
+
+      &:first-of-type {
+        @include shift (4 of 20);
+      }
+    }
+  }
+}
