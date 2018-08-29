@@ -1,0 +1,2 @@
+class AnnualClaimRateList < ApplicationRecord
+end

@@ -1,0 +1,19 @@
+<%= title_page 'Lista de Títulos' %>
+
+<%= add_resource 'Novo Título', new_admin_title_list_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Títulos</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@title_lists, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @title_lists %>

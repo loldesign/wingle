@@ -74,6 +74,9 @@ if Relevance.count == 0
   Relevance.create(name: 'LOCALIZAÇÃO')
 end
 
+# -------
+# Creating First Areas, Functions and Habilities
+# -------
 if Area.count == 0
   # AREAS 01
   area_01 = Area.create(name: 'VENDAS & MARKETING')

@@ -1,0 +1,19 @@
+<%= title_page 'Lista de Reivindicações Anuais' %>
+
+<%= add_resource 'Nova Reivindicação', new_admin_annual_claim_rate_list_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Reivindicações Anuais</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@annual_claim_rate_lists, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @annual_claim_rate_lists %>

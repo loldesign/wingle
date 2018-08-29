@@ -1,0 +1,2 @@
+class BenefitsList < ApplicationRecord
+end
