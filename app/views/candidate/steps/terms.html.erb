@@ -1,49 +1,37 @@
-<section id="candidate_terms" class="content">
-  <header>
-    <div class="left-box">
-      <%= link_to :back do %>
-        <i class="icon ion-md-arrow-round-back"></i> 
-      <% end %>
-    </div>
-
-    <div class="logo-title-box">
-      <%= image_tag 'wingle-logo.png' %>
-    </div>  
-  </header>
-
+<section id="candidate_terms" class="content terms">
   <section class="content-box">
-    <h1 class="title">
+    <h1 class="title bold gray">
       Termos
     </h1>
 
     <div class="term-box">
-      <h2>Article 1</h2>
+      <h2 class="bold gray">Article 1</h2>
 
-      <p class="bold">Who May Use the Services</p>
+      <p class="term-title bold gray">Who May Use the Services</p>
 
-      <p>
+      <p class="bold medium-gray">
         When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us. 
       </p>
       
       <ul>
-        <li>
-          <span>Step 1</span>: You may use the Services only if you agree to form a binding contract with us and are not a person barred from receiving services under the laws of the applicable jurisdiction. 
+        <li class="bold medium-gray">
+          <span class="bold gray">Step 1</span>: You may use the Services only if you agree to form a binding contract with us and are not a person barred from receiving services under the laws of the applicable jurisdiction. 
         </li>
 
-        <li>
-          <span>Step 2</span>: Our Privacy Policy describes how we handle the information you provide to us when you use our Services.
+        <li class="bold medium-gray">
+          <span class="bold gray">Step 2</span>: Our Privacy Policy describes how we handle the information you provide to us when you use our Services.
         </li>
       </ul>
 
-      <p class="bold">Privacy</p>
+      <p class="term-title bold gray">Privacy</p>
 
-      <p>
+      <p class="bold medium-gray">
         When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us. 
       </p>
     </div>
   </section>
 
   <section class="candidate-terms-actions">
-    <%= link_to "CONTINUE & AGREE", candidate_quick_details_path %>
+    <%= link_to "CONTINUE & AGREE", candidate_quick_details_path, :class => 'btn-default green-default bold' %>
   </section>
 </section>

@@ -1,7 +1,0 @@
-<section id="not-logged-in" class="content">
-  <% if request.path.include? "candidates" %>
-    <%= link_to("login empresa", new_company_session_path, :class => 'login-company') %>
-  <% elsif request.path.include? "companies" %>
-    <%= link_to("login candidato", new_candidate_session_path, :class => 'login-candidate') %>
-  <% end %>
-</section>  

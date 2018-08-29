@@ -1,0 +1,27 @@
+<!-- params of partial: {style: :with_logo_back_button, back_button: false} -->
+
+<% if options[:style] == :with_logo %>  
+  <!-- Default Header -->
+  <section class="not-logged-in-header content">
+    <div class="top">
+      <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+      <%= image_tag 'wingle-logo.svg' %>
+    </div>  
+  </section>
+
+<% elsif options[:style] == :with_logo_back_button %>
+  <!-- Steps With Back Buton -->
+  <section class="questions-header content">
+    <div class="left-box">
+      <%if options[:back_button].nil? || options[:back_button] %>
+        <%= link_to :back do %>
+          <i class="icon ion-md-arrow-round-back"></i> 
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="logo-title-box">
+      <%= image_tag 'wingle-title.svg' %>
+    </div>  
+  </section>
+<% end %>

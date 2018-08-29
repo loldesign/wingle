@@ -20,11 +20,7 @@
 
   <body>
     <header>
-      <% if current_candidate || current_company %>
-        <%= render :partial => "layouts/header" %>
-      <% else %>
-        <%= render :partial => "layouts/header_login" %>
-      <% end %>
+      <%= render :partial => "layouts/header/register_default", locals: {options: @header_options.present? ? @header_options : {style: :with_logo} } %>
     </header>
 
     <main class="site-content">

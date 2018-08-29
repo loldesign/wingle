@@ -1,18 +1,13 @@
 <section id="session_type" class="content">
-  <header>
-    <div class="top">
-      <%= image_tag 'wingle-title.png' %>
-      <%= image_tag 'wingle-logo.png' %>
-    </div>  
-
-    <div class="cloud-bg">
+  <div class="cloud-bg">
+    <p class="bold medium-gray">
       Mercado de trabalho<br>
       na nuvem
-    </div>
-  </header>
+    </p>
+  </div>
 
   <section class="session-type-options">
-    <%= link_to "Minha carreira", candidate_user_login_path %>
-    <%= link_to "Pessoas para minha empresa", "#{}" %>
+    <%= link_to "Minha carreira", candidate_user_login_path, :class => 'btn-default green-default bold' %>
+    <%= link_to "Pessoas para minha empresa", "#{}", :class => 'btn-default green-default bold' %>
   </section>
 </section>
