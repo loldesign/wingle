@@ -13,6 +13,10 @@ select {
   font-size: $base-font-size;
 }
 
+select {
+  display: block !important;
+}
+
 label {
   font-weight: 600;
   margin-bottom: $small-spacing / 2;
@@ -70,7 +74,7 @@ select[multiple=multiple] {
   }
 
   &:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #FFF inset;
+    -webkit-box-shadow: 0 0 0 30px #FFF inset !important;
   }   
 }
 

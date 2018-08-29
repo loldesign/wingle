@@ -7,7 +7,17 @@ Rails.application.routes.draw do
   }
 
   namespace :candidate do
-    get '/dashboard', to: 'dashboard#index', as: :dashboard
+    get '/user-login'         , to: 'steps#login_or_register'
+    get '/terms'              , to: 'steps#terms'
+    get '/quick-details'      , to: 'steps#quick_details'
+    get '/complete-register'  , to: 'steps#complete_register'
+    get '/welcome-message'    , to: 'steps#welcome_message'
+    get '/step-1'             , to: 'steps#first'
+    get '/step-2'             , to: 'steps#second'
+    get '/step-3'             , to: 'steps#third'
+    get '/step-4'             , to: 'steps#fourth'
+    get '/step-5'             , to: 'steps#fifth'
+    get '/dashboard'          , to: 'dashboard#index', as: :dashboard
   end
 
 
@@ -51,5 +61,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'admin/admins#index'
+  root 'landing_page#session_type'
 end

@@ -1,0 +1,26 @@
+<section id="login_or_register" class="content">
+  <header>
+    <div class="top">
+      <%= image_tag 'wingle-logo.png' %>
+    </div>  
+
+    <div class="cloud-bg">
+      Mercado de trabalho<br>
+      na nuvem
+    </div>
+  </header>
+
+  <section class="content-box">
+    <form action="">
+      <input type="text" placeholder="CPF">
+      <input type="text" placeholder="SENHA">
+    </form>
+
+    <%= link_to "RECUPERAR SENHA", "#{}" %>
+  </section>
+
+  <section class="login-or-register-actions">
+    <%= link_to "SAIBA MAIS", candidate_user_login_path %>
+    <%= link_to "CONTINUAR", candidate_terms_path %>
+  </section>
+</section>

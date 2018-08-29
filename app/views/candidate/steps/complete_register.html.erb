@@ -1,0 +1,80 @@
+<section id="quick_details" class="content">
+  <header>
+    <div class="left">
+      <p>
+        As empresas certas<br>
+        para sua carreira,<br>
+        querem saber quem você é
+      </p>  
+    </div>
+
+    <div class="logo-title-box">
+      <%= image_tag 'wingle-logo.png' %>
+    </div>  
+  </header>
+
+  <section class="content-box">
+    <form action="">
+      <input type="text" placeholder="NOME">
+
+      <select name="distributor[uf_rg]">
+        <option value="">CIDADE DE INTERESSE</option>
+        <option value="ac">AC</option>
+        <option value="al">AL</option>
+        <option value="am">AM</option>
+        <option value="ap">AP</option>
+        <option value="ba">BA</option>
+        <option value="ce">CE</option>
+        <option value="df">DF</option>
+        <option value="es">ES</option>
+        <option value="go">GO</option>
+        <option value="ma">MA</option>
+        <option value="mg">MG</option>
+        <option value="ms">MS</option>
+        <option value="mt">MT</option>
+        <option value="pa">PA</option>
+        <option value="pb">PB</option>
+        <option value="pe">PE</option>
+        <option value="pi">PI</option>
+        <option value="pr">PR</option>
+        <option value="rj">RJ</option>
+        <option value="rn">RN</option>
+        <option value="ro">RO</option>
+        <option value="rr">RR</option>
+        <option value="rs">RS</option>
+        <option value="sc">SC</option>
+        <option value="se">SE</option>
+        <option value="sp">SP</option>
+        <option value="to">TO</option>
+      </select>
+
+      <select name="" id="">
+        <option value="">ÁREA DE INTERESSE</option>
+        <option value="complaint">Televendas</option>    
+        <option value="bad">Locação</option>    
+        <option value="bad">Venda Corporativa</option>    
+        <option value="bad">Imprensa</option>    
+        <option value="bad">Ouvidoria</option>    
+      </select>
+
+      <input type="text" placeholder="CELULAR">
+
+      <input type="text" placeholder="EMAIL">
+
+      <input type="text" placeholder="CPF">
+
+      <input type="text" placeholder="SENHA">
+
+      <input type="text" placeholder="CONFIRMAR SENHA">
+    </form>
+
+    <input type="checkbox">
+    <p>
+      Aceito os termos e condições da política de privacidade
+    </p>
+  </section>
+
+  <section class="quick-details-actions">
+    <%= link_to "CONTINUAR", candidate_welcome_message_path %>
+  </section>
+</section>
