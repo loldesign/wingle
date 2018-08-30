@@ -1,0 +1,8 @@
+<tr>
+  <td><%= status_list.name %></td>
+  <td><%= l status_list.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_status_list_path(status_list) %>
+    <%= remove_resource admin_status_list_path(status_list), {}%>
+  </td>
+</tr>

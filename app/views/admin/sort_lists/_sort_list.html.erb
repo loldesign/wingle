@@ -1,0 +1,8 @@
+<tr>
+  <td><%= sort_list.name %></td>
+  <td><%= l sort_list.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_sort_list_path(sort_list) %>
+    <%= remove_resource admin_sort_list_path(sort_list), {}%>
+  </td>
+</tr>

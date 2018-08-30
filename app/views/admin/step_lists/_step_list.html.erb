@@ -1,0 +1,8 @@
+<tr>
+  <td><%= step_list.name %></td>
+  <td><%= l step_list.created_at, format: :short %></td>
+  <td>
+    <%= edit_resource edit_admin_step_list_path(step_list) %>
+    <%= remove_resource admin_step_list_path(step_list), {}%>
+  </td>
+</tr>

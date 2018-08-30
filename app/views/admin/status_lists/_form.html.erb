@@ -1,0 +1,16 @@
+<%= simple_form_for [:admin, @status_list] , html: {class: 'form'} do |f| %>
+
+  <section class='fields-wrapper one-column'>
+    <header>
+      <h2><%= "#{@status_list.persisted? ? 'Editar' : 'Criar'} Status" %></h2>
+    </header>
+    
+    <article>
+      <%= f.input :name, wrapper_html: {class: 'col-12' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_status_lists_path) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>
