@@ -1,5 +1,6 @@
 <tr>
   <td><%= sector.name %></td>
+  <td><%= "#{sector.nickname.present? ? sector.nickname : '---'}" %></td>
   <td><%= sector.description %></td>
   <td><%= l sector.created_at, scope: [:resource] %></td>
   <td>

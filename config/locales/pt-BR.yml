@@ -30,26 +30,69 @@ pt-BR:
       function: "Função"
       hability: "Habilidade"
     attributes:
-      hability:
+      area:
         name: "Nome"
       function:
         name: "Nome"
-      area:
+      hability:
         name: "Nome"
+      position:
+        position: "Cargo"
+      specialty:
+        specialty: "Especialidade"
+      locale:
+        name: "Nome"
+      mode:
+        name: "Nome"
+        description: "Descrição"
+      company_size:
+        name: "Nome"
+        description: "Descrição"
+      relevance:
+        name: "Nome"
+      sector:
+        name: "Nome"
+        description: "Descrição"
+      term:
+        title: "Título"
+        term: "Termo"
+      range_list:
+        name: "Nome"
+      benefits_list:
+        name: "Nome"
+      education_list:
+        name: "Nome"
+      step_list:
+        name: "Nome"
+      language_list:
+        name: "Nome"
+      language_level_list:
+        name: "Nome"
+      nofsalaries_list:
+        name: "Nome"
+      sort_list:
+        name: "Nome"
+      annual_claim_rate_list:
+        name: "Nome"
+      status_list:
+        name: "Nome"
+      title_list:
+        name: "Nome"
+
     errors:
       models:
         user:
           attributes:
             email:
-              blank: "Favor preencha este campo"
+              blank: "Favor preencher este campo"
             password:
-              blank: "Favor preencha este campo"
+              blank: "Favor preencher este campo"
         tester:
           attributes:
             email:
-              blank: "Favor preencha este campo"
+              blank: "Favor preencher este campo"
             password:
-              blank: "Favor preencha este campo"
+              blank: "Favor preencher este campo"
     state_machines:
       project:
         status:
