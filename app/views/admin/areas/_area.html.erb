@@ -1,6 +1,6 @@
 <tr>
   <td><%= area.name %></td>
-  <td><%= l area.created_at, format: :short %></td>
+  <td><%= l area.created_at, scope: [:resource] %></td>
   <td> <%= link_to "Funções (#{area.functions.count})", admin_area_functions_path(area) %> </td>
   <td>
     <%= edit_resource edit_admin_area_path(area) %>

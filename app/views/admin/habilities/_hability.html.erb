@@ -1,6 +1,6 @@
 <tr>
   <td><%= hability.name %></td>
-  <td><%= l hability.created_at, format: :short %></td>
+  <td><%= l hability.created_at, scope: [:resource] %></td>
   <td>
     <%= edit_resource edit_admin_area_function_hability_path(@area, @function, hability) %>
     <%= remove_resource admin_area_function_hability_path(@area, @function, hability), {}%>
