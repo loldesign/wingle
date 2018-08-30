@@ -1,0 +1,32 @@
+<nav class='main'>
+  <figure>
+    <%= image_tag LoldesignPublisher.config[:logo] %>
+  </figure>
+  <ul>
+    <li> <%= link_to "Administradores", admin_admins_path, {data: {active: controller_name == 'admins'}} %> </li>
+  </ul>
+
+  <ul>
+    <li> <%= link_to "Áreas"               , admin_areas_path          , {data: {active: controller_name == 'areas'}} %>            </li>
+    <li> <%= link_to "Cargos"              , admin_positions_path       , {data: {active: controller_name == 'positions'}} %>         </li>
+    <li> <%= link_to "Especialidades"      , admin_specialties_path     , {data: {active: controller_name == 'specialties'}} %>       </li>
+    <li> <%= link_to "Localidades"         , admin_locales_path         , {data: {active: controller_name == 'locales'}} %>           </li>
+    <li> <%= link_to "Momento de Empresas" , admin_modes_path           , {data: {active: controller_name == 'modes'}} %>             </li>
+    <li> <%= link_to "Pacotes de Serviços" , admin_package_services_path, {data: {active: controller_name == 'package_services'}} %>  </li>
+    <li> <%= link_to "Portes de Empresas"  , admin_company_sizes_path   , {data: {active: controller_name == 'company_sizes'}} %>     </li>
+    <li> <%= link_to "Relevâncias"         , admin_relevances_path      , {data: {active: controller_name == 'relevances'}} %>        </li>
+    <li> <%= link_to "Setores"             , admin_sectors_path         , {data: {active: controller_name == 'sectors'}} %>           </li>
+    <li> <%= link_to "Termos"              , admin_terms_path           , {data: {active: controller_name == 'terms'}} %>             </li>
+  </ul>
+
+  <ul>
+    <li> <%= link_to "Lista de Alcances"        , admin_range_lists_path            , {data: {active: controller_name == 'range_list'}} %>              </li>
+    <li> <%= link_to "Lista de Benefícios"      , admin_benefits_lists_path         , {data: {active: controller_name == 'benefits_list'}} %>           </li>
+    <li> <%= link_to "Lista de Escolaridades"   , admin_education_lists_path        , {data: {active: controller_name == 'education_list'}} %>          </li>
+    <li> <%= link_to "Lista de Línguas"         , admin_language_lists_path         , {data: {active: controller_name == 'language_lists'}} %>          </li>
+    <li> <%= link_to "Lista de Níveis Línguas"  , admin_language_level_lists_path   , {data: {active: controller_name == 'language_level_lists'}} %>    </li>
+    <li> <%= link_to "Lista NOF Salaries"       , admin_nofsalaries_lists_path      , {data: {active: controller_name == 'nofsalaries_lists'}} %>       </li>
+    <li> <%= link_to "Lista de Reinvid. Anuais" , admin_annual_claim_rate_lists_path, {data: {active: controller_name == 'annual_claim_rate_lists'}} %> </li>
+    <li> <%= link_to "Lista de Títulos"         , admin_title_lists_path            , {data: {active: controller_name == 'title_lists'}} %>             </li>
+  </ul>
+</nav>

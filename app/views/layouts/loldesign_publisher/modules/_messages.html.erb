@@ -1,0 +1,15 @@
+<% flash.each do |key, value| %>
+  <% if value.is_a?(String) %>
+  <%= javascript_include_tag 'loldesign_publisher/publisher' %>
+    <%= javascript_tag defer: 'defer' do %>
+        jQuery(function(){
+          vex.defaultOptions.className = "vex-theme-flat-attack <%= key %>";
+
+          vex.dialog.alert({
+            message: '<%= value %>',
+            className: "vex-theme-flat-attack <%= key %>"
+          });
+        });
+    <% end %>
+  <% end %>
+<% end %>

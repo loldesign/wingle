@@ -43,28 +43,28 @@ Rails.application.routes.draw do
   mount LoldesignPublisher::Rails::Engine => '/'
 
   namespace :admin do
-    resources :admins,                path: :administradores
-    resources :positions,             path: :cargos
-    resources :specialties,           path: :especialidades
-    resources :translations,          path: :translations
-    resources :terms,                 path: :termos
-    resources :package_services,      path: :pacotes_de_servico
-    resources :locales,               path: :localidades
-    resources :sectors,               path: :setores
-    resources :company_sizes,         path: :portes
-    resources :modes,                 path: :modes
-    resources :relevances,            path: :relevancias
-    resources :title_lists,           path: :lista_de_titulos
-    resources :range_lists,           path: :lista_de_alcances
-    resources :education_lists,       path: :lista_de_escolaridades
-    resources :language_lists,        path: :lista_de_linguas
-    resources :language_level_lists,    path: :lista_de_niveis_linguas
-    resources :nofsalaries_lists,       path: :lista_de_nofsalaries
-    resources :benefits_lists,          path: :lista_de_beneficios
-    resources :annual_claim_rate_lists, path: :lista_de_reinvidicacoes
+    resources :admins,                  path: :administradores
+    resources :positions,               path: :cargos
+    resources :specialties,             path: :especialidades
+    resources :translations,            path: :translations
+    resources :terms,                   path: :termos
+    resources :package_services,        path: :pacotes_de_servico
+    resources :locales,                 path: :localidades
+    resources :sectors,                 path: :setores
+    resources :company_sizes,           path: :portes
+    resources :modes,                   path: :modes
+    resources :relevances,              path: :relevancias
+    resources :title_lists,             path: :'lista-de-titulos'
+    resources :range_lists,             path: :'lista-de-alcances'
+    resources :education_lists,         path: :'lista-de-escolaridades'
+    resources :language_lists,          path: :'lista-de-linguas'
+    resources :language_level_lists,    path: :'lista-de-niveis_linguas'
+    resources :nofsalaries_lists,       path: :'lista-de-nofsalaries'
+    resources :benefits_lists,          path: :'lista-de-beneficios'
+    resources :annual_claim_rate_lists, path: :'lista-de-reinvidicacoes'
     resources :areas,                   path: :areas  do
-      resources :functions do
-        resources :habilities
+      resources :functions, path: :funcoes do
+        resources :habilities, path: :habilidades
       end
     end
   end
