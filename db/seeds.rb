@@ -610,3 +610,134 @@ if Area.count == 0
   # FUNCOES AREA 06
 
 end
+
+# -------
+# Creating First Title List
+# -------
+if TitleList.count == 0
+  TitleList.create(name: 'Trainee/ Estágio')
+  TitleList.create(name: 'Analista')
+  TitleList.create(name: 'Consultor')
+  TitleList.create(name: 'Especialista')
+  TitleList.create(name: 'Coordenador')
+  TitleList.create(name: 'Gerente')
+  TitleList.create(name: 'Gerente Sr')
+  TitleList.create(name: 'Diretor')
+end
+
+# -------
+# Creating First Range List
+# -------
+if RangeList.count == 0
+  RangeList.create(name: 'Anos')
+  RangeList.create(name: 'Meses')
+end
+
+# -------
+# Creating First Education List
+# -------
+if EducationList.count == 0
+  EducationList.create(name: 'Técnico Completo')
+  EducationList.create(name: 'Superior Incompleto')
+  EducationList.create(name: 'Superior Completo')
+  EducationList.create(name: 'Pós graduação ou MBA')
+  EducationList.create(name: 'Mestrado')
+  EducationList.create(name: 'Doutorado')
+end
+
+# -------
+# Creating First Language List
+# -------
+if LanguageList.count == 0
+  LanguageList.create(name: 'Inglês')
+  LanguageList.create(name: 'Espanhol')
+  LanguageList.create(name: 'Alemão')
+  LanguageList.create(name: 'Francês')
+  LanguageList.create(name: 'Português')
+  LanguageList.create(name: 'Italiano')
+  LanguageList.create(name: 'Japonês')
+  LanguageList.create(name: 'Mandarim')
+  LanguageList.create(name: 'Coreano')
+end
+
+# -------
+# Creating First Language Leve List
+# -------
+if LanguageLevelList.count == 0
+  LanguageLevelList.create(name: 'Consigo liderar reuniões presenciais ou remotas para a resolução de problemas complexos')
+  LanguageLevelList.create(name: 'Consigo participar de reuniões como ouvinte e com contribuições pontuais')
+  LanguageLevelList.create(name: 'Consigo resolver problemas somente por email')
+end
+
+# -------
+# Creating First Nofsalaries List
+# -------
+if NofsalariesList.count == 0
+  NofsalariesList.create(name: '12 salários por ano (PJ)')
+  NofsalariesList.create(name: '13,33 salários por ano  (CLT)')
+end
+
+# -------
+# Creating First Benefits List
+# -------
+if BenefitsList.count == 0
+  BenefitsList.create(name: 'Plano de saúde')
+  BenefitsList.create(name: 'Vale transporte')
+  BenefitsList.create(name: 'Ticket Refeição')
+  BenefitsList.create(name: 'Plano odontológico')
+  BenefitsList.create(name: 'Estacionamento')
+  BenefitsList.create(name: 'Vale supermercado')
+  BenefitsList.create(name: 'Seguro de vida')
+  BenefitsList.create(name: 'Previdência privada')
+  BenefitsList.create(name: 'Veículo')
+  BenefitsList.create(name: 'Bolsa de estudos')
+  BenefitsList.create(name: 'Ações')
+end
+
+# -------
+# Creating First Annual Claim Rate List
+# -------
+if AnnualClaimRateList.count == 0
+  AnnualClaimRateList.create(name: '30% de aumento ou mais')
+  AnnualClaimRateList.create(name: '20% de aumento ou mais')
+  AnnualClaimRateList.create(name: '10% de aumento ou mais')
+  AnnualClaimRateList.create(name: 'A partir do mesmo')
+  AnnualClaimRateList.create(name: '10% a menos')
+  AnnualClaimRateList.create(name: '20% a menos')
+  AnnualClaimRateList.create(name: '30% a menor')
+end
+
+# -------
+# Creating First Status List
+# -------
+if StatusList.count == 0
+  StatusList.create(name: 'Interessado')
+  StatusList.create(name: 'Em processo')
+  StatusList.create(name: 'Aprovados')
+  StatusList.create(name: 'Eliminados')
+  StatusList.create(name: 'Arquivados')
+end
+
+# -------
+# Creating First Step List
+# -------
+if StepList.count == 0
+  StepList.create(name: 'Selecionados')
+  StepList.create(name: '1ª etapa')
+  StepList.create(name: '2ª etapa')
+  StepList.create(name: 'Última etapa')
+  StepList.create(name: 'Proposta')
+  StepList.create(name: 'Aprovados')
+end
+
+# -------
+# Creating First Sort List
+# -------
+if SortList.count == 0
+  SortList.create(name: 'Maior Remuneração Anual')
+  SortList.create(name: 'Menor Remuneração Anual')
+  SortList.create(name: 'Maior Remuneração Mensal')
+  SortList.create(name: 'Menor Remuneração Mensal')
+  SortList.create(name: 'Maior Tempo de Carreira')
+  SortList.create(name: 'Menor Tempo de Carreira')
+end

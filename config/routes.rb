@@ -62,6 +62,9 @@ Rails.application.routes.draw do
     resources :nofsalaries_lists,       path: :lista_de_nofsalaries
     resources :benefits_lists,          path: :lista_de_beneficios
     resources :annual_claim_rate_lists, path: :lista_de_reinvidicacoes
+    resources :status_lists,            path: :lista_de_status
+    resources :step_lists,              path: :lista_de_etapas
+    resources :sort_lists,              path: :lista_de_odernações
     resources :areas,                   path: :areas  do
       resources :functions do
         resources :habilities

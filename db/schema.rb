@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180829205135) do
+ActiveRecord::Schema.define(version: 20180830150759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -197,6 +197,12 @@ ActiveRecord::Schema.define(version: 20180829205135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sort_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "specialties", force: :cascade do |t|
     t.string "specialty"
     t.datetime "created_at", null: false
@@ -210,6 +216,18 @@ ActiveRecord::Schema.define(version: 20180829205135) do
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_states_on_country_id"
     t.index ["name"], name: "index_states_on_name", unique: true
+  end
+
+  create_table "status_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "step_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "terms", force: :cascade do |t|

@@ -1,0 +1,19 @@
+<%= title_page 'Lista de Status' %>
+
+<%= add_resource 'Novo Status', new_admin_status_list_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@status_lists, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @status_lists %>

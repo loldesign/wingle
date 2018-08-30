@@ -63,5 +63,14 @@ paths:
     annual_claim_rate_list:
       name: 'Lista de Reinvidicações Anuais'
       path: admin_annual_claim_rate_lists_path
+    status_list:
+      name: 'Lista de Status'
+      path: admin_status_lists_path
+    step_list:
+      name: 'Lista de Etapas'
+      path: admin_step_lists_path
+    sort_list:
+      name: 'Lista de Ordenações'
+      path: admin_sort_lists_path
 
 page_title: 'Wingle'
