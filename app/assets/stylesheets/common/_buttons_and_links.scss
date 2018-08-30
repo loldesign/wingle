@@ -1,5 +1,6 @@
 button, a.btn-default {
   border-radius: 20px;
+  font-size: 15px;
   color: $white;
   text-align: center;
   text-decoration: none;
@@ -11,5 +12,33 @@ button, a.btn-default {
 
   &.gray-default {
     background-image: linear-gradient(180deg, $gray 60%, rgba(0, 0, 0, 0.5));
+  }
+}
+
+.action-buttons-single {
+  @include span-columns (12 of 12);
+  padding-top: 14vh;
+
+  a {
+    @include span-columns (4 of 12);
+    @include shift (4 of 12);
+
+    &:first-of-type {
+      margin-bottom: 5vh;
+    }
+  } 
+}
+
+.action-buttons-duo {
+  @include span-columns (12 of 12);
+  padding-top: 7vh;
+
+  a {
+    @include span-columns (2 of 12);
+    @include shift (2 of 12);
+
+    &:first-of-type {
+      @include shift (3 of 12);
+    }
   }
 }

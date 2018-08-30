@@ -36,13 +36,13 @@ label {
 #{$all-text-inputs},
 select[multiple=multiple] {
   background-color: #FFF;
-  border: solid 1px $gray;
+  border: solid 1px $medium-gray;
   border-radius: 10px;
   box-shadow: $form-box-shadow;
   box-sizing: border-box;
   font-family: $base-font-family;
-  font-size: 1.3vw;
-  color: $gray;
+  font-size: 1.64rem;
+  color: $medium-gray;
   margin-bottom: $small-spacing;
   padding: .5em .5em .5em 1em;
   transition: border-color $base-duration $base-timing;
@@ -50,16 +50,16 @@ select[multiple=multiple] {
   height: 35px;
 
   &::-webkit-input-placeholder {
-    color: $gray;
+    color: $medium-gray;
     font-weight: normal;
   }
 
   &:hover {
-    border-color: shade($gray, 20%);
+    border-color: shade($medium-gray, 20%);
   }
 
   &:focus {
-    border-color: $gray;
+    border-color: $medium-gray;
     box-shadow: $form-box-shadow-focus;
     outline: none;
   }

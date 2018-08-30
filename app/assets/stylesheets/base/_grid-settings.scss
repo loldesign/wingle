@@ -2,10 +2,10 @@
 
 $border-box-sizing: true !default;
 
-$column: 48px;
-$gutter: 10px;
-$grid-columns: 20;
-$max-width: 1150px;
+$column: 78px;
+$gutter: 24px;
+$grid-columns: 12;
+$max-width: 1200px;
 
 $visual-grid: true;
 $visual-grid-color: red;
@@ -13,9 +13,9 @@ $visual-grid-index: front;
 $visual-grid-opacity: 0.2;
 
 // Define your breakpoints
-$tablet: new-breakpoint(max-width 800px 20);
-$mobile: new-breakpoint(max-width 480px 20);
-$small-mobile: new-breakpoint(max-width 320px 20);
-$desktop: new-breakpoint(min-width 900px 20);
-$large-screen: new-breakpoint(min-width 1440px 20);
-$hd-screen: new-breakpoint(min-width 1441px 20);
+$tablet: new-breakpoint(max-width 800px 12);
+$mobile: new-breakpoint(max-width 480px 12);
+$small-mobile: new-breakpoint(max-width 312px 12);
+$desktop: new-breakpoint(min-width 900px 12);
+$large-screen: new-breakpoint(min-width 1440px 12);
+$hd-screen: new-breakpoint(min-width 1441px 12);

@@ -1,10 +1,10 @@
 <section id="complete_register" class="content">
   <section class="title">
-    <h2 class="medium-gray bold">
+    <h4 class="medium-gray bold main-title">
       As empresas certas<br>
       para sua carreira,<br>
       querem saber quem você é
-    </h2>  
+    </h4>  
   </section>
 
   <section class="content-box">
@@ -62,13 +62,15 @@
       <input type="password" placeholder="CONFIRMAR SENHA">
     </form>
 
-    <input type="checkbox">
-    <p>
-      Aceito os termos e condições da política de privacidade
-    </p>
+    <div class="checkbox-box">
+      <label>
+        <input type="checkbox" class="filled-in" checked="checked" />
+        <span>Aceito os termos e condições da política de privacidade</span>
+      </label>
+    </div>
   </section>
 
-  <section class="quick-details-actions">
-    <%= link_to "CONTINUAR", candidate_welcome_message_path, :class => 'btn-default green-default bold' %>
+  <section class="complete-register-actions action-buttons-single">
+    <%= link_to "CONTINUAR", candidate_terms_path, :class => 'waves-effect waves-light btn-default green-default bold' %>
   </section>
 </section>

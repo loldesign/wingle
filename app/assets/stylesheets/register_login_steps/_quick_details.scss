@@ -1,31 +1,24 @@
 #quick_details {
-  h2 {
-    text-align: center;
-    font-size: 2vw;
-    line-height: 1;
-  }
-
   .content-box {
-    @include span-columns (16 of 20);
-    @include shift (2 of 20);
+    @include span-columns (8 of 12);
+    @include shift (2 of 12);
     padding-top: 6vh;
 
     .how-to-summary {
-      @include span-columns (12 of 16);
-      @include shift (2 of 16);
+      @include span-columns (7 of 8);
+      @include shift (1 of 8);
       padding-bottom: 3vh;
 
-      h3 {
-        font-size: 1.5vw;
+      h5 {
         margin-bottom: 6vh;
       }
 
       ul {
-        @include span-columns (11 of 12);
-        @include shift (1 of 12);
+        @include span-columns (6 of 7);
+        margin-left: 5%;
 
         li {
-          font-size: 1vw;
+          font-size: 1.15rem;
           margin-bottom: 3vh;
           list-style: decimal;
           list-style-position: inside;
@@ -35,40 +28,38 @@
           }
 
           span {
-            margin-left: 16%;
+            margin-left: 10%;
           }
         }
       }
     }
 
     .quick-details-info {
-      @include span-columns (16 of 16);
+      @include span-columns (8 of 8);
 
-      h2 {
-        @include span-columns (16 of 16);
-        padding: 6vh 0 6vh 7.2319201995%;
+      h4 {
+        @include span-columns (8 of 8);
+        padding: 4vh 0;
         margin: 0;
         text-align: left;
-        // border: solid 1px $medium-gray;
         border-bottom: none;
       }
 
       .list {
-        @include span-columns (14 of 16);
-        @include shift (1 of 16);
+        @include span-columns (8 of 8);
 
         .list-item {
           border-top: solid 1px $medium-gray;
           display: flex;
           align-items: center;
-          padding: 6vh 0;
+          padding: 4vh 0;
 
           &:last-of-type {
             border-bottom: solid 1px $medium-gray;
           }
 
           .icon-box {
-            @include span-columns (2 of 14);
+            @include span-columns (2 of 8);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,19 +70,18 @@
             justify-content: center;
             align-items: center;
             border-radius: 50px;
-            width: 100px;
-            height: 100px;
+            width: 70px;
+            height: 70px;
 
             i {
-              font-size: 2.7vw;
+              font-size: 1.9vw;
             }
           }
 
           p {
-            @include span-columns (11 of 14);
-            @include shift (1 of 14);
+            @include span-columns (6 of 8);
             margin-bottom: 0;
-            font-size: 1.5vw;
+            font-size: 1.64rem;
           }
         }
 
@@ -149,17 +139,6 @@
   }
 
   .quick-details-actions {
-    @include span-columns (16 of 20);
-    @include shift (2 of 20);
-    padding-top: 5vh;
-
-    a {
-      @include span-columns (6 of 16);
-      font-size: 1.3vw;
-
-      &:first-of-type {
-        @include shift (5 of 16);
-      }
-    }
+    padding-top: 8vh;
   }
 }
