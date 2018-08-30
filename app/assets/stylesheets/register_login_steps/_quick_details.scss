@@ -1,0 +1,165 @@
+#quick_details {
+  h2 {
+    text-align: center;
+    font-size: 2vw;
+    line-height: 1;
+  }
+
+  .content-box {
+    @include span-columns (16 of 20);
+    @include shift (2 of 20);
+    padding-top: 6vh;
+
+    .how-to-summary {
+      @include span-columns (12 of 16);
+      @include shift (2 of 16);
+      padding-bottom: 3vh;
+
+      h3 {
+        font-size: 1.5vw;
+        margin-bottom: 6vh;
+      }
+
+      ul {
+        @include span-columns (11 of 12);
+        @include shift (1 of 12);
+
+        li {
+          font-size: 1vw;
+          margin-bottom: 3vh;
+          list-style: decimal;
+          list-style-position: inside;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
+          span {
+            margin-left: 16%;
+          }
+        }
+      }
+    }
+
+    .quick-details-info {
+      @include span-columns (16 of 16);
+
+      h2 {
+        @include span-columns (16 of 16);
+        padding: 6vh 0 6vh 7.2319201995%;
+        margin: 0;
+        text-align: left;
+        // border: solid 1px $medium-gray;
+        border-bottom: none;
+      }
+
+      .list {
+        @include span-columns (14 of 16);
+        @include shift (1 of 16);
+
+        .list-item {
+          border-top: solid 1px $medium-gray;
+          display: flex;
+          align-items: center;
+          padding: 6vh 0;
+
+          &:last-of-type {
+            border-bottom: solid 1px $medium-gray;
+          }
+
+          .icon-box {
+            @include span-columns (2 of 14);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            width: 100px;
+            height: 100px;
+
+            i {
+              font-size: 2.7vw;
+            }
+          }
+
+          p {
+            @include span-columns (11 of 14);
+            @include shift (1 of 14);
+            margin-bottom: 0;
+            font-size: 1.5vw;
+          }
+        }
+
+        .first {
+          .icon {
+            background-color: #E8E7FF;
+
+            i {
+              color: #8186FF;
+            }
+          }
+        }
+
+        .second {
+          .icon {
+            background-color: #DAF7E8;
+
+            i {
+              color: #4AD991;
+            }
+          }
+        }
+
+        .third {
+          .icon {
+            background-color: #F0F0F7;
+
+            i {
+              color: #B4B4C6;
+            }
+          }
+        }
+
+        .fourth {
+          .icon {
+            background-color: #FFF4E5;
+
+            i {
+              color: #FFCA83;
+            }
+          }
+        }
+
+        .fifth {
+          .icon {
+            background-color: #FFE2E6;
+
+            i {
+              color: #FF7285;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .quick-details-actions {
+    @include span-columns (16 of 20);
+    @include shift (2 of 20);
+    padding-top: 5vh;
+
+    a {
+      @include span-columns (6 of 16);
+      font-size: 1.3vw;
+
+      &:first-of-type {
+        @include shift (5 of 16);
+      }
+    }
+  }
+}

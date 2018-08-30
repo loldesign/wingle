@@ -143,6 +143,14 @@ li {
     color: $light-blue-nav-drop;
   }
 
+  &.green-text {
+    color: $green;
+  }
+
+  &.light-green-text {
+    color: $light-green;
+  }
+
   &.light-font {
     font-weight: 300;
   }

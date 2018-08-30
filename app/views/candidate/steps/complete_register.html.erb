@@ -1,10 +1,10 @@
-<section id="quick_details" class="content">
+<section id="complete_register" class="content">
   <section class="title">
-    <p>
+    <h2 class="medium-gray bold">
       As empresas certas<br>
       para sua carreira,<br>
       querem saber quem você é
-    </p>  
+    </h2>  
   </section>
 
   <section class="content-box">
@@ -55,11 +55,11 @@
 
       <input type="text" placeholder="EMAIL">
 
-      <input type="text" placeholder="CPF">
+      <input type="number" placeholder="CPF">
 
-      <input type="text" placeholder="SENHA">
+      <input type="password" placeholder="SENHA">
 
-      <input type="text" placeholder="CONFIRMAR SENHA">
+      <input type="password" placeholder="CONFIRMAR SENHA">
     </form>
 
     <input type="checkbox">
@@ -69,6 +69,6 @@
   </section>
 
   <section class="quick-details-actions">
-    <%= link_to "CONTINUAR", candidate_welcome_message_path %>
+    <%= link_to "CONTINUAR", candidate_welcome_message_path, :class => 'btn-default green-default bold' %>
   </section>
 </section>

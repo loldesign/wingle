@@ -1,0 +1,33 @@
+#complete_register {
+  h2 {
+    text-align: center;
+    font-size: 2vw;
+    line-height: 1;
+  }
+
+  .content-box {
+    @include span-columns (20 of 20);
+    padding-top: 6vh;
+
+    form {
+      @include span-columns (12 of 20);
+      @include shift (4 of 20);
+
+      select {
+        height: 6vh;
+        border-radius: 10px;
+        margin-bottom: 3vh;
+        padding-left: 1vw;
+        background-color: transparent;
+        border: solid 1px $gray;
+        font-size: 1.3vw;
+        color: $gray;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-position: right 50%;
+        background-repeat: no-repeat;
+        background-image: url('select-arrow-down.svg');
+      }
+    }
+  }
+}
