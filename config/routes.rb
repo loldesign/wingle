@@ -48,7 +48,7 @@ Rails.application.routes.draw do
     resources :specialties,             path: :especialidades
     resources :translations,            path: :translations
     resources :terms,                   path: :termos
-    resources :package_services,        path: :pacotes_de_servico
+    resources :package_services,        path: :'pacotes-de-servico'
     resources :locales,                 path: :localidades
     resources :sectors,                 path: :setores
     resources :company_sizes,           path: :portes

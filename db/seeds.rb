@@ -704,7 +704,7 @@ if AnnualClaimRateList.count == 0
   AnnualClaimRateList.create(name: 'A partir do mesmo')
   AnnualClaimRateList.create(name: '10% a menos')
   AnnualClaimRateList.create(name: '20% a menos')
-  AnnualClaimRateList.create(name: '30% a menor')
+  AnnualClaimRateList.create(name: '30% a menos')
 end
 
 # -------

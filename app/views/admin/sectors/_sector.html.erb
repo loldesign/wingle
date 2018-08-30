@@ -1,7 +1,8 @@
 <tr>
   <td><%= sector.name %></td>
+  <td><%= "#{sector.nickname.present? ? sector.nickname : '---'}" %></td>
   <td><%= sector.description %></td>
-  <td><%= l sector.created_at, format: :short %></td>
+  <td><%= l sector.created_at, scope: [:resource] %></td>
   <td>
     <%= edit_resource edit_admin_sector_path(sector) %>
     <%= remove_resource admin_sector_path(sector), {}%>

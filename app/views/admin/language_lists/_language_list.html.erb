@@ -1,6 +1,6 @@
 <tr>
   <td><%= language_list.name %></td>
-  <td><%= l language_list.created_at, format: :short %></td>
+  <td><%= l language_list.created_at, scope: [:resource] %></td>
   <td>
     <%= edit_resource edit_admin_language_list_path(language_list) %>
     <%= remove_resource admin_language_list_path(language_list), {}%>

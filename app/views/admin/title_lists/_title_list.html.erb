@@ -1,6 +1,6 @@
 <tr>
   <td><%= title_list.name %></td>
-  <td><%= l title_list.created_at, format: :short %></td>
+  <td><%= l title_list.created_at, scope: [:resource] %></td>
   <td>
     <%= edit_resource edit_admin_title_list_path(title_list) %>
     <%= remove_resource admin_title_list_path(title_list), {}%>

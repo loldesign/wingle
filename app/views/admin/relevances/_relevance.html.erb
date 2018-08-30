@@ -1,6 +1,6 @@
 <tr>
   <td><%= relevance.name %></td>
-  <td><%= l relevance.created_at, format: :short %></td>
+  <td><%= l relevance.created_at, scope: [:resource] %></td>
   <td>
     <%= edit_resource edit_admin_relevance_path(relevance) %>
     <%= remove_resource admin_relevance_path(relevance), {}%>
