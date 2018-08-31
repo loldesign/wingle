@@ -10,7 +10,7 @@ header {
 
       img {
         width: 13%;
-        margin: 0 4vw;
+        margin: 0 5.5vw;
 
         &.wingle-title {
           width: 15%;
@@ -22,7 +22,7 @@ header {
   .questions-header {
     display: flex;
     align-items: center;
-    padding: 0 4vw;
+    padding: 0 5.5vw;
     height: 10vh;
 
     .left-box {
@@ -30,7 +30,7 @@ header {
       float: left;
 
       a {
-        font-size: 3.5vw;
+        font-size: 4rem;
         color: $medium-gray;
       }
     }

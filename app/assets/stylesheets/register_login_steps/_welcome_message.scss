@@ -1,7 +1,7 @@
 #welcome_message {
   .content-box {
-    @include span-columns (12 of 20);
-    @include shift (4 of 20);
+    @include span-columns (6 of 12);
+    @include shift (3 of 12);
     border: solid 1px $medium-gray;
     border-radius: 30px;
     box-shadow: 0 0 1em $medium-gray;
@@ -13,19 +13,11 @@
     }
 
     p {
-      font-size: 2.5vw;
+      font-size: 2.3rem;
     }
   }
 
   .welcome-message-actions {
-    @include span-columns (16 of 20);
-    @include shift (2 of 20);
-    padding-top: 5vh;
-
-    a {
-      @include span-columns (6 of 16);
-      @include shift (5 of 16);
-      font-size: 1.3vw;
-    }
+    padding-top: 8vh;
   }
 }

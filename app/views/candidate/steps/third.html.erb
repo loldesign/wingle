@@ -1,46 +1,42 @@
-<section class="question-container content">
-  <div class="row">
-    <div class="col s8 offset-s2">
-      <ul class="collection with-header">
-        <li class="collection-header">
-          <div class="progress ">
-            <div class="determinate" style="width: 50%"></div>
-          </div>
-
-          <h5 class="center-align section">Quais são os 5 setores onde você tem maior interesse?</h5>
-        </li>
-        <li class="collection-item">
-          <p>
-            <label>
-              <input class="with-gap" name="group1" type="radio"  />
-              <span>MODERADA: FOCO NO MÉDIO PRAZO, NEGÓCIO E PESSOAS.</span>
-            </label>
-          </p>
-        </li>
-        <li class="collection-item">
-          <p>
-            <label>
-              <input class="with-gap" name="group1" type="radio"  />
-              <span>CONSERVADORA: FOCO NO LONGO PRAZO, HIERARQUIZADA E TRADICIONAL.</span>
-            </label>
-          </p>
-        </li>
-        <li class="collection-item">
-          <p>
-            <label>
-              <input class="with-gap" name="group1" type="radio"  />
-              <span>AGRESSIVA: FOCO NO CURTO PRAZO, NÚMEROS E PERFORMANCE.</span>
-            </label>
-          </p>
-        </li>
-      </ul>
-
-      <div class="row buttons">
-        <div class="section">
-          <%= link_to "Anterior", candidate_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-          <%= link_to "Próximo", candidate_step_4_path, :class => "waves-effect waves-light btn-large" %>
+<section id="third_step" class="question-container content">
+  <section class="content-box">
+    <ul class="collection with-header">
+      <li class="collection-header">
+        <div class="progress ">
+          <div class="determinate" style="width: 50%"></div>
         </div>
-      </div>
-    </div>
-  </div>
+
+        <h5 class="center-align section">Qual seria o porte ideal de empresa para você?</h5>
+      </li>
+      <li class="collection-item">
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio"  />
+            <span>MODERADA: FOCO NO MÉDIO PRAZO, NEGÓCIO E PESSOAS.</span>
+          </label>
+        </p>
+      </li>
+      <li class="collection-item">
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio"  />
+            <span>CONSERVADORA: FOCO NO LONGO PRAZO, HIERARQUIZADA E TRADICIONAL.</span>
+          </label>
+        </p>
+      </li>
+      <li class="collection-item">
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio"  />
+            <span>AGRESSIVA: FOCO NO CURTO PRAZO, NÚMEROS E PERFORMANCE.</span>
+          </label>
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="action-buttons-duo">
+    <%= link_to "Anterior", candidate_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+    <%= link_to "Próximo", candidate_step_4_path, :class => "waves-effect waves-light btn-large" %>
+  </section>
 </section>
