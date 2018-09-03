@@ -7,6 +7,10 @@
   </ul>
 
   <ul>
+    <li> <%= link_to "Estados"               , admin_states_path          , {data: {active: controller_name == 'states'}} %>            </li>
+  </ul>
+
+  <ul>
     <li> <%= link_to "Áreas"               , admin_areas_path          , {data: {active: controller_name == 'areas'}} %>            </li>
     <li> <%= link_to "Cargos"              , admin_positions_path       , {data: {active: controller_name == 'positions'}} %>         </li>
     <li> <%= link_to "Especialidades"      , admin_specialties_path     , {data: {active: controller_name == 'specialties'}} %>       </li>

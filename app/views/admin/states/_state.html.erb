@@ -1,0 +1,9 @@
+<tr>
+  <td><%= state.name %></td>
+  <td><%= state.country.name %></td>
+  <td><%= l state.created_at, scope: [:resource] %></td>
+  <td>
+    <%= edit_resource edit_admin_state_path(state) %>
+    <%= remove_resource admin_state_path(state), {}%>
+  </td>
+</tr>

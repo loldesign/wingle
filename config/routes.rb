@@ -70,6 +70,7 @@ Rails.application.routes.draw do
         resources :habilities, path: :habilidades
       end
     end
+    resources :states,                  path: :estados
   end
 
   root 'landing_page#session_type'

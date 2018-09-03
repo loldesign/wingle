@@ -1,0 +1,20 @@
+<%= title_page 'Estados' %>
+
+<%= add_resource 'Novo Estado', new_admin_state_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th>País</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@states, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @states %>
