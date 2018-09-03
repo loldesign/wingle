@@ -1,6 +1,7 @@
 <tr>
   <td><%= mode.name %></td>
   <td><%= mode.description %></td>
+  <td><%= mode.score %></td>
   <td><%= l mode.created_at, scope: [:resource] %></td>
   <td>
     <%= edit_resource edit_admin_mode_path(mode) %>

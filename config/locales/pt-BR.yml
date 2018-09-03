@@ -45,14 +45,17 @@ pt-BR:
       mode:
         name: "Nome"
         description: "Descrição"
+        score: "Pontuação"
       company_size:
         name: "Nome"
         description: "Descrição"
+        score: "Pontuação"
       relevance:
         name: "Nome"
       sector:
         name: "Nome"
         description: "Descrição"
+        score: "Pontuação"
       term:
         title: "Título"
         term: "Termo"

@@ -2,6 +2,7 @@
   <td><%= sector.name %></td>
   <td><%= "#{sector.nickname.present? ? sector.nickname : '---'}" %></td>
   <td><%= sector.description %></td>
+  <td><%= sector.score %></td>
   <td><%= l sector.created_at, scope: [:resource] %></td>
   <td>
     <%= edit_resource edit_admin_sector_path(sector) %>

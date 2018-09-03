@@ -45,6 +45,6 @@ class Admin::ModesController < AdminController
 	end
 
 	def mode_params
-		params.require(:mode).permit(:name, :description)
+		params.require(:mode).permit(:name, :description, :score)
 	end
 end

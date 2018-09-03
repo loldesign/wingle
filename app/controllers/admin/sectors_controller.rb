@@ -45,6 +45,6 @@ class Admin::SectorsController < AdminController
 	end
 
 	def sector_params
-		params.require(:sector).permit(:name, :description)
+		params.require(:sector).permit(:name, :description, :nickname, :score)
 	end
 end
