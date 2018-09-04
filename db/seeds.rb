@@ -15,6 +15,17 @@ if Country.count == 0
   brasil   = Country.create(name: 'Brasil')
   sp_state = State.create(name: 'São Paulo', country: brasil)
   sp_city  = City.create(name: 'São Paulo', state: sp_state)
+
+end
+
+if CountryLocale.count == 0
+  brasil   = Country.where(name: 'Brasil').first
+
+  CountryLocale.create(name: 'Norte', country: brasil)
+  CountryLocale.create(name: 'Nordeste', country: brasil)
+  CountryLocale.create(name: 'Centro-Oeste', country: brasil)
+  CountryLocale.create(name: 'Sudeste', country: brasil)
+  CountryLocale.create(name: 'Sul', country: brasil)
 end
 
 # -------
