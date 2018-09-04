@@ -48,6 +48,7 @@ gem 'enumerize'
 gem 'kaminari',               '1.0.1'
 gem 'truncate_html'
 gem 'will_paginate'
+gem 'aasm'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

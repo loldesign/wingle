@@ -2,6 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.6)
+    aasm (5.0.0)
+      concurrent-ruby (~> 1.0)
     actioncable (5.1.6)
       actionpack (= 5.1.6)
       nio4r (~> 2.0)
@@ -468,6 +470,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   bitters (= 1.1.0)
   bourbon (= 4.2.6)
   byebug
@@ -503,4 +506,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.16.1
+   1.16.4
