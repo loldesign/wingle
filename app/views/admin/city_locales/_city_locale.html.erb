@@ -1,0 +1,8 @@
+<tr>
+  <td><%= city_locale.name %></td>
+  <td><%= l city_locale.created_at, scope: [:resource] %></td>
+  <td>
+    <%= edit_resource edit_admin_state_city_city_locale_path(@state, @city, city_locale) %>
+    <%= remove_resource admin_state_city_city_locale_path(@state, @city, city_locale), {}%>
+  </td>
+</tr>

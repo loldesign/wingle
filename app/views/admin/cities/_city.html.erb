@@ -2,6 +2,7 @@
   <td><%= city.name %></td>
   <td><%= l city.created_at, scope: [:resource] %></td>
   <td> <%= link_to "Bairros (#{city.neighborhoods.count})", admin_state_city_neighborhoods_path(@state, city) %> </td>
+  <td> <%= link_to "Regiões (#{city.city_locales.count})", admin_state_city_city_locales_path(@state, city) %> </td>
   <td>
     <%= edit_resource edit_admin_state_city_path(@state, city) %>
     <%= remove_resource admin_state_city_path(@state, city), {}%>
