@@ -1,0 +1,8 @@
+<tr>
+  <td><%= neighborhood.name %></td>
+  <td><%= l neighborhood.created_at, scope: [:resource] %></td>
+  <td>
+    <%= edit_resource edit_admin_state_city_neighborhood_path(@state, @city, neighborhood) %>
+    <%= remove_resource admin_state_city_neighborhood_path(@state, @city, neighborhood), {}%>
+  </td>
+</tr>

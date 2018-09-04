@@ -1,0 +1,2 @@
+class CityLocale < ApplicationRecord
+end

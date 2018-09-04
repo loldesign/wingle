@@ -1,6 +1,7 @@
 <tr>
   <td><%= state.name %></td>
   <td><%= state.country.name %></td>
+  <td> <%= link_to "Cidades (#{state.cities.count})", admin_state_cities_path(state) %> </td>
   <td><%= l state.created_at, scope: [:resource] %></td>
   <td>
     <%= edit_resource edit_admin_state_path(state) %>

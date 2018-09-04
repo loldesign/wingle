@@ -1,0 +1,20 @@
+<%= title_page "Cidades do Estado de #{@state.name}" %>
+
+<%= add_resource 'Nova Cidade', new_admin_state_city_path(@state) %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Cidade</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@cities, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @cities %>

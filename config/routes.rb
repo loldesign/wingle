@@ -70,7 +70,12 @@ Rails.application.routes.draw do
         resources :habilities, path: :habilidades
       end
     end
-    resources :states,                  path: :estados
+    resources :states,                  path: :estados do
+      resources :cities, path: :cidades do
+        resources :neighborhoods, path: :bairros
+        resources :city_locales, path: :'regiões-da-cidade'
+      end
+    end
   end
 
   root 'landing_page#session_type'

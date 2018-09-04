@@ -1,8 +1,9 @@
 class Admin::CitiesController < AdminController
+  before_action :set_state
   before_action :set_city, except: [:new, :create, :index]
 
   def index
-    @city = City.order(created_at: :desc).page(params[:page] || 1).per_page(30)
+    @cities = City.order(created_at: :desc).page(params[:page] || 1).per_page(30)
   end
 
   def show
@@ -13,10 +14,10 @@ class Admin::CitiesController < AdminController
   end
 
   def create
-    @city = City.new(city_params)
+    @city =  @state.cities.build(city_params)
 
     if @city.save
-      redirect_to edit_admin_city_path(@city), notice: 'Criado com sucesso'
+      redirect_to edit_admin_state_city_path(@state, @city), notice: 'Criado com sucesso'
     else
       render action: :new
     end
@@ -27,7 +28,7 @@ class Admin::CitiesController < AdminController
 
   def update
     if @city.update_attributes(city_params)
-      redirect_to edit_admin_city_path(@city), notice: 'Atualizado com sucesso'
+      redirect_to edit_admin_state_city_path(@state, @city), notice: 'Atualizado com sucesso'
     else
       render action: :edit
     end
@@ -36,12 +37,16 @@ class Admin::CitiesController < AdminController
   def destroy
     @city.destroy
 
-    redirect_to admin_cities_path, notice: 'Removido com sucesso'
+    redirect_to admin_state_cities_path, notice: 'Removido com sucesso'
   end
 
   private
+  def set_state
+    @state = State.find(params[:state_id])
+  end
+
   def set_city
-    @city = City.find(params[:id])
+    @city =  @state.cities.find(params[:id])
   end
 
   def city_params

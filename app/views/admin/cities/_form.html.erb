@@ -1,0 +1,16 @@
+<%= simple_form_for [:admin, @state, @city] , html: {class: 'form'} do |f| %>
+
+  <section class='fields-wrapper one-column'>
+    <header>
+      <h2><%= "#{@city.persisted? ? 'Editar' : 'Criar'} Cidade" %></h2>
+    </header>
+    
+    <article>
+      <%= f.input :name, wrapper_html: {class: 'col-12' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_state_cities_path) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>

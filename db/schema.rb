@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180903184135) do
+ActiveRecord::Schema.define(version: 20180904165555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,14 @@ ActiveRecord::Schema.define(version: 20180903184135) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_cities_on_name", unique: true
     t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "city_locales", force: :cascade do |t|
+    t.string "name"
+    t.bigint "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_city_locales_on_city_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -162,6 +170,9 @@ ActiveRecord::Schema.define(version: 20180903184135) do
   create_table "neighborhoods", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_neighborhoods_on_city_id"
   end
 
   create_table "nofsalaries_lists", force: :cascade do |t|
