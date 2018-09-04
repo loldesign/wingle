@@ -8,30 +8,19 @@
 
         <h5 class="center-align section">Quais perfis de empresas você consideraria?</h5>
       </li>
-      <li class="collection-item">
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>MODERADA: FOCO NO MÉDIO PRAZO, NEGÓCIO E PESSOAS.</span>
-          </label>
-        </p>
-      </li>
-      <li class="collection-item">
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>CONSERVADORA: FOCO NO LONGO PRAZO, HIERARQUIZADA E TRADICIONAL.</span>
-          </label>
-        </p>
-      </li>
-      <li class="collection-item">
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>AGRESSIVA: FOCO NO CURTO PRAZO, NÚMEROS E PERFORMANCE.</span>
-          </label>
-        </p>
-      </li>
+      <% @mode.each do |mode| %>
+        <li class="collection-item">
+          <p>
+            <label>
+              <input class="with-gap" name="group1" type="radio"  />
+                <span>
+                  <%= mode.name %>:
+                  <%= mode.description %>
+                </span>
+            </label>
+          </p>
+        </li>
+      <% end %>
     </ul>
   </section>
 

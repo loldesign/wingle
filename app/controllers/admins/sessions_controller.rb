@@ -13,6 +13,11 @@ class Admins::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  def new
+    @header_options = {style: :none}
+    super
+  end
+
   # DELETE /resource/sign_out
   # def destroy
   #   super

@@ -3,7 +3,7 @@ class Admin::NeighborhoodsController < AdminController
   before_action :set_neighborhood, except: [:new, :create, :index]
 
   def index
-    @neighborhoods = Neighborhood.order(created_at: :desc).page(params[:page] || 1).per_page(30)
+    @neighborhoods = @city.neighborhoods.order(created_at: :desc).page(params[:page] || 1).per_page(30)
   end
 
   def show
@@ -47,7 +47,7 @@ class Admin::NeighborhoodsController < AdminController
   end
 
   def set_neighborhood
-    @neighborhood = Neighborhood.find(params[:id])
+    @neighborhood = @city.neighborhoods.find(params[:id])
   end
 
   def neighborhood_params

@@ -8,30 +8,18 @@
 
         <h5 class="center-align section">O que é mais importante pra você?</h5>
       </li>
-      <li class="collection-item">
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>MODERADA: FOCO NO MÉDIO PRAZO, NEGÓCIO E PESSOAS.</span>
-          </label>
-        </p>
-      </li>
-      <li class="collection-item">
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>CONSERVADORA: FOCO NO LONGO PRAZO, HIERARQUIZADA E TRADICIONAL.</span>
-          </label>
-        </p>
-      </li>
-      <li class="collection-item">
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>AGRESSIVA: FOCO NO CURTO PRAZO, NÚMEROS E PERFORMANCE.</span>
-          </label>
-        </p>
-      </li>
+      <% @relevance.each do |relevance| %>
+        <li class="collection-item">
+          <p>
+            <label>
+              <input class="with-gap" name="group1" type="radio"  />
+                <span>
+                  <%= relevance.name %>
+                </span>
+            </label>
+          </p>
+        </li>
+      <% end %>
     </ul>
   </section>
 

@@ -16,5 +16,6 @@
 //= require turbolinks
 //= require main
 //= require materialize.min
+//= require toggle_items
 //= require_tree .
 //= require turbolinks

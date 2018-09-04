@@ -1,8 +1,8 @@
 /* SESSION TYPE (CANDIDATE OR COMPANY) */
 header { 
-  padding: 4vh 0;
-
   .not-logged-in-header {
+    padding: 4vh 0;
+
     .top {
       display: flex;
       align-items: center;
@@ -22,8 +22,8 @@ header {
   .questions-header {
     display: flex;
     align-items: center;
-    padding: 0 5.5vw;
-    height: 10vh;
+    padding: 4vh 5.5vw;
+    height: 14vh;
 
     .left-box {
       width: 20%;

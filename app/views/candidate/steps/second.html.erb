@@ -8,30 +8,17 @@
 
         <h5 class="center-align section">Qual seria o porte ideal de empresa para você?</h5>
       </li>
-      <li class="collection-item">
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>MODERADA: FOCO NO MÉDIO PRAZO, NEGÓCIO E PESSOAS.</span>
-          </label>
-        </p>
-      </li>
-      <li class="collection-item">
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>CONSERVADORA: FOCO NO LONGO PRAZO, HIERARQUIZADA E TRADICIONAL.</span>
-          </label>
-        </p>
-      </li>
-      <li class="collection-item">
-        <p>
-          <label>
-            <input class="with-gap" name="group1" type="radio"  />
-            <span>AGRESSIVA: FOCO NO CURTO PRAZO, NÚMEROS E PERFORMANCE.</span>
-          </label>
-        </p>
-      </li>
+
+      <% @company_size.each do |company| %>
+        <li class="collection-item">
+          <p>
+            <label>
+              <input class="with-gap" name="group1" type="radio"  />
+              <span><%= company.name %>: <%= company.description %></span>
+            </label>
+          </p>
+        </li>
+      <% end %>
     </ul>
   </section>
 

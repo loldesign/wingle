@@ -3,7 +3,7 @@ class Admin::CityLocalesController < AdminController
   before_action :set_city_locale, except: [:new, :create, :index]
 
   def index
-    @city_locales = CityLocale.order(created_at: :desc).page(params[:page] || 1).per_page(30)
+    @city_locales = @city.city_locales.order(created_at: :desc).page(params[:page] || 1).per_page(30)
   end
 
   def show
@@ -47,7 +47,7 @@ class Admin::CityLocalesController < AdminController
   end
 
   def set_city_locale
-    @city_locale = CityLocale.find(params[:id])
+    @city_locale = @city.city_locales.find(params[:id])
   end
 
   def city_locale_params

@@ -3,5 +3,98 @@
   .content-box {
     @include span-columns (8 of 12);
     @include shift (2 of 12);
+
+    .collection {
+      .collection-item {
+        padding: 2vh 1.6vw !important;
+
+        p,
+        label {
+          margin-bottom: 0;
+        }
+
+        label {
+          span {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+
+  .action-buttons-duo {
+    padding-bottom: 7vh;
+  }
+}
+
+/* INTEREST LOCALE STEP */
+#first_step {
+  .collection {
+    .collection-item {
+      label {
+        span {
+          text-transform: capitalize;
+        }
+      }
+    }
+    
+    .interest-locale-item-block {
+      border-bottom: 1px solid #e0e0e0;
+      
+      .city-list-item {
+        cursor: pointer;
+
+        .city-name {
+          font-size: 1.4rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+
+          i {
+            font-size: 2rem;
+
+            &.rotated {
+              transform:rotate(90deg); 
+              -webkit-transform:rotate(90deg); 
+              -moz-transform:rotate(90deg); 
+              -o-transform:rotate(90deg); 
+            }
+          }
+        }
+      }
+
+      .list-city-locale {
+        &.hidden {
+          display: none;
+        }
+      }
+
+      &:first-of-type {
+        .city-list-item {
+          .city-name {
+            i {
+              transform:rotate(90deg); 
+              -webkit-transform:rotate(90deg); 
+              -moz-transform:rotate(90deg); 
+              -o-transform:rotate(90deg); 
+
+              &.rotated {
+                transform:rotate(0deg); 
+                -webkit-transform:rotate(0deg); 
+                -moz-transform:rotate(0deg); 
+                -o-transform:rotate(0deg); 
+              }
+            }
+          }
+        }
+
+        .list-city-locale {
+          &.hidden {
+            display: block;
+          }
+        }
+      }
+    }
   }
 }
