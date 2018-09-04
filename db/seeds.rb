@@ -28,6 +28,31 @@ if CountryLocale.count == 0
   CountryLocale.create(name: 'Sul', country: brasil)
 end
 
+if CityLocale.count == 0
+  sp = City.first
+
+  CityLocale.create(name: 'Zona Leste', city: sp)
+  CityLocale.create(name: 'Zona Oeste', city: sp)
+  CityLocale.create(name: 'Zona Sul', city: sp)
+  CityLocale.create(name: 'Zona Norte', city: sp)
+  CityLocale.create(name: 'Centro', city: sp)
+end
+
+if Neighborhood.count == 0
+  sp = City.first
+
+  Neighborhood.create(name: 'Mooca', city: sp)
+  Neighborhood.create(name: 'Cambuci', city: sp)
+  Neighborhood.create(name: 'Jabaquara', city: sp)
+  Neighborhood.create(name: 'Sé', city: sp)
+  Neighborhood.create(name: 'Vila Mariana', city: sp)
+  Neighborhood.create(name: 'Itaim', city: sp)
+  Neighborhood.create(name: 'Sapopemba', city: sp)
+  Neighborhood.create(name: 'Morumbi', city: sp)
+  Neighborhood.create(name: 'Moema', city: sp)
+  Neighborhood.create(name: 'Interlagos', city: sp)
+end
+
 # -------
 # Creating First Sectors
 # -------
@@ -86,7 +111,7 @@ if Area.count == 0
   # AREAS 01
   area_01 = Area.create(name: 'VENDAS & MARKETING')
 
-  function_01 = Function.create(name: 'VENDAS', area: area_01) 
+  function_01 = Function.create(name: 'VENDAS', area: area_01)
   Hability.create(name: 'B2B', function: function_01)
   Hability.create(name: 'B2C', function: function_01)
   Hability.create(name: 'Captação de Novos Clientes', function: function_01)
@@ -196,7 +221,7 @@ if Area.count == 0
   # AREA 02
   area_02 = Area.create(name: 'OPERAÇÕES & SUPPLY CHAIN')
 
-  function_12 = Function.create(name: 'COMÉRCIO EXTERIOR', area: area_02) 
+  function_12 = Function.create(name: 'COMÉRCIO EXTERIOR', area: area_02)
   Hability.create(name: 'Importação', function: function_12)
   Hability.create(name: 'Exportação', function: function_12)
   Hability.create(name: 'Áereo', function: function_12)
@@ -263,7 +288,7 @@ if Area.count == 0
   # AREA 03
   area_03 = Area.create(name: 'FINANÇAS & TRIBUTÁRIO')
 
-  function_17 = Function.create(name: 'CONTROLLER & CONTROLADORIA', area: area_03) 
+  function_17 = Function.create(name: 'CONTROLLER & CONTROLADORIA', area: area_03)
   Hability.create(name: 'Regional', function: function_17)
   Hability.create(name: 'Planta Fabril', function: function_17)
   Hability.create(name: 'Unidade de Negócios', function: function_17)
@@ -386,7 +411,7 @@ if Area.count == 0
   # AREA 04
   area_04 = Area.create(name: 'RECURSOS HUMANOS')
 
-  function_28 = Function.create(name: 'RECRUTAMENTO & SELEÇÃO', area: area_04) 
+  function_28 = Function.create(name: 'RECRUTAMENTO & SELEÇÃO', area: area_04)
   Hability.create(name: 'Operacional', function: function_28)
   Hability.create(name: 'Média gerência', function: function_28)
   Hability.create(name: 'Alto executivo', function: function_28)
@@ -455,7 +480,7 @@ if Area.count == 0
   # AREA 05
   area_05 = Area.create(name: 'TECNOLOGIA')
 
-  function_34 = Function.create(name: 'INFRAESTRUTURA', area: area_05) 
+  function_34 = Function.create(name: 'INFRAESTRUTURA', area: area_05)
   Hability.create(name: 'Banco de Dados', function: function_34)
   Hability.create(name: 'Servidores', function: function_34)
   Hability.create(name: 'Armazenamento em Núvem', function: function_34)
