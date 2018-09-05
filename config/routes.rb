@@ -61,7 +61,7 @@ Rails.application.routes.draw do
     resources :language_level_lists,    path: :'lista-de-niveis_linguas'
     resources :nofsalaries_lists,       path: :'lista-de-nofsalaries'
     resources :benefits_lists,          path: :'lista-de-beneficios'
-    resources :annual_claim_rate_lists, path: :'lista-de-reinvidicacoes'
+    resources :annual_claim_rate_lists, path: :'lista-de-reivindicacoes'
     resources :status_lists,            path: :'lista-de-status'
     resources :step_lists,              path: :'lista-de-etapas'
     resources :sort_lists,              path: :'lista-de-odernações'

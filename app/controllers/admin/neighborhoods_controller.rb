@@ -28,7 +28,7 @@ class Admin::NeighborhoodsController < AdminController
 
   def update
     if @neighborhood.update_attributes(neighborhood_params)
-      redirect_to edit_admin_state_city_neighborhood_path(@state, @city, @neighborhood), notice: 'Atualizado com sucesso'
+      redirect_to admin_state_city_neighborhoods_path(@state, @city), notice: 'Atualizado com sucesso'
     else
       render action: :edit
     end

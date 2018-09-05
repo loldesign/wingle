@@ -27,7 +27,7 @@ class Admin::RangeListsController < AdminController
 
 	def update
 		if @range_list.update_attributes(range_list_params)
-			redirect_to edit_admin_range_list_path(@range_list), notice: 'Atualizado com sucesso'
+			redirect_to admin_range_lists_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

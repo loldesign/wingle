@@ -27,7 +27,7 @@ class Admin::SectorsController < AdminController
 
 	def update
 		if @sector.update_attributes(sector_params)
-			redirect_to edit_admin_sector_path(@sector), notice: 'Atualizado com sucesso'
+			redirect_to admin_sectors_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

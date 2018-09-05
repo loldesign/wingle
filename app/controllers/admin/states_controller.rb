@@ -28,7 +28,7 @@ class Admin::StatesController < AdminController
 
   def update
     if @state.update_attributes(state_params)
-      redirect_to edit_admin_state_path(@state), notice: 'Atualizado com sucesso'
+      redirect_to admin_states_path, notice: 'Atualizado com sucesso'
     else
       render action: :edit
     end

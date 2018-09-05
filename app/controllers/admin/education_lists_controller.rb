@@ -27,7 +27,7 @@ class Admin::EducationListsController < AdminController
 
 	def update
 		if @education_list.update_attributes(education_list_params)
-			redirect_to edit_admin_education_list_path(@education_list), notice: 'Atualizado com sucesso'
+			redirect_to admin_education_lists_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

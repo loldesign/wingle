@@ -27,7 +27,7 @@ class Admin::ModesController < AdminController
 
 	def update
 		if @mode.update_attributes(mode_params)
-			redirect_to edit_admin_mode_path(@mode), notice: 'Atualizado com sucesso'
+			redirect_to admin_modes_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end
