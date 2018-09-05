@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get '/step-3'             , to: 'steps#third'
     get '/step-4'             , to: 'steps#fourth'
     get '/step-5'             , to: 'steps#fifth'
-    get '/dashboard'          , to: 'dashboard#index', as: :dashboard
+    get '/home'               , to: 'main#home', as: :home
   end
 
 

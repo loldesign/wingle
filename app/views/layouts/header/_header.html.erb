@@ -1,7 +1,41 @@
-<% if current_candidate %>
-  <%= link_to("Sair Candidato", destroy_candidate_session_path, method: :delete) %>
-<% elsif current_company %>
-  <%= link_to("Sair Empresa", destroy_company_session_path, method: :delete) %>
-<% end %>
+<!-- params of partial: {style: :with_logo_back_button, back_button: false} -->
 
-Header Padrão
+<% if options[:style] == :with_logo %>  
+  <!-- Default Header -->
+  <section class="not-logged-in-header content">
+    <div class="top">
+      <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+      <%= image_tag 'wingle-logo.svg' %>
+    </div>  
+  </section>
+
+<% elsif options[:style] == :with_logo_back_button %>
+  <!-- Steps With Back Buton -->
+  <section class="questions-header content">
+    <div class="left-box">
+      <%if options[:back_button].nil? || options[:back_button] %>
+        <%= link_to :back do %>
+          <i class="icon ion-md-arrow-round-back"></i> 
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="logo-title-box">
+      <%= image_tag 'wingle-title.svg' %>
+    </div>  
+  </section>
+<% elsif options[:style] == :dashboard_header %>
+<!-- Dashboard -->
+  <section class="dashboard-header">
+    <section class="header-top">
+      <div class="left-box">
+        <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+        <i class="icon ion-md-menu"></i> 
+      </div>
+
+      <div class="profile-box">
+        <%= image_tag 'wingle-logo.svg' %>
+      </div>
+    </section>
+  </section>
+<% end %>

@@ -1,0 +1,7 @@
+<% if current_candidate %>
+  <%= link_to("Sair Candidato", destroy_candidate_session_path, method: :delete) %>
+<% elsif current_company %>
+  <%= link_to("Sair Empresa", destroy_company_session_path, method: :delete) %>
+<% end %>
+
+Header Padrão
