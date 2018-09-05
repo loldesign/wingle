@@ -1,5 +1,5 @@
 class Candidate::StepsController < ApplicationController 
-  before_action :authenticate_candidate!, only: [:first, :second, :third, :fourth, :fifth, :complete]
+  before_action :authenticate_candidate!, except: [:login_or_register, :terms, :quick_details, :complete_register]
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete]
 
   def terms

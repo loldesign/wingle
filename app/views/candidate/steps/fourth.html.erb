@@ -1,31 +1,33 @@
 <section id="fourth_step" class="question-container content">
-  <section class="content-box">
-    <ul class="collection with-header">
-      <li class="collection-header">
-        <div class="progress ">
-          <div class="determinate" style="width: 75%"></div>
-        </div>
+  <%= form_tag({controller: "steps", action: "fifth"}, method: "post", id: "candidate_fourth") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 75%"></div>
+          </div>
 
-        <h5 class="center-align section">Quais perfis de empresas você consideraria?</h5>
-      </li>
-      <% @mode.each do |mode| %>
-        <li class="collection-item">
-          <p>
-            <label>
-              <input class="with-gap" name="group1" type="radio"  />
-                <span>
-                  <%= mode.name %>:
-                  <%= mode.description %>
-                </span>
-            </label>
-          </p>
+          <h5 class="center-align section">Quais perfis de empresas você consideraria?</h5>
         </li>
-      <% end %>
-    </ul>
-  </section>
+        <% @mode.each do |mode| %>
+          <li class="collection-item">
+            <p>
+              <label>
+                <%= radio_button_tag "candidate_interest[modes][]", mode.id, false, class: "with-gap" %>
+                  <span>
+                    <%= mode.name %>:
+                    <%= mode.description %>
+                  </span>
+              </label>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </section>
 
-  <section class="action-buttons-duo">
-    <%= link_to "Anterior", candidate_step_3_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-    <%= link_to "Próximo", candidate_step_5_path, :class => "waves-effect waves-light btn-large" %>
-  </section>
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_step_3_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_fourth').submit()" %>
+    </section>
+  <% end %>
 </section>

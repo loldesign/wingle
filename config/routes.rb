@@ -13,16 +13,12 @@ Rails.application.routes.draw do
     get '/complete-register'  , to: 'steps#complete_register'
     get '/welcome-message'    , to: 'steps#welcome_message'
     get '/step-1'             , to: 'steps#first'
-    # post '/step-1'            , to: 'steps#first_save'
-    get '/step-2'             , to: 'steps#second'
-    post '/step-2'             , to: 'steps#second'
-    get '/step-3'             , to: 'steps#third'
-    post '/step-3'             , to: 'steps#third'
-    get '/step-4'             , to: 'steps#fourth'
-    post '/step-4'             , to: 'steps#fourth'
-    get '/step-5'             , to: 'steps#fifth'
-    post '/step-5'             , to: 'steps#complete'
-    get '/dashboard'          , to: 'dashboard#index', as: :dashboard
+    match '/step-2'           , to: 'steps#second'       , via: [:get, :post]
+    match '/step-3'           , to: 'steps#third'        , via: [:get, :post]
+    match '/step-4'           , to: 'steps#fourth'       , via: [:get, :post]
+    match '/step-5'           , to: 'steps#fifth'        , via: [:get, :post]
+    post  '/step-complete'    , to: 'steps#complete'
+    get   '/dashboard'        , to: 'dashboard#index'    , as: :dashboard
   end
 
 
