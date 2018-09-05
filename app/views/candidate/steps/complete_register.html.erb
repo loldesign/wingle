@@ -9,7 +9,7 @@
 
   <section class="content-box">
     <%= simple_form_for(Candidate.new, as: :candidate, url: candidate_registration_path(:candidate)) do |f| %>
-      <input type="text" placeholder="NOME">
+      <%= f.text_field :name, placeholder: "NOME" %>
 
       <select name="distributor[uf_rg]">
         <option value="">CIDADE DE INTERESSE</option>
@@ -51,9 +51,9 @@
         <option value="bad">Ouvidoria</option>    
       </select>
 
-      <input type="text" placeholder="CELULAR">
+      <%= f.text_field :cellphone, placeholder: "CELULAR" %>
 
-      <%= f.email_field :email, placeholder: "EMAIL" %></div>
+      <%= f.email_field :email, placeholder: "EMAIL" %>
 
       <input type="number" placeholder="CPF">
 
