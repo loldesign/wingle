@@ -8,7 +8,7 @@
   </section>
 
   <section class="content-box">
-    <form action="">
+    <%= simple_form_for(Candidate.new, as: :candidate, url: candidate_registration_path(:candidate)) do |f| %>
       <input type="text" placeholder="NOME">
 
       <select name="distributor[uf_rg]">
@@ -53,24 +53,25 @@
 
       <input type="text" placeholder="CELULAR">
 
-      <input type="text" placeholder="EMAIL">
+      <%= f.email_field :email, placeholder: "EMAIL" %></div>
 
       <input type="number" placeholder="CPF">
 
-      <input type="password" placeholder="SENHA">
+      <%= f.password_field :password, placeholder: "SENHA" %>
 
-      <input type="password" placeholder="CONFIRMAR SENHA">
-    </form>
+      <%= f.password_field :password_confirmation, placeholder: "CONFIRMAR SENHA" %>
 
-    <div class="checkbox-box">
-      <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Aceito os termos e condições da política de privacidade</span>
-      </label>
-    </div>
+      <div class="checkbox-box">
+        <label>
+          <input type="checkbox" class="filled-in" checked="checked" />
+          <span>Aceito os termos e condições da política de privacidade</span>
+        </label>
+      </div>
+
+      <section class="complete-register-actions action-buttons-single">
+        <%= link_to "CONTINUAR", candidate_terms_path, :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#new_candidate').submit()" %>
+      </section>
+    <% end %>
   </section>
 
-  <section class="complete-register-actions action-buttons-single">
-    <%= link_to "CONTINUAR", candidate_terms_path, :class => 'waves-effect waves-light btn-default green-default bold' %>
-  </section>
 </section>
