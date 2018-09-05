@@ -75,6 +75,6 @@ class Candidate::StepsController < ApplicationController
     end
 
     def candidate_interest_params
-      params.fetch(:candidate_interest, {}).permit(locales: [], company_sizes: [], sector: [], modes: [], relevances: [])
+      params.fetch(:candidate_interest, {}).permit(locales: [], company_sizes: [], sectors: [], modes: [], relevances: [])
     end
 end
