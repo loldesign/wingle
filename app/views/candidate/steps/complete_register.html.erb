@@ -4,7 +4,7 @@
       As empresas certas<br>
       para sua carreira,<br>
       querem saber quem você é
-    </h4>  
+    </h4>
   </section>
 
   <section class="content-box">
@@ -19,9 +19,9 @@
 
       <%= f.email_field :email, placeholder: "EMAIL" %>
 
-      <%= f.number_field :cpf, placeholder: "CPF" %>
+      <%= f.number_field :cpf, placeholder: "CPF", value: session[:cpf] %>
 
-      <%= f.password_field :password, placeholder: "SENHA" %>
+      <%= f.password_field :password, placeholder: "SENHA", value: session[:password] %>
 
       <%= f.password_field :password_confirmation, placeholder: "CONFIRMAR SENHA" %>
 
