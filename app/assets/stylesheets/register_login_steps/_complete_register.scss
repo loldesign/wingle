@@ -6,19 +6,24 @@
     form {
       @include span-columns (6 of 12);
       @include shift (3 of 12);
-    }
 
-    .checkbox-box {
-      @include span-columns (6 of 12);
-      @include shift (3 of 12);
+      .checkbox-box {
+        span {
+          font-size: 1vw;
+        }
+      }
 
-      span {
-        font-size: 1vw;
+      .complete-register-actions {
+        padding-top: 8vh;
+
+        &.action-buttons-single {
+          a {
+            @include span-columns (4 of 6);
+            @include shift (1 of 6);
+          }
+        }
       }
     }
   }
 
-  .complete-register-actions {
-    padding-top: 8vh;
-  }
 }

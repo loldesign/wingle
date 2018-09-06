@@ -4,73 +4,38 @@
       As empresas certas<br>
       para sua carreira,<br>
       querem saber quem você é
-    </h4>  
+    </h4>
   </section>
 
   <section class="content-box">
-    <form action="">
-      <input type="text" placeholder="NOME">
+    <%= simple_form_for(@candidate, as: :candidate, url: candidate_registration_path(:candidate)) do |f| %>
+      <%= f.text_field :name, placeholder: "NOME" %>
 
-      <select name="distributor[uf_rg]">
-        <option value="">CIDADE DE INTERESSE</option>
-        <option value="ac">AC</option>
-        <option value="al">AL</option>
-        <option value="am">AM</option>
-        <option value="ap">AP</option>
-        <option value="ba">BA</option>
-        <option value="ce">CE</option>
-        <option value="df">DF</option>
-        <option value="es">ES</option>
-        <option value="go">GO</option>
-        <option value="ma">MA</option>
-        <option value="mg">MG</option>
-        <option value="ms">MS</option>
-        <option value="mt">MT</option>
-        <option value="pa">PA</option>
-        <option value="pb">PB</option>
-        <option value="pe">PE</option>
-        <option value="pi">PI</option>
-        <option value="pr">PR</option>
-        <option value="rj">RJ</option>
-        <option value="rn">RN</option>
-        <option value="ro">RO</option>
-        <option value="rr">RR</option>
-        <option value="rs">RS</option>
-        <option value="sc">SC</option>
-        <option value="se">SE</option>
-        <option value="sp">SP</option>
-        <option value="to">TO</option>
-      </select>
+      <%= select_tag("candidate_interest[cities][]", options_from_collection_for_select(@cities, "id", "name"), prompt: 'CIDADE DE INTERESSE', include_blank: "Outros") %>
 
-      <select name="" id="">
-        <option value="">ÁREA DE INTERESSE</option>
-        <option value="complaint">Televendas</option>    
-        <option value="bad">Locação</option>    
-        <option value="bad">Venda Corporativa</option>    
-        <option value="bad">Imprensa</option>    
-        <option value="bad">Ouvidoria</option>    
-      </select>
+      <%= select_tag("candidate_interest[areas][]", options_from_collection_for_select(@areas, "id", "name"), prompt: 'ÁREA DE INTERESSE') %>
 
-      <input type="text" placeholder="CELULAR">
+      <%= f.text_field :cellphone, placeholder: "CELULAR" %>
 
-      <input type="text" placeholder="EMAIL">
+      <%= f.email_field :email, placeholder: "EMAIL" %>
 
-      <input type="number" placeholder="CPF">
+      <%= f.number_field :cpf, placeholder: "CPF", value: session[:cpf] %>
 
-      <input type="password" placeholder="SENHA">
+      <%= f.password_field :password, placeholder: "SENHA", value: session[:password] %>
 
-      <input type="password" placeholder="CONFIRMAR SENHA">
-    </form>
+      <%= f.password_field :password_confirmation, placeholder: "CONFIRMAR SENHA" %>
 
-    <div class="checkbox-box">
-      <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Aceito os termos e condições da política de privacidade</span>
-      </label>
-    </div>
+      <div class="checkbox-box">
+        <label>
+          <input type="checkbox" class="filled-in" checked="checked" />
+          <span>Aceito os termos e condições da política de privacidade</span>
+        </label>
+      </div>
+
+      <section class="complete-register-actions action-buttons-single">
+        <%= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#new_candidate').submit()" %>
+      </section>
+    <% end %>
   </section>
 
-  <section class="complete-register-actions action-buttons-single">
-    <%= link_to "CONTINUAR", candidate_terms_path, :class => 'waves-effect waves-light btn-default green-default bold' %>
-  </section>
 </section>

@@ -9,15 +9,17 @@ Rails.application.routes.draw do
   namespace :candidate do
     get '/user-login'         , to: 'steps#login_or_register'
     get '/terms'              , to: 'steps#terms'
-    get '/quick-details'      , to: 'steps#quick_details'
+    match '/quick-details'    , to: 'steps#quick_details', via: [:get, :post]
     get '/complete-register'  , to: 'steps#complete_register'
     get '/welcome-message'    , to: 'steps#welcome_message'
     get '/step-1'             , to: 'steps#first'
-    get '/step-2'             , to: 'steps#second'
-    get '/step-3'             , to: 'steps#third'
-    get '/step-4'             , to: 'steps#fourth'
-    get '/step-5'             , to: 'steps#fifth'
-    get '/home'               , to: 'main#home', as: :home
+    match '/step-2'           , to: 'steps#second'       , via: [:get, :post]
+    match '/step-3'           , to: 'steps#third'        , via: [:get, :post]
+    match '/step-4'           , to: 'steps#fourth'       , via: [:get, :post]
+    match '/step-5'           , to: 'steps#fifth'        , via: [:get, :post]
+    post  '/step-complete'    , to: 'steps#complete'
+    get   '/dashboard'        , to: 'dashboard#index'    , as: :dashboard
+    get   '/home'             , to: 'main#home'          , as: :home
   end
 
 
