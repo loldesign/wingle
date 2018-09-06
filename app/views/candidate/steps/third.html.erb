@@ -2,35 +2,35 @@
   <div class="max-option-notice">
     <p class="gray bold">Você já atingiu o número máximo de opções</p>
   </div>
-
-  <section class="content-box">
-    <ul class="collection with-header">
-      <li class="collection-header">
-        <div class="progress ">
-          <div class="determinate" style="width: 50%"></div>
-        </div>
-
-        <h5 class="center-align section">Quais são os 5 setores onde você tem maior interesse?</h5>
-      </li>
-      
-      <% @sector.each do |sector| %>
-        <li class="collection-item">
-          <p>
-            <label>
-              <input class="with-gap" name="group1" type="checkbox"  />
-                <span>
-                  <%= sector.name %><br>
-                  <%= sector.description %>
-                </span>
-            </label>
-          </p>
+  <%= form_tag({controller: "steps", action: "fourth"}, method: "post", id: "candidate_third") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 50%"></div>
+          </div>
+          <h5 class="center-align section">Quais são os 5 setores onde você tem maior interesse?</h5>
         </li>
-      <% end %>
-    </ul>
-  </section>
 
-  <section class="action-buttons-duo">
-    <%= link_to "Anterior", candidate_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-    <%= link_to "Próximo", candidate_step_4_path, :class => "waves-effect waves-light btn-large next-step disabled" %>
-  </section>
+        <% @sector.each do |sector| %>
+          <li class="collection-item">
+            <p>
+              <label>
+                <%= check_box_tag "candidate_interest[sectors][]", sector.id, false, class: "with-gap" %>
+                  <span>
+                    <%= sector.name %><br>
+                    <%= sector.description %>
+                  </span>
+              </label>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step disabled", :onclick => "$('#candidate_third').submit()" %>
+    </section>
+  <% end %>
 </section>

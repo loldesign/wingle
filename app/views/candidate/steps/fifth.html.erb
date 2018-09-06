@@ -1,30 +1,32 @@
 <section id="fifth_step" class="question-container content">
-  <section class="content-box">
-    <ul class="collection with-header">
-      <li class="collection-header">
-        <div class="progress ">
-          <div class="determinate" style="width: 95%"></div>
-        </div>
+  <%= form_tag({controller: "steps", action: "complete"}, method: "post", id: "candidate_fifth") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 95%"></div>
+          </div>
 
-        <h5 class="center-align section">O que é mais importante pra você?</h5>
-      </li>
-      <% @relevance.each do |relevance| %>
-        <li class="collection-item">
-          <p>
-            <label>
-              <input class="with-gap" name="group1" type="radio"  />
-                <span>
-                  <%= relevance.name %>
-                </span>
-            </label>
-          </p>
+          <h5 class="center-align section">O que é mais importante pra você?</h5>
         </li>
-      <% end %>
-    </ul>
-  </section>
+        <% @relevance.each do |relevance| %>
+          <li class="collection-item">
+            <p>
+              <label>
+                <%= radio_button_tag "candidate_interest[relevances][]", relevance.id, false, class: "with-gap" %>
+                  <span>
+                    <%= relevance.name %>
+                  </span>
+              </label>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </section>
 
-  <section class="action-buttons-duo">
-    <%= link_to "Anterior", candidate_step_4_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-    <%= link_to "Próximo", "#{}", :class => "waves-effect waves-light btn-large" %>
-  </section>
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_step_4_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", "#{}", :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_fifth').submit()" %>
+    </section>
+  <% end %>
 </section>

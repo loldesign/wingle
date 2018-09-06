@@ -13,6 +13,8 @@ class Candidate < ApplicationRecord
   scope :by_locale      , -> (city_locale_id) { joins(:candidate_interest).where("? = ANY (candidate_interests.locales)", city_locale_id) }
   scope :by_mode        , -> (mode_id)        { joins(:candidate_interest).where("? = ANY (candidate_interests.modes)", mode_id) }
   scope :by_relevance   , -> (relevance_id)   { joins(:candidate_interest).where("? = ANY (candidate_interests.relevances)", relevance_id) }
+  scope :by_city        , -> (city_id)        { joins(:candidate_interest).where("? = ANY (candidate_interests.cities)", city_id) }
+  scope :by_area        , -> (area_id)        { joins(:candidate_interest).where("? = ANY (candidate_interests.areas)", area_id) }
 
   aasm :column => :signup_state, :logger => Rails.logger do
     state :interest, initial: true
