@@ -2,6 +2,10 @@ class Candidate::StepsController < ApplicationController
   before_action :authenticate_candidate!, except: [:login_or_register, :quick_details, :complete_register]
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete, :terms]
 
+  def quick_details
+    session[:cpf] = params[:cpf]
+  end
+
   def terms
     @header_options = {style: :with_logo_back_button}
 
@@ -15,6 +19,7 @@ class Candidate::StepsController < ApplicationController
   def complete_register
     @candidate = Candidate.new
     @candidate.build_candidate_interest
+    @candidate.cpf = session[:cpf]
 
     @cities =  City.all
     @areas  =  Area.all

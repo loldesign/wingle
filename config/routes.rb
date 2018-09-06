@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :candidate do
     get '/user-login'         , to: 'steps#login_or_register'
     get '/terms'              , to: 'steps#terms'
-    get '/quick-details'      , to: 'steps#quick_details'
+    match '/quick-details'    , to: 'steps#quick_details', via: [:get, :post]
     get '/complete-register'  , to: 'steps#complete_register'
     get '/welcome-message'    , to: 'steps#welcome_message'
     get '/step-1'             , to: 'steps#first'

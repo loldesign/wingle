@@ -15,6 +15,7 @@ class Candidates::RegistrationsController < Devise::RegistrationsController
     @candidate.candidate_interest = CandidateInterest.new(candidate_interest_params)
 
     if @candidate.save
+      session[:cpf] = nil
       sign_in(@candidate)
       redirect_to candidate_terms_path
     else
