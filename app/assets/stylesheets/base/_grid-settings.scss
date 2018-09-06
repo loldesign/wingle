@@ -1,6 +1,6 @@
 @import "neat/neat-helpers"; // or "../neat/neat-helpers" when not in Rails
 
-$border-box-sizing: true !default;
+$border-box-sizing: false !default;
 
 $column: 78px;
 $gutter: 24px;
