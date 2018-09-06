@@ -6,17 +6,17 @@
     </p>
   </div>
 
-  <section class="content-box">
-    <form action="">
-      <input type="text" placeholder="CPF">
-      <input type="password" placeholder="SENHA">
-    </form>
+  <form action="">
+    <section class="content-box">
+        <input type="text" placeholder="CPF">
+        <input type="password" placeholder="SENHA">
 
-    <%= link_to "RECUPERAR SENHA", "#{}" %>
-  </section>
+      <%= link_to "RECUPERAR SENHA", "#{}" %>
+    </section>
 
-  <section class="login-or-register-actions action-buttons-duo">
-    <%= link_to "SAIBA MAIS", candidate_user_login_path, :class => 'waves-effect waves-light btn-default gray-default bold' %>
-    <%= link_to "CONTINUAR", candidate_quick_details_path, :class => 'waves-effect waves-light btn-default green-default bold' %>
-  </section>
+    <section class="login-or-register-actions action-buttons-duo">
+      <%= link_to "SAIBA MAIS", candidate_user_login_path, :class => 'waves-effect waves-light btn-default gray-default bold' %>
+      <%= link_to "CONTINUAR", candidate_quick_details_path, :class => 'waves-effect waves-light btn-default green-default bold' %>
+    </section>
+  </form>
 </section>

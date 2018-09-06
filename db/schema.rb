@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180905191420) do
+ActiveRecord::Schema.define(version: 20180905204659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20180905191420) do
     t.integer "modes", default: [], array: true
     t.integer "sectors", default: [], array: true
     t.integer "relevances", default: [], array: true
+    t.integer "cities", default: [], array: true
+    t.integer "areas", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_candidate_interests_on_candidate_id"

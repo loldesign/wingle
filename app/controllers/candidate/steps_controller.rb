@@ -6,6 +6,14 @@ class Candidate::StepsController < ApplicationController
     @header_options = {style: :with_logo_back_button}
   end
 
+  def complete_register
+    @candidate = Candidate.new
+    @candidate.build_candidate_interest
+
+    @cities =  City.all
+    @areas  =  Area.all
+  end
+
   def welcome_message
     @header_options = {style: :with_logo_back_button, back_button: false}
 

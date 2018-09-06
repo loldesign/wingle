@@ -12,14 +12,14 @@ class Candidates::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @candidate = Candidate.new(candidate_params)
-    @candidate.build_candidate_interest
+    @candidate.candidate_interest = CandidateInterest.new(candidate_interest_params)
 
     if @candidate.save
       sign_in(@candidate)
       redirect_to candidate_terms_path
     else
       # render template: 'candidate/steps/complete_register'
-      # redirect_to candidate_complete_register_path
+      redirect_to candidate_complete_register_path, :flash => { :error => @candidate.errors.messages }
     end
   end
 
@@ -58,6 +58,10 @@ class Candidates::RegistrationsController < Devise::RegistrationsController
 
     def candidate_params
       params.require(:candidate).permit(:email, :password, :password_confirmation, :name, :phone)
+    end
+
+    def candidate_interest_params
+      params.require(:candidate_interest).permit(cities: [], areas: [])
     end
 
   # If you have extra params to permit, append them to the sanitizer.
