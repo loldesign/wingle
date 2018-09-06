@@ -36,9 +36,16 @@ button, a.btn-default {
   a {
     @include span-columns (2 of 12);
     @include shift (2 of 12);
+    z-index: 1;
 
     &:first-of-type {
       @include shift (3 of 12);
+    }
+
+    &.disabled {
+      position: relative;
+      z-index: -1;
+      background-color: $dark-gray;
     }
   }
 }

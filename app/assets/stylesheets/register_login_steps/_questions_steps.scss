@@ -1,5 +1,33 @@
 /* QUESTIONS STEPS */
 .question-container {
+  .max-option-notice {
+    @include span-columns (8 of 12);
+    @include shift (2 of 12);
+    background-color: $light-green;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    position: fixed;
+    width: 30vw;
+    z-index: 999;
+    bottom: 2vh;
+
+    p {
+      margin-bottom: 0;
+      color: $white;
+    }
+
+    &.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
   .content-box {
     @include span-columns (8 of 12);
     @include shift (2 of 12);

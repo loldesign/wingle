@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require main
 //= require materialize.min
+//= require toastr
 //= require toggle_items
+//= require options_count
 //= require_tree .
 //= require turbolinks
