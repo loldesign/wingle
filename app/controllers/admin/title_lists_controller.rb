@@ -27,7 +27,7 @@ class Admin::TitleListsController < AdminController
 
 	def update
 		if @title_list.update_attributes(title_list_params)
-			redirect_to edit_admin_title_list_path(@title_list), notice: 'Atualizado com sucesso'
+			redirect_to admin_title_lists_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

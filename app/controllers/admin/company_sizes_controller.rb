@@ -27,7 +27,7 @@ class Admin::CompanySizesController < AdminController
 
 	def update
 		if @company_size.update_attributes(company_size_params)
-			redirect_to edit_admin_company_size_path(@company_size), notice: 'Atualizado com sucesso'
+			redirect_to admin_company_sizes_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

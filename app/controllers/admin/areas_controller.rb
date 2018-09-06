@@ -27,7 +27,7 @@ class Admin::AreasController < AdminController
 
 	def update
 		if @area.update_attributes(area_params)
-			redirect_to edit_admin_area_path(@area), notice: 'Atualizado com sucesso'
+			redirect_to admin_areas_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

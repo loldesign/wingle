@@ -27,7 +27,7 @@ class Admin::SpecialtiesController < AdminController
 
   def update
     if @specialty.update_attributes(specialty_params)
-      redirect_to edit_admin_specialty_path(@specialty), notice: 'Atualizado com sucesso'
+      redirect_to admin_specialties_path, notice: 'Atualizado com sucesso'
     else
       render action: :edit
     end

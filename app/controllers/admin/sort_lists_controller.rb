@@ -27,7 +27,7 @@ class Admin::SortListsController < AdminController
 
 	def update
 		if @sort_list.update_attributes(sort_list_params)
-			redirect_to edit_admin_sort_list_path(@sort_list), notice: 'Atualizado com sucesso'
+			redirect_to admin_sort_lists_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

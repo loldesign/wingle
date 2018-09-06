@@ -1,5 +1,11 @@
 /* SESSION TYPE (CANDIDATE OR COMPANY) */
 header { 
+  .question-header,
+  .dashboard-header {
+    height: 14vh;
+  }
+  
+  // NOT LOGGED IN HEADER //
   .not-logged-in-header {
     padding: 4vh 0;
 
@@ -19,11 +25,11 @@ header {
     }
   }
   
+  // QUESTIONS HEADER //
   .questions-header {
     display: flex;
     align-items: center;
     padding: 4vh 5.5vw;
-    height: 14vh;
 
     .left-box {
       width: 20%;
@@ -42,6 +48,45 @@ header {
         width: 30%;
         display: block;
         margin: 0 auto;
+      }
+    }
+  }
+
+  // DASHBOARD HEADER //
+  .dashboard-header {
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .left-box {
+        width: 18.55%;
+        display: flex;
+        justify-content: space-between;
+
+        img {
+          width: 40%;
+          margin-left: 30%;
+        }
+
+        i {
+          font-size: 1.7vw;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+        }
+      }
+
+      .profile-box {
+        width: 130px;
+        height: 130px;
+        border: solid;
+        border-radius: 90px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
       }
     }
   }

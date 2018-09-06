@@ -27,7 +27,7 @@ class Admin::PackageServicesController < AdminController
 
   def update
     if @package_service.update_attributes(service_params)
-      redirect_to edit_admin_package_service_path(@package_service), notice: 'Atualizado com sucesso'
+      redirect_to admin_package_services_path, notice: 'Atualizado com sucesso'
     else
       render action: :edit
     end    

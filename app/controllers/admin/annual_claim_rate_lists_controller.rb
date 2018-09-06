@@ -27,7 +27,7 @@ class Admin::AnnualClaimRateListsController < AdminController
 
 	def update
 		if @annual_claim_rate_list.update_attributes(annual_claim_rate_list_params)
-			redirect_to edit_admin_annual_claim_rate_list_path(@annual_claim_rate_list), notice: 'Atualizado com sucesso'
+			redirect_to admin_annual_claim_rate_lists_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

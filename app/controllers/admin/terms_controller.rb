@@ -26,8 +26,8 @@ class Admin::TermsController < AdminController
   end
 
   def update
-    if @term.update_atttibutes(term_params)
-      redirect_to edit_admin_term_path(@term), notice: 'Atualizado com sucesso'
+    if @term.update_attributes(term_params)
+      redirect_to admin_terms_path, notice: 'Atualizado com sucesso'
     else
       render action: :edit
     end 

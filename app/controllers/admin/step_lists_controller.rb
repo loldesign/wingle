@@ -27,7 +27,7 @@ class Admin::StepListsController < AdminController
 
 	def update
 		if @step_list.update_attributes(step_list_params)
-			redirect_to edit_admin_step_list_path(@step_list), notice: 'Atualizado com sucesso'
+			redirect_to admin_step_lists_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

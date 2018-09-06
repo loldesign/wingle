@@ -27,7 +27,7 @@ class Admin::RelevancesController < AdminController
 
 	def update
 		if @relevance.update_attributes(relevance_params)
-			redirect_to edit_admin_relevance_path(@relevance), notice: 'Atualizado com sucesso'
+			redirect_to admin_relevances_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end

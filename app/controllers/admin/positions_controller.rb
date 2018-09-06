@@ -26,8 +26,8 @@ class Admin::PositionsController < AdminController
   end
 
   def update
-    if @position.update_atttibutes(position_params)
-      redirect_to edit_admin_position_path(@position), notice: 'Atualizado com sucesso'
+    if @position.update_attributes(position_params)
+      redirect_to admin_positions_path, notice: 'Atualizado com sucesso'
     else
       render action: :edit
     end 

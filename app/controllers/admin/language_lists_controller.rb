@@ -27,7 +27,7 @@ class Admin::LanguageListsController < AdminController
 
 	def update
 		if @language_list.update_attributes(language_list_params)
-			redirect_to edit_admin_language_list_path(@language_list), notice: 'Atualizado com sucesso'
+			redirect_to admin_language_lists_path, notice: 'Atualizado com sucesso'
 		else
 			render action: :edit
 		end
