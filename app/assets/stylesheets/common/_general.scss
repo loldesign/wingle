@@ -11,9 +11,8 @@
 
 .content {
   @include container;
-  width: 100%;
-  // @include span-columns (6 of 12);
-  // @include shift (3 of 12);
+  @include span-columns (6 of 12);
+  @include shift (3 of 12);
   height: 100%;
   z-index: 99999;
 }
