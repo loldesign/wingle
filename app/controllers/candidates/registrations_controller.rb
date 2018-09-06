@@ -57,7 +57,7 @@ class Candidates::RegistrationsController < Devise::RegistrationsController
     end
 
     def candidate_params
-      params.require(:candidate).permit(:email, :password, :password_confirmation, :name, :phone)
+      params.require(:candidate).permit(:email, :password, :password_confirmation, :name, :cellphone, :cpf)
     end
 
     def candidate_interest_params

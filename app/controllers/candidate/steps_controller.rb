@@ -1,9 +1,15 @@
 class Candidate::StepsController < ApplicationController 
-  before_action :authenticate_candidate!, except: [:login_or_register, :terms, :quick_details, :complete_register]
-  before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete]
+  before_action :authenticate_candidate!, except: [:login_or_register, :quick_details, :complete_register]
+  before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete, :terms]
 
   def terms
     @header_options = {style: :with_logo_back_button}
+
+    if @candidate_interest.cities == []
+      @link_url = candidate_welcome_message_path
+    else
+      @link_url = candidate_step_1_path
+    end
   end
 
   def complete_register
@@ -16,18 +22,18 @@ class Candidate::StepsController < ApplicationController
 
   def welcome_message
     @header_options = {style: :with_logo_back_button, back_button: false}
-
-    # TODO: verify if candidate has interest in a state other than SP
-    #@candidate = current_candidate
-    #if @candidate.state_interest != 'SP'
-    #  redirect_to candidate_first_path
-    #end
   end
 
   def first
     @header_options = {style: :with_logo_back_button}
 
     @city = City.all
+
+    if @candidate_interest.cities == []
+      @link_url = candidate_welcome_message_path
+    else
+      @link_url = candidate_terms_path
+    end
   end
 
   def second
