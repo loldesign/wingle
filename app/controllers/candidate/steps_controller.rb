@@ -1,4 +1,3 @@
-class Candidate::StepsController < ApplicationController 
 class Candidate::StepsController < ApplicationController
   before_action :authenticate_candidate!, except: [:login_or_register, :quick_details, :complete_register]
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete, :terms]
@@ -85,8 +84,11 @@ class Candidate::StepsController < ApplicationController
 
   def complete
     if candidate_interest_params.present? && !@candidate_interest.update_attributes(candidate_interest_params)
+
       render action: :fifth
     end
+
+    @candidate.completed_interest! if @candidate.reload.interest?
   end
 
   private
@@ -98,4 +100,4 @@ class Candidate::StepsController < ApplicationController
     def candidate_interest_params
       params.fetch(:candidate_interest, {}).permit(locales: [], company_sizes: [], sectors: [], modes: [], relevances: [])
     end
-endend
+end
