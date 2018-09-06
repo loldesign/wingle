@@ -1,13 +1,13 @@
 @import "neat/neat-helpers"; // or "../neat/neat-helpers" when not in Rails
 
-$border-box-sizing: false !default;
+$border-box-sizing: true !default;
 
 $column: 78px;
 $gutter: 24px;
 $grid-columns: 12;
 $max-width: 1200px;
 
-$visual-grid: true;
+$visual-grid: false;
 $visual-grid-color: red;
 $visual-grid-index: front;
 $visual-grid-opacity: 0.2;
