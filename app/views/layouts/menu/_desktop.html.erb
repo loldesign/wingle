@@ -1,0 +1,29 @@
+<!-- params of partial: {style: :with_logo_back_button, back_button: false} -->
+
+<% if options[:style] == :true %>  
+  <!-- Desktop Menu -->
+  <aside id="menu" class="desktop">
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "Interesses", "#{}" %>
+        </li>
+        <li>
+          <%= link_to "Experiência", "#{}" %>
+        </li>
+        <li>
+          <%= link_to "Empresas", "#{}" %>
+        </li>
+        <li>
+          <%= link_to "Habilidades", "#{}" %>
+        </li>
+        <li>
+          <%= link_to "Educação", "#{}" %>
+        </li>
+        <li>
+          <%= link_to "Pretensão", "#{}" %>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+<% end %>

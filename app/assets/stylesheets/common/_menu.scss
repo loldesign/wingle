@@ -1,0 +1,20 @@
+#menu {
+  @include span-columns (3 of 12);
+  height: 100%;
+
+  nav {
+    height: 100%;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      li {
+        a {
+          padding-left: 25%;
+        }
+      }
+    }
+  }
+}

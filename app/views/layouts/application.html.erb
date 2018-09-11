@@ -24,6 +24,7 @@
     </header>
 
     <main class="site-content">
+      <%= render :partial => "layouts/menu/desktop", locals: {options: @menu_options.present? ? @menu_options : {style: :none} } %>
       <%= yield %>
     </main>
 
