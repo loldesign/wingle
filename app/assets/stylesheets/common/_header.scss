@@ -1,7 +1,6 @@
 /* SESSION TYPE (CANDIDATE OR COMPANY) */
 header { 
-  .question-header,
-  .dashboard-header {
+  .question-header {
     height: 14vh;
   }
   
@@ -16,10 +15,9 @@ header {
 
       img {
         width: 13%;
-        margin: 0 5.5vw;
 
         &.wingle-title {
-          width: 15%;
+          width: 18%;
         }
       }
     }
@@ -54,6 +52,8 @@ header {
 
   // DASHBOARD HEADER //
   .dashboard-header {
+    padding: 2vh 0;
+
     .header-top {
       display: flex;
       justify-content: space-between;
@@ -76,17 +76,24 @@ header {
           cursor: pointer;
         }
       }
-
-      .profile-box {
-        width: 130px;
-        height: 130px;
-        border: solid;
-        border-radius: 90px;
-        overflow: hidden;
+      
+      .profile-container {
+        width: 18.55%;
         display: flex;
-        align-items: center;
         justify-content: center;
-        padding: 20px;
+
+        .profile-box {
+          width: 37%;
+          height: 13.3vh;
+          border: solid;
+          border-radius: 90px;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          cursor: pointer;
+        }
       }
     }
   }
