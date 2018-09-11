@@ -15,7 +15,7 @@
 
       <%= select_tag("candidate_interest[areas][]", options_from_collection_for_select(@areas, "id", "name"), prompt: 'ÁREA DE INTERESSE') %>
 
-      <%= f.text_field :cellphone, placeholder: "CELULAR" %>
+      <%= f.text_field :cellphone, placeholder: "CELULAR", class: "cellphone" %>
 
       <%= f.email_field :email, placeholder: "EMAIL" %>
 
