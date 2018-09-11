@@ -4,4 +4,7 @@ $(document).on('ready page:change', function() {
 
   // Questions Options Counter //
   optionsCount();
+
+  // jQuery Mask
+  $('.cpf').mask('000.000.000-00');
 });

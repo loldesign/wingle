@@ -19,7 +19,7 @@
 
       <%= f.email_field :email, placeholder: "EMAIL" %>
 
-      <%= f.number_field :cpf, placeholder: "CPF", value: session[:cpf] %>
+      <%= f.text_field :cpf, placeholder: "CPF", value: session[:cpf], class: "cpf", minlength: 14, maxlength: 14 %>
 
       <%= f.password_field :password, placeholder: "SENHA", value: session[:password] %>
 
@@ -27,7 +27,7 @@
 
       <div class="checkbox-box">
         <label>
-          <input type="checkbox" class="filled-in" checked="checked" />
+          <%= check_box_tag "candidate[terms]", "", true, class: "filled-in" %>
           <span>Aceito os termos e condições da política de privacidade</span>
         </label>
       </div>
