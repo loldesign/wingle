@@ -1,4 +1,5 @@
 class Candidate < ApplicationRecord
+  require "cpf_cnpj"
   include AASM
 
   # Include default devise modules. Others available are:
@@ -9,6 +10,8 @@ class Candidate < ApplicationRecord
   has_one :candidate_interest, dependent: :destroy
 
   validates :name, :cpf, presence: true
+  validates_uniqueness_of :cpf
+  validates_length_of :cellphone, minimum: 14, maximum: 15, allow_blank: true
 
   scope :by_sector      , -> (sector_id)      { joins(:candidate_interest).where("? = ANY (candidate_interests.sectors)", sector_id) }
   scope :by_company_size, -> (company_size_id){ joins(:candidate_interest).where("? = ANY (candidate_interests.company_sizes)", company_size_id) }
@@ -17,6 +20,14 @@ class Candidate < ApplicationRecord
   scope :by_relevance   , -> (relevance_id)   { joins(:candidate_interest).where("? = ANY (candidate_interests.relevances)", relevance_id) }
   scope :by_city        , -> (city_id)        { joins(:candidate_interest).where("? = ANY (candidate_interests.cities)", city_id) }
   scope :by_area        , -> (area_id)        { joins(:candidate_interest).where("? = ANY (candidate_interests.areas)", area_id) }
+
+  validate :validate_cpf
+  def validate_cpf
+    if self.cpf.present? && !CPF.valid?(self.cpf)
+      errors.add(:cpf, :invalid)
+      return false
+    end
+  end
 
   aasm :column => :signup_state, :logger => Rails.logger do
     state :interest, initial: true

@@ -49,6 +49,7 @@ gem 'truncate_html'
 gem 'will_paginate'
 gem 'aasm'
 gem 'jquery_mask_rails'
+gem 'cpf_cnpj'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
