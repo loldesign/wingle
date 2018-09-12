@@ -4,7 +4,7 @@ var optionsCount = function(){
   this.maxOptions = container.data("max")
 
   $(".collection-item p label input").click(function(){
-     let currentOptions = $(this).parents().find("input[type=checkbox]:checked").length
+     var currentOptions = $(this).parents().find("input[type=checkbox]:checked").length
      checkCountOptions(currentOptions);
   });
 
