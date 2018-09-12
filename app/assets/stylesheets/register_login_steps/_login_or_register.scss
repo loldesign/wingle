@@ -1,21 +1,21 @@
 #login_or_register {
-  form {
-    @include span-columns (12 of 12);
+  .content-box {
+    @include span-columns (6 of 6);
+    padding-top: 6vh;
 
-    .content-box {
-      @include span-columns (6 of 12);
-      @include shift (3 of 12);
-      padding-top: 6vh;
+    form {
+      @include span-columns (4 of 6);
+      @include shift (1 of 6);
+    }
 
-      a {
-        @include span-columns (6 of 12);
-        @include shift (3 of 12);
-        padding-top: 2vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: underline;
-      }
-  }
+    a {
+      @include span-columns (4 of 6);
+      @include shift (1 of 6);
+      padding-top: 2vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: underline;
+    }
   }
 }

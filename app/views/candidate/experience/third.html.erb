@@ -1,0 +1,39 @@
+<section id="third_step" class="question-container content" data-min="1" data-max="3">
+  <div class="max-option-notice">
+    <p class="gray bold">Você já atingiu o número máximo de opções</p>
+  </div>
+  <%#= form_tag({controller: "interest", action: "fourth"}, method: "post", id: "candidate_third") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress">
+            <div class="determinate" style="width: 37%"></div>
+          </div>
+          <h5 class="center-align section">Em quais áreas você tem maior experiência?</h5>
+        </li>
+
+        <% @area.each do |area| %>
+          <li class="collection-item">
+            <p>
+              <label>
+                <%= check_box_tag "teste", area.id, false, class: "with-gap" %>
+                  <span>
+                    <%= area.name %><br>
+                    Ex:
+                    <% area.functions.each do |functions| %>
+                      <%= functions.name %> |
+                    <% end %>
+                  </span>
+              </label>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_experience_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", candidate_experience_step_4_path, :class => "waves-effect waves-light btn-large next-step disabled" %>
+    </section>
+  <%# end %>
+</section>

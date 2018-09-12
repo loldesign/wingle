@@ -2,11 +2,11 @@
   <div class="max-option-notice">
     <p class="gray bold">Você já atingiu o número máximo de opções</p>
   </div>
-  <%= form_tag({controller: "steps", action: "fourth"}, method: "post", id: "candidate_third") do %>
+  <%= form_tag({controller: "interest", action: "fourth"}, method: "post", id: "candidate_third") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
-          <div class="progress ">
+          <div class="progress">
             <div class="determinate" style="width: 50%"></div>
           </div>
           <h5 class="center-align section">Quais são os 5 setores onde você tem maior interesse?</h5>
@@ -29,7 +29,7 @@
     </section>
 
     <section class="action-buttons-duo">
-      <%= link_to "Anterior", candidate_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Anterior", candidate_interest_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
       <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step disabled", :onclick => "$('#candidate_third').submit()" %>
     </section>
   <% end %>

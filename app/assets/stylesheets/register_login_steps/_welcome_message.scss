@@ -1,7 +1,7 @@
 #welcome_message {
   .content-box {
-    @include span-columns (6 of 12);
-    @include shift (3 of 12);
+    @include span-columns (4 of 6);
+    @include shift (1 of 6);
     border: solid 1px $medium-gray;
     border-radius: 30px;
     box-shadow: 0 0 1em $medium-gray;

@@ -1,12 +1,11 @@
 #quick_details {
   .content-box {
-    @include span-columns (8 of 12);
-    @include shift (2 of 12);
+    @include span-columns (6 of 6);
     padding-top: 6vh;
 
     .how-to-summary {
-      @include span-columns (7 of 8);
-      @include shift (1 of 8);
+      @include span-columns (4 of 6);
+      @include shift (1 of 6);
       padding-bottom: 3vh;
 
       h5 {
@@ -14,7 +13,7 @@
       }
 
       ul {
-        @include span-columns (6 of 7);
+        @include span-columns (4 of 4);
         margin-left: 5%;
 
         li {
@@ -35,10 +34,10 @@
     }
 
     .quick-details-info {
-      @include span-columns (8 of 8);
+      @include span-columns (6 of 6);
 
       h4 {
-        @include span-columns (8 of 8);
+        @include span-columns (6 of 6);
         padding: 4vh 0;
         margin: 0;
         text-align: left;
@@ -46,7 +45,7 @@
       }
 
       .list {
-        @include span-columns (8 of 8);
+        @include span-columns (6 of 6);
 
         .list-item {
           border-top: solid 1px $medium-gray;
@@ -59,7 +58,7 @@
           }
 
           .icon-box {
-            @include span-columns (2 of 8);
+            @include span-columns (2 of 6);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,7 +78,7 @@
           }
 
           p {
-            @include span-columns (6 of 8);
+            @include span-columns (6 of 6);
             margin-bottom: 0;
             font-size: 1.64rem;
           }

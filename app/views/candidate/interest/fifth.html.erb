@@ -1,5 +1,5 @@
 <section id="fifth_step" class="question-container content">
-  <%= form_tag({controller: "steps", action: "complete"}, method: "post", id: "candidate_fifth") do %>
+  <%= form_tag({controller: "interest", action: "complete"}, method: "post", id: "candidate_fifth") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -25,8 +25,8 @@
     </section>
 
     <section class="action-buttons-duo">
-      <%= link_to "Anterior", candidate_step_4_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", "#{}", :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_fifth').submit()" %>
+      <%= link_to "Anterior", candidate_interest_step_4_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", candidate_home_path, :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_fifth').submit()" %>
     </section>
   <% end %>
 </section>
