@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get   '/terms'              , to: 'steps#terms'
     match '/quick-details'      , to: 'steps#quick_details', via: [:get, :post]
     get   '/complete-register'  , to: 'steps#complete_register'
+    post  '/complete-register'  , to: 'steps#create_candidate'
     get   '/welcome-message'    , to: 'steps#welcome_message'
     get   '/dashboard'          , to: 'dashboard#index'    , as: :dashboard
 
