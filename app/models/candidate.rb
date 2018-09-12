@@ -8,6 +8,8 @@ class Candidate < ApplicationRecord
 
   has_one :candidate_interest, dependent: :destroy
 
+  validates :name, :cpf, presence: true
+
   scope :by_sector      , -> (sector_id)      { joins(:candidate_interest).where("? = ANY (candidate_interests.sectors)", sector_id) }
   scope :by_company_size, -> (company_size_id){ joins(:candidate_interest).where("? = ANY (candidate_interests.company_sizes)", company_size_id) }
   scope :by_locale      , -> (city_locale_id) { joins(:candidate_interest).where("? = ANY (candidate_interests.locales)", city_locale_id) }

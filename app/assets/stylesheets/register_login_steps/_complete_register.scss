@@ -7,6 +7,22 @@
       @include span-columns (6 of 12);
       @include shift (3 of 12);
 
+      div {
+        &.field_with_errors {
+          margin-bottom: 3vh;
+
+          input {
+            border-color: $error;
+            margin-bottom: 0;
+          }
+
+          .error {
+            color: $error;
+            padding-left: 1vw;
+          }
+        }
+      }
+
       .checkbox-box {
         span {
           font-size: 1vw;

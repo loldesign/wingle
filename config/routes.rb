@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     get '/user-login'         , to: 'steps#login_or_register'
     get '/terms'              , to: 'steps#terms'
     match '/quick-details'    , to: 'steps#quick_details', via: [:get, :post]
-    get '/complete-register'  , to: 'steps#complete_register'
+    get  '/complete-register' , to: 'steps#complete_register'
+    post '/complete-register' , to: 'steps#create_candidate'
     get '/welcome-message'    , to: 'steps#welcome_message'
     get '/step-1'             , to: 'steps#first'
     match '/step-2'           , to: 'steps#second'       , via: [:get, :post]

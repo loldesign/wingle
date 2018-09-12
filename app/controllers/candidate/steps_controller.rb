@@ -26,6 +26,22 @@ class Candidate::StepsController < ApplicationController
     @areas  =  Area.all
   end
 
+  def create_candidate
+    @candidate = Candidate.new(candidate_params)
+    @candidate.candidate_interest = CandidateInterest.new(candidate_interest_params)
+
+    if @candidate.save
+      session[:cpf] = nil
+      sign_in(@candidate)
+      redirect_to candidate_terms_path
+    else
+      @cities =  City.all
+      @areas  =  Area.all
+
+      render action: :complete_register
+    end
+  end
+
   def welcome_message
     @header_options = {style: :with_logo_back_button, back_button: false}
   end
@@ -98,6 +114,10 @@ class Candidate::StepsController < ApplicationController
     end
 
     def candidate_interest_params
-      params.fetch(:candidate_interest, {}).permit(locales: [], company_sizes: [], sectors: [], modes: [], relevances: [])
+      params.fetch(:candidate_interest, {}).permit(cities: [], areas: [], locales: [], company_sizes: [], sectors: [], modes: [], relevances: [])
+    end
+
+    def candidate_params
+      params.require(:candidate).permit(:email, :password, :password_confirmation, :name, :cellphone, :cpf)
     end
 end
