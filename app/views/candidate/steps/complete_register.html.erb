@@ -21,7 +21,7 @@
 
       <%= f.input :cpf, placeholder: "CPF", value: session[:cpf], input_html: { class: "cpf" }, minlength: 14, maxlength: 14 %>
 
-      <%= f.input :password, placeholder: "SENHA", value: session[:password] %>
+      <%= f.input :password, placeholder: "SENHA", input_html: {value: session[:password]} %>
 
       <%= f.input :password_confirmation, placeholder: "CONFIRMAR SENHA" %>
 

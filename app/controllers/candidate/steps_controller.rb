@@ -21,6 +21,7 @@ class Candidate::StepsController < ApplicationController
     @candidate = Candidate.new
     @candidate.build_candidate_interest
     @candidate.cpf = session[:cpf]
+    @candidate.password = session[:password]
 
     @cities =  City.all
     @areas  =  Area.all
