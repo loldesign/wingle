@@ -16,6 +16,11 @@
             margin-bottom: 0;
           }
 
+          select {
+            border-color: $error;
+            margin-bottom: 0 !important;
+          }
+
           .error {
             color: $error;
             padding-left: 1vw;
