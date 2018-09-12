@@ -12,12 +12,40 @@ Rails.application.routes.draw do
     get '/quick-details'      , to: 'steps#quick_details'
     get '/complete-register'  , to: 'steps#complete_register'
     get '/welcome-message'    , to: 'steps#welcome_message'
-    get '/step-1'             , to: 'steps#first'
-    get '/step-2'             , to: 'steps#second'
-    get '/step-3'             , to: 'steps#third'
-    get '/step-4'             , to: 'steps#fourth'
-    get '/step-5'             , to: 'steps#fifth'
+
+    ##### INTEREST SECTOR #####
+    namespace :interest do
+      get '/step-1'             , to: 'interest#first'
+      get '/step-2'             , to: 'interest#second'
+      get '/step-3'             , to: 'interest#third'
+      get '/step-4'             , to: 'interest#fourth'
+      get '/step-5'             , to: 'interest#fifth'
+    end
+
+    ##### MAIN CANDIDATE AREA #####
     get '/home'               , to: 'main#home', as: :home
+
+    namespace :experience do
+      get '/step-1'             , to: 'experience#first'
+      get '/step-2'             , to: 'experience#second'
+      get '/step-3'             , to: 'experience#third'
+      get '/step-4'             , to: 'experience#fourth'
+      get '/step-5'             , to: 'experience#fifth'
+      get '/step-6'             , to: 'experience#sixth'
+      get '/step-7'             , to: 'experience#seventh'
+    end
+
+    namespace :company do
+    end
+
+    namespace :hability do
+    end
+
+    namespace :education do
+    end
+
+    namespace :pretension do
+    end
   end
 
 
