@@ -96,6 +96,10 @@ pt-BR:
               blank: "Favor preencher este campo"
             password:
               blank: "Favor preencher este campo"
+        candidate:
+          attributes:
+            cpf:
+              invalid: "CPF inválido"
     state_machines:
       project:
         status:

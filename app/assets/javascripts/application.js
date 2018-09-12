@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs
+//= require jquery.mask
 //= require turbolinks
 //= require main
 //= require materialize.min

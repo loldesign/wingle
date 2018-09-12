@@ -8,26 +8,26 @@
   </section>
 
   <section class="content-box">
-    <%= simple_form_for(@candidate, as: :candidate, url: candidate_registration_path(:candidate)) do |f| %>
-      <%= f.text_field :name, placeholder: "NOME" %>
+    <%= simple_form_for(@candidate, as: :candidate, url: candidate_complete_register_path, defaults: {label: false}) do |f| %>
+      <%= f.input :name, placeholder: "NOME" %>
 
       <%= select_tag("candidate_interest[cities][]", options_from_collection_for_select(@cities, "id", "name"), prompt: 'CIDADE DE INTERESSE', include_blank: "Outros") %>
 
       <%= select_tag("candidate_interest[areas][]", options_from_collection_for_select(@areas, "id", "name"), prompt: 'ÁREA DE INTERESSE') %>
 
-      <%= f.text_field :cellphone, placeholder: "CELULAR" %>
+      <%= f.input :cellphone, placeholder: "CELULAR", input_html: { class: "cellphone" } %>
 
-      <%= f.email_field :email, placeholder: "EMAIL" %>
+      <%= f.input :email, placeholder: "EMAIL", input_html: {type: "email"}  %>
 
-      <%= f.number_field :cpf, placeholder: "CPF", value: session[:cpf] %>
+      <%= f.input :cpf, placeholder: "CPF", value: session[:cpf], input_html: { class: "cpf" }, minlength: 14, maxlength: 14 %>
 
-      <%= f.password_field :password, placeholder: "SENHA", value: session[:password] %>
+      <%= f.input :password, placeholder: "SENHA", value: session[:password] %>
 
-      <%= f.password_field :password_confirmation, placeholder: "CONFIRMAR SENHA" %>
+      <%= f.input :password_confirmation, placeholder: "CONFIRMAR SENHA" %>
 
       <div class="checkbox-box">
         <label>
-          <input type="checkbox" class="filled-in" checked="checked" />
+          <%= check_box_tag "candidate[terms]", "", true, class: "filled-in" %>
           <span>Aceito os termos e condições da política de privacidade</span>
         </label>
       </div>
