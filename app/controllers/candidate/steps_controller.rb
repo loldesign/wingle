@@ -1,5 +1,6 @@
 class Candidate::StepsController < ApplicationController
   before_action :authenticate_candidate!, except: [:login_or_register, :quick_details, :complete_register, :create_candidate]
+  before_action :try_sign_in_candidate, only: [:quick_details]
   before_action :set_candidate, only: [:terms]
 
   def login_or_register
@@ -69,5 +70,16 @@ class Candidate::StepsController < ApplicationController
 
     def candidate_params
       params.require(:candidate).permit(:email, :password, :password_confirmation, :name, :cellphone, :cpf)
+    end
+
+    def try_sign_in_candidate
+      candidate = Candidate.find_by_cpf(params[:cpf])
+
+      return false if     candidate.nil?
+      return false unless candidate.valid_password?(params[:password])
+
+      sign_in(candidate)
+
+      redirect_to candidate_home_path
     end
 end
