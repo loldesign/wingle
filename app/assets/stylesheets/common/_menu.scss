@@ -13,13 +13,54 @@
 
       li {
         border-bottom: solid 1.5px #FFF;
+        display: flex;
+        align-items: center;
 
         // &:last-of-type {
         //   border-bottom: none;
         // }
 
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        i,
+        img {
+          padding-left: 25%;
+        }
+
+        img {
+          width: 30%;
+        }
+
+        a {
+          padding-left: 5%;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    .settings-box {
+      margin-top: 10vh;
+
+      li {
+        border-top: solid 1.5px #FFF;
+
         a {
           padding-left: 25%;
+        }
+      }
+    }
+
+    .logout-box {
+      margin-top: 10vh;
+
+      ul {
+        li {
+          border: none;
         }
       }
     }
