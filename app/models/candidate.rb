@@ -7,7 +7,8 @@ class Candidate < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :candidate_interest, dependent: :destroy
+  has_one :candidate_interest  , dependent: :destroy
+  has_one :candidate_experience, dependent: :destroy
   accepts_nested_attributes_for :candidate_interest
   validates_associated :candidate_interest
 
