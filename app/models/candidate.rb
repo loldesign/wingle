@@ -8,8 +8,10 @@ class Candidate < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :candidate_interest, dependent: :destroy
+  accepts_nested_attributes_for :candidate_interest
+  validates_associated :candidate_interest
 
-  validates :name, :cpf, presence: true
+  validates :name, :cpf, :cellphone, presence: true
   validates_uniqueness_of :cpf
   validates_length_of :cellphone, minimum: 14, maximum: 15, allow_blank: true
 

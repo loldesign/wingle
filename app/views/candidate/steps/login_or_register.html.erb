@@ -6,10 +6,17 @@
     </p>
   </div>
 
-  <section class="content-box">
-    <%= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
-      <%= text_field_tag :cpf, '', placeholder: "CPF", class: "cpf", minlength: 14, maxlength: 14 %>
-      <%= password_field :password, '', placeholder: "SENHA" %>
+  <%= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
+    <section class="content-box">
+        <div class="input string required candidate_name field_with_errors">
+          <%= text_field_tag :cpf, '', placeholder: "CPF", class: "cpf", minlength: 14, maxlength: 14 %>
+          <% if @errors.present? %>
+            <span class="error"><%= @errors[:cpf] %></span>
+          <% end %>
+
+        </div>
+
+        <%= password_field :password, '', placeholder: "SENHA" %>
 
       <%= link_to "RECUPERAR SENHA", "#{}" %>
     <% end %>
