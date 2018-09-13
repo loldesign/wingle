@@ -20,11 +20,11 @@ class Candidates::SessionsController < Devise::SessionsController
 
   protected
     def after_sign_in_path_for(resource)
-      candidate_dashboard_path
+      candidate_home_path
     end
 
-    def after_sign_out_path_for(resource)
-      candidate_session_path
+    def after_sign_out_path_for(resource_or_scope)
+      root_path
     end
 
   # If you have extra params to permit, append them to the sanitizer.
