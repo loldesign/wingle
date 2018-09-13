@@ -1,0 +1,27 @@
+#menu {
+  @include span-columns (3 of 12);
+  height: 100%;
+
+  nav {
+    height: 100%;
+    background-color: $light-green;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      li {
+        border-bottom: solid 1.5px #FFF;
+
+        // &:last-of-type {
+        //   border-bottom: none;
+        // }
+
+        a {
+          padding-left: 25%;
+        }
+      }
+    }
+  }
+}

@@ -1,93 +1,102 @@
-<section id="home" class="content">
+<!-- SIGNOUT LINK -->
+<%= link_to "logout", destroy_candidate_session_path, method: :delete, confirm: 'Deseja sair?' %>
+
+<section id="home" class="content with-menu">
   <section class="content-box">
     <article class="complete-profile-advice border-bottom">
-      COMPLETE SEU PERFIL<br>
-      PARA AVALIAR DESAFIOS<br>
-      NAS EMPRESAS DO SEU INTERESSE
+      <h4 class="medium-gray bold">
+        COMPLETE SEU PERFIL<br>
+        PARA AVALIAR DESAFIOS<br>
+        NAS EMPRESAS DO SEU INTERESSE
+      </h4>
     </article>
 
-    <article class="sector-infos border-bottom">
+    <article class="default-sector sector-infos border-bottom">
       <div class="section-header">
-        <i class="material-icons">domain</i>
-        <h2>Setor</h2>
+        <i class="gray material-icons">domain</i>
+        <h4 class="gray">Setor</h3>
       </div>
 
       <div class="section-content">
-        <p>
+        <p class="gray bold">
           ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS 
+          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
         </p>
 
-        <p>
+        <p class="gray bold">
           ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS 
+          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
         </p>
 
-        <p>
+        <p class="gray bold">
           ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS 
+          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
         </p>
 
-        <p>
+        <p class="gray bold">
           ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS 
+          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
         </p>
 
-        <p>
+        <p class="gray bold">
           ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS 
+          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
         </p>
       </div>
     </article>
 
-    <article class="company-size-infos border-bottom">
+    <article class="default-sector company-size-infos border-bottom">
       <div class="section-header">
-        <i class="material-icons">domain</i>
-        <h2>Porte</h2>
+        <i class="gray material-icons">domain</i>
+        <h4 class="gray">Porte</h3>
       </div>
 
       <div class="section-content">
-        <p>
+        <p class="gray bold">
           INÍCIO DE OPERAÇÃO: MAIOR AUTONOMIA,
           RELEVÂNCIA, DINAMISMO.
         </p>
       </div>
     </article>
 
-    <article class="mode-infos border-bottom">
+    <article class="default-sector mode-infos border-bottom">
       <div class="section-header">
-        <%= image_tag 'icons/targeting.svg' %>
-        <h2>Estilo</h2>
+        <div class="img-box">
+          <%= image_tag 'icons/targeting.svg' %>
+        </div>
+        <h4 class="gray">Estilo</h3>
       </div>
 
       <div class="section-content">
-        <p>
-          AGRESSIVA: FOCO NO CURTO PRAZO, 
+        <p class="gray bold">
+          AGRESSIVA: FOCO NO CURTO PRAZO,
           NÚMEROS E PERFORMANCE.
         </p>
       </div>
     </article>
 
-    <article class="interest-locale-info">
+    <article class="default-sector interest-locale-info">
       <div class="section-header">
-        <%= image_tag 'icons/targeting.svg' %>
-        <h2>Localização</h2>
+        <div class="img-box">
+          <%= image_tag 'icons/targeting.svg' %>
+        </div>
+        <h4 class="gray">Localização</h3>
       </div>
 
       <div class="section-content">
-        <p>
+        <p class="gray bold">
           ITAIM, JARDIM PAULISTA E REGIÃO
         </p>
 
-        <p>
+        <p class="gray bold">
           ITAIM, JARDIM PAULISTA E REGIÃO
         </p>
 
-        <p>
+        <p class="gray bold">
           ITAIM, JARDIM PAULISTA E REGIÃO
         </p>
 
-        <p>
+        <p class="gray bold">
           ITAIM, JARDIM PAULISTA E REGIÃO
         </p>
       </div>

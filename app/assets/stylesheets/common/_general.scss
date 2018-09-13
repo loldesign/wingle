@@ -11,11 +11,14 @@
 
 .content {
   @include container;
-  width: 100%;
-  // @include span-columns (6 of 12);
-  // @include shift (3 of 12);
+  @include span-columns (6 of 12);
+  @include shift (3 of 12);
   height: 100%;
   z-index: 99999;
+
+  &.with-menu {
+    @include shift (0 of 12);
+  }
 }
 
 .wrapper {
@@ -113,4 +116,12 @@ select {
   background-position: right 50%;
   background-position-x: 97%;
   background-size: 3.5%;
+
+  /* CUSTOM SELECT INSIDE LABEL */
+  &.custom {
+    width: 50%;
+    margin-bottom: 0 !important;
+    font-size: 1.3rem !important;
+    font-weight: 600;
+  }
 }

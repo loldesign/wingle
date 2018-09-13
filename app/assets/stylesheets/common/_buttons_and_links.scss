@@ -16,7 +16,7 @@ button, a.btn-default {
 }
 
 .action-buttons-single {
-  @include span-columns (12 of 12);
+  @include span-columns (6 of 6);
   padding-top: 14vh;
 
   a {
@@ -30,16 +30,16 @@ button, a.btn-default {
 }
 
 .action-buttons-duo {
-  @include span-columns (12 of 12);
+  @include span-columns (6 of 6);
   padding-top: 7vh;
 
   a {
-    @include span-columns (2 of 12);
-    @include shift (2 of 12);
-    z-index: 1;
+
+    @include span-columns (2 of 6);
+    @include shift (0 of 6);
 
     &:first-of-type {
-      @include shift (3 of 12);
+      @include shift (1 of 6);
     }
 
     &.disabled {

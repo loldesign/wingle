@@ -1,11 +1,11 @@
 #complete_register {
   .content-box {
-    @include span-columns (12 of 12);
+    @include span-columns (6 of 6);
     padding-top: 6vh;
 
     form {
-      @include span-columns (6 of 12);
-      @include shift (3 of 12);
+      @include span-columns (4 of 6);
+      @include shift (1 of 6);
 
       div {
         &.field_with_errors {
@@ -29,22 +29,17 @@
       }
 
       .checkbox-box {
-        span {
-          font-size: 1vw;
-        }
+        @include span-columns (4 of 4);
       }
 
-      .complete-register-actions {
-        padding-top: 8vh;
+      .action-buttons-single {
+        padding-top: 5vh;
 
-        &.action-buttons-single {
-          a {
-            @include span-columns (4 of 6);
-            @include shift (1 of 6);
-          }
+        a {
+          @include span-columns (2 of 4);
+          @include shift (1 of 4);
         }
       }
     }
   }
-
 }
