@@ -1,19 +1,29 @@
 class Candidate::StepsController < ApplicationController
-  before_action :authenticate_candidate!, except: [:login_or_register, :quick_details, :complete_register]
+  before_action :authenticate_candidate!, except: [:login_or_register, :quick_details, :complete_register, :create_candidate]
   before_action :set_candidate, only: [:terms]
 
+  def login_or_register
+    redirect_to candidate_home_path if current_candidate.present?
+  end
+
   def quick_details
-    session[:cpf]      = params[:cpf]
-    session[:password] = params[:password]
+    if CPF.valid?(params[:cpf])
+      session[:cpf]      = params[:cpf]
+      session[:password] = params[:password]
+    else
+      @errors = {cpf: 'número inválido'}
+
+      render action: :login_or_register
+    end
   end
 
   def terms
     @header_options = {style: :with_logo_back_button}
 
-    if @candidate_interest.cities == []
-      @link_url = candidate_welcome_message_path
-    else
+    if @candidate_interest.cities.first.present?
       @link_url = candidate_interest_step_1_path
+    else
+      @link_url = candidate_welcome_message_path
     end
   end
 
