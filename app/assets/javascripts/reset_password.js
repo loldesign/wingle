@@ -1,23 +1,40 @@
+function disable(input_id) {
+  $(input_id).prop('disabled', true);
+  $(input_id).addClass( "disabled" );
+}
+
+function enable(input_id) {
+  $(input_id).prop('disabled', false);
+  $(input_id).removeClass( "disabled" );
+}
+
 $(document).ready(function() {
   if (($("#candidate_cpf").length > 0) && ($("#candidate_email").length > 0)) {
+    // if form returns error the page will have a cpf value so we disable email
+    if ($("#candidate_cpf").val().length > 0) {
+      disable("#candidate_email");
+    }
+
     $("#candidate_cpf").keyup(function(){
       if ($("#candidate_cpf").val().length > 0) {
-        $("#candidate_email").prop('disabled', true);
-        $("#candidate_email").addClass( "disabled" );
+        disable("#candidate_email");
       } else {
-        $("#candidate_email").prop('disabled', false);
-        $("#candidate_email").removeClass( "disabled" );
+        enable("#candidate_email");
       }
     });
 
     $("#candidate_email").keyup(function(){
       if ($("#candidate_email").val().length > 0) {
-        $("#candidate_cpf").prop('disabled', true);
-        $("#candidate_cpf").addClass( "disabled" );
+        disable("#candidate_cpf");
       } else {
-        $("#candidate_cpf").prop('disabled', false);
-        $("#candidate_cpf").removeClass( "disabled" );
+        enable("#candidate_cpf");
       }
     });
   }
+
+  setTimeout(function() {
+    $("#notice-wrapper").fadeOut(3000, function() {
+      $(this).remove();
+    })
+  }, 4500);
 });

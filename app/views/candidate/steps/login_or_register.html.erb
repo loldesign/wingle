@@ -6,6 +6,12 @@
     </p>
   </div>
 
+  <% if flash[:notice] %>
+    <div id="notice-wrapper">
+      <p class="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
   <%= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
     <section class="content-box">
         <div class="input string required candidate_name field_with_errors">

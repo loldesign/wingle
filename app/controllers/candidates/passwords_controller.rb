@@ -8,15 +8,19 @@ class Candidates::PasswordsController < Devise::PasswordsController
 
   # POST /resource/password
   def create
-    if candidate_params[:cpf].present?
+    if candidate_params[:cpf].present? && CPF.valid?(params[:cpf])
       @candidate = Candidate.find_by(cpf: candidate_params[:cpf])
       @candidate.send_reset_password_instructions
+    elsif candidate_params[:cpf].present? && !CPF.valid?(params[:cpf])
+      @candidate = Candidate.new(candidate_params)
+      @candidate.errors.delete(:email) if !@candidate.valid? # we want just cpf error here
     else
       @candidate = Candidate.send_reset_password_instructions(candidate_params)
     end
     yield @candidate if block_given?
 
     if successfully_sent?(@candidate)
+      flash[:notice] = "em breve você receberá um e-mail"
       respond_with({}, location: after_sending_reset_password_instructions_path_for(@candidate))
     else
       respond_with(@candidate)
