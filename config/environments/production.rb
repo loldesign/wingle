@@ -85,6 +85,8 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  config.action_mailer.asset_host = ENV['DOMAIN_URL']
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
