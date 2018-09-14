@@ -1,19 +1,24 @@
-<h2>Esqueci minha senha</h2>
+<section id="reset_password" class="content">
+  <div class="cloud-bg">
+    <p class="bold medium-gray">
+      Esqueci minha senha
+    </p>
+  </div>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), defaults: {label: false}, html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), defaults: {label: false}, html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :cpf, required: true, autofocus: true, placeholder: "CPF", input_html: { class: "cpf" } %>
-    <div class="separator-form">
-      <span class="text-center">OU</span>
+    <div class="form-inputs">
+      <%= f.input :cpf, required: true, autofocus: true, placeholder: "CPF", input_html: { class: "cpf" } %>
+      <div class="separator-form">
+        <span class="text-center">OU</span>
+      </div>
+      <%= f.input :email, required: true, placeholder: "EMAIL" %>
     </div>
-    <%= f.input :email, required: true, placeholder: "EMAIL" %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
+    <section class="form-actions action-buttons-single">
+      <%= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#new_candidate').submit()" %>
+    </section>
+  <% end %>
 
-<%= render "candidates/shared/links" %>
+</section>
