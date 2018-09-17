@@ -21,7 +21,12 @@ class Candidate::ExperienceController < ApplicationController
 
     @header_options = {style: :with_logo_back_button}
 
-    @title_list = TitleList.all
+    if @candidate_experience.current_title.nil?
+      redirect_to action: :first
+    else
+
+      @title = TitleList.find(@candidate_experience.current_title)
+    end
   end
 
   def third

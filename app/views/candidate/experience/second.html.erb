@@ -1,5 +1,5 @@
 <section id="second_step" class="question-container content">
-  <%#= form_tag({controller: "experience", action: "third"}, method: "post", id: "candidate_second") do %>
+  <%= form_tag({controller: "experience", action: "third"}, method: "post", id: "candidate_second") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -10,30 +10,30 @@
           <h5 class="center-align section">Como está distribuido seu tempo total de carreira nas posições abaixo:</h5>
         </li>
 
-        <% @title_list.each do |title_list| %>
-          <li class="collection-item with-select">
-            <p>
-              <label>
-                <span><%= title_list.name %></span>
-              </label>
-            </p>
+        <li class="collection-item with-select">
+          <p>
+            <label>
+              <span><%= @title.name %></span>
+            </label>
+          </p>
 
-            <select name="" id="" class="custom">
-              <option value="one_year">6 MESES - 1 ANO DE EXPERIÊNCIA</option>
-              <option value="two_years">1 ANO - 2 ANOS DE EXPERIÊNCIA</option>
-              <option value="three_years">2 ANOS - 3 ANOS DE EXPERIÊNCIA</option>
-              <option value="four_years">3 ANOS - 4 ANOS DE EXPERIÊNCIA</option>
-              <option value="five_years">4 ANOS - 5 ANOS DE EXPERIÊNCIA</option>
-              <option value="six_years">5 ANOS - 6 ANOS DE EXPERIÊNCIA</option>
-            </select>
-          </li>
-        <% end %>
+          <select name="candidate_experience[current_title_year]" id="" class="custom">
+            <% for i in 0..10 %>
+              <option value='<%= "#{i}" %>'><%= i == 1 ? "#{i} ANO" : "#{i} ANOS" %></option>
+            <% end %>
+          </select>E
+          <select name="candidate_experience[current_title_month]" id="" class="custom">
+            <% for i in 0..11 %>
+              <option value='<%= "#{i}" %>'><%= i == 1 ? "#{i} MÊS" : "#{i} MESES" %></option>
+            <% end %>
+          </select>
+        </li>
       </ul>
     </section>
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_experience_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", candidate_experience_step_3_path, :class => "waves-effect waves-light btn-large" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", onclick: "$('#candidate_second').submit()" %>
     </section>
-  <%# end %>
+  <% end %>
 </section>
