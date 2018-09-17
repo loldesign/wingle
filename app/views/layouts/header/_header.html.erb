@@ -30,8 +30,27 @@
     <section class="header-top">
       <div class="left-box">
         <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
-        <i class="icon ion-md-menu"></i> 
+        <!-- <i class="icon ion-md-menu"></i>  -->
       </div>
+
+      <nav class="top-menu">
+        <ul>
+          <li class="schedule">
+            <%#= image_tag 'icons/schedule.svg' %>
+            <%= link_to "Interesses e Experiências", candidate_experience_step_1_path %>            
+          </li>
+
+          <li class="company">
+            <%#= image_tag 'icons/company.svg' %>
+            <%= link_to "Empresas e Habilidades", "#{}" %>
+          </li>
+
+          <li class="shield">
+            <%#= image_tag 'icons/shield.svg' %>
+            <%= link_to "Educação e Pretensão", "#{}" %>
+          </li>
+        </ul>
+      </nav>
       
       <div class="profile-container">
         <div class="profile-box">

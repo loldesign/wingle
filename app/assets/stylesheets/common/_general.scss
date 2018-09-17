@@ -17,6 +17,7 @@
   z-index: 99999;
 
   &.with-menu {
+    @include span-columns (12 of 12);
     @include shift (0 of 12);
   }
 }
