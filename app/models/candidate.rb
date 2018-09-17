@@ -24,6 +24,8 @@ class Candidate < ApplicationRecord
   scope :by_city        , -> (city_id)        { joins(:candidate_interest).where("? = ANY (candidate_interests.cities)", city_id) }
   scope :by_area        , -> (area_id)        { joins(:candidate_interest).where("? = ANY (candidate_interests.areas)", area_id) }
 
+  scope :by_current_title, -> (title_id)      { joins(:candidate_experience).where("candidate_experiences.current_title = ?", title_id) }
+
   validate :validate_cpf
   def validate_cpf
     if self.cpf.present? && !CPF.valid?(self.cpf)

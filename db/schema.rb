@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180906155138) do
+ActiveRecord::Schema.define(version: 20180913144255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(version: 20180906155138) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "candidate_experiences", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.integer "current_title"
+    t.integer "current_title_year"
+    t.integer "current_title_month"
+    t.integer "areas", default: [], array: true
+    t.integer "functions", default: [], array: true
+    t.integer "disconsidered_functions", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_experiences_on_candidate_id"
   end
 
   create_table "candidate_interests", force: :cascade do |t|

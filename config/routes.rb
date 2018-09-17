@@ -27,13 +27,14 @@ Rails.application.routes.draw do
     get '/home'                  , to: 'main#home', as: :home
 
     ##### EXPERIENCE SECTOR #####
-    get 'experience/step-1'             , to: 'experience#first'
-    get 'experience/step-2'             , to: 'experience#second'
-    get 'experience/step-3'             , to: 'experience#third'
-    get 'experience/step-4'             , to: 'experience#fourth'
-    get 'experience/step-5'             , to: 'experience#fifth'
-    get 'experience/step-6'             , to: 'experience#sixth'
-    get 'experience/step-7'             , to: 'experience#seventh'
+    get   'experience/step-1'         , to: 'experience#first'
+    match 'experience/step-2'         , to: 'experience#second'     , via: [:get, :post]
+    match 'experience/step-3'         , to: 'experience#third'      , via: [:get, :post]
+    match 'experience/step-4'         , to: 'experience#fourth'     , via: [:get, :post]
+    match 'experience/step-5'         , to: 'experience#fifth'      , via: [:get, :post]
+    match 'experience/step-6'         , to: 'experience#sixth'      , via: [:get, :post]
+    match 'experience/step-7'         , to: 'experience#seventh'    , via: [:get, :post]
+    # post  'experience/step-complete'  , to: 'experience#complete'
 
     ##### COMPANY SECTOR #####
     # get 'company/step-1'             , to: 'company#first'
