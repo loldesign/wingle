@@ -40,12 +40,25 @@ class Candidate::ExperienceController < ApplicationController
   end
 
   def fourth
+    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+      render action: :third
+    end
+
     @header_options = {style: :with_logo_back_button}
 
-    @function = Function.all
+    if @candidate_experience.areas.nil? || @candidate_experience.areas == []
+      redirect_to action: :third
+    else
+
+      @function = Function.by_areas(@candidate_experience.areas)
+    end
   end
 
   def fifth
+    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+      render action: :fourth
+    end
+
     @header_options = {style: :with_logo_back_button}
 
     @function = Function.all
@@ -70,6 +83,6 @@ class Candidate::ExperienceController < ApplicationController
     end
 
     def candidate_experience_params
-      params.fetch(:candidate_experience, {}).permit(:current_title, :current_title_year, :current_title_month)
+      params.fetch(:candidate_experience, {}).permit(:current_title, :current_title_year, :current_title_month, areas: [], functions: [])
     end
 end
