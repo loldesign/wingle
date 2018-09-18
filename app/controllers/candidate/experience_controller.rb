@@ -1,6 +1,6 @@
 class Candidate::ExperienceController < ApplicationController
   before_action :authenticate_candidate!
-  before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete]
+  before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh, :complete]
 
   def first
     @header_options = {style: :with_logo_back_button}
@@ -61,19 +61,53 @@ class Candidate::ExperienceController < ApplicationController
 
     @header_options = {style: :with_logo_back_button}
 
-    @function = Function.all
+    if @candidate_experience.functions.nil? || @candidate_experience.functions == []
+      redirect_to action: :fourth
+    else
+
+      @function = Function.where("id IN (?)", @candidate_experience.functions)
+    end
   end
 
   def sixth
+    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+      render action: :fifth
+    end
+
     @header_options = {style: :with_logo_back_button}
 
-    @function = Function.all
+    if @candidate_experience.areas.nil? || @candidate_experience.areas == []
+      redirect_to action: :third
+    else
+
+      @function = Function.by_areas(@candidate_experience.areas)
+    end
   end
 
   def seventh
+    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+      render action: :sixth
+    end
+
     @header_options = {style: :with_logo_back_button}
 
-    @function = Function.all
+    if @candidate_experience.areas.nil? || @candidate_experience.areas == []
+      redirect_to action: :third
+    else
+
+      @disconsidered_functions = Function.where("id IN (?)", @candidate_experience.disconsidered_functions)
+      @function = Function.by_areas(@candidate_experience.areas) - @disconsidered_functions
+    end
+  end
+
+  def complete
+    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+      render action: :seventh
+    end
+
+    @candidate.completed_experiences! if @candidate.reload.experience?
+
+    redirect_to candidate_home_path
   end
 
   private
@@ -83,6 +117,6 @@ class Candidate::ExperienceController < ApplicationController
     end
 
     def candidate_experience_params
-      params.fetch(:candidate_experience, {}).permit(:current_title, :current_title_year, :current_title_month, areas: [], functions: [])
+      params.fetch(:candidate_experience, {}).permit(:current_title, :current_title_year, :current_title_month, areas: [], functions: [], disconsidered_functions: [], considered_functions: [])
     end
 end

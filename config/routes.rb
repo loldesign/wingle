@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     match 'experience/step-5'         , to: 'experience#fifth'      , via: [:get, :post]
     match 'experience/step-6'         , to: 'experience#sixth'      , via: [:get, :post]
     match 'experience/step-7'         , to: 'experience#seventh'    , via: [:get, :post]
-    # post  'experience/step-complete'  , to: 'experience#complete'
+    post  'experience/step-complete'  , to: 'experience#complete'
 
     ##### COMPANY SECTOR #####
     # get 'company/step-1'             , to: 'company#first'
