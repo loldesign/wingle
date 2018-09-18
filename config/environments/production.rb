@@ -73,6 +73,20 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  # SendGrid config
+  config.action_mailer.default_url_options = { host: ENV['DOMAIN_URL'] }
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 '587',
+    authentication:       :plain,
+    user_name:            ENV['SENDGRID_USERNAME'],
+    password:             ENV['SENDGRID_PASSWORD'],
+    domain:               'wingle.com',
+    enable_starttls_auto: true
+  }
+
+  config.action_mailer.asset_host = ENV['DOMAIN_URL']
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 

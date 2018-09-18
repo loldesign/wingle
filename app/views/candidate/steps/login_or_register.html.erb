@@ -15,9 +15,24 @@
         <% end %>
       </div>
 
-      <%= password_field :password, '', placeholder: "SENHA" %>
+  <% if flash[:notice] %>
+    <div id="notice-wrapper">
+      <p class="notice"><%= notice %></p>
+    </div>
+  <% end %>
 
-      <%= link_to "RECUPERAR SENHA", "#{}" %>
+  <%= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
+    <section class="content-box">
+        <div class="input string required candidate_name field_with_errors">
+          <%= text_field_tag :cpf, '', placeholder: "CPF", class: "cpf", minlength: 14, maxlength: 14 %>
+          <% if @errors.present? %>
+            <span class="error"><%= @errors[:cpf] %></span>
+          <% end %>
+        </div>
+
+        <%= password_field_tag :password, '', placeholder: "SENHA" %>
+
+      <%= link_to "RECUPERAR SENHA", new_candidate_password_path %>
     <% end %>
   </section>
 

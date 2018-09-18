@@ -19,6 +19,7 @@
 //= require materialize.min
 //= require toastr
 //= require toggle_items
+//= require reset_password
 //= require options_count
 //= require_tree .
 //= require turbolinks
