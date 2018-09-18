@@ -17,12 +17,13 @@
               </label>
             </p>
 
-            <select name="candidate_experience[function_exp_year]" id="" class="custom">
+            <%= hidden_field_tag("candidate_experience[functions_time_exp][][function_id]", {}, value: function.id) %>
+            <select name="candidate_experience[functions_time_exp][][year]" id="" class="custom">
               <% for i in 0..10 %>
                 <option value='<%= "#{i}" %>'><%= i == 1 ? "#{i} ANO" : "#{i} ANOS" %></option>
               <% end %>
             </select>E
-            <select name="candidate_experience[function_exp_month]" id="" class="custom">
+            <select name="candidate_experience[functions_time_exp][][month]" id="" class="custom">
               <% for i in 0..11 %>
                 <option value='<%= "#{i}" %>'><%= i == 1 ? "#{i} MÊS" : "#{i} MESES" %></option>
               <% end %>
@@ -34,7 +35,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_experience_step_4_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", candidate_experience_step_6_path, :class => "waves-effect waves-light btn-large" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_fifth').submit()" %>
     </section>
   <% end %>
 </section>
