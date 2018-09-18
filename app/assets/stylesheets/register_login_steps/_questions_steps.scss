@@ -55,6 +55,10 @@
           p {
             float: left;
 
+            &:first-of-type {
+              width: 10vw;
+            }
+
             label {
               font-size: 1.3rem;
             }
