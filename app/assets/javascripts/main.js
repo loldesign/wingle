@@ -1,4 +1,4 @@
-$(document).on('ready page:change', function() {
+$(document).on('turbolinks:load', function() {
   // Conflict Solution between Materialize Waves Button Effect and Turbolinks //
   Waves.displayEffect();
 
@@ -18,4 +18,7 @@ $(document).on('ready page:change', function() {
   };
 
   $('.cellphone').mask(PhoneMaskBehavior, phoneOptions);
+
+  // Candidate Companies Append or Remove //
+  appendCompany();  
 });
