@@ -16,7 +16,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= check_box_tag "candidate_experience[functions][]", function.id, false, class: "with-gap" %>
+                <%= check_box_tag "candidate_experience[functions][]", function.id, @candidate_experience.functions.include?(function.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= function.name %>:
                   </span>
@@ -29,7 +29,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_experience_step_3_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step disabled", onclick: "$('#candidate_fourth').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step #{@candidate_experience.functions.empty? ? 'disabled' : ''}", onclick: "$('#candidate_fourth').submit()" %>
     </section>
   <% end %>
 </section>
