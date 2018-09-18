@@ -125,4 +125,13 @@ select {
     font-size: 1.3rem !important;
     font-weight: 600;
   }
+
+  &.full {
+    width: 100%;
+    background-size: 2.5%;
+
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
 }

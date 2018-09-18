@@ -35,23 +35,12 @@ Rails.application.routes.draw do
     get 'experience/step-6'             , to: 'experience#sixth'
     get 'experience/step-7'             , to: 'experience#seventh'
 
-    ##### COMPANY SECTOR #####
-    # get 'company/step-1'             , to: 'company#first'
-    # get 'company/step-2'             , to: 'company#second'
-    # get 'company/step-3'             , to: 'company#third'
-    # get 'company/step-4'             , to: 'company#fourth'
-    # get 'company/step-5'             , to: 'company#fifth'
-    # get 'company/step-6'             , to: 'company#sixth'
-    # get 'company/step-7'             , to: 'company#seventh'
+    #### COMPANY SECTOR #####
+    get 'company/step-1'             , to: 'company#first'
+    get 'company/step-2'             , to: 'company#second'
 
-    ##### HABILITY SECTOR #####
-    # get 'hability/step-1'             , to: 'hability#first'
-    # get 'hability/step-2'             , to: 'hability#second'
-    # get 'hability/step-3'             , to: 'hability#third'
-    # get 'hability/step-4'             , to: 'hability#fourth'
-    # get 'hability/step-5'             , to: 'hability#fifth'
-    # get 'hability/step-6'             , to: 'hability#sixth'
-    # get 'hability/step-7'             , to: 'hability#seventh'
+    #### HABILITY SECTOR #####
+    get 'hability/step-1'             , to: 'hability#first'
 
     ##### EDUCATION SECTOR #####
     # get 'education/step-1'             , to: 'education#first'

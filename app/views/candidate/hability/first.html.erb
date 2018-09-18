@@ -1,0 +1,40 @@
+<section id="first_step" class="question-container content">
+  <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 15%"></div>
+          </div>
+
+          <h5 class="center-align section">Onde você agrega mais valor (dentro dessas funções)</h5>
+        </li>
+
+        <% @area.each do |area| %>
+          <li class="collection-item">
+            <p>
+              <label>
+                <%= check_box_tag "teste", area.id, false, class: "with-gap" %>
+                  <span>
+                    <% area.functions.each do |functions| %>
+                      <%= functions.name %> <br><br>
+
+                      <% functions.habilities.each do |hability| %>
+                        <%= hability.name %> |
+                      <% end %>
+                      <br><br>
+                    <% end %>
+                  </span>
+              </label>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_company_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", candidate_home_path, :class => "waves-effect waves-light btn-large" %>
+    </section>
+  <%# end %>
+</section>
