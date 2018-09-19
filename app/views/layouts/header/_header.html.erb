@@ -25,7 +25,7 @@
     </div>  
   </section>
 <% elsif options[:style] == :dashboard_header %>
-<!-- Dashboard -->
+  <!-- Dashboard -->
   <section class="dashboard-header">
     <section class="header-top">
       <div class="left-box">
@@ -55,6 +55,31 @@
       <div class="profile-container">
         <div class="profile-box">
           <%= image_tag 'wingle-logo.svg' %>
+        </div>
+
+        <div class="profile-options hidden">
+          <ul>
+            <li>
+              <%= link_to "#{}" do %>
+                <div class="icon-box">
+                  <i class="material-icons">settings</i>
+                </div>
+
+                <p>Configurações</p>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to destroy_candidate_session_path, method: :delete, confirm: 'Deseja sair?' do %>
+                <!-- SIGNOUT LINK -->
+                <div class="icon-box">
+                  <%= image_tag 'icons/logout.svg' %>
+                </div>
+
+                <p>Sair</p>
+              <% end %>
+            </li>
+          </ul>
         </div>
       </div>
     </section>

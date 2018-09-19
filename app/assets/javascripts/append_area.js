@@ -5,18 +5,16 @@ var appendCompany = function(){
 
   $('#btn-minus').click(function (event) {
     event.preventDefault();
-    let listItemQuantity = $('.collection.with-input .collection-item').length
-    removeItem(listItemQuantity);
+    removeItem();
   });
 
   $('#btn-plus').click(function (event) {
     event.preventDefault();
-    let listItemQuantity = $('.collection.with-input .collection-item').length
-    addItem(listItemQuantity);
+    addItem();
   });
 
   // Remove Company //
-  removeItem = function(listItemQuantity) {
+  removeItem = function() {
     $('.collection-item:last').remove();
 
     let currentItem = $('.collection.with-input .collection-item').length
@@ -29,7 +27,7 @@ var appendCompany = function(){
   }
 
   // Add Company //
-  addItem = function(listItemQuantity) {
+  addItem = function() {
     formList.append("<li class='collection-item'> <input type='text' placeholder='Nome:'> <select name=' id=' class='custom'> <option value='one_year'>6 MESES - 1 ANO DE EXPERIÊNCIA</option> <option value='two_years'>1 ANO - 2 ANOS DE EXPERIÊNCIA</option> <option value='three_years'>2 ANOS - 3 ANOS DE EXPERIÊNCIA</option> <option value='four_years'>3 ANOS - 4 ANOS DE EXPERIÊNCIA</option> <option value='five_years'>4 ANOS - 5 ANOS DE EXPERIÊNCIA</option> <option value='six_years'>5 ANOS - 6 ANOS DE EXPERIÊNCIA</option> </select> </li>")
 
     let currentItem = $('.collection.with-input .collection-item').length
