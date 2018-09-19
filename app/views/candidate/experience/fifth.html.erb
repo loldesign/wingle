@@ -1,5 +1,5 @@
 <section id="fifth_step" class="question-container content">
-  <%= form_tag({controller: "interest", action: "complete"}, method: "post", id: "candidate_fifth") do %>
+  <%= form_tag({controller: "experience", action: "sixth"}, method: "post", id: "candidate_fifth") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -17,13 +17,17 @@
               </label>
             </p>
 
-            <select name="" id="" class="custom">
-              <option value="one_year">6 MESES - 1 ANO DE EXPERIÊNCIA</option>
-              <option value="two_years">1 ANO - 2 ANOS DE EXPERIÊNCIA</option>
-              <option value="three_years">2 ANOS - 3 ANOS DE EXPERIÊNCIA</option>
-              <option value="four_years">3 ANOS - 4 ANOS DE EXPERIÊNCIA</option>
-              <option value="five_years">4 ANOS - 5 ANOS DE EXPERIÊNCIA</option>
-              <option value="six_years">5 ANOS - 6 ANOS DE EXPERIÊNCIA</option>
+            <%= hidden_field_tag("candidate_experience[functions_time_exp][][function_id]", {}, value: function.id) %>
+            <select name="candidate_experience[functions_time_exp][][year]" id="" class="custom">
+              <% for i in 0..10 %>
+                <option value='<%= "#{i}" %>'><%= i == 1 ? "#{i} ANO" : "#{i} ANOS" %></option>
+              <% end %>
+            </select>
+            <p><label>E</label></p>
+            <select name="candidate_experience[functions_time_exp][][month]" id="" class="custom">
+              <% for i in 0..11 %>
+                <option value='<%= "#{i}" %>'><%= i == 1 ? "#{i} MÊS" : "#{i} MESES" %></option>
+              <% end %>
             </select>
           </li>
         <% end %>
@@ -32,7 +36,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_experience_step_4_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", candidate_experience_step_6_path, :class => "waves-effect waves-light btn-large" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_fifth').submit()" %>
     </section>
   <% end %>
 </section>

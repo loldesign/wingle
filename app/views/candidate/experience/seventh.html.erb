@@ -2,7 +2,7 @@
   <div class="max-option-notice">
     <p class="gray bold">Você já atingiu o número máximo de opções</p>
   </div>
-  <%#= form_tag({controller: "interest", action: "fifth"}, method: "post", id: "candidate_fourth") do %>
+  <%= form_tag({controller: "experience", action: "complete"}, method: "post", id: "candidate_seventh") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -16,7 +16,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= check_box_tag "teste", function.id, false, class: "with-gap" %>
+                <%= check_box_tag "candidate_experience[considered_functions][]", function.id, @candidate_experience.considered_functions.include?(function.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= function.name %>:
                   </span>
@@ -29,7 +29,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_experience_step_6_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", candidate_home_path, :class => "waves-effect waves-light btn-large next-step disabled" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-step #{@candidate_experience.considered_functions.empty? ? 'disabled' : ''}", onclick: "$('#candidate_seventh').submit()" %>
     </section>
-  <%# end %>
+  <% end %>
 </section>
