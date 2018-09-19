@@ -1,7 +1,6 @@
 #menu {
   display: none !important;
 
-
   @include span-columns (2 of 12);
   height: 100%;
 
@@ -86,25 +85,25 @@ nav.top-menu {
       display: flex;
       justify-content: center;
       position: relative;
-      width: 20%;
+      width: 20vw;
       margin-right: 2%;
       background-repeat: no-repeat;
-      background-size: 12%;
-      background-position-y: 42%;
+      background-size: 9%;
+      background-position-y: 47%;
 
       &.schedule {
         background-image: image-url("icons/schedule.svg");
-        background-position-x: 10%;
+        background-position-x: 14%;
       }
 
       &.company {
         background-image: image-url("icons/company.svg");
-        background-position-x: 11.3%;
+        background-position-x: 15.3%;
       }
 
       &.shield {
         background-image: image-url("icons/shield.svg");
-        background-position-x: 14%;
+        background-position-x: 17%;
       }
 
       &:last-of-type {
@@ -168,7 +167,7 @@ nav.top-menu {
 
       a {
         color: $gray;
-        font-size: 1.1rem;
+        font-size: 1vw;
         z-index: 9999;
         padding-left: 3.5vw;
 

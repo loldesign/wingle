@@ -80,9 +80,10 @@ header {
         @include span-columns (2 of 12);
         display: flex;
         justify-content: center;
+        position: relative;
 
         .profile-box {
-          width: 34.66%;
+          width: 45.5%;
           height: 10vh;
           // border: solid 1.5px $medium-gray;
           border-radius: 90px;
@@ -92,6 +93,63 @@ header {
           justify-content: center;
           padding: 20px;
           cursor: pointer;
+        }
+
+        .profile-options {
+          width: 100%;
+          background-color: $light-green;
+          position: absolute;
+          top: 12vh;
+          z-index: 9999;
+
+          ul {
+            display: flex;
+            flex-direction: column;
+
+            li {
+              border-bottom: solid 1px $white;
+              display: flex;
+              align-items: center;
+              
+              a {
+                width: 100%;
+                display: flex;
+                align-items: center;
+
+                .icon-box {
+                  width: 20%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 1vh 0;
+
+                  img {
+                    width: 45%;
+                  }
+                }
+
+                i,
+                p {
+                  color: $white;
+                }
+
+                p {
+                  width: 80%;
+                  padding-left: .58vw;
+                  border-left: solid 1px $white;
+                  margin-bottom: 0;
+                }
+
+                &:hover {
+                  background-color: rgba(0, 0, 0, .2);
+                }
+              }
+            }
+          }
+
+          &.hidden {
+            display: none;
+          }
         }
       }
     }
