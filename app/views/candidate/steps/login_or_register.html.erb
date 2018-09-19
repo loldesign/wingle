@@ -5,24 +5,16 @@
       na nuvem
     </p>
   </div>
-  
+
   <section class="content-box">
     <%= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
-      <div class="input string required candidate_name field_with_errors">
-        <%= text_field_tag :cpf, '', placeholder: "CPF", class: "cpf", minlength: 14, maxlength: 14 %>
-        <% if @errors.present? %>
-          <span class="error"><%= @errors[:cpf] %></span>
+      <section class="content-box">
+        <% if flash[:notice] %>
+          <div id="notice-wrapper">
+            <p class="notice"><%= notice %></p>
+          </div>
         <% end %>
-      </div>
 
-  <% if flash[:notice] %>
-    <div id="notice-wrapper">
-      <p class="notice"><%= notice %></p>
-    </div>
-  <% end %>
-
-  <%= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
-    <section class="content-box">
         <div class="input string required candidate_name field_with_errors">
           <%= text_field_tag :cpf, '', placeholder: "CPF", class: "cpf", minlength: 14, maxlength: 14 %>
           <% if @errors.present? %>
@@ -32,12 +24,12 @@
 
         <%= password_field_tag :password, '', placeholder: "SENHA" %>
 
-      <%= link_to "RECUPERAR SENHA", new_candidate_password_path %>
+        <%= link_to "RECUPERAR SENHA", new_candidate_password_path %>
+      </section>
     <% end %>
-  </section>
 
   <section class="login-or-register-actions action-buttons-duo">
-    <%= link_to "SAIBA MAIS", candidate_user_login_path, :class => 'waves-effect waves-light btn-default gray-default bold' %>
     <%= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
+    <%= link_to "SAIBA MAIS", candidate_user_login_path, :class => 'waves-effect waves-light btn-default gray-default bold' %>
   </section>
 </section>
