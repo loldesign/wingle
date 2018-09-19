@@ -80,7 +80,7 @@ class Candidate::ExperienceController < ApplicationController
       redirect_to action: :third
     else
 
-      @function = Function.by_areas(@candidate_experience.areas)
+      @function = Function.where("id IN (?)", @candidate_experience.functions)
     end
   end
 
