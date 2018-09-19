@@ -17,14 +17,14 @@
               </label>
             </p>
 
-            <%= hidden_field_tag("candidate_experience[functions_time_exp][][function_id]", {}, value: function.id) %>
-            <select name="candidate_experience[functions_time_exp][][year]" id="" class="custom">
+            <%= hidden_field_tag("candidate_experience[candidate_experience_function][][function_id]", {}, value: function.id) %>
+            <select name="candidate_experience[candidate_experience_function][][years]" id="" class="custom">
               <% for i in 0..10 %>
                 <option value='<%= "#{i}" %>'><%= i == 1 ? "#{i} ANO" : "#{i} ANOS" %></option>
               <% end %>
             </select>
             <p><label>E</label></p>
-            <select name="candidate_experience[functions_time_exp][][month]" id="" class="custom">
+            <select name="candidate_experience[candidate_experience_function][][months]" id="" class="custom">
               <% for i in 0..11 %>
                 <option value='<%= "#{i}" %>'><%= i == 1 ? "#{i} MÊS" : "#{i} MESES" %></option>
               <% end %>

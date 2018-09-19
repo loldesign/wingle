@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180918184951) do
+ActiveRecord::Schema.define(version: 20180919162946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 20180918184951) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "candidate_experience_functions", force: :cascade do |t|
+    t.bigint "candidate_experience_id"
+    t.integer "function_id"
+    t.integer "years"
+    t.integer "months"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_experience_id"], name: "index_candidate_experience_functions_on_candidate_experience_id"
+  end
+
   create_table "candidate_experiences", force: :cascade do |t|
     t.bigint "candidate_id"
     t.integer "current_title"
@@ -62,7 +72,6 @@ ActiveRecord::Schema.define(version: 20180918184951) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "considered_functions", default: [], array: true
-    t.text "functions_time_exp"
     t.index ["candidate_id"], name: "index_candidate_experiences_on_candidate_id"
   end
 
