@@ -93,13 +93,6 @@
         }
       }
 
-      #btn-minus,
-      #btn-plus {
-        &.hide {
-          display: none;
-        }
-      }
-      
       .list-item-options {
         @include span-columns (4 of 6);
         @include shift (1 of 6);
@@ -122,6 +115,10 @@
             font-size: 2.4rem;
             display: flex;
             align-items: center;
+          }
+
+          &.hide {
+            display: none;
           }
         }
       }

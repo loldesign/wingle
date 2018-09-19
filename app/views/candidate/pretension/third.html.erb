@@ -1,0 +1,77 @@
+<section id="third_step" class="question-container content">
+  <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 95%"></div>
+          </div>
+
+          <h5 class="center-align section">Qual seria sua pretensão salarial pensando em uma nova posição?</h5>
+        </li>
+        
+        <li class="collection-item with-select-full">
+          <p>
+            <label>
+              <span>
+                TOTAL ANUAL
+              </span>
+            </label>
+          </p>
+
+          <input type="text" placeholder="R$:">
+        </li>
+        
+        <li class="collection-item with-select-full">
+          <p>
+            <label>
+              <span>
+                PRETENSÃO MÍNIMA
+              </span>
+            </label>
+          </p>
+        
+          <%= select_tag 'claim_list', options_for_select(@claim.collect{ |claim| [claim.name, claim.id] }), :class => "full" %>
+        </li>
+
+        <li class="collection-item with-select-full">
+          <p>
+            <label>
+              <span>
+                TOTAL ANUAL PRETENDIDO
+              </span>
+            </label>
+          </p>
+
+          <input type="text" placeholder="R$:">
+        </li>
+
+        <li class="collection-item with-select-full">
+          <p>
+            <label>
+              <span>
+                FIXO MÍNIMO PARA AVALIAR 
+                NOVAS OPORTUNIDADES
+              </span>
+            </label>
+          </p>
+
+          <p>
+            <label>
+              <span>
+                PRETENSÃO MÍNIMA
+              </span>
+            </label>
+          </p>
+
+          <input type="text" placeholder="R$:">
+        </li>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_pretension_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", candidate_home_path, :class => "waves-effect waves-light btn-large" %>
+    </section>
+  <%# end %>
+</section>
