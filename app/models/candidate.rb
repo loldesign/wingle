@@ -12,6 +12,8 @@ class Candidate < ApplicationRecord
   accepts_nested_attributes_for :candidate_interest
   validates_associated :candidate_interest
 
+  has_many :candidate_companies, dependent: :destroy
+
   validates :name, :cpf, :cellphone, presence: true
   validates_uniqueness_of :cpf
   validates_length_of :cellphone, minimum: 14, maximum: 15, allow_blank: true

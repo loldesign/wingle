@@ -1,5 +1,5 @@
 <section id="second_step" class="question-container content">
-  <%#= form_tag({controller: "experience", action: "third"}, method: "post", id: "candidate_second") do %>
+  <%= form_tag({controller: "company", action: "complete"}, method: "post", id: "candidate_second") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -10,26 +10,27 @@
           <h5 class="center-align section">Quais foram as empresas mais relevantes em que você trabalhou?</h5>
         </li>
 
-        <%# @title_list.each do |title_list| %>
+        <% @companies.each do |company| %>
           <li class="collection-item with-select-full">
             <p>
               <label>
-                <span>Nome da Empresa de acordo com a empresa citada anteriormente</span>
+                <span><%= company.name %></span>
               </label>
             </p>
           
-            <%= select_tag 'size', options_for_select(@size.collect{ |company| [company.name, company.id] }), :class => "full" %>
-            <%= select_tag 'sector', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }), :class => "full" %>
-            <%= select_tag 'profile', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }), :class => "full" %>
+            <%= hidden_field_tag("candidate_companies[][id]", {}, value: company.id) %>
+            <%= select_tag 'candidate_companies[][size]', options_for_select(@size.collect{ |company| [company.name, company.id] }), :class => "full" %>
+            <%= select_tag 'candidate_companies[][sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }), :class => "full" %>
+            <%= select_tag 'candidate_companies[][title]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }), :class => "full" %>
 
           </li>
-        <%# end %>
+        <% end %>
       </ul>
     </section>
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_company_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", candidate_hability_step_1_path, :class => "waves-effect waves-light btn-large" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_second').submit()" %>
     </section>
-  <%# end %>
+  <% end %>
 </section>
