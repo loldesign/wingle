@@ -1,4 +1,4 @@
-<section id="first_step" class="question-container content">
+<section id="first_step" class="question-container content pretension-step">
   <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
     <section class="content-box">
       <ul class="collection with-header">
@@ -10,8 +10,8 @@
           <h5 class="center-align section">Com relação a sua última remuneração</h5>
         </li>
 
-        <li class="collection-item with-select-full">
-          <p>
+        <li class="collection-item pretension-calc-item">
+          <p class="half-label">
             <label>
               <span>
                 FIXO MENSAL
@@ -19,11 +19,11 @@
             </label>
           </p>
 
-          <input type="text" placeholder="R$:">
+          <input type="text" placeholder="R$:" class="half-input">
         </li>
         
-        <li class="collection-item with-select-full">
-          <p>
+        <li class="collection-item pretension-calc-item">
+          <p class="half-label">
             <label>
               <span>
                 Nº DE SALÁRIOS
@@ -31,11 +31,11 @@
             </label>
           </p>
         
-          <%= select_tag 'salary_list', options_for_select(@salary_list.collect{ |salary| [salary.name, salary.id] }), :class => "full" %>
+          <%= select_tag 'salary_list', options_for_select(@salary_list.collect{ |salary| [salary.name, salary.id] }), :class => "custom" %>
         </li>
 
-        <li class="collection-item with-select-full">
-          <p>
+        <li class="collection-item pretension-calc-item">
+          <p class="half-label">
             <label>
               <span>
                 VARIÁVEL
@@ -43,10 +43,10 @@
             </label>
           </p>
 
-          <input type="text" placeholder="R$:">
+          <input type="text" placeholder="R$:" class="half-input">
         </li>
 
-        <li class="collection-item with-select-full">
+        <li class="collection-item pretension-calc-result">
           <p>
             <label>
               <span>

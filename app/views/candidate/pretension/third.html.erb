@@ -1,4 +1,4 @@
-<section id="third_step" class="question-container content">
+<section id="third_step" class="question-container content pretension-step">
   <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
     <section class="content-box">
       <ul class="collection with-header">
@@ -10,7 +10,7 @@
           <h5 class="center-align section">Qual seria sua pretensão salarial pensando em uma nova posição?</h5>
         </li>
         
-        <li class="collection-item with-select-full">
+        <li class="collection-item pretension-calc-item">
           <p>
             <label>
               <span>
@@ -19,10 +19,10 @@
             </label>
           </p>
 
-          <input type="text" placeholder="R$:">
+          <input type="text" placeholder="R$:" class="half-input">
         </li>
         
-        <li class="collection-item with-select-full">
+        <li class="collection-item pretension-calc-item">
           <p>
             <label>
               <span>
@@ -31,10 +31,10 @@
             </label>
           </p>
         
-          <%= select_tag 'claim_list', options_for_select(@claim.collect{ |claim| [claim.name, claim.id] }), :class => "full" %>
+          <%= select_tag 'claim_list', options_for_select(@claim.collect{ |claim| [claim.name, claim.id] }), :class => "custom" %>
         </li>
 
-        <li class="collection-item with-select-full">
+        <li class="collection-item pretension-calc-item">
           <p>
             <label>
               <span>
@@ -43,10 +43,10 @@
             </label>
           </p>
 
-          <input type="text" placeholder="R$:">
+          <input type="text" placeholder="R$:" class="half-input">
         </li>
 
-        <li class="collection-item with-select-full">
+        <li class="collection-item fixed-minimum-pretension">
           <p>
             <label>
               <span>
@@ -55,16 +55,18 @@
               </span>
             </label>
           </p>
+          
+          <div class="collection-item pretension-calc-item">
+            <p>
+              <label>
+                <span>
+                  PRETENSÃO MÍNIMA
+                </span>
+              </label>
+            </p>
 
-          <p>
-            <label>
-              <span>
-                PRETENSÃO MÍNIMA
-              </span>
-            </label>
-          </p>
-
-          <input type="text" placeholder="R$:">
+            <%= select_tag 'claim_list', options_for_select(@claim.collect{ |claim| [claim.name, claim.id] }), :class => "custom" %>
+          </div>
         </li>
       </ul>
     </section>

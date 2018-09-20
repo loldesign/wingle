@@ -1,4 +1,4 @@
-<section id="second_step" class="question-container content">
+<section id="second_step" class="question-container content education-step">
   <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
     <section class="content-box">
       <ul class="collection with-header language-form">
@@ -12,10 +12,10 @@
         
         <div class="language-item">
           <li class="collection-item">
-            <%= select_tag 'language', options_for_select(@language.collect{ |language| [language.name, language.id] }), :class => "full" %>
-
-            <% @language_level.each do |language_level| %>
-              <li class="collection-item">
+            <%= select_tag 'language', options_for_select(@language.collect{ |language| [language.name, language.id] }), :class => "custom" %>
+            
+            <div class="language-level-box">
+              <% @language_level.each do |language_level| %>
                 <p>
                   <label>
                     <%= radio_button_tag "#{}", language_level.id, false, class: "with-gap" %>
@@ -24,8 +24,8 @@
                       </span>
                   </label>
                 </p>
-              </li>
-            <% end %>
+              <% end %>
+            </div>
           </li>
         </div>
         

@@ -11,10 +11,10 @@ var appendCompany = function(){
 
   // Remove Company //
   removeCompany = function() {
-    $('.collection-item:last').remove();
+    $('.candidate-company-item:last').remove();
 
     // Candidate Company Counter //
-    var companyCounter = $('.collection.with-input .collection-item').length
+    var companyCounter = $('.collection.candidate-companies-form .candidate-company-item').length
 
     if (companyCounter < 2) {
       $('#btn-minus').addClass("hide");
@@ -26,15 +26,15 @@ var appendCompany = function(){
   // Add Company //
   addCompany = function($btn) {
     // Candidate Company Add Action//
-    var companyCounter         = $btn.closest('ul').find('.collection-item').length + 1
-    var $companyContainer      = $btn.closest('ul').find('.collection-item:first')
+    var companyCounter         = $btn.closest('ul').find('.candidate-company-item').length + 1
+    var $companyContainer      = $btn.closest('ul').find('.candidate-company-item:first')
     var $companyContainerClone = $companyContainer.clone()
 
     $companyContainerClone.find(':input').val('')
     $companyContainerClone.find('select').val('')
     
     if (companyCounter <= 5) {
-      $btn.closest('ul').find('.collection-item:last').after($companyContainerClone)
+      $btn.closest('ul').find('.candidate-company-item:last').after($companyContainerClone)
     } 
 
     if (companyCounter === 5){
