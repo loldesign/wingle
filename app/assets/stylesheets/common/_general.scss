@@ -122,7 +122,7 @@ select {
   &.custom {
     width: 50%;
     margin-bottom: 0 !important;
-    font-size: 1.3rem !important;
+    font-size: 1vw !important;
     font-weight: 600;
   }
 
@@ -134,4 +134,13 @@ select {
       margin-bottom: 0 !important;
     }
   }
+}
+
+/* ERROR INPUT MESSAGE */
+.error {
+  margin-top: -30px;
+  position: relative;
+  float: left;
+  margin-bottom: 30px;
+  color: $error;
 }

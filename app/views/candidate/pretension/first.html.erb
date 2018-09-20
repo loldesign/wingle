@@ -1,0 +1,68 @@
+<section id="first_step" class="question-container content pretension-step">
+  <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 60%"></div>
+          </div>
+
+          <h5 class="center-align section">Com relação a sua última remuneração</h5>
+        </li>
+
+        <li class="collection-item pretension-calc-item">
+          <p class="half-label">
+            <label>
+              <span>
+                FIXO MENSAL
+              </span>
+            </label>
+          </p>
+
+          <input type="text" placeholder="R$:" class="half-input">
+        </li>
+        
+        <li class="collection-item pretension-calc-item">
+          <p class="half-label">
+            <label>
+              <span>
+                Nº DE SALÁRIOS
+              </span>
+            </label>
+          </p>
+        
+          <%= select_tag 'salary_list', options_for_select(@salary_list.collect{ |salary| [salary.name, salary.id] }), :class => "custom" %>
+        </li>
+
+        <li class="collection-item pretension-calc-item">
+          <p class="half-label">
+            <label>
+              <span>
+                VARIÁVEL
+              </span>
+            </label>
+          </p>
+
+          <input type="text" placeholder="R$:" class="half-input">
+        </li>
+
+        <li class="collection-item pretension-calc-result">
+          <p>
+            <label>
+              <span>
+                TOTAL ANUAL
+              </span>
+            </label>
+          </p>
+
+          <input type="text" placeholder="R$:">
+        </li>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_education_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", candidate_pretension_step_2_path, :class => "waves-effect waves-light btn-large" %>
+    </section>
+  <%# end %>
+</section>

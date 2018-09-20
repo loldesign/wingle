@@ -1,0 +1,48 @@
+<section id="second_step" class="question-container content education-step">
+  <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
+    <section class="content-box">
+      <ul class="collection with-header language-form">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 40%"></div>
+          </div>
+
+          <h5 class="center-align section">Qual é o seu nível com relação aos idiomas:</h5>
+        </li>
+        
+        <div class="language-item">
+          <li class="collection-item">
+            <%= select_tag 'language', options_for_select(@language.collect{ |language| [language.name, language.id] }), :class => "custom" %>
+            
+            <div class="language-level-box">
+              <% @language_level.each do |language_level| %>
+                <p>
+                  <label>
+                    <%= radio_button_tag "#{}", language_level.id, false, class: "with-gap" %>
+                      <span>
+                        <%= language_level.name %>
+                      </span>
+                  </label>
+                </p>
+              <% end %>
+            </div>
+          </li>
+        </div>
+        
+        <div class="list-item-options">
+          <button id="btn-minus-language" class="btn-options hide waves-effect waves-light btn-large grey">
+            <i class="material-icons">remove_circle</i>
+          </button>
+          <button id="btn-plus-language" class="btn-options waves-effect waves-light btn-large grey">
+            <i class="material-icons">add_circle </i>
+          </button>
+        </div>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_education_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", candidate_pretension_step_1_path, :class => "waves-effect waves-light btn-large" %>
+    </section>
+  <%# end %>
+</section>

@@ -1,0 +1,33 @@
+<section id="second_step" class="question-container content">
+  <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 80%"></div>
+          </div>
+
+          <h5 class="center-align section">Quais benefícios seriam indispensáveis pra você?</h5>
+        </li>
+        
+        <% @benefits.each do |benefits| %>
+          <li class="collection-item">
+            <p>
+              <label>
+                <%= radio_button_tag "#{}", benefits.id, false, class: "with-gap" %>
+                  <span>
+                    <%= benefits.name %>
+                  </span>
+              </label>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_pretension_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", candidate_pretension_step_3_path, :class => "waves-effect waves-light btn-large" %>
+    </section>
+  <%# end %>
+</section>

@@ -21,4 +21,7 @@ $(document).on('turbolinks:load', function() {
 
   // Candidate Companies Append or Remove //
   appendCompany();  
+
+  // Candidate Language Append or Remove //
+  appendLanguage();
 });

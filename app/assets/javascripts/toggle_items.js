@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   // HEADER PROFILE OPTIONS //
   $(".dashboard-header .profile-container .profile-box").click(function(){
     $(this).parent().find(".profile-options").slideToggle('.hidden');
