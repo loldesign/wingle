@@ -14,7 +14,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= check_box_tag "habilities[areas][]", area.id, false, class: "with-gap" %>
+                <%= check_box_tag "candidate_hability[areas][]", area.id, false, class: "with-gap" %>
                   <span>
                     <% area.functions.each do |functions| %>
                       <%= functions.name %> <br><br>

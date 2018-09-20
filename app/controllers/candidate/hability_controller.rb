@@ -12,6 +12,16 @@ class Candidate::HabilityController < ApplicationController
   end
 
   def complete
+    if @candidate_hability.nil?
+      @candidate.build_candidate_hability
+      @candidate_hability = @candidate.candidate_hability
+      @candidate_hability.save
+    end
+    if hability_params.present? && !@candidate_hability.update_attributes(hability_params)
+      render action: :first
+    end
+
+    @candidate.completed_habilities! if @candidate.reload.habilities?
     
     redirect_to candidate_home_path
   end
@@ -19,9 +29,10 @@ class Candidate::HabilityController < ApplicationController
   private
     def set_candidate
       @candidate = current_candidate
+      @candidate_hability = @candidate.candidate_hability
     end
 
     def hability_params
-      params.require(:habilities).permit(areas: [])
+      params.fetch(:candidate_hability, {}).permit(areas: [])
     end
 end

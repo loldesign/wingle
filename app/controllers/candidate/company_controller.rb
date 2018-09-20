@@ -53,6 +53,9 @@ class Candidate::CompanyController < ApplicationController
         render action: :second
       end
     end
+
+    @candidate.completed_companies! if @candidate.reload.companies?
+
     redirect_to candidate_hability_step_1_path
   end
 
