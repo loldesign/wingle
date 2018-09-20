@@ -3,21 +3,39 @@ class Candidate::CompanyController < ApplicationController
   before_action :set_candidate, only: [:first, :second, :complete]
 
   def first
-    
+    @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
+
+    @years = []
+    @months = []
+    for i in 0..11
+      if i == 1
+        @years << ["#{i} ANO", "#{i}"]
+        @months << ["#{i} MÊS", "#{i}"]
+      else
+        @years << ["#{i} ANOS", "#{i}"]
+        @months << ["#{i} MESES", "#{i}"]
+      end
+    end
   end
 
   def second
-    # if params[:current_items] not present, 'count' will be 0
-    # so it wont get into the loop
-    count = params[:current_items].to_i
-    while count > 0
-      company = CandidateCompany.new(candidate_company_params(count))
-      raise ActiveRecord::Rollback if !company.valid?
-      @candidate.candidate_companies << company
-      count -= 1
+    if candidate_company_params.present?
+      CandidateCompany.transaction do
+        candidate_company_params.each do |co|
+          if co[:id].present? && co[:name].present?
+            company = CandidateCompany.update(co[:id], co)
+          elsif co[:id].present? && co[:name].nil?
+            company = CandidateCompany.destroy(co[:id])
+          else
+            company = CandidateCompany.new(co)
+            @candidate.candidate_companies << company
+          end
+          raise ActiveRecord::Rollback if !company.save
+        end
+      end
     end
 
-    if @candidate.candidate_companies.empty?
+    if !@candidate.valid? || @candidate.candidate_companies.empty?
       redirect_to action: :first
     else
       @companies = @candidate.candidate_companies
@@ -28,10 +46,12 @@ class Candidate::CompanyController < ApplicationController
   end
 
   def complete
-    candidate_params[:candidate_companies].each do |company|
+    candidate_company_params.each do |company|
       candidate_company = CandidateCompany.find(company[:id])
-      candidate_company.update_attributes(company)
-      # verify if return false?
+      saved = candidate_company.update_attributes(company)
+      if !saved
+        render action: :second
+      end
     end
     redirect_to candidate_hability_step_1_path
   end
@@ -39,14 +59,16 @@ class Candidate::CompanyController < ApplicationController
   private
     def set_candidate
       @candidate = current_candidate
+      @candidate_companies = @candidate.candidate_companies
     end
 
-    def candidate_company_params(n)
-      param_name = "candidate_company_#{n-1}"
-      params.fetch(param_name.to_sym, {}).permit(:name, :years, :months)
-    end
-
-    def candidate_params
-      params.permit(candidate_companies: [:id, :size, :sector, :title])
+    def candidate_company_params
+      if params[:candidate_companies].present?
+        params.fetch(:candidate_companies, {}).map do |p|
+          p.permit(:id, :name, :years, :months,
+            :size, :sector, :title
+          )
+        end
+      end
     end
 end

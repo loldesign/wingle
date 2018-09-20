@@ -20,7 +20,6 @@ var appendCompany = function(){
       $('#btn-minus').addClass("hide");
     }
 
-    $("#current_items").val(currentItem);
     $('#btn-plus').removeClass("hide");
   }
 

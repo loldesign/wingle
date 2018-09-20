@@ -42,8 +42,8 @@ Rails.application.routes.draw do
     post  'company/step-complete'     , to: 'company#complete'
 
     #### HABILITY SECTOR #####
-    match 'hability/step-1'           , to: 'hability#first'        , via: [:get, :post]
-    post  'hability/step-complete'    , to: 'hability#complete'
+    get  'hability/step-1'            , to: 'hability#first'
+    post 'hability/step-complete'     , to: 'hability#complete'
 
     #### EDUCATION SECTOR #####
     get 'education/step-1'             , to: 'education#first'

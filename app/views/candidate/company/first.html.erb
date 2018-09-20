@@ -10,21 +10,19 @@
           <h5 class="center-align section">Quais foram as empresas mais relevantes em que você trabalhou?</h5>
         </li>
         
-        <%= hidden_field_tag("current_items", {}, value: 1) %>
-        <li class="collection-item">
-          <%= text_field "candidate_company_0", 'name', placeholder: "Nome:" %>
-          <select name="candidate_company_0[years]" id="" class="custom">
-            <option value="1">6 MESES - 1 ANO DE EXPERIÊNCIA</option>
-            <option value="2">1 ANO - 2 ANOS DE EXPERIÊNCIA</option>
-            <option value="3">2 ANOS - 3 ANOS DE EXPERIÊNCIA</option>
-            <option value="4">3 ANOS - 4 ANOS DE EXPERIÊNCIA</option>
-            <option value="5">4 ANOS - 5 ANOS DE EXPERIÊNCIA</option>
-            <option value="6">5 ANOS - 6 ANOS DE EXPERIÊNCIA</option>
-          </select>
-        </li>
+        <% @companies.each do |company| %>
+          <%= hidden_field_tag("candidate_companies[][id]", {}, value: company.id) %>
+          <%= fields_for 'candidate_companies[]', company do |co| %>
+            <li class="collection-item candidate-company-item">
+              <%= co.text_field :name, placeholder: "Nome:", name: "candidate_companies[][name]" %>
+              <%= select_tag 'candidate_companies[][years]', options_for_select(@years, selected: company.years), :class => "custom" %>
+              <%= select_tag 'candidate_companies[][months]', options_for_select(@months, selected: company.months), :class => "custom" %>
+            </li>
+          <% end %>
+        <% end %>
         
         <div class="list-item-options">
-          <button id="btn-minus" class="btn-options hide waves-effect waves-light btn-large grey">
+          <button id="btn-minus" class="btn-options <%= @companies.count == 1 ? 'hide' : '' %> waves-effect waves-light btn-large grey">
             <i class="material-icons">remove_circle</i>
           </button>
           <button id="btn-plus" class="btn-options waves-effect waves-light btn-large grey">

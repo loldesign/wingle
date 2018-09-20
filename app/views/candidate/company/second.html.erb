@@ -19,9 +19,9 @@
             </p>
           
             <%= hidden_field_tag("candidate_companies[][id]", {}, value: company.id) %>
-            <%= select_tag 'candidate_companies[][size]', options_for_select(@size.collect{ |company| [company.name, company.id] }), :class => "full" %>
-            <%= select_tag 'candidate_companies[][sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }), :class => "full" %>
-            <%= select_tag 'candidate_companies[][title]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }), :class => "full" %>
+            <%= select_tag 'candidate_companies[][size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: company.size), :class => "full" %>
+            <%= select_tag 'candidate_companies[][sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }, selected: company.sector), :class => "full" %>
+            <%= select_tag 'candidate_companies[][title]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: company.title), :class => "full" %>
 
           </li>
         <% end %>
