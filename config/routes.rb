@@ -7,45 +7,46 @@ Rails.application.routes.draw do
   }
 
   namespace :candidate do
-    get   '/user-login'         , to: 'steps#login_or_register'
-    get   '/terms'              , to: 'steps#terms'
-    match '/quick-details'      , to: 'steps#quick_details', via: [:get, :post]
-    get   '/complete-register'  , to: 'steps#complete_register'
-    post  '/complete-register'  , to: 'steps#create_candidate'
-    get   '/welcome-message'    , to: 'steps#welcome_message'
-    get   '/dashboard'          , to: 'dashboard#index'    , as: :dashboard
+    get   '/user-login'                 , to: 'steps#login_or_register'
+    get   '/terms'                      , to: 'steps#terms'
+    match '/quick-details'              , to: 'steps#quick_details', via: [:get, :post]
+    get   '/complete-register'          , to: 'steps#complete_register'
+    post  '/complete-register'          , to: 'steps#create_candidate'
+    get   '/welcome-message'            , to: 'steps#welcome_message'
+    get   '/dashboard'                  , to: 'dashboard#index'       , as: :dashboard
 
     ##### INTEREST SECTOR #####
-    get   'interest/step-1'           , to: 'interest#first'
-    match 'interest/step-2'           , to: 'interest#second'       , via: [:get, :post]
-    match 'interest/step-3'           , to: 'interest#third'        , via: [:get, :post]
-    match 'interest/step-4'           , to: 'interest#fourth'       , via: [:get, :post]
-    match 'interest/step-5'           , to: 'interest#fifth'        , via: [:get, :post]
-    post  'interest/step-complete'    , to: 'interest#complete'
+    get   'interest/step-1'             , to: 'interest#first'
+    match 'interest/step-2'             , to: 'interest#second'       , via: [:get, :post]
+    match 'interest/step-3'             , to: 'interest#third'        , via: [:get, :post]
+    match 'interest/step-4'             , to: 'interest#fourth'       , via: [:get, :post]
+    match 'interest/step-5'             , to: 'interest#fifth'        , via: [:get, :post]
+    post  'interest/step-complete'      , to: 'interest#complete'
 
     ##### MAIN CANDIDATE AREA #####
-    get '/home'                  , to: 'main#home', as: :home
+    get '/home'                         , to: 'main#home'             , as: :home
+    get '/profile'                      , to: 'main#profile'          , as: :profile
 
     ##### EXPERIENCE SECTOR #####
-    get   'experience/step-1'         , to: 'experience#first'
-    match 'experience/step-2'         , to: 'experience#second'     , via: [:get, :post]
-    match 'experience/step-3'         , to: 'experience#third'      , via: [:get, :post]
-    match 'experience/step-4'         , to: 'experience#fourth'     , via: [:get, :post]
-    match 'experience/step-5'         , to: 'experience#fifth'      , via: [:get, :post]
-    match 'experience/step-6'         , to: 'experience#sixth'      , via: [:get, :post]
-    match 'experience/step-7'         , to: 'experience#seventh'    , via: [:get, :post]
-    post  'experience/step-complete'  , to: 'experience#complete'
+    get   'experience/step-1'           , to: 'experience#first'
+    match 'experience/step-2'           , to: 'experience#second'     , via: [:get, :post]
+    match 'experience/step-3'           , to: 'experience#third'      , via: [:get, :post]
+    match 'experience/step-4'           , to: 'experience#fourth'     , via: [:get, :post]
+    match 'experience/step-5'           , to: 'experience#fifth'      , via: [:get, :post]
+    match 'experience/step-6'           , to: 'experience#sixth'      , via: [:get, :post]
+    match 'experience/step-7'           , to: 'experience#seventh'    , via: [:get, :post]
+    post  'experience/step-complete'    , to: 'experience#complete'
 
     #### COMPANY SECTOR #####
-    get 'company/step-1'             , to: 'company#first'
-    get 'company/step-2'             , to: 'company#second'
+    get 'company/step-1'                , to: 'company#first'
+    get 'company/step-2'                , to: 'company#second'
 
     #### HABILITY SECTOR #####
-    get 'hability/step-1'             , to: 'hability#first'
+    get 'hability/step-1'               , to: 'hability#first'
 
     #### EDUCATION SECTOR #####
-    get 'education/step-1'             , to: 'education#first'
-    get 'education/step-2'             , to: 'education#second'
+    get 'education/step-1'              , to: 'education#first'
+    get 'education/step-2'              , to: 'education#second'
 
     #### PRETENSION SECTOR #####
     get 'pretension/step-1'             , to: 'pretension#first'

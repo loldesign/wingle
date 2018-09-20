@@ -60,12 +60,13 @@
         <div class="profile-options hidden">
           <ul>
             <li>
-              <%= link_to "#{}" do %>
+              <%= link_to candidate_profile_path do %>
                 <div class="icon-box">
-                  <i class="material-icons">settings</i>
+                  <%= image_tag 'icons/company_white.svg' %>
+                  <!-- <i class="material-icons">settings</i> -->
                 </div>
 
-                <p>Configurações</p>
+                <p>Perfil</p>
               <% end %>
             </li>
 
