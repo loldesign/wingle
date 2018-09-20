@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
     #### HABILITY SECTOR #####
     match 'hability/step-1'           , to: 'hability#first'        , via: [:get, :post]
+    post  'hability/step-complete'    , to: 'hability#complete'
 
     ##### EDUCATION SECTOR #####
     # get 'education/step-1'             , to: 'education#first'
