@@ -29,7 +29,9 @@
   <section class="dashboard-header">
     <section class="header-top">
       <div class="left-box">
-        <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+        <%= link_to candidate_home_path do %>
+          <%= image_tag 'logo.svg', :class => "wingle-title" %>
+        <% end %>
         <!-- <i class="icon ion-md-menu"></i>  -->
       </div>
 
@@ -54,7 +56,7 @@
       
       <div class="profile-container">
         <div class="profile-box">
-          <%= image_tag 'wingle-logo.svg' %>
+          <%= image_tag 'icons/company.svg' %>
         </div>
 
         <div class="profile-options hidden">

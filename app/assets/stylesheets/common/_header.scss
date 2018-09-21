@@ -60,12 +60,12 @@ header {
       align-items: center;
 
       .left-box {
-        @include span-columns (2 of 12);
+        width: 20%;
         display: flex;
         justify-content: space-around;
 
         img {
-          width: 40%;
+          width: 100%;
         }
 
         i {
@@ -77,15 +77,15 @@ header {
       }
       
       .profile-container {
-        @include span-columns (2 of 12);
+        width: 20%;
         display: flex;
         justify-content: center;
         position: relative;
 
         .profile-box {
-          width: 45.5%;
+          width: 5.1vw;
           height: 10vh;
-          // border: solid 1.5px $medium-gray;
+          border: solid 1.5px $medium-gray;
           border-radius: 90px;
           overflow: hidden;
           display: flex;
