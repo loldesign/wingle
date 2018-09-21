@@ -38,22 +38,22 @@ Rails.application.routes.draw do
     post  'experience/step-complete'    , to: 'experience#complete'
 
     #### COMPANY SECTOR #####
-    get   'company/step-1'            , to: 'company#first'
-    match 'company/step-2'            , to: 'company#second'        , via: [:get, :post]
-    post  'company/step-complete'     , to: 'company#complete'
+    get   'company/step-1'              , to: 'company#first'
+    match 'company/step-2'              , to: 'company#second'        , via: [:get, :post]
+    post  'company/step-complete'       , to: 'company#complete'
 
     #### HABILITY SECTOR #####
-    get  'hability/step-1'            , to: 'hability#first'
-    post 'hability/step-complete'     , to: 'hability#complete'
+    get  'hability/step-1'              , to: 'hability#first'
+    post 'hability/step-complete'       , to: 'hability#complete'
 
     #### EDUCATION SECTOR #####
-    get 'education/step-1'              , to: 'education#first'
-    get 'education/step-2'              , to: 'education#second'
+    get   'education/step-1'            , to: 'education#first'
+    match 'education/step-2'            , to: 'education#second'      , via: [:get, :post]
 
     #### PRETENSION SECTOR #####
-    get 'pretension/step-1'             , to: 'pretension#first'
-    get 'pretension/step-2'             , to: 'pretension#second'
-    get 'pretension/step-3'             , to: 'pretension#third'
+    get   'pretension/step-1'           , to: 'pretension#first'
+    match 'pretension/step-2'           , to: 'pretension#second'     , via: [:get, :post]
+    match 'pretension/step-3'           , to: 'pretension#third'      , via: [:get, :post]
   end
 
 

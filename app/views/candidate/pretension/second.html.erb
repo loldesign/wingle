@@ -14,7 +14,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= radio_button_tag "#{}", benefits.id, false, class: "with-gap" %>
+                <%= check_box_tag "candidate_pretension[benefits][]", benefits.id, false, class: "with-gap" %>
                   <span>
                     <%= benefits.name %>
                   </span>
