@@ -1,53 +1,55 @@
 <section id="candidate_profile">
-  <section class="main-infos">
-    <article class="profile-image-container">
-      <%= link_to "#{}" do %>
-        <div class="profile-image-box">
-          <%= image_tag 'icons/company.svg' %>
+  <section class="main-infos-wrapper">
+    <section class="main-infos">
+      <article class="profile-image-container">
+        <%= link_to "#{}" do %>
+          <div class="profile-image-box">
+            <%= image_tag 'icons/company.svg' %>
+          </div>
+
+          <p>Editar foto</p>
+        <% end %>
+      </article>
+
+      <article class="profile-infos">
+        <div class="info-icons">
+          <i class="material-icons">person</i>
+          <i class="material-icons">email</i>
+          <i class="material-icons">stay_current_portrait</i>
         </div>
 
-        <p>Editar foto</p>
-      <% end %>
-    </article>
+        <div class="info-content">
+          <p>
+            Fabio Abdo Saad
+          </p>
 
-    <article class="profile-infos">
-      <div class="info-icons">
-        <%= image_tag 'icons/company.svg' %>
-        <i class="material-icons">email</i>
-        <i class="material-icons">phone</i>
-      </div>
+          <p>
+            fabio.saad@gmail.com
+          </p>
 
-      <div class="info-content">
-        <p>
-          Fabio Abdo Saad
-        </p>
+          <p>
+            (11) 99345-1423          
+          </p>
+        </div>
+      </article>
 
-        <p>
-          fabio.saad@gmail.com
-        </p>
-
-        <p>
-          (11) 99345-1423          
-        </p>
-      </div>
-    </article>
-
-    <article class="curriculum-box">
-      <%= link_to "#{}" do %>
-        <i class="icon ion-md-document"></i> 
-  
-        <p>Anexar CV</p>
-      <% end %>
-    </article>
+      <article class="curriculum-box">
+        <%= link_to "#{}" do %>
+          <i class="icon ion-md-document"></i> 
+    
+          <p>Anexar CV</p>
+        <% end %>
+      </article>
+    </section>
   </section>
 
   <section class="profile-control-panel">
     <article class="profile-info-advise">
-      <h5>
+      <h5 class="light-green-text">
         Fique tranquilo!
       </h5>
 
-      <p>
+      <p class="light-green-text">
         Somente empresas que fazem sentido e 
         com real interesse em seu perfil podem 
         acessar suas informações.
@@ -55,13 +57,15 @@
     </article>
 
     <article class="new-challenges">
-      <h6>Avalie novos desafios</h6>
+      <div class="article-header">
+        <h6>Avalie novos desafios</h6>
 
-      <div class="switch">
-        <label>
-          <input type="checkbox">
-          <span class="lever"></span>
-        </label>
+        <div class="switch">
+          <label>
+            <input type="checkbox">
+            <span class="lever"></span>
+          </label>
+        </div>
       </div>
 
       <p>
