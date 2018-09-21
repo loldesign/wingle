@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180919162946) do
+ActiveRecord::Schema.define(version: 20180920232046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 20180919162946) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "candidate_companies", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.string "name"
+    t.integer "years"
+    t.integer "months"
+    t.integer "size"
+    t.integer "sector"
+    t.integer "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_companies_on_candidate_id"
+  end
+
   create_table "candidate_experience_functions", force: :cascade do |t|
     t.bigint "candidate_experience_id"
     t.integer "function_id"
@@ -73,6 +86,14 @@ ActiveRecord::Schema.define(version: 20180919162946) do
     t.datetime "updated_at", null: false
     t.integer "considered_functions", default: [], array: true
     t.index ["candidate_id"], name: "index_candidate_experiences_on_candidate_id"
+  end
+
+  create_table "candidate_habilities", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.integer "areas", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_habilities_on_candidate_id"
   end
 
   create_table "candidate_interests", force: :cascade do |t|
