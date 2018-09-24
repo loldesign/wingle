@@ -73,6 +73,7 @@ pt-BR:
         name: "Nome"
       nofsalaries_list:
         name: "Nome"
+        value: "Valor"
       sort_list:
         name: "Nome"
       annual_claim_rate_list:

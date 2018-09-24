@@ -45,6 +45,6 @@ class Admin::NofsalariesListsController < AdminController
 	end
 
 	def nofsalaries_list_params
-		params.require(:nofsalaries_list).permit(:name)
+		params.require(:nofsalaries_list).permit(:name, :value)
 	end
 end
