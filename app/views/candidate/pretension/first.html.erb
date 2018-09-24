@@ -31,7 +31,7 @@
             </label>
           </p>
         
-          <%= select_tag 'candidate_pretension[nofsalaries]', options_for_select(@salary_list.collect{ |salary| [salary.name, salary.id] }), :class => "custom" %>
+          <%= select_tag 'candidate_pretension[nofsalaries]', options_for_select(@salary_list.collect{ |salary| [salary.name, salary.value] }), :class => "custom" %>
         </li>
 
         <li class="collection-item pretension-calc-item">

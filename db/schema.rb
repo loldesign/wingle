@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 20180924180452) do
   create_table "candidate_pretensions", force: :cascade do |t|
     t.bigint "candidate_id"
     t.decimal "last_monthly_salary", precision: 8, scale: 2
-    t.integer "nofsalaries"
+    t.decimal "nofsalaries"
     t.decimal "variable", precision: 8, scale: 2
     t.decimal "last_salary_total", precision: 8, scale: 2
     t.decimal "pretension_yearly", precision: 8, scale: 2
