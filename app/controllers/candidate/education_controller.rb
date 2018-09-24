@@ -11,7 +11,6 @@ class Candidate::EducationController < ApplicationController
     if @candidate_education.nil?
       @candidate.build_candidate_education
       @candidate_education = @candidate.candidate_education
-      @candidate_education.build_candidate_education_language
       @candidate_education.save
     end
 
@@ -55,7 +54,9 @@ class Candidate::EducationController < ApplicationController
     end
 
     def set_candidate_languages
-      @candidate_education_languages = @candidate_education.candidate_education_languages.empty? ? [CandidateEducationLanguage.new] : @candidate_education.candidate_education_languages
+      if  @candidate_education.present?
+        @candidate_education_languages = @candidate_education.candidate_education_languages.empty? ? [CandidateEducationLanguage.new] : @candidate_education.candidate_education_languages
+      end
     end
 
     def candidate_education_params
