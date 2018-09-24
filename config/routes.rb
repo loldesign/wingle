@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     get   'pretension/step-1'           , to: 'pretension#first'
     match 'pretension/step-2'           , to: 'pretension#second'     , via: [:get, :post]
     match 'pretension/step-3'           , to: 'pretension#third'      , via: [:get, :post]
+    post  'pretension/complete'         , to: 'pretension#complete'
   end
 
 

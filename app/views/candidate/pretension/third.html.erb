@@ -1,5 +1,5 @@
 <section id="third_step" class="question-container content pretension-step">
-  <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
+  <%= form_tag({controller: "pretension", action: "complete"}, method: "post", id: "candidate_third") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -19,7 +19,7 @@
             </label>
           </p>
 
-          <input type="text" placeholder="R$:" class="half-input">
+          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input", value: @candidate_pretension.last_salary_total %>
         </li>
         
         <li class="collection-item pretension-calc-item">
@@ -73,7 +73,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_pretension_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", candidate_home_path, :class => "waves-effect waves-light btn-large" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_third').submit()" %>
     </section>
-  <%# end %>
+  <% end %>
 </section>

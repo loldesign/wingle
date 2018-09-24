@@ -1,5 +1,5 @@
 <section id="second_step" class="question-container content">
-  <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
+  <%= form_tag({controller: "pretension", action: "third"}, method: "post", id: "candidate_second") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -14,7 +14,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= check_box_tag "candidate_pretension[benefits][]", benefits.id, false, class: "with-gap" %>
+                <%= check_box_tag "candidate_pretension[benefits][]", benefits.id, @candidate_pretension.benefits.include?(benefits.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= benefits.name %>
                   </span>
@@ -27,7 +27,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_pretension_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", candidate_pretension_step_3_path, :class => "waves-effect waves-light btn-large" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_second').submit()" %>
     </section>
-  <%# end %>
+  <% end %>
 </section>

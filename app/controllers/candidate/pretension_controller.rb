@@ -7,11 +7,11 @@ class Candidate::PretensionController < ApplicationController
   end
 
   def second
-    # if @candidate_pretension.nil?
-    #   @candidate.build_candidate_pretension
-    #   @candidate_pretension = @candidate.candidate_pretension
-    #   @candidate_pretension.save
-    # end
+    if @candidate_pretension.nil?
+      @candidate.build_candidate_pretension
+      @candidate_pretension = @candidate.candidate_pretension
+      @candidate_pretension.save
+    end
 
     if candidate_pretension_params.present? && !@candidate_pretension.update_attributes(candidate_pretension_params)
       render action: :first
@@ -41,7 +41,7 @@ class Candidate::PretensionController < ApplicationController
   private
     def set_candidate
       @candidate = current_candidate
-      # @candidate_pretension = @candidate.candidate_pretension
+      @candidate_pretension = @candidate.candidate_pretension
     end
 
     def candidate_pretension_params
