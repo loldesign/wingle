@@ -1,0 +1,77 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    color: $base-font-color;
+    font-family: $base-font-family;
+    font-feature-settings: "kern", "liga", "pnum";
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: 'Open Sans', sans-serif !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $heading-font-family;
+    font-size: $base-font-size;
+    line-height: $heading-line-height;
+    margin: 0 0 $small-spacing;
+  }
+
+  h4 {
+    font-size: 6vw;
+  }
+
+  h3 {
+    font-size: 7vw;
+  }
+
+  h2 {
+    font-size: 8vw;
+  }
+
+  p,
+  figcaption {
+    margin: 0 0 $small-spacing;
+  }
+
+  a {
+    color: $gray;
+    text-decoration: none;
+    transition: color $base-duration $base-timing;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: shade($gray, 25%);
+    }
+  }
+
+  hr {
+    border-bottom: $base-border;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: $base-spacing 0;
+  }
+
+  img,
+  picture {
+    margin: 0;
+    max-width: 100%;
+  }
+}

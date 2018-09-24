@@ -1,0 +1,69 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #first_step,
+  #third_step {
+    &.pretension-step {
+      .collection {
+        .pretension-calc-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .half-label {
+            width: 40%;
+            margin-bottom: 0;
+          }
+
+          .half-input {
+            width: 50%;
+            margin-bottom: 0;
+          }
+        }
+
+        .pretension-calc-result {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+
+          p {
+            margin-bottom: 2vh;
+          }
+
+          input {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  #third_step {
+    &.pretension-step {
+      .collection {
+        .fixed-minimum-pretension {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          padding-top: 4vh !important;
+          border: none;
+
+          p {
+            text-align: center;
+            line-height: 3.5vh;
+            margin: 0 13vw;
+          }
+
+          .collection-item {
+            border: none;
+            padding: 4vh 0 2vh 0 !important;
+
+            p {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

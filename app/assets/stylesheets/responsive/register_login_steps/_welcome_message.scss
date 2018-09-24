@@ -1,0 +1,28 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #welcome_message {
+    padding: 0 5vw;
+
+    .content-box {
+      @include span-columns (6 of 6);
+      @include shift (0 of 6);
+      border: solid 1px $medium-gray;
+      border-radius: 30px;
+      box-shadow: 0 0 1em $medium-gray;
+      margin-top: 4vh;
+      padding: 5vh 5vw 12vh 5vw;
+
+      h2 {
+        margin-bottom: 8vw; 
+      }
+
+      p {
+        font-size: 5vw;
+      }
+    }
+
+    .welcome-message-actions {
+      padding-top: 8vh;
+    }
+  }
+}

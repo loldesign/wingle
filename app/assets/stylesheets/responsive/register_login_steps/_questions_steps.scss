@@ -1,0 +1,144 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  /* QUESTIONS STEPS */
+  .question-container {
+    padding: 0 5vw;
+
+    .collection-header {
+      h5 {
+        font-size: 5vw !important;
+      }
+    }
+
+    .max-option-notice {
+      @include span-columns (6 of 6);
+      background-color: $light-green;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2vh 0;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.5s linear;
+      position: fixed;
+      z-index: 999;
+      bottom: 2vh;
+      width: 90%;
+      margin-left: 0;
+
+      p {
+        margin-bottom: 0;
+        color: $white;
+      }
+
+      &.visible {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .content-box {
+      @include span-columns (6 of 6);
+      @include shift (0 of 6);
+
+      .collection {
+        .collection-item {
+          padding: 2vh 3vw !important;
+
+          p,
+          label {
+            margin-bottom: 0;
+          }
+
+          label {
+            span {
+              text-transform: uppercase;
+              font-size: 3.5vw !important;
+              line-height: 1.6;
+            }
+          }
+
+          &.with-select {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+              float: left;
+
+              &:first-of-type {
+                width: 10vw;
+              }
+
+              label {
+                font-size: 1vw;
+              }
+            }
+          }
+
+          &.with-select-full {
+            display: flex;
+            flex-direction: column;
+
+            p {
+              margin-bottom: 2vh;
+
+              label {
+                font-size: 1vw;
+              }
+            }
+          }
+        }
+
+        &.with-input {
+          input,
+          select {
+            margin: 0 0 2vh 0 !important;
+            width: 100%;
+            background-size: 2.5%;
+            font-size: 4vw !important;
+          }
+
+          select {
+            margin-bottom: 0 !important;
+          }
+        }
+
+        .list-item-options {
+          @include span-columns (4 of 6);
+          @include shift (1 of 6);
+          display: flex;
+          justify-content: space-around;
+
+          .btn-options {
+            @include span-columns (1 of 4);
+            border-radius: 50px;
+            width: 4vw;
+            height: 7.8vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2vh 0;
+            background-color: #e0e0e0 !important;
+
+            i {
+              color: #9e9e9e;
+              font-size: 2vw;
+              display: flex;
+              align-items: center;
+            }
+
+            &.hide {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .action-buttons-duo {
+      padding-bottom: 7vh;
+    }
+  }
+}

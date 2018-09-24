@@ -1,0 +1,56 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #complete_register {
+    .content-box {
+      @include span-columns (6 of 6);
+      padding-top: 6vh;
+
+      form {
+        @include span-columns (4 of 6);
+        @include shift (1 of 6);
+
+        div {
+          &.field_with_errors {
+            margin-bottom: 3vh;
+
+            input {
+              border-color: $error;
+              margin-bottom: 0;
+            }
+
+            select {
+              border-color: $error;
+              margin-bottom: 0 !important;
+            }
+
+            .error {
+              color: $error;
+              margin-top: 0;
+              padding-left: 1vw;
+            }
+          }
+        }
+
+        .checkbox-box {
+          @include span-columns (4 of 4);
+
+          label {
+            span {
+              font-size: 3vw !important;
+              line-height: 1.2 !important;
+            }
+          }
+        }
+
+        .action-buttons-single {
+          padding-top: 5vh;
+
+          a {
+            @include span-columns (4 of 4);
+            @include shift (0 of 4);
+          }
+        }
+      }
+    }
+  }
+}

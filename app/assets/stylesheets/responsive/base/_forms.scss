@@ -1,0 +1,116 @@
+// MOBILE SCREEN //
+@include media ($mobile) {  
+  fieldset {
+    background-color: $secondary-background-color;
+    border: $base-border;
+    margin: 0 0 $small-spacing;
+    padding: $base-spacing;
+  }
+
+  input,
+  label,
+  select {
+    display: block;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+  }
+
+  select {
+    display: block !important;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: $small-spacing / 2;
+    color: $gray;
+    font-size: 1.2vw;
+
+    &.required::after {
+      content: "*";
+      color: red;
+    }
+
+    abbr {
+      display: none;
+    }
+  }
+
+  #{$all-text-inputs},
+  select[multiple=multiple] {
+    background-color: #FFF;
+    border: solid 1px $medium-gray;
+    border-radius: 10px;
+    box-shadow: $form-box-shadow;
+    box-sizing: border-box;
+    font-family: $base-font-family;
+    font-size: 4.4vw;
+    color: $medium-gray;
+    margin-bottom: $small-spacing;
+    padding: 0 0 0 3vw !important;
+    transition: border-color $base-duration $base-timing;
+    width: 100%;
+    height: 35px;
+
+    &::-webkit-input-placeholder {
+      color: $medium-gray;
+      font-weight: normal;
+    }
+
+    &:hover {
+      border-color: shade($medium-gray, 20%);
+    }
+
+    &:focus {
+      border-color: $medium-gray;
+      box-shadow: $form-box-shadow-focus;
+      outline: none;
+    }
+
+    &:disabled {
+      background-color: shade($base-background-color, 5%);
+      cursor: not-allowed;
+
+      &:hover {
+        border: $base-border;
+      }
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 30px #FFF inset !important;
+    }   
+  }
+
+  textarea {
+    resize: vertical;
+
+    &::-webkit-input-placeholder {
+      color: $gray;
+      font-weight: normal;
+    }
+  }
+
+  input[type="search"] {
+    appearance: none;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: inline;
+    margin-right: $small-spacing / 2;
+
+    + label {
+      display: inline-block;
+    }
+  }
+
+  input[type="file"] {
+    margin-bottom: $small-spacing;
+    width: 100%;
+  }
+
+  select {
+    margin-bottom: $base-spacing;
+    max-width: 100%;
+    width: auto;
+  }
+}

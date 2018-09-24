@@ -1,0 +1,51 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  .terms {
+    padding: 0 5vw;
+
+    .content-box {
+      @include span-columns (6 of 6);
+      @include shift (0 of 6);
+
+      .title {
+        margin: 0 0 6vh 0;
+      }
+
+      .term-box {
+        h2 {
+          font-size: 2.3vw;
+          margin-bottom: 3vh;
+        }
+
+        ul {
+          width: 83%;
+          margin-left: 9%;
+          margin-bottom: 3vh;
+
+          li {
+            &:first-of-type {
+              margin-bottom: 3vh;
+            }
+
+            &:before {
+              content: "• ";
+              color: $gray;
+            }
+          }
+        }
+
+        p {
+          margin-bottom: 3vh;
+
+          &.term-title {
+            font-size: 4.4vw;
+          }
+        }
+      }
+    }
+
+    .candidate-terms-actions {
+      padding-top: 8vh;
+    }
+  }
+}

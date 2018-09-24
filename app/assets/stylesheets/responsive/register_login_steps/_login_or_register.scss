@@ -1,0 +1,40 @@
+// MOBILE SCREEN //
+@include media ($mobile) {  
+  #login_or_register {
+    .content-box {
+      @include span-columns (6 of 6);
+      padding-top: 6vh;
+
+      form {
+        @include span-columns (4 of 6);
+        @include shift (1 of 6);
+      }
+
+      a {
+        @include span-columns (4 of 6);
+        @include shift (1 of 6);
+        padding-top: 2vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: underline;
+      }
+    }
+
+    #notice-wrapper {
+      width: 100%;
+      z-index: 999;
+      background: $green;
+      border-radius: 5px;
+
+      .notice {
+        padding: 1rem 0;
+        text-align: center;
+        margin: 0;
+        font-weight: 700;
+        color: #FFF;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
