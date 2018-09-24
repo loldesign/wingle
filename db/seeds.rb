@@ -703,8 +703,8 @@ end
 # Creating First Nofsalaries List
 # -------
 if NofsalariesList.count == 0
-  NofsalariesList.create(name: '12 salários por ano (PJ)')
-  NofsalariesList.create(name: '13,33 salários por ano  (CLT)')
+  NofsalariesList.create(name: '12 salários por ano (PJ)', value: 12)
+  NofsalariesList.create(name: '13,33 salários por ano  (CLT)', value: 13.33)
 end
 
 # -------

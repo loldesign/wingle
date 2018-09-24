@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180924155814) do
+ActiveRecord::Schema.define(version: 20180924180452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,23 @@ ActiveRecord::Schema.define(version: 20180924155814) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_candidate_companies_on_candidate_id"
+  end
+
+  create_table "candidate_education_languages", force: :cascade do |t|
+    t.bigint "candidate_education_id"
+    t.bigint "language_id"
+    t.bigint "language_level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_education_id"], name: "index_candidate_education_languages_on_candidate_education_id"
+  end
+
+  create_table "candidate_educations", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.integer "degree"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_educations_on_candidate_id"
   end
 
   create_table "candidate_experience_functions", force: :cascade do |t|
@@ -390,4 +407,5 @@ ActiveRecord::Schema.define(version: 20180924155814) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "candidate_educations", "candidates"
 end

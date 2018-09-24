@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     #### EDUCATION SECTOR #####
     get   'education/step-1'            , to: 'education#first'
     match 'education/step-2'            , to: 'education#second'      , via: [:get, :post]
+    post  'education/step-complete'     , to: 'education#complete'
 
     #### PRETENSION SECTOR #####
     get   'pretension/step-1'           , to: 'pretension#first'
