@@ -59,10 +59,10 @@ var appendLanguage = function(){
 
   // Remove Language //
   removeLanguage = function() {
-    $('.language-item:last').remove();
+    $('.language-item .collection-item:last').remove();
 
     // Candidate Language Counter //
-    var languageCounter = $('.collection.language-form .language-item').length
+    var languageCounter = $('.collection.language-form .language-item .collection-item').length
 
     if (languageCounter < 2) {
       $('#btn-minus-language').addClass("hide");
@@ -74,15 +74,28 @@ var appendLanguage = function(){
   // Add Language //
   addLanguage = function($btn) {
     // Candidate Language Add Action //
-    var languageCounter         = $btn.closest('ul').find('.language-item').length + 1
-    var $languageContainer      = $btn.closest('ul').find('.language-item:first')
+    var languageCounter         = $btn.closest('ul').find('.language-item .collection-item').length + 1
+    var $languageContainer      = $btn.closest('ul').find('.language-item .collection-item:first')
     var $languageContainerClone = $languageContainer.clone()
 
     $languageContainerClone.find(':radio').removeAttr('checked')
-    $languageContainerClone.find('select').val('')
+    $languageContainerClone.find(':radio').each((function(index){
+      var $el       = $(this)
+      var elName    = $el.attr('name')
+      var newElName = elName.replace(/\[\d+\]/, '['+languageCounter+']')
+
+      $el.attr('name', newElName)
+    }))
+
+    var $select       = $languageContainerClone.find('select')
+    var selectName    =  $select.attr('name')
+    var selectNewName =  selectName.replace(/\[\d+\]/, '['+languageCounter+']')
+
+    $select.val('')
+    $select.attr('name', selectNewName)
     
     if (languageCounter <= 4) {
-      $btn.closest('ul').find('.language-item:last').after($languageContainerClone)
+      $btn.closest('ul').find('.language-item .collection-item:last').after($languageContainerClone)
     } 
 
     if (languageCounter === 4){

@@ -25,9 +25,11 @@ class Candidate::EducationController < ApplicationController
   def complete
     if candidate_education_language_params.present?
       CandidateEducationLanguage.transaction do
-        candidate_education_language_params.each do |language_params|
+        candidate_education_language_params.each_pair do |index, language_params|
+          # check if already exists to avoid duplicate
           if language_params[:id].present? && language_params[:language_level_id].present?
             language = CandidateEducationLanguage.update(language_params[:id], language_params)
+          # if just id is present, it probably have been deleted
           elsif language_params[:id].present? && language_params[:language_level_id].nil?
             language = CandidateEducationLanguage.destroy(language_params[:id])
           else
@@ -54,7 +56,7 @@ class Candidate::EducationController < ApplicationController
     end
 
     def set_candidate_languages
-      if  @candidate_education.present?
+      if @candidate_education.present?
         @candidate_education_languages = @candidate_education.candidate_education_languages.empty? ? [CandidateEducationLanguage.new] : @candidate_education.candidate_education_languages
       end
     end
@@ -64,12 +66,6 @@ class Candidate::EducationController < ApplicationController
     end
 
     def candidate_education_language_params
-      # params.fetch(:candidate_education_language, {}).permit(:language_id, :language_level_id)
-
-      if params[:candidate_education_languages].present?
-        params.fetch(:candidate_education_languages, {}).map do |p|
-          p.permit(:id, :language_id, :language_level_id)
-        end
-      end
+      params.permit(candidate_education_languages: {})[:candidate_education_languages]
     end
 end

@@ -11,31 +11,29 @@
         </li>
         
         <div class="language-item">
-          <% @candidate_education_languages.each do |candidate_language| %>
-            <%= hidden_field_tag("candidate_education_languages[][id]", {}, value: candidate_language.id) %>
-            <%= fields_for 'candidate_education_languages[]', candidate_language do |c_language| %>
-              <li class="collection-item">
-                <%= select_tag 'candidate_education_languages[][language_id]', options_for_select(@language.collect{ |language| [language.name, language.id] }, selected: candidate_language.language_id), :class => "custom" %>
-                
-                <div class="language-level-box">
-                  <% @language_level.each do |language_level| %>
-                    <p>
-                      <label>
-                        <%= radio_button_tag "candidate_education_languages[][language_level_id]", language_level.id, false, class: "with-gap" %>
-                          <span>
-                            <%= language_level.name %>
-                          </span>
-                      </label>
-                    </p>
-                  <% end %>
-                </div>
-              </li>
-            <% end %>
+          <% @candidate_education_languages.each_with_index do |candidate_language, index| %>
+            <%= hidden_field_tag("candidate_education_languages[#{index}][id]", {}, value: candidate_language.id) %>
+            <li class="collection-item">
+              <%= select_tag "candidate_education_languages[#{index}][language_id]", options_for_select(@language.collect{ |language| [language.name, language.id] }, selected: candidate_language.language_id), :class => "custom" %>
+
+              <div class="language-level-box">
+                <% @language_level.each do |language_level| %>
+                  <p>
+                    <label>
+                      <%= radio_button_tag "candidate_education_languages[#{index}][language_level_id]", language_level.id, candidate_language.language_level_id == language_level.id ? true : false, class: "with-gap" %>
+                        <span>
+                          <%= language_level.name %>
+                        </span>
+                    </label>
+                  </p>
+                <% end %>
+              </div>
+            </li>
           <% end %>
         </div>
         
         <div class="list-item-options">
-          <button id="btn-minus-language" class="btn-options hide waves-effect waves-light btn-large grey">
+          <button id="btn-minus-language" class="btn-options <%= @candidate_education_languages.count == 1 ? 'hide' : '' %> waves-effect waves-light btn-large grey">
             <i class="material-icons">remove_circle</i>
           </button>
           <button id="btn-plus-language" class="btn-options waves-effect waves-light btn-large grey">
