@@ -1,4 +1,4 @@
-<section id="sixth_step" class="question-container content" data-min="1" data-max="5">
+<section id="sixth_step" class="question-container content" data-min="0" data-max="5">
   <div class="max-option-notice">
     <p class="gray bold">Você já atingiu o número máximo de opções</p>
   </div>
@@ -16,6 +16,7 @@
           <li class="collection-item">
             <p>
               <label>
+                <%= hidden_field_tag "candidate_experience[disconsidered_functions][]", nil %>
                 <%= check_box_tag "candidate_experience[disconsidered_functions][]", function.id, @candidate_experience.disconsidered_functions.include?(function.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= function.name %>:
@@ -29,7 +30,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_experience_step_5_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-step #{@candidate_experience.disconsidered_functions.empty? ? 'disabled' : ''}", onclick: "$('#candidate_sixth').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-step", onclick: "$('#candidate_sixth').submit()" %>
     </section>
   <% end %>
 </section>

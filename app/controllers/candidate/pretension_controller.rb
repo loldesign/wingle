@@ -29,7 +29,6 @@ class Candidate::PretensionController < ApplicationController
   end
 
   def complete
-    binding.pry
     if candidate_pretension_params.present? && !@candidate_pretension.update_attributes(candidate_pretension_params)
       render action: :third
     end

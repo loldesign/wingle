@@ -14,7 +14,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= radio_button_tag "candidate_experience[current_title]", title_list.id, @candidate_experience.current_title == title_list.id ? true : false, class: "with-gap" %>
+                <%= radio_button_tag "candidate_experience[current_title]", title_list.id, @candidate_experience.present? && @candidate_experience.current_title == title_list.id ? true : false, class: "with-gap" %>
                 <span><%= title_list.name %></span>
               </label>
             </p>
