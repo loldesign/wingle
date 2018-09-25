@@ -10,6 +10,8 @@ class Candidate < ApplicationRecord
   has_one :candidate_interest  , dependent: :destroy
   has_one :candidate_experience, dependent: :destroy
   has_one :candidate_hability  , dependent: :destroy
+  has_one :candidate_education , dependent: :destroy
+  has_one :candidate_pretension, dependent: :destroy
   accepts_nested_attributes_for :candidate_interest
   validates_associated :candidate_interest
 
@@ -39,7 +41,7 @@ class Candidate < ApplicationRecord
 
   aasm :column => :signup_state, :logger => Rails.logger do
     state :interest, initial: true
-    state :experience, :companies, :habilities, :education, :pretention, :complete
+    state :experience, :companies, :habilities, :education, :pretension, :complete
 
     event :completed_interest do
       transitions from: :interest, to: :experience
@@ -58,11 +60,11 @@ class Candidate < ApplicationRecord
     end
 
     event :completed_education do
-      transitions from: :education, to: :pretention
+      transitions from: :education, to: :pretension
     end
 
     event :completed do
-      transitions from: :pretention, to: :complete
+      transitions from: :pretension, to: :complete
     end
   end
 end

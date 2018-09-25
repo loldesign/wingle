@@ -1,6 +1,7 @@
 class Candidate::ExperienceController < ApplicationController
   before_action :authenticate_candidate!
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh, :complete]
+  before_action :set_years_and_months, only: [:second, :fifth]
 
   def first
     @header_options = {style: :with_logo_back_button}
@@ -125,10 +126,31 @@ class Candidate::ExperienceController < ApplicationController
       exp_functions = candidate_experience_params[:candidate_experience_function]
 
       exp_functions.each do |function|
-        exp_function = CandidateExperienceFunction.new(function)
-        @candidate_experience.functions_time_period << exp_function
+        # verify to avoid duplicate
+        if @candidate_experience.functions_time_period.present? && @candidate_experience.functions_time_period.find_by_function_id(function[:function_id]).present?
+          exp_function = CandidateExperienceFunction.find_by_function_id(function[:function_id])
+          exp_function.update_attributes(function)
+        else
+          exp_function = CandidateExperienceFunction.new(function)
+          @candidate_experience.functions_time_period << exp_function
+        end
       end
 
       return @candidate_experience.save
+    end
+
+    def set_years_and_months
+      # divide if we need more than 11 years
+      @years = []
+      @months = []
+      for i in 0..11
+        if i == 1
+          @years << ["#{i} ANO", "#{i}"]
+          @months << ["#{i} MÊS", "#{i}"]
+        else
+          @years << ["#{i} ANOS", "#{i}"]
+          @months << ["#{i} MESES", "#{i}"]
+        end
+      end
     end
 end

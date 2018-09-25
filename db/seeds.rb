@@ -703,8 +703,16 @@ end
 # Creating First Nofsalaries List
 # -------
 if NofsalariesList.count == 0
-  NofsalariesList.create(name: '12 salários por ano (PJ)')
-  NofsalariesList.create(name: '13,33 salários por ano  (CLT)')
+  NofsalariesList.create(name: '12 salários por ano (PJ)', value: 12)
+  NofsalariesList.create(name: '13,33 salários por ano  (CLT)', value: 13.33)
+end
+
+# -------
+# Update Nofsalaries List if it already created (just in case this seed ran before 2018 Sep 24)
+# -------
+if NofsalariesList.count == 2
+  NofsalariesList.find_by_name('12 salários por ano (PJ)').update_attributes(value: 12)
+  NofsalariesList.find_by_name('13,33 salários por ano  (CLT)').update_attributes(value: 13.33)
 end
 
 # -------
@@ -728,13 +736,13 @@ end
 # Creating First Annual Claim Rate List
 # -------
 if AnnualClaimRateList.count == 0
-  AnnualClaimRateList.create(name: '30% de aumento ou mais')
-  AnnualClaimRateList.create(name: '20% de aumento ou mais')
-  AnnualClaimRateList.create(name: '10% de aumento ou mais')
-  AnnualClaimRateList.create(name: 'A partir do mesmo')
-  AnnualClaimRateList.create(name: '10% a menos')
-  AnnualClaimRateList.create(name: '20% a menos')
-  AnnualClaimRateList.create(name: '30% a menos')
+  AnnualClaimRateList.create(name: '30% de aumento ou mais', value: 30)
+  AnnualClaimRateList.create(name: '20% de aumento ou mais', value: 20)
+  AnnualClaimRateList.create(name: '10% de aumento ou mais', value: 10)
+  AnnualClaimRateList.create(name: 'A partir do mesmo', value: 0)
+  AnnualClaimRateList.create(name: '10% a menos', value: -10)
+  AnnualClaimRateList.create(name: '20% a menos', value: -20)
+  AnnualClaimRateList.create(name: '30% a menos', value: -30)
 end
 
 # -------
@@ -770,4 +778,17 @@ if SortList.count == 0
   SortList.create(name: 'Menor Remuneração Mensal')
   SortList.create(name: 'Maior Tempo de Carreira')
   SortList.create(name: 'Menor Tempo de Carreira')
+end
+
+# -------
+# Update Annual Claim Rate List (2018 Sep 25)
+# -------
+if AnnualClaimRateList.count == 7 && AnnualClaimRateList.where("value IS ?", nil).present?
+  AnnualClaimRateList.find_by_name('30% de aumento ou mais').update_attributes(value: 30)
+  AnnualClaimRateList.find_by_name('20% de aumento ou mais').update_attributes(value: 20)
+  AnnualClaimRateList.find_by_name('10% de aumento ou mais').update_attributes(value: 10)
+  AnnualClaimRateList.find_by_name('A partir do mesmo').update_attributes(value: 0)
+  AnnualClaimRateList.find_by_name('10% a menos').update_attributes(value: -10)
+  AnnualClaimRateList.find_by_name('20% a menos').update_attributes(value: -20)
+  AnnualClaimRateList.find_by_name('30% a menos').update_attributes(value: -30)
 end

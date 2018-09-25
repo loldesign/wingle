@@ -13,7 +13,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= radio_button_tag "candidate_interest[modes][]", mode.id, false, class: "with-gap" %>
+                <%= radio_button_tag "candidate_interest[modes][]", mode.id, @candidate_interest.modes.include?(mode.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= mode.name %>:
                     <%= mode.description %>

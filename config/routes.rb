@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :candidate do
     get   '/user-login'                 , to: 'steps#login_or_register'
     get   '/terms'                      , to: 'steps#terms'
-    match '/quick-details'              , to: 'steps#quick_details', via: [:get, :post]
+    match '/quick-details'              , to: 'steps#quick_details'   , via: [:get, :post]
     get   '/complete-register'          , to: 'steps#complete_register'
     post  '/complete-register'          , to: 'steps#create_candidate'
     get   '/welcome-message'            , to: 'steps#welcome_message'
@@ -47,13 +47,15 @@ Rails.application.routes.draw do
     post 'hability/step-complete'       , to: 'hability#complete'
 
     #### EDUCATION SECTOR #####
-    get 'education/step-1'              , to: 'education#first'
-    get 'education/step-2'              , to: 'education#second'
+    get   'education/step-1'            , to: 'education#first'
+    match 'education/step-2'            , to: 'education#second'      , via: [:get, :post]
+    post  'education/step-complete'     , to: 'education#complete'
 
     #### PRETENSION SECTOR #####
-    get 'pretension/step-1'             , to: 'pretension#first'
-    get 'pretension/step-2'             , to: 'pretension#second'
-    get 'pretension/step-3'             , to: 'pretension#third'
+    get   'pretension/step-1'           , to: 'pretension#first'
+    match 'pretension/step-2'           , to: 'pretension#second'     , via: [:get, :post]
+    match 'pretension/step-3'           , to: 'pretension#third'      , via: [:get, :post]
+    post  'pretension/complete'         , to: 'pretension#complete'
   end
 
 

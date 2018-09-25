@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180920232046) do
+ActiveRecord::Schema.define(version: 20180925152534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180920232046) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "value"
   end
 
   create_table "areas", force: :cascade do |t|
@@ -62,6 +63,23 @@ ActiveRecord::Schema.define(version: 20180920232046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_candidate_companies_on_candidate_id"
+  end
+
+  create_table "candidate_education_languages", force: :cascade do |t|
+    t.bigint "candidate_education_id"
+    t.bigint "language_id"
+    t.bigint "language_level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_education_id"], name: "index_candidate_education_languages_on_candidate_education_id"
+  end
+
+  create_table "candidate_educations", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.integer "degree"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_educations_on_candidate_id"
   end
 
   create_table "candidate_experience_functions", force: :cascade do |t|
@@ -108,6 +126,21 @@ ActiveRecord::Schema.define(version: 20180920232046) do
     t.integer "cities", default: [], array: true
     t.integer "areas", default: [], array: true
     t.index ["candidate_id"], name: "index_candidate_interests_on_candidate_id"
+  end
+
+  create_table "candidate_pretensions", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.decimal "last_monthly_salary", precision: 8, scale: 2
+    t.decimal "nofsalaries"
+    t.decimal "variable", precision: 8, scale: 2
+    t.decimal "last_salary_total", precision: 8, scale: 2
+    t.decimal "pretension_minimum_percent", precision: 8, scale: 2
+    t.decimal "pretension_yearly_total", precision: 8, scale: 2
+    t.integer "benefits", default: [], array: true
+    t.integer "minimum_claim"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_pretensions_on_candidate_id"
   end
 
   create_table "candidates", force: :cascade do |t|
@@ -250,6 +283,7 @@ ActiveRecord::Schema.define(version: 20180920232046) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "value"
   end
 
   create_table "package_services", force: :cascade do |t|
@@ -374,4 +408,5 @@ ActiveRecord::Schema.define(version: 20180920232046) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "candidate_educations", "candidates"
 end
