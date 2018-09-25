@@ -13,30 +13,12 @@
       </div>
 
       <div class="section-content">
-        <p class="gray bold">
-          ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
-        </p>
-
-        <p class="gray bold">
-          ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
-        </p>
-
-        <p class="gray bold">
-          ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
-        </p>
-
-        <p class="gray bold">
-          ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
-        </p>
-
-        <p class="gray bold">
-          ENERGIA E RECURSOS NATURAIS<br>
-          ÓLEO E GÁS | ENERGIAS RENOVÁVEIS
-        </p>
+        <% @sectors.each do |sector| %>
+          <p class="gray bold">
+            <%= sector.name %><br>
+            <%= sector.description.upcase %>
+          </p>
+        <% end %>
       </div>
     </article>
 
@@ -47,10 +29,11 @@
       </div>
 
       <div class="section-content">
-        <p class="gray bold">
-          INÍCIO DE OPERAÇÃO: MAIOR AUTONOMIA,
-          RELEVÂNCIA, DINAMISMO.
-        </p>
+        <% @company_sizes.each do |size| %>
+          <p class="gray bold">
+            <%= "#{size.name}: #{size.description.upcase}" %>
+          </p>
+        <% end %>
       </div>
     </article>
 
@@ -63,10 +46,11 @@
       </div>
 
       <div class="section-content">
-        <p class="gray bold">
-          AGRESSIVA: FOCO NO CURTO PRAZO,
-          NÚMEROS E PERFORMANCE.
-        </p>
+        <% @modes.each do |mode| %>
+          <p class="gray bold">
+            <%= "#{mode.name}: #{mode.description.upcase}" %>
+          </p>
+        <% end %>
       </div>
     </article>
 
@@ -79,21 +63,11 @@
       </div>
 
       <div class="section-content">
-        <p class="gray bold">
-          ITAIM, JARDIM PAULISTA E REGIÃO
-        </p>
-
-        <p class="gray bold">
-          ITAIM, JARDIM PAULISTA E REGIÃO
-        </p>
-
-        <p class="gray bold">
-          ITAIM, JARDIM PAULISTA E REGIÃO
-        </p>
-
-        <p class="gray bold">
-          ITAIM, JARDIM PAULISTA E REGIÃO
-        </p>
+        <% @city_locales.each do |locale| %>
+          <p class="gray bold">
+            <%= locale.name %>
+          </p>
+        <% end %>
       </div>
     </article>
   </section>

@@ -26,7 +26,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_interest_step_4_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", candidate_home_path, :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_fifth').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_fifth').submit()" %>
     </section>
   <% end %>
 </section>

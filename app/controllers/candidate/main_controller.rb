@@ -21,6 +21,11 @@ class Candidate::MainController < ApplicationController
     when "complete"
       @message = "Acesse seu perfil para mais detalhes"
     end
+
+    @sectors       = Sector.where("id IN (?)", @candidate.candidate_interest.sectors)
+    @company_sizes = CompanySize.where("id IN (?)", @candidate.candidate_interest.company_sizes)
+    @modes         = Mode.where("id IN (?)", @candidate.candidate_interest.modes)
+    @city_locales  = CityLocale.where("id IN (?)", @candidate.candidate_interest.locales)
   end
 
   def profile
