@@ -736,13 +736,13 @@ end
 # Creating First Annual Claim Rate List
 # -------
 if AnnualClaimRateList.count == 0
-  AnnualClaimRateList.create(name: '30% de aumento ou mais')
-  AnnualClaimRateList.create(name: '20% de aumento ou mais')
-  AnnualClaimRateList.create(name: '10% de aumento ou mais')
-  AnnualClaimRateList.create(name: 'A partir do mesmo')
-  AnnualClaimRateList.create(name: '10% a menos')
-  AnnualClaimRateList.create(name: '20% a menos')
-  AnnualClaimRateList.create(name: '30% a menos')
+  AnnualClaimRateList.create(name: '30% de aumento ou mais', value: 30)
+  AnnualClaimRateList.create(name: '20% de aumento ou mais', value: 20)
+  AnnualClaimRateList.create(name: '10% de aumento ou mais', value: 10)
+  AnnualClaimRateList.create(name: 'A partir do mesmo', value: 0)
+  AnnualClaimRateList.create(name: '10% a menos', value: -10)
+  AnnualClaimRateList.create(name: '20% a menos', value: -20)
+  AnnualClaimRateList.create(name: '30% a menos', value: -30)
 end
 
 # -------
@@ -783,7 +783,7 @@ end
 # -------
 # Update Annual Claim Rate List (2018 Sep 25)
 # -------
-if AnnualClaimRateList.count == 7
+if AnnualClaimRateList.count == 7 && AnnualClaimRateList.where("value IS ?", nil).present?
   AnnualClaimRateList.find_by_name('30% de aumento ou mais').update_attributes(value: 30)
   AnnualClaimRateList.find_by_name('20% de aumento ou mais').update_attributes(value: 20)
   AnnualClaimRateList.find_by_name('10% de aumento ou mais').update_attributes(value: 10)
