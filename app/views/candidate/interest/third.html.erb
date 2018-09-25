@@ -16,7 +16,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= check_box_tag "candidate_interest[sectors][]", sector.id, false, class: "with-gap" %>
+                <%= check_box_tag "candidate_interest[sectors][]", sector.id, @candidate_interest.sectors.include?(sector.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= sector.name %><br>
                     <%= sector.description %>
@@ -30,7 +30,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_interest_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step disabled", :onclick => "$('#candidate_third').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step #{@candidate_interest.sectors.empty? ? 'disabled' : ''}", :onclick => "$('#candidate_third').submit()" %>
     </section>
   <% end %>
 </section>
