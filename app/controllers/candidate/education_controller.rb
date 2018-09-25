@@ -58,6 +58,8 @@ class Candidate::EducationController < ApplicationController
     def set_candidate_languages
       if @candidate_education.present?
         @candidate_education_languages = @candidate_education.candidate_education_languages.empty? ? [CandidateEducationLanguage.new] : @candidate_education.candidate_education_languages
+      else
+        @candidate_education_languages = [CandidateEducationLanguage.new]
       end
     end
 

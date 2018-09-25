@@ -62,7 +62,7 @@ class Candidate::InterestController < ApplicationController
 
     @candidate.completed_interest! if @candidate.reload.interest?
 
-    redirect_to candidate_home_path
+    redirect_to candidate_experience_step_1_path
   end
 
   private
