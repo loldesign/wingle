@@ -24,7 +24,7 @@
                   <li class="collection-item">
                     <p>
                       <label>
-                        <%= check_box_tag "candidate_interest[locales][]", city_locale.id, false, class: "with-gap" %>
+                        <%= check_box_tag "candidate_interest[locales][]", city_locale.id, @candidate_interest.locales.include?(city_locale.id) ? true : false, class: "with-gap" %>
                         <span><%= city_locale.name %></span>
                       </label>
                     </p>

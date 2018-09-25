@@ -48,13 +48,15 @@ Rails.application.routes.draw do
     post 'hability/step-complete'       , to: 'hability#complete'
 
     #### EDUCATION SECTOR #####
-    get 'education/step-1'              , to: 'education#first'
-    get 'education/step-2'              , to: 'education#second'
+    get   'education/step-1'            , to: 'education#first'
+    match 'education/step-2'            , to: 'education#second'      , via: [:get, :post]
+    post  'education/step-complete'     , to: 'education#complete'
 
     #### PRETENSION SECTOR #####
-    get 'pretension/step-1'             , to: 'pretension#first'
-    get 'pretension/step-2'             , to: 'pretension#second'
-    get 'pretension/step-3'             , to: 'pretension#third'
+    get   'pretension/step-1'           , to: 'pretension#first'
+    match 'pretension/step-2'           , to: 'pretension#second'     , via: [:get, :post]
+    match 'pretension/step-3'           , to: 'pretension#third'      , via: [:get, :post]
+    post  'pretension/complete'         , to: 'pretension#complete'
   end
 
 

@@ -45,6 +45,6 @@ class Admin::AnnualClaimRateListsController < AdminController
 	end
 
 	def annual_claim_rate_list_params
-		params.require(:annual_claim_rate_list).permit(:name)
+		params.require(:annual_claim_rate_list).permit(:name, :value)
 	end
 end

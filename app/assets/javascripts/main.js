@@ -24,4 +24,6 @@ $(document).on('turbolinks:load', function() {
 
   // Candidate Language Append or Remove //
   appendLanguage();
+
+  calculatePretension();
 });
