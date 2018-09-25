@@ -6,5 +6,6 @@ class Candidate::MainController < ApplicationController
 
   def profile
     @header_options = {style: :dashboard_header}
+    @tab_bar        = {style: :with_tab_bar}
   end
 end

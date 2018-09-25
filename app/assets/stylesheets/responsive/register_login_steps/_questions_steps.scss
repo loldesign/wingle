@@ -115,7 +115,7 @@
             @include span-columns (1 of 4);
             border-radius: 50px;
             width: 4vw;
-            height: 9.8vh;
+            height: 7.7vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -141,4 +141,19 @@
       padding-bottom: 7vh;
     }
   }
+}
+
+// IPHONE 5/SE //
+@include media ($small-mobile) {
+  .question-container {
+    .content-box {
+      .collection {
+        .list-item-options {
+          .btn-options {
+            height: 9.8vh;
+          }
+        }
+      }
+    }
+  } 
 }

@@ -1,58 +1,31 @@
 // MOBILE SCREEN //
 @include media ($mobile) {
   #candidate_profile {
-    width: 100%;
-    float: left;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    
     /* PROFILE MAIN INFOS */
-    .main-infos-wrapper {
-      width: 100%;
-      float: left;
-      display: flex;
-      justify-content: center;
-      border-top: solid 1.5px $gray;
-      border-bottom: solid 1.5px $gray;
-    }
-
     .main-infos {
-      width: 50%;
-      display: flex;
-      justify-content: space-between;
-      padding: 2vh 0;
+      width: 100%;
+      padding: 2vh 5vw;
 
       .profile-image-container,
       .curriculum-box {
         width: 20%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
       }
 
       .profile-image-container {
         .profile-image-box {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border: solid 1px;
-          border-radius: 100px;
-          overflow: hidden;
-          width: 10vw;
-          height: 19.58vh;
-          margin-bottom: 1vh; 
+          width: 18.8vw;
+          height: 10.58vh;
 
           img {
             width: 100%;
-            padding: 0 1.5vw; /* TALVEZ REMOVER */
+            padding: 0 2.5vw; /* TALVEZ REMOVER */
           }
         }
 
         p {
           text-align: center;
           margin-bottom: 0;
+          font-size: 3vw;
         }
       }
 
@@ -73,8 +46,8 @@
         }
 
         .info-icons {
-          width: 30%;
-          margin-right: 5%;
+          width: 20%;
+          margin-right: 0;
 
           img {
             width: 20%;
@@ -82,18 +55,15 @@
           }
 
           i {
-            font-size: 2.5vw;
-            color: $light-green;
+            font-size: 7.5vw;
           }
         }
 
         .info-content {
-          width: 65%;
-          align-items: flex-start;
+          width: 75%;
 
           p {
-            font-size: 1vw;
-            margin-bottom: 0;
+            font-size: 3vw;
           }
         }
       }
@@ -106,12 +76,13 @@
         }
 
         i {
-          font-size: 4.5vw;
+          font-size: 12.5vw;
           display: flex;
         }
 
         p {
           text-align: center;
+          font-size: 3vw;
         }
       }
     }
@@ -123,14 +94,14 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 2vh 0;
+      padding: 2vh 5vw;
       background-color: #F1F1F1;
       flex: 2.5;
 
       article {
-        padding: 2vh 1vw;
+        padding: 2vh 5vw;
         margin-top: 2vh;
-        width: 50%;
+        width: 100%;
 
         &:first-of-type {
           margin: 0;
@@ -144,38 +115,45 @@
 
           h6 {
             margin: 0;
+            font-size: 3.4vw;
           }
         }
       }
 
       .profile-info-advise {
-        background-color: #FFF;
-
         h5 {
-          margin: 0 0 2vh;
+          font-weight: bold;
+          text-align: center;
         }
 
         p {
+          text-align: center;
           margin: 0;
         }
       }
 
       .new-challenges,
       .employed {
-        background-color: #FFF;
-        border-radius: 20px;
-
         p {
-          margin-bottom: 0;
+          font-size: 3.4vw;
+        }
+
+        // TOGGLE BUTTON //
+        .switch label .lever {
+          width: 10.7vw;
+          height: 3.1vh;
+        }
+
+        .switch label .lever:before, .switch label .lever:after {
+          width: 5.53vw;
+          height: 3vh;
         }
       }
 
       .employed {
         .article-content {
           .corporate-email {
-            background-color: $light-gray;
-            padding: 2vh 0 2vh 1vw;
-            margin-bottom: 2vh;
+            padding: 2vh 0 2vh 4vw;
           }
         }
       }
