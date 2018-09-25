@@ -65,7 +65,7 @@
       <div class="section-content">
         <% @city_locales.each do |locale| %>
           <p class="gray bold">
-            <%= locale.name %>
+            <%= locale.name.upcase %>
           </p>
         <% end %>
       </div>
