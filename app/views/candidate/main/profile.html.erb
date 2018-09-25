@@ -2,13 +2,14 @@
   <section class="main-infos-wrapper">
     <section class="main-infos">
       <article class="profile-image-container">
-        <%= link_to "#{}" do %>
-          <div class="profile-image-box">
-            <%= image_tag 'icons/company.svg' %>
-          </div>
-
-          <p>Editar foto</p>
+        <%= form_for(current_candidate, url: candidate_update_avatar_path, :method => :POST) do |f| %>
+          <label for="candidate_candidate_avatar">
+          <%= f.file_field :candidate_avatar %>
+          <%= candidate_avatar(current_candidate)%>
+        
+          <%= f.submit %>
         <% end %>
+
       </article>
 
       <article class="profile-infos">
@@ -20,15 +21,15 @@
 
         <div class="info-content">
           <p>
-            Fabio Abdo Saad
+            <%= current_candidate.name %>
           </p>
 
           <p>
-            fabio.saad@gmail.com
+            <%= current_candidate.email %>
           </p>
 
           <p>
-            (11) 99345-1423          
+            <%= current_candidate.cellphone %>
           </p>
         </div>
       </article>

@@ -31,6 +31,23 @@
     }
 
     .profile-image-container {
+      form {
+        position: relative;
+
+        label {
+          input:last-of-type {
+            background-color: transparent;
+            color: #333;
+            display: block;
+            margin: 0 auto;
+          }
+        }
+
+        #candidate_candidate_avatar {
+          display: none;
+        }
+      }
+
       .profile-image-box {
         display: flex;
         justify-content: center;
@@ -44,7 +61,10 @@
 
         img {
           width: 100%;
-          padding: 0 1.5vw; /* TALVEZ REMOVER */
+
+          &.without_image{
+            padding: 0 1.5vw;
+          }
         }
       }
 

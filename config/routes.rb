@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :candidate do
     get   '/user-login'                 , to: 'steps#login_or_register'
     get   '/terms'                      , to: 'steps#terms'
-    match '/quick-details'              , to: 'steps#quick_details', via: [:get, :post]
+    match '/quick-details'              , to: 'steps#quick_details'   , via: [:get, :post]
     get   '/complete-register'          , to: 'steps#complete_register'
     post  '/complete-register'          , to: 'steps#create_candidate'
     get   '/welcome-message'            , to: 'steps#welcome_message'
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     ##### MAIN CANDIDATE AREA #####
     get '/home'                         , to: 'main#home'             , as: :home
     get '/profile'                      , to: 'main#profile'          , as: :profile
+    post '/update_avatar'               , to: 'main#update_avatar'    , as: :update_avatar
 
     ##### EXPERIENCE SECTOR #####
     get   'experience/step-1'           , to: 'experience#first'

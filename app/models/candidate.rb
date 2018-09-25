@@ -1,4 +1,5 @@
 class Candidate < ApplicationRecord
+  mount_uploader :candidate_avatar, ::CandidateAvatarUploader
   require "cpf_cnpj"
   include AASM
 

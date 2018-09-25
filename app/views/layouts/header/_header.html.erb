@@ -55,9 +55,7 @@
       </nav>
       
       <div class="profile-container">
-        <div class="profile-box">
-          <%= image_tag 'icons/company.svg' %>
-        </div>
+        <%= candidate_avatar(current_candidate, :thumb)%>
 
         <div class="profile-options hidden">
           <ul>
@@ -73,7 +71,7 @@
             </li>
 
             <li>
-              <%= link_to destroy_candidate_session_path, method: :delete, confirm: 'Deseja sair?' do %>
+              <%= link_to destroy_candidate_session_path, method: :delete, data: {confirm: 'Deseja sair?'} do %>
                 <!-- SIGNOUT LINK -->
                 <div class="icon-box">
                   <%= image_tag 'icons/logout.svg' %>
