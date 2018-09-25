@@ -10,13 +10,22 @@
           justify-content: space-between;
 
           .half-label {
-            width: 40%;
-            margin-bottom: 0;
+            width: 30%;
+            margin-right: 10%;
+
+            label {
+              width: 100%;
+            }
           }
 
           .half-input {
-            width: 50%;
+            width: 60%;
             margin-bottom: 0;
+          }
+
+          select {
+            font-size: 3.3vw !important;
+            width: 60%;
           }
         }
 
@@ -31,7 +40,7 @@
           }
 
           input {
-            width: 50%;
+            width: 70%;
           }
         }
       }

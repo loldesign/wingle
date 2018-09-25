@@ -10,15 +10,19 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-direction: column
           }
 
           select {
+            font-size: 4.4vw !important;
+            width: 90%;
             float: left;
           }
           
           .language-level-box {
-            width: 60%;
+            width: 90%;
             float: left;
+            margin-top: 3vh;
 
             p {
               width: 100%;
