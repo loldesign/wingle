@@ -708,6 +708,14 @@ if NofsalariesList.count == 0
 end
 
 # -------
+# Update Nofsalaries List if it already created (just in case this seed ran before 2018 Sep 24)
+# -------
+if NofsalariesList.count == 2
+  NofsalariesList.find_by_name('12 salários por ano (PJ)').update_attributes(value: 12)
+  NofsalariesList.find_by_name('13,33 salários por ano  (CLT)').update_attributes(value: 13.33)
+end
+
+# -------
 # Creating First Benefits List
 # -------
 if BenefitsList.count == 0
@@ -770,4 +778,17 @@ if SortList.count == 0
   SortList.create(name: 'Menor Remuneração Mensal')
   SortList.create(name: 'Maior Tempo de Carreira')
   SortList.create(name: 'Menor Tempo de Carreira')
+end
+
+# -------
+# Update Annual Claim Rate List (2018 Sep 25)
+# -------
+if AnnualClaimRateList.count == 7
+  AnnualClaimRateList.find_by_name('30% de aumento ou mais').update_attributes(value: 30)
+  AnnualClaimRateList.find_by_name('20% de aumento ou mais').update_attributes(value: 20)
+  AnnualClaimRateList.find_by_name('10% de aumento ou mais').update_attributes(value: 10)
+  AnnualClaimRateList.find_by_name('A partir do mesmo').update_attributes(value: 0)
+  AnnualClaimRateList.find_by_name('10% a menos').update_attributes(value: -10)
+  AnnualClaimRateList.find_by_name('20% a menos').update_attributes(value: -20)
+  AnnualClaimRateList.find_by_name('30% a menos').update_attributes(value: -30)
 end

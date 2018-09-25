@@ -78,6 +78,7 @@ pt-BR:
         name: "Nome"
       annual_claim_rate_list:
         name: "Nome"
+        value: "Valor"
       status_list:
         name: "Nome"
       title_list:
