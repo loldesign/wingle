@@ -29,6 +29,7 @@ class Candidate::PretensionController < ApplicationController
   end
 
   def complete
+    binding.pry
     if candidate_pretension_params.present? && !@candidate_pretension.update_attributes(candidate_pretension_params)
       render action: :third
     end
@@ -45,6 +46,6 @@ class Candidate::PretensionController < ApplicationController
     end
 
     def candidate_pretension_params
-      params.fetch(:candidate_pretension, {}).permit(:last_monthly_salary, :nofsalaries, :variable, :last_salary_total, :pretension_yearly, :pretension_minimum, :pretension_yearly_total, benefits: [])
+      params.fetch(:candidate_pretension, {}).permit(:last_monthly_salary, :nofsalaries, :variable, :last_salary_total, :pretension_minimum_percent, :pretension_yearly_total, :minimum_claim, benefits: [])
     end
 end

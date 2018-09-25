@@ -14,6 +14,11 @@ var calculatePretension = function(){
     calculateLastSalaryTotal();
   });
 
+  $("#claim_list").change(function (event) {
+    event.preventDefault();
+    calculatePretensionYearlyTotal();
+  });
+
   // Calculate last salary total //
   calculateLastSalaryTotal = function() {
     var monthly_salary = $("#candidate_pretension_last_monthly_salary").val()
@@ -21,7 +26,15 @@ var calculatePretension = function(){
     var variable       = $("#candidate_pretension_variable").val()
 
     var total = monthly_salary * nofsalaries + Number(variable)
-    console.log(total)
     $("#candidate_pretension_last_salary_total").val(total.toFixed(2))
+  }
+
+  // Calculate pretension yearly total //
+  calculatePretensionYearlyTotal = function() {
+    var last_salary_total = $("#last_salary_total").val()
+    var percent           = $("#claim_list").val()
+
+    var total = last_salary_total*(1+(percent/100))
+    $("#pretension_yearly_total").val(total.toFixed(2))
   }
 }

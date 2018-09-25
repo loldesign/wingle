@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180925140125) do
+ActiveRecord::Schema.define(version: 20180925152534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,10 +134,10 @@ ActiveRecord::Schema.define(version: 20180925140125) do
     t.decimal "nofsalaries"
     t.decimal "variable", precision: 8, scale: 2
     t.decimal "last_salary_total", precision: 8, scale: 2
-    t.decimal "pretension_yearly", precision: 8, scale: 2
-    t.decimal "pretension_minimum", precision: 8, scale: 2
+    t.decimal "pretension_minimum_percent", precision: 8, scale: 2
     t.decimal "pretension_yearly_total", precision: 8, scale: 2
     t.integer "benefits", default: [], array: true
+    t.integer "minimum_claim"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_candidate_pretensions_on_candidate_id"
