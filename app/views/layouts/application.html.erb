@@ -30,7 +30,8 @@
     </main>
 
     <footer>
-      <%= render :partial => "layouts/footer" if current_candidate || current_company %>
+      <%#= render :partial => "layouts/footer" if current_candidate || current_company %>
+      <%= render :partial => "layouts/footer", locals: {options: @tab_bar.present? ? @tab_bar : {style: :none} } %>
     </footer>
   </body>
 </html>

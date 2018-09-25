@@ -38,6 +38,10 @@ header {
   z-index: 99999;
 }
 
+footer {
+  display: none !important;
+}
+
 .site-content {
   flex: 1;
 }

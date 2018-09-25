@@ -12,8 +12,8 @@
     }
   }
 
-  .wrapper {
-    @include wrapper;
+  .site-content {
+    padding-bottom: 15vh;
   }
 
   body {
@@ -24,7 +24,10 @@
     font-size: 4vw;
   }
 
-  header {
+  footer {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
     z-index: 99999;
   }
 

@@ -1,0 +1,29 @@
+<% if options[:style] == :with_tab_bar %> 
+  <section id="responsive_nav" class="tab-bar-nav">
+    <nav>
+      <%= link_to candidate_experience_step_1_path do %>
+        <%= image_tag 'icons/schedule_white.svg' %>
+
+        <p>Interesses e Experiências</p>
+      <% end %>
+
+      <%= link_to candidate_company_step_1_path do %>
+        <%= image_tag 'icons/company_white.svg' %>
+
+        <p>Empresas e Habilidades</p>
+      <% end %>
+
+      <%= link_to candidate_education_step_1_path do %>
+        <%= image_tag 'icons/shield_white.svg' %>
+
+        <p>Educação e Pretensão</p>
+      <% end %>
+
+      <%= link_to candidate_profile_path do %>
+        <%= image_tag 'icons/company_white.svg' %>
+
+        <p>Perfil</p>
+      <% end %>
+    </nav>
+  </section>
+<% end %>
