@@ -21,20 +21,20 @@ var calculatePretension = function(){
 
   // Calculate last salary total //
   calculateLastSalaryTotal = function() {
-    var monthly_salary = $("#candidate_pretension_last_monthly_salary").val()
+    var monthly_salary = $("#candidate_pretension_last_monthly_salary").val().replace(/^(R\$ )/, '').replace(',', '.')
     var nofsalaries    = $("#candidate_pretension_nofsalaries").val()
-    var variable       = $("#candidate_pretension_variable").val()
+    var variable       = $("#candidate_pretension_variable").val().replace(/^(R\$ )/, '').replace(',', '.')
 
     var total = monthly_salary * nofsalaries + Number(variable)
-    $("#candidate_pretension_last_salary_total").val(total.toFixed(2))
+    $("#candidate_pretension_last_salary_total").val("R$ " + total.toFixed(2))
   }
 
   // Calculate pretension yearly total //
   calculatePretensionYearlyTotal = function() {
-    var last_salary_total = $("#last_salary_total").val()
+    var last_salary_total = $("#last_salary_total").val().replace(/^(R\$ )/, '').replace('.', '').replace(',', '.')
     var percent           = $("#claim_list").val()
 
     var total = last_salary_total*(1+(percent/100))
-    $("#pretension_yearly_total").val(total.toFixed(2))
+    $("#pretension_yearly_total").val("R$ " + total.toFixed(2))
   }
 }
