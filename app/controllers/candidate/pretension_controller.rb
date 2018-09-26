@@ -52,6 +52,7 @@ class Candidate::PretensionController < ApplicationController
       pretension_params[:last_monthly_salary] = candidate_pretension_params[:last_monthly_salary].gsub('R$ ', '').gsub('.', '').gsub(',', '.')  if pretension_params[:last_monthly_salary].present?
       pretension_params[:variable]            = candidate_pretension_params[:variable].gsub('R$ ', '').gsub('.', '').gsub(',', '.')  if pretension_params[:variable].present?
       pretension_params[:last_salary_total]   = candidate_pretension_params[:last_salary_total].gsub('R$ ', '').gsub('.', '').gsub(',', '.')
+      pretension_params[:minimum_claim]       = candidate_pretension_params[:minimum_claim].gsub('R$ ', '').gsub('.', '').gsub(',', '.') if pretension_params[:minimum_claim].present?
       pretension_params[:pretension_yearly_total]  = candidate_pretension_params[:last_salary_total].gsub('R$ ', '').gsub('.', '').gsub(',', '.')
       return pretension_params
     end

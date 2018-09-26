@@ -65,7 +65,7 @@
               </label>
             </p>
 
-            <%= select_tag 'candidate_pretension[minimum_claim]', options_for_select(@claim.collect{ |claim| [claim.name, claim.id] }), :class => "custom" %>
+            <%= text_field "candidate_pretension", "minimum_claim", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.minimum_claim), id: "minimum_claim"%>
           </div>
         </li>
       </ul>
