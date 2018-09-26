@@ -8,7 +8,7 @@ class Candidates::PasswordsController < Devise::PasswordsController
 
   # POST /resource/password
   def create
-    if candidate_params[:cpf].present? && CPF.valid?(params[:cpf])
+    if candidate_params[:cpf].present? && CPF.valid?(candidate_params[:cpf])
       @candidate = Candidate.find_by(cpf: candidate_params[:cpf])
       @candidate.send_reset_password_instructions
     elsif candidate_params[:cpf].present? && !CPF.valid?(params[:cpf])
@@ -19,7 +19,9 @@ class Candidates::PasswordsController < Devise::PasswordsController
     end
     yield @candidate if block_given?
 
-    if successfully_sent?(@candidate)
+    candidate_not_found = @candidate.errors && @candidate.errors.details[:email][0][:error] == :not_found
+
+    if successfully_sent?(@candidate) || candidate_not_found
       flash[:notice] = "em breve você receberá um e-mail"
       respond_with({}, location: after_sending_reset_password_instructions_path_for(@candidate))
     else

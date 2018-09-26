@@ -33,6 +33,6 @@ class Candidate::HabilityController < ApplicationController
     end
 
     def hability_params
-      params.fetch(:candidate_hability, {}).permit(areas: [])
+      params.fetch(:candidate_hability, {}).permit(functions: [])
     end
 end

@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function() {
   // Questions Options Counter //
   optionsCount();
 
-  // jQuery Mask
+  // jQuery Mask //
   $('.cpf').mask('000.000.000-00');
 
   var PhoneMaskBehavior = function (val) {
@@ -18,6 +18,7 @@ $(document).on('turbolinks:load', function() {
   };
 
   $('.cellphone').mask(PhoneMaskBehavior, phoneOptions);
+  // END jQuery Mask //
 
   // Candidate Companies Append or Remove //
   appendCompany();  
@@ -25,5 +26,8 @@ $(document).on('turbolinks:load', function() {
   // Candidate Language Append or Remove //
   appendLanguage();
 
+  // Candidate Pretension //
   calculatePretension();
+
+  makeRadiosDeselectable();
 });

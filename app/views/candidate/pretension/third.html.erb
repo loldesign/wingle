@@ -19,7 +19,7 @@
             </label>
           </p>
 
-          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input", value: @candidate_pretension.last_salary_total, id: "last_salary_total", readonly: true %>
+          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.last_salary_total), id: "last_salary_total", readonly: true %>
         </li>
         
         <li class="collection-item pretension-calc-item">
@@ -43,7 +43,7 @@
             </label>
           </p>
 
-          <%= text_field "candidate_pretension", "pretension_yearly_total", placeholder: "R$:", class: "half-input", value: @candidate_pretension.pretension_yearly_total, id: "pretension_yearly_total", readonly: true %>
+          <%= text_field "candidate_pretension", "pretension_yearly_total", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.pretension_yearly_total), id: "pretension_yearly_total", readonly: true %>
         </li>
 
         <li class="collection-item fixed-minimum-pretension">
@@ -65,7 +65,7 @@
               </label>
             </p>
 
-            <%= select_tag 'candidate_pretension[minimum_claim]', options_for_select(@claim.collect{ |claim| [claim.name, claim.id] }), :class => "custom" %>
+            <%= text_field "candidate_pretension", "minimum_claim", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.minimum_claim), id: "minimum_claim"%>
           </div>
         </li>
       </ul>
