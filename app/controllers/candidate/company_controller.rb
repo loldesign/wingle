@@ -41,7 +41,7 @@ class Candidate::CompanyController < ApplicationController
       @companies = @candidate.candidate_companies
       @size = CompanySize.all
       @sector = Sector.all
-      @profile = TitleList.all
+      @profile = Mode.all
     end
   end
 
