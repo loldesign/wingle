@@ -18,6 +18,7 @@ $(document).on('turbolinks:load', function() {
   };
 
   $('.cellphone').mask(PhoneMaskBehavior, phoneOptions);
+  $('.money').mask('#.##0', {reverse: true});
   // END jQuery Mask //
 
   // Candidate Companies Append or Remove //

@@ -25,7 +25,7 @@ class Candidate::EducationController < ApplicationController
   def complete
     if candidate_education_language_params.present?
       CandidateEducationLanguage.transaction do
-        candidate_education_language_params.each_pair do |index, language_params|
+        candidate_education_language_params.each do |index, language_params|
           # check if already exists to avoid duplicate
           if language_params[:id].present? && language_params[:language_level_id].present?
             language = CandidateEducationLanguage.update(language_params[:id], language_params)

@@ -19,7 +19,7 @@
             </label>
           </p>
 
-          <%= text_field "candidate_pretension", "last_monthly_salary", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.last_monthly_salary) %>
+          <%= text_field "candidate_pretension", "last_monthly_salary", placeholder: "R$:", class: "half-input money", value: number_to_currency(@candidate_pretension.last_monthly_salary, precision: 0) %>
         </li>
         
         <li class="collection-item pretension-calc-item">
@@ -43,7 +43,7 @@
             </label>
           </p>
 
-          <%= text_field "candidate_pretension", "variable", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.variable) %>
+          <%= text_field "candidate_pretension", "variable", placeholder: "R$:", class: "half-input money", value: number_to_currency(@candidate_pretension.variable, precision: 0) %>
         </li>
 
         <li class="collection-item pretension-calc-result">
@@ -55,7 +55,7 @@
             </label>
           </p>
 
-          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.last_salary_total),readonly: true %>
+          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.last_salary_total, precision: 0),readonly: true %>
         </li>
       </ul>
     </section>
