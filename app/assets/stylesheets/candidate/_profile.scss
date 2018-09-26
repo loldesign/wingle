@@ -250,8 +250,12 @@
       .article-content {
         .corporate-email {
           background-color: $light-gray;
-          padding: 2vh 0 2vh 1vw;
+          padding: 2vh 1vw 2vh 1vw;
           margin-bottom: 2vh;
+
+          input {
+            margin-bottom: 0;
+          }
         }
       }
     }
