@@ -13,19 +13,19 @@
         <% @area.each do |area| %>
           <li class="collection-item">
             <p>
-              <label>
-                <%= check_box_tag "candidate_hability[areas][]", area.id, false, class: "with-gap" %>
-                  <span>
-                    <% area.functions.each do |functions| %>
-                      <%= functions.name %> <br><br>
+              <% area.functions.each do |functions| %>
+                <label>
+                  <%= check_box_tag "candidate_hability[functions][]", functions.id, @candidate_hability.functions.include?(functions.id) ? true : false, class: "with-gap" %>
+                    <span>
+                        <%= functions.name %> <br><br>
 
-                      <% functions.habilities.each do |hability| %>
-                        <%= hability.name %> |
-                      <% end %>
-                      <br><br>
-                    <% end %>
-                  </span>
-              </label>
+                        <% functions.habilities.each do |hability| %>
+                          <%= hability.name %> |
+                        <% end %>
+                        <br><br>
+                    </span>
+                </label>
+              <% end %>
             </p>
           </li>
         <% end %>

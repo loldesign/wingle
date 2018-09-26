@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180925193404) do
+ActiveRecord::Schema.define(version: 20180926151319) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -107,7 +108,7 @@ ActiveRecord::Schema.define(version: 20180925193404) do
 
   create_table "candidate_habilities", force: :cascade do |t|
     t.bigint "candidate_id"
-    t.integer "areas", default: [], array: true
+    t.integer "functions", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_candidate_habilities_on_candidate_id"
@@ -136,9 +137,9 @@ ActiveRecord::Schema.define(version: 20180925193404) do
     t.decimal "pretension_minimum_percent", precision: 8, scale: 2
     t.decimal "pretension_yearly_total", precision: 8, scale: 2
     t.integer "benefits", default: [], array: true
-    t.integer "minimum_claim"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "minimum_claim"
     t.index ["candidate_id"], name: "index_candidate_pretensions_on_candidate_id"
   end
 
