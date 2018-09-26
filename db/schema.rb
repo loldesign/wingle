@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180925193404) do
+ActiveRecord::Schema.define(version: 20180926150239) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -136,9 +137,9 @@ ActiveRecord::Schema.define(version: 20180925193404) do
     t.decimal "pretension_minimum_percent", precision: 8, scale: 2
     t.decimal "pretension_yearly_total", precision: 8, scale: 2
     t.integer "benefits", default: [], array: true
-    t.integer "minimum_claim"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "minimum_claim"
     t.index ["candidate_id"], name: "index_candidate_pretensions_on_candidate_id"
   end
 
@@ -160,6 +161,7 @@ ActiveRecord::Schema.define(version: 20180925193404) do
     t.string "cellphone"
     t.string "cpf"
     t.string "candidate_avatar"
+    t.string "candidate_curriculum"
     t.index ["email"], name: "index_candidates_on_email", unique: true
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
   end

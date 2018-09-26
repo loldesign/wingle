@@ -19,20 +19,18 @@
     }
   }
 
-  #notice-wrapper {
-    width: 100%;
-    z-index: 999;
-    background: $green;
-    border-radius: 5px;
-    margin-bottom: 2vh;
+  .action-buttons-duo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    .notice {
-      padding: 1rem 0;
-      text-align: center;
-      margin: 0;
-      font-weight: 700;
-      color: #FFF;
-      letter-spacing: 1px;
+    a {
+      @include omega;
+
+      &:first-of-type {
+        margin-bottom: 2vh;
+      }
     }
   }
 }
