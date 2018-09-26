@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180926151319) do
+ActiveRecord::Schema.define(version: 20180926181316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,12 +130,12 @@ ActiveRecord::Schema.define(version: 20180926151319) do
 
   create_table "candidate_pretensions", force: :cascade do |t|
     t.bigint "candidate_id"
-    t.decimal "last_monthly_salary", precision: 8, scale: 2
+    t.decimal "last_monthly_salary", precision: 15, scale: 2
     t.decimal "nofsalaries"
-    t.decimal "variable", precision: 8, scale: 2
-    t.decimal "last_salary_total", precision: 8, scale: 2
-    t.decimal "pretension_minimum_percent", precision: 8, scale: 2
-    t.decimal "pretension_yearly_total", precision: 8, scale: 2
+    t.decimal "variable", precision: 15, scale: 2
+    t.decimal "last_salary_total", precision: 15, scale: 2
+    t.decimal "pretension_minimum_percent"
+    t.decimal "pretension_yearly_total", precision: 15, scale: 2
     t.integer "benefits", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
