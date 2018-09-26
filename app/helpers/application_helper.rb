@@ -7,4 +7,16 @@ module ApplicationHelper
       image_tag(avatar, class: has_image ? :with_image : :without_image)
     end
   end
+
+  def candidate_welcome_message(candidate)
+    if candidate.companies? || candidate.habilities?
+      path = candidate.companies? ? candidate_company_step_1_path : candidate_hability_step_1_path
+      link = 'Empresas e Habilidades'
+    elsif candidate.education? || candidate.pretension?
+      path = @candidate.education? ? candidate_education_step_1_path : candidate_pretension_step_1_path
+      link = 'Educação e Pretensão.'
+    end
+
+    render partial: "/layouts/shared/candidate_welcome_message", locals: {candidate: candidate, link_text: link, link_path: path}
+  end
 end
