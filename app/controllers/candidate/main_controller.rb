@@ -41,12 +41,24 @@ class Candidate::MainController < ApplicationController
     end
   end
 
-  private
-    def set_candidate
-      @candidate = current_candidate
+  def update_curriculum
+    if current_candidate.update_attributes(candidate_curriculum_param)
+      redirect_to candidate_profile_path(current_candidate)
+    else
+      render :edit
     end
+  end
 
-    def candidate_params 
-      params.require(:candidate).permit(:candidate_avatar)
-    end
+  private
+  def set_candidate
+    @candidate = current_candidate
+  end
+  
+  def candidate_params 
+    params.require(:candidate).permit(:candidate_avatar)
+  end
+
+  def candidate_curriculum_param
+    params.require(:candidate).permit(:candidate_curriculum)
+  end
 end

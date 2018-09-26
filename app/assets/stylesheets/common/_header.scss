@@ -84,22 +84,34 @@ header {
 
         .profile-box {
           width: 5.1vw;
-          height: 10vh;
+          height: 10.04vh;
           border: solid 1.5px $medium-gray;
           border-radius: 90px;
           overflow: hidden;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 20px;
           cursor: pointer;
+
+          .profile-image-box {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            img {
+              &.without_image{
+                padding: 0 1vw;
+                width: 100%;
+              }
+            }
+          }
         }
 
         .profile-options {
           width: 100%;
           background-color: $light-green;
           position: absolute;
-          top: 12vh;
+          top: 12.3vh;
           z-index: 9999;
 
           ul {

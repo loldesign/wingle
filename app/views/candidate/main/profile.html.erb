@@ -4,12 +4,16 @@
       <article class="profile-image-container">
         <%= form_for(current_candidate, url: candidate_update_avatar_path, :method => :POST) do |f| %>
           <label for="candidate_candidate_avatar">
-          <%= f.file_field :candidate_avatar %>
-          <%= candidate_avatar(current_candidate)%>
-        
-          <%= f.submit %>
-        <% end %>
+            <%= f.file_field :candidate_avatar %>
+            <%= candidate_avatar(current_candidate)%>
+          
+            <div class="mask">
+              <p>Alterar imagem</p>
+            </div>
+          </label>
 
+          <%= f.submit "Atualizar imagem" %>
+        <% end %>
       </article>
 
       <article class="profile-infos">
@@ -35,10 +39,19 @@
       </article>
 
       <article class="curriculum-box">
-        <%= link_to "#{}" do %>
-          <i class="icon ion-md-document"></i> 
-    
-          <p>Anexar CV</p>
+        <%= form_for(current_candidate, url: candidate_update_curriculum_path, :method => :POST) do |f| %>
+          <%= f.file_field :candidate_curriculum %>
+          <%= link_to current_candidate.candidate_curriculum.url, target: "_blank" do %>
+            <i class="icon ion-md-document"></i> 
+          <% end %>
+
+          <% if current_candidate.candidate_curriculum.url.present? %>
+            <%= link_to "Visualizar currículo", current_candidate.candidate_curriculum.url, target: "_blank", :class => "curriculum-link" %>
+          <% end %>
+          
+          <label for="candidate_candidate_curriculum">Anexar CV</label>
+          
+          <%= f.submit "Enviar currículo" %>
         <% end %>
       </article>
     </section>
@@ -88,7 +101,7 @@
 
       <div class="article-content">
         <div class="corporate-email">
-          <p>Email corporativo</p>
+          <input type="text" placeholder="Email corporativo">
         </div>
 
         <p>
@@ -97,4 +110,13 @@
       </div>
     </article>
   </section>
+
+  <%= link_to destroy_candidate_session_path, method: :delete, data: {confirm: 'Deseja sair?'}, :class => "exit-responsive-button" do %>
+    <!-- SIGNOUT LINK -->
+    <div class="icon-box">
+      <%= image_tag 'icons/logout.svg' %>
+    </div>
+
+    <p>Sair</p>
+  <% end %>
 </section>

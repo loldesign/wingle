@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 20180926181316) do
     t.string "cellphone"
     t.string "cpf"
     t.string "candidate_avatar"
+    t.string "candidate_curriculum"
     t.index ["email"], name: "index_candidates_on_email", unique: true
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
   end

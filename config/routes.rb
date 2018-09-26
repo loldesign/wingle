@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get '/home'                         , to: 'main#home'             , as: :home
     get '/profile'                      , to: 'main#profile'          , as: :profile
     post '/update_avatar'               , to: 'main#update_avatar'    , as: :update_avatar
+    post '/update_curriculum'           , to: 'main#update_curriculum', as: :update_curriculum
 
     ##### EXPERIENCE SECTOR #####
     get   'experience/step-1'           , to: 'experience#first'
