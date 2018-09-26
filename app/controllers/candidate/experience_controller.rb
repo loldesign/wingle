@@ -66,7 +66,7 @@ class Candidate::ExperienceController < ApplicationController
       redirect_to action: :fourth
     else
 
-      @function = Function.where("id IN (?)", @candidate_experience.functions)
+      @function = Function.by_ids_list(@candidate_experience.functions)
     end
   end
 
@@ -81,7 +81,7 @@ class Candidate::ExperienceController < ApplicationController
       redirect_to action: :third
     else
 
-      @function = Function.where("id IN (?)", @candidate_experience.functions)
+      @function = Function.by_ids_list(@candidate_experience.functions)
     end
   end
 
@@ -95,9 +95,11 @@ class Candidate::ExperienceController < ApplicationController
     if @candidate_experience.areas.nil? || @candidate_experience.areas == []
       redirect_to action: :third
     else
+      disconsidered_functions  = Function.by_ids_list(@candidate_experience.disconsidered_functions)
+      experience_functions     = Function.by_ids_list(@candidate_experience.functions)
+      all_functions            = Function.by_areas(@candidate_experience.areas)
 
-      @disconsidered_functions = Function.where("id IN (?)", @candidate_experience.disconsidered_functions)
-      @function = Function.by_areas(@candidate_experience.areas) - @disconsidered_functions
+      @function = all_functions - experience_functions - disconsidered_functions
     end
   end
 
