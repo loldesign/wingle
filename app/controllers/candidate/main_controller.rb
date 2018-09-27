@@ -1,6 +1,7 @@
 class Candidate::MainController < ApplicationController
   before_action :authenticate_candidate!
   before_action :set_candidate
+  before_action :validate_params, only: :update_profile
 
   def home
     @header_options = {style: :dashboard_header}
@@ -17,7 +18,7 @@ class Candidate::MainController < ApplicationController
     @tab_bar        = {style: :with_tab_bar}
   end
 
-  def update_avatar
+  def update_profile
     if current_candidate.update_attributes(candidate_params)
       redirect_to candidate_profile_path(current_candidate)
     else
@@ -25,24 +26,16 @@ class Candidate::MainController < ApplicationController
     end
   end
 
-  def update_curriculum
-    if current_candidate.update_attributes(candidate_curriculum_param)
-      redirect_to candidate_profile_path(current_candidate)
-    else
-      render :edit
-    end
+  private
+  def validate_params
+    redirect_to candidate_profile_path(current_candidate) unless params[:candidate].present?
   end
 
-  private
   def set_candidate
     @candidate = current_candidate
   end
   
   def candidate_params 
-    params.require(:candidate).permit(:candidate_avatar)
-  end
-
-  def candidate_curriculum_param
-    params.require(:candidate).permit(:candidate_curriculum)
+    params.require(:candidate).permit(:candidate_avatar, :candidate_curriculum, :new_challenges, :employed, :corporate_email)
   end
 end

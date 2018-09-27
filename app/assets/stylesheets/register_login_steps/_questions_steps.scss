@@ -125,6 +125,18 @@
     }
   }
 
+  /* OBSERVATION QUESTION BOX */
+  .observation-box {
+    text-transform: uppercase;
+    
+    strong {
+      font-weight: bold;
+    }
+
+    padding: 2vh 1.6vw;
+    color: #9e9e9e;
+  }
+
   .action-buttons-duo {
     padding-bottom: 7vh;
   }

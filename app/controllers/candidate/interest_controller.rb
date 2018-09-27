@@ -42,7 +42,7 @@ class Candidate::InterestController < ApplicationController
       render action: :fourth
     end
 
-    @relevance = Relevance.all
+    @relevance = Relevance.all.reverse
   end
 
   def complete

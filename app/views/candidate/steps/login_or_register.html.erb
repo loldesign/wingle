@@ -1,12 +1,12 @@
 <section id="login_or_register" class="content">
   <div class="cloud-bg">
-    <p class="bold medium-gray">
+    <p class="bold light-green-text">
       Mercado de trabalho<br>
-      na nuvem
+      compartilhado na nuvem
     </p>
   </div>
 
-  <section class="content-box">
+  <section class="content-box content-container">
     <%= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
       <section class="content-box">
         <% if flash[:notice] %>
@@ -30,7 +30,7 @@
   </section>
 
   <section class="login-or-register-actions action-buttons-duo">
-    <%= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
     <%= link_to "SAIBA MAIS", candidate_user_login_path, :class => 'waves-effect waves-light btn-default gray-default bold' %>
+    <%= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
   </section>
 </section>

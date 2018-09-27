@@ -19,9 +19,8 @@
                 <%= check_box_tag "candidate_experience[areas][]", area.id, @candidate_experience.areas.include?(area.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= area.name %><br>
-                    Ex:
                     <% area.functions.each do |functions| %>
-                      <%= functions.name %> |
+                      <strong><%= functions.name %> |</strong>
                     <% end %>
                   </span>
               </label>

@@ -7,7 +7,7 @@
             <div class="determinate" style="width: 75%"></div>
           </div>
 
-          <h5 class="center-align section">Quais perfis de empresas você consideraria?</h5>
+          <h5 class="center-align section">Qual o perfil de empresa ideal para você?</h5>
         </li>
         <% @mode.each do |mode| %>
           <li class="collection-item">
@@ -15,8 +15,7 @@
               <label>
                 <%= radio_button_tag "candidate_interest[modes][]", mode.id, @candidate_interest.modes.include?(mode.id) ? true : false, class: "with-gap" %>
                   <span>
-                    <%= mode.name %>:
-                    <%= mode.description %>
+                    <%= mode.name %>
                   </span>
               </label>
             </p>

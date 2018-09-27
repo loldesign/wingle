@@ -8,14 +8,17 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          flex-direction: column;
         }
 
         select {
           float: left;
+          width: 65%;
+          margin-bottom: 2vh !important;
         }
         
         .language-level-box {
-          width: 60%;
+          width: 65%;
           float: left;
 
           p {

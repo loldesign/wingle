@@ -1,9 +1,7 @@
 <section id="complete_register" class="content">
   <section class="title">
-    <h4 class="medium-gray bold main-title">
-      As empresas certas<br>
-      para sua carreira,<br>
-      querem saber quem você é
+    <h4 class="light-green-text bold main-title">
+      Preencha seus dados para que as empresas possam te acessar
     </h4>
   </section>
 
@@ -25,12 +23,12 @@
 
       <%= f.input :password_confirmation, placeholder: "CONFIRMAR SENHA" %>
 
-      <div class="checkbox-box">
+      <!-- <div class="checkbox-box">
         <label>
           <%= check_box_tag "candidate[terms]", "", true, class: "filled-in" %>
           <span>Aceito os termos e condições da política de privacidade</span>
         </label>
-      </div>
+      </div> -->
 
       <section class="complete-register-actions action-buttons-single">
         <%= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#new_candidate').submit()" %>

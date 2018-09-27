@@ -7,7 +7,7 @@
             <div class="determinate" style="width: 85%"></div>
           </div>
 
-          <h5 class="center-align section">Onde você agrega mais valor (dentro dessas funções)</h5>
+          <h5 class="center-align section">Das experiências anteriores onde você se destaca?</h5>
         </li>
 
         <% @area.each do |area| %>
@@ -20,7 +20,7 @@
                         <%= functions.name %> <br><br>
 
                         <% functions.habilities.each do |hability| %>
-                          <%= hability.name %> |
+                          <strong><%= hability.name %> |</strong>
                         <% end %>
                         <br><br>
                     </span>

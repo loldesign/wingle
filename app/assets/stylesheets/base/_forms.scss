@@ -41,13 +41,14 @@ select[multiple=multiple] {
   box-shadow: $form-box-shadow;
   box-sizing: border-box;
   font-family: $base-font-family;
-  font-size: 1.3vw;
-  color: $medium-gray;
+  font-size: .9vw;
+  color: $medium-gray !important;
   margin-bottom: $small-spacing;
   padding: .5em .5em .5em 1em;
   transition: border-color $base-duration $base-timing;
   width: 100%;
   height: 35px;
+  text-transform: uppercase;
 
   &::-webkit-input-placeholder {
     color: $medium-gray;

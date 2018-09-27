@@ -166,6 +166,14 @@
       background-color: #F1F1F1;
       flex: 2.5;
 
+      form {
+        width: 100%;
+        
+        article {
+          width: 100%;
+        }
+      }
+
       article {
         padding: 2vh 5vw;
         margin-top: 2vh;
@@ -227,6 +235,23 @@
               width: 100%;
               font-size: 3vw;
               margin-bottom: 0;
+            }
+          }
+
+          .profile-submit-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            p {
+              float: left;
+              margin-bottom: 4vh;
+            }
+
+            input {
+              width: 50%;
+              font-size: 3.3vw;
             }
           }
         }

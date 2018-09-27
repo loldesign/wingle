@@ -1,11 +1,10 @@
 <% if candidate.companies? || candidate.habilities? %>
-	Olá, eu sou o Wingle. Ajudarei você ao longo da sua carreira<br/><br/>
-	Entendi o que você busca e sua trajetória está quase finalizada. 
+	Sua trajetória está quase finalizada. 
 	Complete <%= link_to link_text, link_path %> para evoluir na sua busca da empresa atual.
 <% end %>
 
 <% if candidate.education? || candidate.pretension? %>
-	Quase lá. Para ser apresentado para as empresas certas preencha sua <%= link_to link_text, link_path %>
+	Quase lá! Para ser apresentado para as empresas certas preencha <%= link_to link_text, link_path %>
 <% end %>
 
 <% if candidate.complete?%>

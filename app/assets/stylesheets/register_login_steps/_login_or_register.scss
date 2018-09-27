@@ -1,7 +1,10 @@
 #login_or_register {
+  .content-container {
+    padding-top: 6vh;
+  }
+
   .content-box {
     @include span-columns (6 of 6);
-    padding-top: 6vh;
 
     form {
       @include span-columns (4 of 6);
@@ -16,21 +19,6 @@
       align-items: center;
       justify-content: center;
       text-decoration: underline;
-    }
-  }
-
-  .action-buttons-duo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      @include omega;
-
-      &:first-of-type {
-        margin-bottom: 2vh;
-      }
     }
   }
 }

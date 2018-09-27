@@ -203,6 +203,15 @@
     background-color: #F1F1F1;
     flex: 2.5;
 
+    form {
+      width: 50%;
+      margin-top: 2vh;
+
+      article {
+        width: 100%;
+      }
+    }
+
     article {
       padding: 2vh 1vw;
       margin-top: 2vh;
@@ -255,6 +264,24 @@
 
           input {
             margin-bottom: 0;
+            background-color: $white;
+          }
+        }
+        
+        .profile-submit-box {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          p {
+            float: left;
+          }
+
+          input {
+            background-color: $light-green;
+            color: $white;
+            width: 8vw;
+            font-size: .8vw;
           }
         }
       }

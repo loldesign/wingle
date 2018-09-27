@@ -694,25 +694,25 @@ end
 # Creating First Language Leve List
 # -------
 if LanguageLevelList.count == 0
-  LanguageLevelList.create(name: 'Consigo liderar reuniões presenciais ou remotas para a resolução de problemas complexos')
-  LanguageLevelList.create(name: 'Consigo participar de reuniões como ouvinte e com contribuições pontuais')
-  LanguageLevelList.create(name: 'Consigo resolver problemas somente por email')
+  LanguageLevelList.create(name: 'lidero reuniões presenciais ou remotas para a resolução de problemas complexos')
+  LanguageLevelList.create(name: 'participo de reuniões como ouvinte e com contribuições pontuais')
+  LanguageLevelList.create(name: 'Somente por email')
 end
 
 # -------
 # Creating First Nofsalaries List
 # -------
 if NofsalariesList.count == 0
-  NofsalariesList.create(name: '12 salários por ano (PJ)', value: 12)
-  NofsalariesList.create(name: '13,33 salários por ano  (CLT)', value: 13.33)
+  NofsalariesList.create(name: 'PJ (12 salários / ano)', value: 12)
+  NofsalariesList.create(name: 'CLT (13,33 salários / ano)', value: 13.33)
 end
 
 # -------
 # Update Nofsalaries List if it already created (just in case this seed ran before 2018 Sep 24)
 # -------
 if NofsalariesList.count == 2
-  NofsalariesList.find_by_name('12 salários por ano (PJ)').update_attributes(value: 12)
-  NofsalariesList.find_by_name('13,33 salários por ano  (CLT)').update_attributes(value: 13.33)
+  NofsalariesList.find_by_name('PJ (12 salários / ano)').update_attributes(value: 12)
+  NofsalariesList.find_by_name('CLT (13,33 salários / ano)').update_attributes(value: 13.33)
 end
 
 # -------

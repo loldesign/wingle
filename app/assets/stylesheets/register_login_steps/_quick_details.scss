@@ -1,20 +1,35 @@
 #quick_details {
+  display: flex;
+  flex-direction: column;
+
+  .main-title {
+    font-size: 1.5vw;
+    line-height: 1.3;
+  }
+
   .content-box {
     @include span-columns (6 of 6);
     padding-top: 6vh;
+    display: flex;
+    justify-content: space-between;
 
-    .how-to-summary {
-      @include span-columns (4 of 6);
-      @include shift (1 of 6);
+    .default-summary-list {
+      @include span-columns (6 of 6);
+      @include shift (0 of 6);
+      width: 48%;
+      margin-right: 0;
       padding-bottom: 3vh;
+      padding: 3vh 1.5vw;
+      border: solid 1px #c1c1c1;
 
       h5 {
         margin-bottom: 6vh;
+        margin-top: 0;
+        text-align: center;
       }
 
       ul {
         @include span-columns (4 of 4);
-        margin-left: 5%;
 
         li {
           font-size: .9vw;
@@ -27,117 +42,36 @@
           }
 
           span {
-            margin-left: 10%;
+            margin-left: 2%;
+            text-transform: uppercase;
           }
         }
       }
-    }
 
-    .quick-details-info {
-      @include span-columns (6 of 6);
-
-      h4 {
-        @include span-columns (6 of 6);
-        padding: 4vh 0;
-        margin: 0;
-        text-align: left;
-        border-bottom: none;
-      }
-
-      .list {
-        @include span-columns (6 of 6);
-
-        .list-item {
-          border-top: solid 1px $medium-gray;
-          display: flex;
-          align-items: center;
-          padding: 4vh 0;
-
-          &:last-of-type {
-            border-bottom: solid 1px $medium-gray;
-          }
-
-          .icon-box {
-            @include span-columns (2 of 6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-
-          .icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50px;
-            width: 70px;
-            height: 70px;
-
-            i {
-              font-size: 1.9vw;
-            }
-          }
-
-          p {
-            @include span-columns (6 of 6);
-            margin-bottom: 0;
-            font-size: 1.3vw;
-          }
-        }
-
-        .first {
-          .icon {
-            background-color: #E8E7FF;
-
-            i {
-              color: #8186FF;
-            }
-          }
-        }
-
-        .second {
-          .icon {
-            background-color: #DAF7E8;
-
-            i {
-              color: #4AD991;
-            }
-          }
-        }
-
-        .third {
-          .icon {
-            background-color: #F0F0F7;
-
-            i {
-              color: #B4B4C6;
-            }
-          }
-        }
-
-        .fourth {
-          .icon {
-            background-color: #FFF4E5;
-
-            i {
-              color: #FFCA83;
-            }
-          }
-        }
-
-        .fifth {
-          .icon {
-            background-color: #FFE2E6;
-
-            i {
-              color: #FF7285;
-            }
+      &.why-wingle {
+        ul {
+          li {
+            list-style: disc;
+            list-style-position: inside;
           }
         }
       }
     }
   }
 
-  .quick-details-actions {
+  .free-advise {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     padding-top: 8vh;
+
+    h4 {
+      font-size: 1.5vw;
+    }
+  }
+
+  .quick-details-actions {
+    padding-top: 2vh;
   }
 }
