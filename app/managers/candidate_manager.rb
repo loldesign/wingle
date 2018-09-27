@@ -115,6 +115,12 @@ class CandidateManager
     end
   end
 
+  def create_candidate_pretension
+    @candidate.build_candidate_pretension
+    candidate_pretension = @candidate.candidate_pretension
+    candidate_pretension.save
+  end
+
   private
     def arrayForSelect(singular, plural, max)
       array = []
