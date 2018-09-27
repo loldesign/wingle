@@ -15,7 +15,7 @@
             <p>
               <% area.functions.each do |functions| %>
                 <label>
-                  <%= check_box_tag "candidate_hability[functions][]", functions.id, @candidate_hability.functions.include?(functions.id) ? true : false, class: "with-gap" %>
+                  <%= check_box_tag "candidate_hability[functions][]", functions.id, (@candidate_hability.present? && @candidate_hability.functions.include?(functions.id) ? true : false), class: "with-gap" %>
                     <span>
                         <%= functions.name %> <br><br>
 
