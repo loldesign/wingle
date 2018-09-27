@@ -6,6 +6,9 @@ class CandidateManager
     @candidate_experience_params = options[:candidate_experience_params]
 
     @candidate_company_params    = options[:candidate_company_params]
+
+    @candidate_education                 = options[:candidate_education]
+    @candidate_education_language_params = options[:candidate_education_language_params]
   end
 
   def process
@@ -77,6 +80,39 @@ class CandidateManager
     @candidate.build_candidate_hability
     candidate_hability = @candidate.candidate_hability
     candidate_hability.save
+  end
+
+  def create_candidate_education
+    @candidate.build_candidate_education
+    candidate_education = @candidate.candidate_education
+    candidate_education.save
+  end
+
+  def create_or_update_candidate_education_language
+    if @candidate_education_language_params.present?
+      return_value = true
+      CandidateEducationLanguage.transaction do
+        @candidate_education_language_params.each do |index, language_params|
+          # check if already exists to avoid duplicate
+          if language_params[:id].present? && language_params[:language_level_id].present?
+            language = CandidateEducationLanguage.update(language_params[:id], language_params)
+          # if just id is present, it probably have been deleted
+          elsif language_params[:id].present? && language_params[:language_level_id].nil?
+            language = CandidateEducationLanguage.destroy(language_params[:id])
+          else
+            language = CandidateEducationLanguage.new(language_params)
+            @candidate_education.candidate_education_languages << language
+          end
+          if !language.save
+            return_value = false
+            raise ActiveRecord::Rollback
+          end
+        end
+      end
+      return return_value
+    else
+      false
+    end
   end
 
   private

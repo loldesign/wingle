@@ -9,9 +9,8 @@ class Candidate::EducationController < ApplicationController
 
   def second
     if @candidate_education.nil?
-      @candidate.build_candidate_education
+      CandidateManager.new(candidate: @candidate).create_candidate_education
       @candidate_education = @candidate.candidate_education
-      @candidate_education.save
     end
 
     if candidate_education_params.present? && !@candidate_education.update_attributes(candidate_education_params)
@@ -23,25 +22,10 @@ class Candidate::EducationController < ApplicationController
   end
 
   def complete
-    if candidate_education_language_params.present?
-      CandidateEducationLanguage.transaction do
-        candidate_education_language_params.each do |index, language_params|
-          # check if already exists to avoid duplicate
-          if language_params[:id].present? && language_params[:language_level_id].present?
-            language = CandidateEducationLanguage.update(language_params[:id], language_params)
-          # if just id is present, it probably have been deleted
-          elsif language_params[:id].present? && language_params[:language_level_id].nil?
-            language = CandidateEducationLanguage.destroy(language_params[:id])
-          else
-            language = CandidateEducationLanguage.new(language_params)
-            @candidate_education.candidate_education_languages << language
-          end
-          if !language.save
-            raise ActiveRecord::Rollback
-            render action: :second
-          end
-        end
-      end
+    manager = CandidateManager.new(candidate_education_language_params: candidate_education_language_params, candidate_education: @candidate_education)
+    saved = manager.create_or_update_candidate_education_language
+    if !saved
+      render action: :second
     end
 
     @candidate.completed_education! if @candidate.reload.education?
