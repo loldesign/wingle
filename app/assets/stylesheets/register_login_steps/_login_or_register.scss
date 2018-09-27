@@ -18,19 +18,4 @@
       text-decoration: underline;
     }
   }
-
-  .action-buttons-duo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      @include omega;
-
-      &:first-of-type {
-        margin-bottom: 2vh;
-      }
-    }
-  }
 }

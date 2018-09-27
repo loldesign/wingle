@@ -69,46 +69,52 @@
         acessar suas informações.
       </p>
     </article>
+    
+    <%= form_for(current_candidate, url: candidate_update_profile_path, :method => :POST) do |f| %>
+      <article class="new-challenges">
+        <div class="article-header">
+          <h6>Avalie novos desafios</h6>
 
-    <article class="new-challenges">
-      <div class="article-header">
-        <h6>Avalie novos desafios</h6>
-
-        <div class="switch">
-          <label>
-            <input type="checkbox">
-            <span class="lever"></span>
-          </label>
-        </div>
-      </div>
-
-      <p>
-        *Nenhuma empresa pode visualizar seu perfil
-      </p>
-    </article>
-
-    <article class="employed">
-      <div class="article-header">
-        <h6>Estou empregado</h6>
-
-        <div class="switch">
-          <label>
-            <input type="checkbox">
-            <span class="lever"></span>
-          </label>
-        </div>
-      </div>
-
-      <div class="article-content">
-        <div class="corporate-email">
-          <input type="text" placeholder="Email corporativo">
+          <div class="switch">
+            <%= f.label "new_challenges" do %>
+              <%= f.check_box :new_challenges %>
+              <span class="lever"></span>
+            <% end %>
+          </div>
         </div>
 
         <p>
-          *O e-mail é necessário para evitar que sua empresa atual visualize seu perfil
+          *Nenhuma empresa pode visualizar seu perfil
         </p>
-      </div>
-    </article>
+      </article>
+
+      <article class="employed">
+        <div class="article-header">
+          <h6>Estou empregado</h6>
+
+          <div class="switch">
+            <%= f.label "employed" do %>
+              <%= f.check_box :employed %>
+              <span class="lever"></span>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="article-content">
+          <div class="corporate-email">
+            <%= f.text_field :corporate_email, placeholder: "Email corporativo" %>
+          </div>
+          
+          <div class="profile-submit-box">
+            <p>
+              *O e-mail é necessário para evitar que sua empresa atual visualize seu perfil
+            </p>
+
+            <%= f.submit "Salvar", data:{disable_with: '...'}  %>
+          </div>
+        </div>
+      </article>
+    <% end %>
   </section>
 
   <%= link_to destroy_candidate_session_path, method: :delete, data: {confirm: 'Deseja sair?'}, :class => "exit-responsive-button" do %>

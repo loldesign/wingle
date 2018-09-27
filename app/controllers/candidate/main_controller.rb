@@ -36,6 +36,6 @@ class Candidate::MainController < ApplicationController
   end
   
   def candidate_params 
-    params.require(:candidate).permit(:candidate_avatar, :candidate_curriculum)
+    params.require(:candidate).permit(:candidate_avatar, :candidate_curriculum, :new_challenges, :employed, :corporate_email)
   end
 end

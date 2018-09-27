@@ -21,6 +21,21 @@
       }
     }
 
+    .action-buttons-duo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        @include omega;
+
+        &:first-of-type {
+          margin-bottom: 2vh;
+        }
+      }
+    }
+
     #notice-wrapper {
       width: 100%;
       z-index: 999;
