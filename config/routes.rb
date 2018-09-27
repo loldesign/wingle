@@ -26,8 +26,7 @@ Rails.application.routes.draw do
     ##### MAIN CANDIDATE AREA #####
     get '/home'                         , to: 'main#home'             , as: :home
     get '/profile'                      , to: 'main#profile'          , as: :profile
-    post '/update_avatar'               , to: 'main#update_avatar'    , as: :update_avatar
-    post '/update_curriculum'           , to: 'main#update_curriculum', as: :update_curriculum
+    post '/update_profile'              , to: 'main#update_profile'    , as: :update_profile
 
     ##### EXPERIENCE SECTOR #####
     get   'experience/step-1'           , to: 'experience#first'

@@ -2,7 +2,7 @@
   <section class="main-infos-wrapper">
     <section class="main-infos">
       <article class="profile-image-container">
-        <%= form_for(current_candidate, url: candidate_update_avatar_path, :method => :POST) do |f| %>
+        <%= form_for(current_candidate, url: candidate_update_profile_path, :method => :POST) do |f| %>
           <label for="candidate_candidate_avatar">
             <%= f.file_field :candidate_avatar %>
             <%= candidate_avatar(current_candidate)%>
@@ -12,7 +12,7 @@
             </div>
           </label>
 
-          <%= f.submit "Atualizar imagem" %>
+          <%= f.submit "Atualizar imagem", data:{disable_with: '...'}  %>
         <% end %>
       </article>
 
@@ -39,7 +39,7 @@
       </article>
 
       <article class="curriculum-box">
-        <%= form_for(current_candidate, url: candidate_update_curriculum_path, :method => :POST) do |f| %>
+        <%= form_for(current_candidate, url: candidate_update_profile_path, :method => :POST) do |f| %>
           <%= f.file_field :candidate_curriculum %>
           <%= link_to current_candidate.candidate_curriculum.url, target: "_blank" do %>
             <i class="icon ion-md-document"></i> 
@@ -51,7 +51,7 @@
           
           <label for="candidate_candidate_curriculum">Anexar CV</label>
           
-          <%= f.submit "Enviar currículo" %>
+          <%= f.submit "Enviar currículo", data:{disable_with: '...'}  %>
         <% end %>
       </article>
     </section>
