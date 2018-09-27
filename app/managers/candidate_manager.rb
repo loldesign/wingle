@@ -4,6 +4,8 @@ class CandidateManager
 
     @candidate_experience        = options[:candidate_experience]
     @candidate_experience_params = options[:candidate_experience_params]
+
+    @candidate_company_params    = options[:candidate_company_params]
   end
 
   def process
@@ -41,6 +43,36 @@ class CandidateManager
     return @candidate_experience.save
   end
 
+  def create_or_update_candidate_companies
+    if @candidate_company_params.present?
+      CandidateCompany.transaction do
+        @candidate_company_params.each do |co|
+          if co[:id].present? && co[:name].present?
+            company = CandidateCompany.update(co[:id], co)
+          elsif co[:id].present? && co[:name].nil?
+            company = destroy_candidate_company(co)
+          else
+            company = CandidateCompany.new(co)
+            @candidate.candidate_companies << company
+          end
+          raise ActiveRecord::Rollback if !company.save
+        end
+      end
+      return true
+    else
+      false
+    end
+  end
+
+  def update_all_candidate_companies
+    @candidate_company_params.each do |company|
+      saved = update_candidate_company(company)
+      if !saved
+        return false
+      end
+    end
+  end
+
   private
     def arrayForSelect(singular, plural, max)
       array = []
@@ -52,5 +84,14 @@ class CandidateManager
         end
       end
       array
+    end
+
+    def update_candidate_company(params)
+      candidate_company = CandidateCompany.find(params[:id])
+      return candidate_company.update_attributes(params)
+    end
+
+    def destroy_candidate_company(params)
+      CandidateCompany.destroy(params[:id])
     end
 end

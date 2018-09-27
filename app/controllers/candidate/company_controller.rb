@@ -5,26 +5,13 @@ class Candidate::CompanyController < ApplicationController
   def first
     @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
 
-    @years = CandidateManager.new.optionsForSelectYear
+    @years  = CandidateManager.new.optionsForSelectYear
     @months = CandidateManager.new.optionsForSelectMonth
   end
 
   def second
-    if candidate_company_params.present?
-      CandidateCompany.transaction do
-        candidate_company_params.each do |co|
-          if co[:id].present? && co[:name].present?
-            company = CandidateCompany.update(co[:id], co)
-          elsif co[:id].present? && co[:name].nil?
-            company = CandidateCompany.destroy(co[:id])
-          else
-            company = CandidateCompany.new(co)
-            @candidate.candidate_companies << company
-          end
-          raise ActiveRecord::Rollback if !company.save
-        end
-      end
-    end
+    manager = CandidateManager.new(candidate: @candidate, candidate_company_params: candidate_company_params)
+    manager.create_or_update_candidate_companies
 
     if !@candidate.valid? || @candidate.candidate_companies.empty?
       redirect_to action: :first
@@ -37,17 +24,15 @@ class Candidate::CompanyController < ApplicationController
   end
 
   def complete
-    candidate_company_params.each do |company|
-      candidate_company = CandidateCompany.find(company[:id])
-      saved = candidate_company.update_attributes(company)
-      if !saved
-        render action: :second
-      end
+    manager = CandidateManager.new(candidate_company_params: candidate_company_params)
+    saved   = manager.update_all_candidate_companies
+    if !saved
+      redirect_to action: :second
+    else
+      @candidate.completed_companies! if @candidate.reload.companies?
+
+      redirect_to candidate_hability_step_1_path
     end
-
-    @candidate.completed_companies! if @candidate.reload.companies?
-
-    redirect_to candidate_hability_step_1_path
   end
 
   private
