@@ -73,6 +73,12 @@ class CandidateManager
     end
   end
 
+  def create_candidate_hability
+    @candidate.build_candidate_hability
+    candidate_hability = @candidate.candidate_hability
+    candidate_hability.save
+  end
+
   private
     def arrayForSelect(singular, plural, max)
       array = []
