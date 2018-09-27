@@ -7,67 +7,60 @@
             <div class="determinate" style="width: 95%"></div>
           </div>
 
-          <h5 class="center-align section">Qual seria sua pretensão salarial pensando em uma nova posição?</h5>
+          <h5 class="center-align section">Sua pretensão salarial para uma nova posição</h5>
         </li>
         
         <li class="collection-item pretension-calc-item">
           <p class="half-label">
             <label>
-              <span>
-                TOTAL ANUAL
+              <span class="light-green-text">
+                ÚLTIMO TOTAL ANUAL
               </span>
             </label>
           </p>
 
-          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.last_salary_total, precision: 0), id: "last_salary_total", readonly: true %>
+          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input black", value: number_to_currency(@candidate_pretension.last_salary_total, precision: 0), id: "last_salary_total", readonly: true %>
         </li>
         
         <li class="collection-item pretension-calc-item">
           <p class="half-label">
             <label>
               <span>
-                PRETENSÃO MÍNIMA
+                PRETENSÃO
               </span>
             </label>
           </p>
         
           <%= select_tag 'candidate_pretension[pretension_minimum_percent]', options_for_select(@claim.collect{ |claim| [claim.name, claim.value] }), class: "custom", id: "claim_list" %>
         </li>
+        
+        <h5 class="center-align section">Valores mínimos pretendidos</h5>
 
-        <li class="collection-item pretension-calc-item">
-          <p class="half-label">
-            <label>
-              <span>
-                TOTAL ANUAL PRETENDIDO
-              </span>
-            </label>
-          </p>
-
-          <%= text_field "candidate_pretension", "pretension_yearly_total", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.pretension_yearly_total, precision: 0), id: "pretension_yearly_total", readonly: true %>
-        </li>
-
-        <li class="collection-item fixed-minimum-pretension">
-          <p>
-            <label>
-              <span>
-                FIXO MÍNIMO PARA AVALIAR 
-                NOVAS OPORTUNIDADES
-              </span>
-            </label>
-          </p>
-          
-          <div class="collection-item pretension-calc-item">
-            <p>
+        <div class="pretension-container">
+          <li class="collection-item pretension-calc-item">
+            <p class="half-label">
               <label>
-                <span>
-                  PRETENSÃO MÍNIMA
+                <span class="light-green-text">
+                  TOTAL ANUAL
+                </span>
+              </label>
+            </p>
+
+            <%= text_field "candidate_pretension", "pretension_yearly_total", placeholder: "R$:", class: "half-input black", value: number_to_currency(@candidate_pretension.pretension_yearly_total, precision: 0), id: "pretension_yearly_total", readonly: true %>
+          </li>
+
+          <li class="collection-item">
+            <p class="half-label">
+              <label>
+                <span class="light-green-text">
+                  SALÁRIO FIXO MENSAL
                 </span>
               </label>
             </p>
 
             <%= text_field "candidate_pretension", "minimum_claim", placeholder: "R$:", class: "half-input money", value: number_to_currency(@candidate_pretension.minimum_claim, precision: 0), id: "minimum_claim"%>
-          </div>
-        </li>
+          </li>
+        </div>
       </ul>
     </section>
 

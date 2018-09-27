@@ -51,7 +51,7 @@ class Candidate::InterestController < ApplicationController
 
     @header_options = {style: :with_logo_back_button}
 
-    @relevance = Relevance.all
+    @relevance = Relevance.all.reverse
   end
 
   def complete

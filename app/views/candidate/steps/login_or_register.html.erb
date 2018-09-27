@@ -1,12 +1,12 @@
 <section id="login_or_register" class="content">
   <div class="cloud-bg">
-    <p class="bold medium-gray">
+    <p class="bold light-green-text">
       Mercado de trabalho<br>
       compartilhado na nuvem
     </p>
   </div>
 
-  <section class="content-box">
+  <section class="content-box content-container">
     <%= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
       <section class="content-box">
         <% if flash[:notice] %>

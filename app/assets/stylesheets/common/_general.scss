@@ -113,7 +113,7 @@ select {
   padding-left: 1vw;
   background-color: transparent;
   border: solid 1px $medium-gray;
-  font-size: 1.3vw !important;
+  font-size: .9vw !important;
   color: $medium-gray;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -122,12 +122,13 @@ select {
   background-position: right 50%;
   background-position-x: 97%;
   background-size: 3.5%;
+  text-transform: uppercase !important;
 
   /* CUSTOM SELECT INSIDE LABEL */
   &.custom {
     width: 50%;
     margin-bottom: 0 !important;
-    font-size: 1vw !important;
+    font-size: .9vw !important;
     font-weight: 600;
   }
 

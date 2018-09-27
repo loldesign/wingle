@@ -15,7 +15,7 @@
             <p>
               <label>
                 <%= radio_button_tag "candidate_interest[company_sizes][]", company.id, @candidate_interest.company_sizes.include?(company.id) ? true : false, class: "with-gap" %>
-                <span><%= company.name %>: <%= company.description %></span>
+                <span><%= company.name %></span>
               </label>
             </p>
           </li>

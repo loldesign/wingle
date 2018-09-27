@@ -1,7 +1,10 @@
 #login_or_register {
+  .content-container {
+    padding-top: 6vh;
+  }
+
   .content-box {
     @include span-columns (6 of 6);
-    padding-top: 6vh;
 
     form {
       @include span-columns (4 of 6);
