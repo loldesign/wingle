@@ -5,17 +5,8 @@ class Candidate::CompanyController < ApplicationController
   def first
     @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
 
-    @years = []
-    @months = []
-    for i in 0..11
-      if i == 1
-        @years << ["#{i} ANO", "#{i}"]
-        @months << ["#{i} MÊS", "#{i}"]
-      else
-        @years << ["#{i} ANOS", "#{i}"]
-        @months << ["#{i} MESES", "#{i}"]
-      end
-    end
+    @years = CandidateManager.new.optionsForSelectYear
+    @months = CandidateManager.new.optionsForSelectMonth
   end
 
   def second
