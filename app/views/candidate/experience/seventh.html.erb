@@ -18,7 +18,7 @@
               <label>
                 <%= check_box_tag "candidate_experience[considered_functions][]", function.id, @candidate_experience.considered_functions.include?(function.id) ? true : false, class: "with-gap" %>
                   <span>
-                    <%= function.name %>:
+                    <%= function.name %>
                   </span>
               </label>
             </p>

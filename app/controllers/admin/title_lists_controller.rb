@@ -45,6 +45,6 @@ class Admin::TitleListsController < AdminController
 	end
 
 	def title_list_params
-		params.require(:title_list).permit(:name)
+		params.require(:title_list).permit(:name, :priority)
 	end
 end

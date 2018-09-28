@@ -44,6 +44,14 @@
         label {
           span {
             text-transform: uppercase;
+
+            strong {
+              &:last-of-type {
+                .separator {
+                  display: none;
+                }
+              }
+            }
           }
         }
 

@@ -45,6 +45,6 @@ class Admin::RelevancesController < AdminController
 	end
 
 	def relevance_params
-		params.require(:relevance).permit(:name)
+		params.require(:relevance).permit(:name, :priority)
 	end
 end
