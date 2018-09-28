@@ -51,10 +51,14 @@ class CandidateManager
       CandidateCompany.transaction do
         @candidate_company_params.each do |co|
           if co[:id].present? && co[:name].present?
+            filter_date_params(co)
+            co[:months] = calculate_months(co)
             company = CandidateCompany.update(co[:id], co)
           elsif co[:id].present? && co[:name].nil?
             company = destroy_candidate_company(co)
           else
+            filter_date_params(co)
+            co[:months] = calculate_months(co)
             company = CandidateCompany.new(co)
             @candidate.candidate_companies << company
           end
@@ -141,5 +145,25 @@ class CandidateManager
 
     def destroy_candidate_company(params)
       CandidateCompany.destroy(params[:id])
+    end
+
+    def filter_date_params(params)
+      if params[:start_date].present? && params[:end_date].present?
+        params[:start_date] = Date.parse(params[:start_date])
+        params[:end_date]   = Date.parse(params[:end_date])
+      end
+    end
+
+    def calculate_months(params)
+      if params[:start_date].present? && params[:end_date].present?
+        return get_months_between(params[:start_date], params[:end_date])
+      else
+        return 0
+      end
+    end
+
+    def get_months_between(start_date, end_date)
+      # it doesn't count days
+      (end_date.year * 12 + end_date.month) - (start_date.year * 12 + start_date.month)
     end
 end

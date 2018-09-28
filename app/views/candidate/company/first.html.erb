@@ -14,9 +14,9 @@
           <%= hidden_field_tag("candidate_companies[][id]", {}, value: company.id) %>
           <%= fields_for 'candidate_companies[]', company do |co| %>
             <li class="collection-item candidate-company-item">
-              <%= co.text_field :name, placeholder: "Nome:", name: "candidate_companies[][name]" %>
-              <%= select_tag 'candidate_companies[][years]', options_for_select(@years, selected: company.years), :class => "custom" %>
-              <%= select_tag 'candidate_companies[][months]', options_for_select(@months, selected: company.months), :class => "custom" %>
+              <%= co.text_field :name, placeholder: "NOME:", name: "candidate_companies[][name]" %>
+              <%= co.text_field :start_date, placeholder: "INÍCIO: MM/YYYY", name: "candidate_companies[][start_date]", class: "month_year", value: company.start_date.present? ? company.start_date.strftime("%m/%Y") : "" %>
+              <%= co.text_field :end_date, placeholder: "FIM: MM/YYYY", name: "candidate_companies[][end_date]", class: "month_year", value: company.end_date.present? ? company.end_date.strftime("%m/%Y") : "" %>
             </li>
           <% end %>
         <% end %>
