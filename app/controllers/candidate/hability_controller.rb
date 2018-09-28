@@ -13,9 +13,8 @@ class Candidate::HabilityController < ApplicationController
 
   def complete
     if @candidate_hability.nil?
-      @candidate.build_candidate_hability
+      CandidateManager.new(candidate: @candidate).create_candidate_hability
       @candidate_hability = @candidate.candidate_hability
-      @candidate_hability.save
     end
     if hability_params.present? && !@candidate_hability.update_attributes(hability_params)
       render action: :first

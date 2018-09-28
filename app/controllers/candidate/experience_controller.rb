@@ -2,50 +2,42 @@ class Candidate::ExperienceController < ApplicationController
   before_action :authenticate_candidate!
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh, :complete]
   before_action :set_years_and_months, only: [:second, :fifth]
+  before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh]
 
   def first
     @header_options = {style: :with_logo_back_button}
-
     @title_list = TitleList.order(priority: :asc)
   end
 
   def second
     if @candidate_experience.nil?
-      @candidate.build_candidate_experience
+      CandidateManager.new(candidate: @candidate).create_candidate_experience
       @candidate_experience = @candidate.candidate_experience
-      @candidate_experience.save
     end
 
-    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+    if params_present_but_not_updated
       render action: :first
     end
-
-    @header_options = {style: :with_logo_back_button}
 
     if @candidate_experience.current_title.nil?
       redirect_to action: :first
     else
-
       @title = TitleList.find(@candidate_experience.current_title)
     end
   end
 
   def third
-    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+    if params_present_but_not_updated
       render action: :second
     end
-
-    @header_options = {style: :with_logo_back_button}
 
     @area = Area.all
   end
 
   def fourth
-    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+    if params_present_but_not_updated
       render action: :third
     end
-
-    @header_options = {style: :with_logo_back_button}
 
     if @candidate_experience.areas.nil? || @candidate_experience.areas == []
       redirect_to action: :third
@@ -56,11 +48,9 @@ class Candidate::ExperienceController < ApplicationController
   end
 
   def fifth
-    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+    if params_present_but_not_updated
       render action: :fourth
     end
-
-    @header_options = {style: :with_logo_back_button}
 
     if @candidate_experience.functions.nil? || @candidate_experience.functions == []
       redirect_to action: :fourth
@@ -75,22 +65,17 @@ class Candidate::ExperienceController < ApplicationController
       render action: :fifth
     end
 
-    @header_options = {style: :with_logo_back_button}
-
     if @candidate_experience.areas.nil? || @candidate_experience.areas == []
       redirect_to action: :third
     else
-
       @function = Function.by_ids_list(@candidate_experience.functions)
     end
   end
 
   def seventh
-    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+    if params_present_but_not_updated
       render action: :sixth
     end
-
-    @header_options = {style: :with_logo_back_button}
 
     if @candidate_experience.areas.nil? || @candidate_experience.areas == []
       redirect_to action: :third
@@ -104,7 +89,7 @@ class Candidate::ExperienceController < ApplicationController
   end
 
   def complete
-    if candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+    if params_present_but_not_updated
       render action: :seventh
     end
 
@@ -125,34 +110,21 @@ class Candidate::ExperienceController < ApplicationController
     end
 
     def create_candidate_experience_function
-      exp_functions = candidate_experience_params[:candidate_experience_function]
+      CandidateManager.new(candidate_experience: @candidate_experience, candidate_experience_params: candidate_experience_params)
+                      .create_candidate_experience_function
+    end
 
-      exp_functions.each do |function|
-        # verify to avoid duplicate
-        if @candidate_experience.functions_time_period.present? && @candidate_experience.functions_time_period.find_by_function_id(function[:function_id]).present?
-          exp_function = CandidateExperienceFunction.find_by_function_id(function[:function_id])
-          exp_function.update_attributes(function)
-        else
-          exp_function = CandidateExperienceFunction.new(function)
-          @candidate_experience.functions_time_period << exp_function
-        end
-      end
-
-      return @candidate_experience.save
+    def params_present_but_not_updated
+      candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
     end
 
     def set_years_and_months
-      # divide if we need more than 11 years
-      @years = []
-      @months = []
-      for i in 0..11
-        if i == 1
-          @years << ["#{i} ANO", "#{i}"]
-          @months << ["#{i} MÊS", "#{i}"]
-        else
-          @years << ["#{i} ANOS", "#{i}"]
-          @months << ["#{i} MESES", "#{i}"]
-        end
-      end
+      manager = CandidateManager.new
+      @years  = manager.optionsForSelectYear
+      @months = manager.optionsForSelectMonth
+    end
+
+    def set_header_options
+      @header_options = {style: :with_logo_back_button}
     end
 end

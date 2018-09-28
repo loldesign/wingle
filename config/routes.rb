@@ -6,57 +6,57 @@ Rails.application.routes.draw do
     passwords: 'candidates/passwords'
   }
 
-  namespace :candidate do
+  namespace :candidate, path: "candidato" do
     get   '/user-login'                 , to: 'steps#login_or_register'
-    get   '/terms'                      , to: 'steps#terms'
-    match '/quick-details'              , to: 'steps#quick_details'   , via: [:get, :post]
-    get   '/complete-register'          , to: 'steps#complete_register'
-    post  '/complete-register'          , to: 'steps#create_candidate'
-    get   '/welcome-message'            , to: 'steps#welcome_message'
+    get   '/termos'                     , to: 'steps#terms'           , as: :terms
+    match '/detalhes-rapidos'           , to: 'steps#quick_details'   , via: [:get, :post]
+    get   '/completar-registro'         , to: 'steps#complete_register'
+    post  '/completar-registro'         , to: 'steps#create_candidate'
+    get   '/boas-vindas'                , to: 'steps#welcome_message'
     get   '/dashboard'                  , to: 'dashboard#index'       , as: :dashboard
 
     ##### INTEREST SECTOR #####
-    get   'interest/step-1'             , to: 'interest#first'
-    match 'interest/step-2'             , to: 'interest#second'       , via: [:get, :post]
-    match 'interest/step-3'             , to: 'interest#third'        , via: [:get, :post]
-    match 'interest/step-4'             , to: 'interest#fourth'       , via: [:get, :post]
-    match 'interest/step-5'             , to: 'interest#fifth'        , via: [:get, :post]
-    post  'interest/step-complete'      , to: 'interest#complete'
+    get   'interesse/passo-1'           , to: 'interest#first'        , as: :interest_step_1
+    match 'interesse/passo-2'           , to: 'interest#second'       , as: :interest_step_2         , via: [:get, :post]
+    match 'interesse/passo-3'           , to: 'interest#third'        , as: :interest_step_3         , via: [:get, :post]
+    match 'interesse/passo-4'           , to: 'interest#fourth'       , as: :interest_step_4         , via: [:get, :post]
+    match 'interesse/passo-5'           , to: 'interest#fifth'        , as: :interest_step_5         , via: [:get, :post]
+    post  'interesse/passo-completo'    , to: 'interest#complete'     , as: :interest_step_complete
 
     ##### MAIN CANDIDATE AREA #####
-    get '/home'                         , to: 'main#home'             , as: :home
-    get '/profile'                      , to: 'main#profile'          , as: :profile
-    post '/update_profile'              , to: 'main#update_profile'    , as: :update_profile
+    get  '/home'                        , to: 'main#home'             , as: :home
+    get  '/perfil'                      , to: 'main#profile'          , as: :profile
+    post '/atualizar-perfil'            , to: 'main#update_profile'   , as: :update_profile
 
     ##### EXPERIENCE SECTOR #####
-    get   'experience/step-1'           , to: 'experience#first'
-    match 'experience/step-2'           , to: 'experience#second'     , via: [:get, :post]
-    match 'experience/step-3'           , to: 'experience#third'      , via: [:get, :post]
-    match 'experience/step-4'           , to: 'experience#fourth'     , via: [:get, :post]
-    match 'experience/step-5'           , to: 'experience#fifth'      , via: [:get, :post]
-    match 'experience/step-6'           , to: 'experience#sixth'      , via: [:get, :post]
-    match 'experience/step-7'           , to: 'experience#seventh'    , via: [:get, :post]
-    post  'experience/step-complete'    , to: 'experience#complete'
+    get   'experiencia/passo-1'         , to: 'experience#first'      , as: :experience_step_1
+    match 'experiencia/passo-2'         , to: 'experience#second'     , as: :experience_step_2        , via: [:get, :post]
+    match 'experiencia/passo-3'         , to: 'experience#third'      , as: :experience_step_3        , via: [:get, :post]
+    match 'experiencia/passo-4'         , to: 'experience#fourth'     , as: :experience_step_4        , via: [:get, :post]
+    match 'experiencia/passo-5'         , to: 'experience#fifth'      , as: :experience_step_5        , via: [:get, :post]
+    match 'experiencia/passo-6'         , to: 'experience#sixth'      , as: :experience_step_6        , via: [:get, :post]
+    match 'experiencia/passo-7'         , to: 'experience#seventh'    , as: :experience_step_7        , via: [:get, :post]
+    post  'experiencia/passo-completo'  , to: 'experience#complete'   , as: :experience_step_complete
 
     #### COMPANY SECTOR #####
-    get   'company/step-1'              , to: 'company#first'
-    match 'company/step-2'              , to: 'company#second'        , via: [:get, :post]
-    post  'company/step-complete'       , to: 'company#complete'
+    get   'empresa/passo-1'             , to: 'company#first'         , as: :company_step_1
+    match 'empresa/passo-2'             , to: 'company#second'        , as: :company_step_2           , via: [:get, :post]
+    post  'empresa/passo-completo'      , to: 'company#complete'      , as: :company_step_complete
 
     #### HABILITY SECTOR #####
-    get  'hability/step-1'              , to: 'hability#first'
-    post 'hability/step-complete'       , to: 'hability#complete'
+    get  'habilidade/passo-1'           , to: 'hability#first'        , as: :hability_step_1
+    post 'habilidade/passo-completo'    , to: 'hability#complete'     , as: :hability_step_complete
 
     #### EDUCATION SECTOR #####
-    get   'education/step-1'            , to: 'education#first'
-    match 'education/step-2'            , to: 'education#second'      , via: [:get, :post]
-    post  'education/step-complete'     , to: 'education#complete'
+    get   'educacao/passo-1'            , to: 'education#first'       , as: :education_step_1
+    match 'educacao/passo-2'            , to: 'education#second'      , as: :education_step_2          , via: [:get, :post]
+    post  'educacao/passo-completo'     , to: 'education#complete'    , as: :education_step_complete
 
     #### PRETENSION SECTOR #####
-    get   'pretension/step-1'           , to: 'pretension#first'
-    match 'pretension/step-2'           , to: 'pretension#second'     , via: [:get, :post]
-    match 'pretension/step-3'           , to: 'pretension#third'      , via: [:get, :post]
-    post  'pretension/complete'         , to: 'pretension#complete'
+    get   'pretensao/passo-1'           , to: 'pretension#first'      , as: :pretension_step_1
+    match 'pretensao/passo-2'           , to: 'pretension#second'     , as: :pretension_step_2         , via: [:get, :post]
+    match 'pretensao/passo-3'           , to: 'pretension#third'      , as: :pretension_step_3         , via: [:get, :post]
+    post  'pretensao/complete'          , to: 'pretension#complete'   , as: :pretension_step_complete
   end
 
 
