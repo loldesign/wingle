@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   }
 
   namespace :candidate, path: "candidato" do
-    get   '/user-login'                 , to: 'steps#login_or_register'
-    get   '/termos'                     , to: 'steps#terms'           , as: :terms
-    match '/detalhes-rapidos'           , to: 'steps#quick_details'   , via: [:get, :post]
-    get   '/completar-registro'         , to: 'steps#complete_register'
-    post  '/completar-registro'         , to: 'steps#create_candidate'
-    get   '/boas-vindas'                , to: 'steps#welcome_message'
-    get   '/dashboard'                  , to: 'dashboard#index'       , as: :dashboard
+    get   '/user-login'                 , to: 'steps#login_or_register' , as: :login_or_register
+    get   '/termos'                     , to: 'steps#terms'             , as: :terms
+    match '/detalhes-rapidos'           , to: 'steps#quick_details'     , as: :quick_details , via: [:get, :post]
+    get   '/completar-registro'         , to: 'steps#complete_register' , as: :complete_register
+    post  '/completar-registro'         , to: 'steps#create_candidate'  , as: :create_candidate
+    get   '/boas-vindas'                , to: 'steps#welcome_message'   , as: :welcome_message
+    get   '/dashboard'                  , to: 'dashboard#index'         , as: :dashboard
 
     ##### INTEREST SECTOR #####
     get   'interesse/passo-1'           , to: 'interest#first'        , as: :interest_step_1
