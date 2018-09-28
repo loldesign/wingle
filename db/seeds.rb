@@ -99,9 +99,9 @@ end
 # Creating First Relevances
 # -------
 if Relevance.count == 0
-  Relevance.create(name: 'PORTE DA EMPRESA')
-  Relevance.create(name: 'SETOR DE ATUAÇÃO')
-  Relevance.create(name: 'LOCALIZAÇÃO')
+  Relevance.create(name: 'PORTE DA EMPRESA', priority: 3)
+  Relevance.create(name: 'SETOR DE ATUAÇÃO', priority: 2)
+  Relevance.create(name: 'LOCALIZAÇÃO', priority: 1)
 end
 
 # -------
@@ -645,14 +645,13 @@ end
 # Creating First Title List
 # -------
 if TitleList.count == 0
-  TitleList.create(name: 'Trainee/ Estágio')
-  TitleList.create(name: 'Analista')
-  TitleList.create(name: 'Consultor')
-  TitleList.create(name: 'Especialista')
-  TitleList.create(name: 'Coordenador')
-  TitleList.create(name: 'Gerente')
-  TitleList.create(name: 'Gerente Sr')
-  TitleList.create(name: 'Diretor')
+  TitleList.create(name: 'Analista', priority: 1)
+  TitleList.create(name: 'Especialista', priority: 2)
+  TitleList.create(name: 'Consultor', priority: 3)
+  TitleList.create(name: 'Coordenador', priority: 4)
+  TitleList.create(name: 'Gerente', priority: 5)
+  TitleList.create(name: 'Gerente Sr', priority: 6)
+  TitleList.create(name: 'Diretor', priority: 7)
 end
 
 # -------

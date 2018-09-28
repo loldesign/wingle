@@ -6,7 +6,7 @@ class Candidate::ExperienceController < ApplicationController
   def first
     @header_options = {style: :with_logo_back_button}
 
-    @title_list = TitleList.all
+    @title_list = TitleList.order(priority: :asc)
   end
 
   def second
