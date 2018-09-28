@@ -59,6 +59,26 @@ header {
       justify-content: space-between;
       align-items: center;
 
+      // NEXT STEP ALERT //
+      .next-step-alert-box {
+        width: 1vw;
+        height: 1vw;
+        border-radius: 50px;
+        background-color: $light-green;
+
+        &.first {
+          position: absolute;
+          right: 1.3vw;
+          top: 2.2vh;
+        }
+
+        &.second {
+          position: absolute;
+          right: 1.5vw;
+          top: 2.1vh;
+        }
+      }
+
       .left-box {
         width: 20%;
         display: flex;

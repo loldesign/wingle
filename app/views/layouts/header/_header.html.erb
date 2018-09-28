@@ -45,11 +45,23 @@
           <li class="company">
             <%#= image_tag 'icons/company.svg' %>
             <%= link_to "Empresas e Habilidades", candidate_company_step_1_path %>
+
+            <% if @candidate.companies? || @candidate.habilities? %>
+              <div class="next-step-alert-box first">
+
+              </div>
+            <% end %>
           </li>
 
           <li class="shield">
             <%#= image_tag 'icons/shield.svg' %>
             <%= link_to "Educação e Pretensão", candidate_education_step_1_path %>
+
+            <% if @candidate.education? || @candidate.pretension? %>
+              <div class="next-step-alert-box second">
+
+              </div>
+            <% end %>
           </li>
         </ul>
       </nav>
