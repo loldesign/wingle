@@ -1,10 +1,9 @@
 class Candidate::InterestController < ApplicationController
   before_action :authenticate_candidate!
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete]
+  before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth]
 
   def first
-    @header_options = {style: :with_logo_back_button}
-
     @city = City.all
 
     if @candidate_interest.cities == []
@@ -15,48 +14,39 @@ class Candidate::InterestController < ApplicationController
   end
 
   def second
-    if candidate_interest_params.present? && !@candidate_interest.update_attributes(candidate_interest_params)
+    if params_present_but_not_updated
       render action: :first
     end
-
-    @header_options = {style: :with_logo_back_button}
 
     @company_size = CompanySize.all
   end
 
   def third
-    if candidate_interest_params.present? && !@candidate_interest.update_attributes(candidate_interest_params)
+    if params_present_but_not_updated
       render action: :second
     end
-
-    @header_options = {style: :with_logo_back_button}
 
     @sector = Sector.all
   end
 
   def fourth
-    if candidate_interest_params.present? && !@candidate_interest.update_attributes(candidate_interest_params)
+    if params_present_but_not_updated
       render action: :third
     end
-
-    @header_options = {style: :with_logo_back_button}
 
     @mode = Mode.all
   end
 
   def fifth
-    if candidate_interest_params.present? && !@candidate_interest.update_attributes(candidate_interest_params)
+    if params_present_but_not_updated
       render action: :fourth
     end
-
-    @header_options = {style: :with_logo_back_button}
 
     @relevance = Relevance.all.reverse
   end
 
   def complete
-    if candidate_interest_params.present? && !@candidate_interest.update_attributes(candidate_interest_params)
-
+    if params_present_but_not_updated
       render action: :fifth
     end
 
@@ -71,7 +61,15 @@ class Candidate::InterestController < ApplicationController
       @candidate_interest = @candidate.candidate_interest
     end
 
+    def set_header_options
+      @header_options = {style: :with_logo_back_button}
+    end
+
     def candidate_interest_params
       params.fetch(:candidate_interest, {}).permit(locales: [], company_sizes: [], sectors: [], modes: [], relevances: [])
+    end
+
+    def params_present_but_not_updated
+      candidate_interest_params.present? && !@candidate_interest.update_attributes(candidate_interest_params)
     end
 end

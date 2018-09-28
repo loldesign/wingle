@@ -8,11 +8,10 @@ class Candidate::PretensionController < ApplicationController
 
   def second
     if @candidate_pretension.nil?
-      @candidate.build_candidate_pretension
+      CandidateManager.new(candidate: @candidate).create_candidate_pretension
       @candidate_pretension = @candidate.candidate_pretension
-      @candidate_pretension.save
     end
-    if candidate_pretension_params.present? && !@candidate_pretension.update_attributes(candidate_pretension_filtered_params)
+    if params_present_but_not_updated_filtered
       render action: :first
     end
 
@@ -20,7 +19,7 @@ class Candidate::PretensionController < ApplicationController
   end
 
   def third
-    if candidate_pretension_params.present? && !@candidate_pretension.update_attributes(candidate_pretension_params)
+    if params_present_but_not_updated
       render action: :second
     end
 
@@ -28,7 +27,7 @@ class Candidate::PretensionController < ApplicationController
   end
 
   def complete
-    if candidate_pretension_params.present? && !@candidate_pretension.update_attributes(candidate_pretension_filtered_params)
+    if params_present_but_not_updated_filtered
       render action: :third
     end
 
@@ -41,6 +40,14 @@ class Candidate::PretensionController < ApplicationController
     def set_candidate
       @candidate = current_candidate
       @candidate_pretension = @candidate.candidate_pretension
+    end
+
+    def params_present_but_not_updated
+      candidate_pretension_params.present? && !@candidate_pretension.update_attributes(candidate_pretension_params)
+    end
+
+    def params_present_but_not_updated_filtered
+      candidate_pretension_params.present? && !@candidate_pretension.update_attributes(candidate_pretension_filtered_params)
     end
 
     def candidate_pretension_params
