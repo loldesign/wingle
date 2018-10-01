@@ -150,3 +150,19 @@ select {
   margin-bottom: 3vh;
   color: $error;
 }
+
+/* STEPS ERROR MESSAGES */
+.warning {
+  border: solid 1px $error;
+}
+
+.error-message {
+  display: block;
+    margin-top: -1.6vh;
+    color: $error;
+    position: absolute;
+
+  &.hide {
+    display: none;
+  }
+}

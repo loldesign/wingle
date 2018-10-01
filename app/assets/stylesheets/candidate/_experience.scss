@@ -1,10 +1,21 @@
 #second_step,
 #fifth_step {
+  .select-box-with-error {
+    width: 35%;
 
-	select {
-		&.custom {
-			width: 35%;
-      background-size: 4%;
-		}
-	}
+    select {
+      &.custom {
+        width: 100%;
+        background-size: 4%;
+      }
+    }
+  }
+
+  .collection-item {
+    padding: 4vh 1.6vw !important;
+  }
+
+  .error-message {
+    margin-top: .5vh;
+  }
 }

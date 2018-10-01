@@ -18,4 +18,6 @@ $(document).on('turbolinks:load', function() {
   calculatePretension();
 
   makeRadiosDeselectable();
+
+  validate();
 });

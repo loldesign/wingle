@@ -19,9 +19,16 @@
             </p>
 
             <%= hidden_field_tag("candidate_experience[candidate_experience_titles][][title_id]", {}, value: title.id) %>
-            <%= select_tag 'candidate_experience[candidate_experience_titles][][years]', options_for_select(@years, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].years : false), :class => "custom", :include_blank => true %>
+            <div class="select-box-with-error">
+              <%= select_tag 'candidate_experience[candidate_experience_titles][][years]', options_for_select(@years, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].years : false), :class => "custom validate", :include_blank => true %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
             <p><label>E</label></p>
-            <%= select_tag 'candidate_experience[candidate_experience_titles][][months]', options_for_select(@months, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].months : false), :class => "custom", :include_blank => true %>
+            <div class="select-box-with-error">
+              <%= select_tag 'candidate_experience[candidate_experience_titles][][months]', options_for_select(@months, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].months : false), :class => "custom validate", :include_blank => true %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
           </li>
         <% end %>
       </ul>
@@ -29,7 +36,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_experience_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_second').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", id: "validate-form-button" %>
     </section>
   <% end %>
 </section>
