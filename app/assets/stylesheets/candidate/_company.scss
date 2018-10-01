@@ -31,9 +31,8 @@
 					}
 					.error-message {
 						display: block;
-					    margin-top: -1.9vh;
-					    margin-left: 1vw;
-					    color: #9e0808;
+					    margin-top: -1.6vh;
+					    color: $error;
 					    position: absolute;
 
 						&.hide {
