@@ -14,7 +14,7 @@
           <% @candidate_education_languages.each_with_index do |candidate_language, index| %>
             <%= hidden_field_tag("candidate_education_languages[#{index}][id]", {}, value: candidate_language.id) %>
             <li class="collection-item">
-              <%= select_tag "candidate_education_languages[#{index}][language_id]", options_for_select(@language.collect{ |language| [language.name, language.id] }, selected: candidate_language.language_id), :class => "custom" %>
+              <%= select_tag "candidate_education_languages[#{index}][language_id]", options_for_select(@language.collect{ |language| [language.name, language.id] }, selected: candidate_language.language_id), :class => "custom", :include_blank => true %>
 
               <div class="language-level-box">
                 <% @language_level.each do |language_level| %>
