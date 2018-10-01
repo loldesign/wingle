@@ -46,6 +46,23 @@ class CandidateManager
     return @candidate_experience.save
   end
 
+  def create_candidate_experience_titles
+    title_experience = @candidate_experience_params[:candidate_experience_titles]
+
+    title_experience.each do |title|
+      # verify to avoid duplicate
+      if @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences.find_by_title_id(title[:title_id]).present?
+        exp_title = @candidate_experience.title_experiences.find_by_title_id(title[:title_id])
+        exp_title.update_attributes(title)
+      else
+        exp_title = CandidateExperienceTitle.new(title)
+        @candidate_experience.title_experiences << exp_title
+      end
+    end
+
+    return @candidate_experience.save
+  end
+
   def create_or_update_candidate_companies
     if @candidate_company_params.present?
       CandidateCompany.transaction do
