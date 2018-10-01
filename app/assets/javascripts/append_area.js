@@ -9,11 +9,6 @@ var appendCompany = function(){
     addCompany($(this));
   });
 
-  $('.next-button').click(function (event) {
-    event.preventDefault();
-    unlockButton($(this));
-  });
-
   // Remove Company //
   removeCompany = function() {
     $('.candidate-company-item:last').remove();
@@ -52,34 +47,6 @@ var appendCompany = function(){
   } 
 }
 
-unlockButton = function() {
-  if(validateForm()) {
-    $('#candidate_first').submit()
-  } else {
-    validateForm()
-  }
-}
-
-function validateForm($btn) {
-   var errors = 0;
-    $(".validate").map(function(){
-         if( !$(this).val() ) {
-              $(this).addClass('warning');
-              $(this).parent().find(".error-message").removeClass("hide")
-              errors++;
-        } else if ($(this).val()) {
-              $(this).removeClass('warning');
-              $(this).parent().find(".error-message").addClass("hide")
-        }   
-    });
-
-    if(errors > 0){
-      return false;
-    } else {
-      return true;
-    }
-}
-
 var appendLanguage = function(){
   $('#btn-minus-language').click(function (event) {
     event.preventDefault();
@@ -107,35 +74,37 @@ var appendLanguage = function(){
 
   // Add Language //
   addLanguage = function($btn) {
-    // Candidate Language Add Action //
-    var languageCounter         = $btn.closest('ul').find('.language-item .collection-item').length + 1
-    var $languageContainer      = $btn.closest('ul').find('.language-item .collection-item:first')
-    var $languageContainerClone = $languageContainer.clone()
+    if(validateForm()) {
+      // Candidate Language Add Action //
+      var languageCounter         = $btn.closest('ul').find('.language-item .collection-item').length + 1
+      var $languageContainer      = $btn.closest('ul').find('.language-item .collection-item:first')
+      var $languageContainerClone = $languageContainer.clone()
 
-    $languageContainerClone.find(':radio').removeAttr('checked')
-    $languageContainerClone.find(':radio').each((function(index){
-      var $el       = $(this)
-      var elName    = $el.attr('name')
-      var newElName = elName.replace(/\[\d+\]/, '['+languageCounter+']')
+      $languageContainerClone.find(':radio').removeAttr('checked')
+      $languageContainerClone.find(':radio').each((function(index){
+        var $el       = $(this)
+        var elName    = $el.attr('name')
+        var newElName = elName.replace(/\[\d+\]/, '['+languageCounter+']')
 
-      $el.attr('name', newElName)
-    }))
+        $el.attr('name', newElName)
+      }))
 
-    var $select       = $languageContainerClone.find('select')
-    var selectName    =  $select.attr('name')
-    var selectNewName =  selectName.replace(/\[\d+\]/, '['+languageCounter+']')
+      var $select       = $languageContainerClone.find('select')
+      var selectName    =  $select.attr('name')
+      var selectNewName =  selectName.replace(/\[\d+\]/, '['+languageCounter+']')
 
-    $select.val('')
-    $select.attr('name', selectNewName)
-    
-    if (languageCounter <= 4) {
-      $btn.closest('ul').find('.language-item .collection-item:last').after($languageContainerClone)
-    } 
+      $select.val('')
+      $select.attr('name', selectNewName)
+      
+      if (languageCounter <= 4) {
+        $btn.closest('ul').find('.language-item .collection-item:last').after($languageContainerClone)
+      } 
 
-    if (languageCounter === 4){
-      $('#btn-plus-language').addClass("hide");
-    }else{
-      $('#btn-minus-language').removeClass("hide");
+      if (languageCounter === 4){
+        $('#btn-plus-language').addClass("hide");
+      }else{
+        $('#btn-minus-language').removeClass("hide");
+      }
     }
   }
 }

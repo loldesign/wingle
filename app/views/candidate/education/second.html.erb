@@ -14,19 +14,20 @@
           <% @candidate_education_languages.each_with_index do |candidate_language, index| %>
             <%= hidden_field_tag("candidate_education_languages[#{index}][id]", {}, value: candidate_language.id) %>
             <li class="collection-item">
-              <%= select_tag "candidate_education_languages[#{index}][language_id]", options_for_select(@language.collect{ |language| [language.name, language.id] }, selected: candidate_language.language_id), :class => "custom", :include_blank => true %>
+              <%= select_tag "candidate_education_languages[#{index}][language_id]", options_for_select(@language.collect{ |language| [language.name, language.id] }, selected: candidate_language.language_id), :class => "custom validate", :include_blank => true %>
 
               <div class="language-level-box">
                 <% @language_level.each do |language_level| %>
                   <p>
                     <label>
-                      <%= radio_button_tag "candidate_education_languages[#{index}][language_level_id]", language_level.id, candidate_language.language_level_id == language_level.id ? true : false, class: "with-gap" %>
+                      <%= radio_button_tag "candidate_education_languages[#{index}][language_level_id]", language_level.id, candidate_language.language_level_id == language_level.id ? true : false, class: "with-gap validate" %>
                         <span>
                           <%= language_level.name %>
                         </span>
                     </label>
                   </p>
                 <% end %>
+                <p class="error-message hide">Obrigatório</p>
               </div>
             </li>
           <% end %>
@@ -45,7 +46,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_education_step_1_path, class: "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_second').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-button", id: "validate-form-button" %>
     </section>
   <% end %>
 </section>

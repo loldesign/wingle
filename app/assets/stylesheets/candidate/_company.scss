@@ -25,20 +25,6 @@
 					select {
 						margin-bottom: 2vh !important;
 					}
-
-					.warning {
-						border: solid 1px $error;
-					}
-					.error-message {
-						display: block;
-					    margin-top: -1.6vh;
-					    color: $error;
-					    position: absolute;
-
-						&.hide {
-							display: none;
-						}
-					}
 				}
 			}
 		}
