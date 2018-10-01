@@ -9,6 +9,11 @@ var appendCompany = function(){
     addCompany($(this));
   });
 
+  $('.next-button').click(function (event) {
+    event.preventDefault();
+    unlockButton($(this));
+  });
+
   // Remove Company //
   removeCompany = function() {
     $('.candidate-company-item:last').remove();
@@ -25,26 +30,56 @@ var appendCompany = function(){
 
   // Add Company //
   addCompany = function($btn) {
-    // Candidate Company Add Action//
-    var companyCounter         = $btn.closest('ul').find('.candidate-company-item').length + 1
-    var $companyContainer      = $btn.closest('ul').find('.candidate-company-item:first')
-    var $companyContainerClone = $companyContainer.clone()
+    if(validateForm()) {
+      // Candidate Company Add Action//
+      var companyCounter         = $btn.closest('ul').find('.candidate-company-item').length + 1
+      var $companyContainer      = $btn.closest('ul').find('.candidate-company-item:first')
+      var $companyContainerClone = $companyContainer.clone()
 
-    $companyContainerClone.find(':input').val('')
-    $companyContainerClone.find('select').val('')
-    
-    if (companyCounter <= 5) {
-      $btn.closest('ul').find('.candidate-company-item:last').after($companyContainerClone)
-    } 
+      $companyContainerClone.find(':input').val('')
+      $companyContainerClone.find('select').val('')
+      
+      if (companyCounter <= 5) {
+        $btn.closest('ul').find('.candidate-company-item:last').after($companyContainerClone)
+      } 
 
-    if (companyCounter === 5){
-      $('#btn-plus').addClass("hide");
-    }else{
-      $('#btn-minus').removeClass("hide");
+      if (companyCounter === 5){
+        $('#btn-plus').addClass("hide");
+      }else{
+        $('#btn-minus').removeClass("hide");
+      }
     }
   } 
 }
 
+unlockButton = function() {
+  if(validateForm()) {
+    console.log("verdadeiro")
+    $('#candidate_first').submit()
+  } else {
+    validateForm()
+  }
+}
+
+function validateForm($btn) {
+   var errors = 0;
+    $(".validate").map(function(){
+         if( !$(this).val() ) {
+              $(this).addClass('warning');
+              $(this).parent().find(".error-message").removeClass("hide")
+              errors++;
+        } else if ($(this).val()) {
+              $(this).removeClass('warning');
+              $(this).parent().find(".error-message").addClass("hide")
+        }   
+    });
+
+    if(errors > 0){
+      return false;
+    } else {
+      return true;
+    }
+}
 
 var appendLanguage = function(){
   $('#btn-minus-language').click(function (event) {

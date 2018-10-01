@@ -25,6 +25,21 @@
 					select {
 						margin-bottom: 2vh !important;
 					}
+
+					.warning {
+						border: solid 1px $error;
+					}
+					.error-message {
+						display: block;
+					    margin-top: -1.9vh;
+					    margin-left: 1vw;
+					    color: #9e0808;
+					    position: absolute;
+
+						&.hide {
+							display: none;
+						}
+					}
 				}
 			}
 		}
