@@ -3,11 +3,12 @@ class Candidate::HabilityController < ApplicationController
   before_action :set_candidate, only: [:first, :complete]
 
   def first
-    if @candidate.candidate_experience.areas.present?
-      @area = Area.where("id IN (?)", @candidate.candidate_experience.areas)
+    if @candidate.candidate_experience.functions.present?
+      # @area = Area.where("id IN (?)", @candidate.candidate_experience.areas)
+      @functions = Function.where("id IN (?)", @candidate.candidate_experience.functions)
     else
-      # to set areas
-      redirect_to candidate_experience_step_3
+      # to set functions
+      redirect_to candidate_experience_step_4_path
     end
   end
 
@@ -32,6 +33,6 @@ class Candidate::HabilityController < ApplicationController
     end
 
     def hability_params
-      params.fetch(:candidate_hability, {}).permit(functions: [])
+      params.fetch(:candidate_hability, {}).permit(habilities: [])
     end
 end
