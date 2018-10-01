@@ -5,7 +5,6 @@ class Candidate::ExperienceController < ApplicationController
   before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh]
 
   def first
-    @header_options = {style: :with_logo_back_button}
     @title_list = TitleList.order(priority: :asc)
   end
 
@@ -15,8 +14,13 @@ class Candidate::ExperienceController < ApplicationController
       @candidate_experience = @candidate.candidate_experience
     end
 
-    if params_present_but_not_updated
-      render action: :first
+    if params_present
+      if @candidate_experience.update_attributes(candidate_experience_params)
+        @candidate_experience.title_experiences = []
+        @candidate_experience.save
+      else
+        render action: :first
+      end
     end
 
     if @candidate_experience.current_title.nil?
@@ -28,7 +32,7 @@ class Candidate::ExperienceController < ApplicationController
   end
 
   def third
-    if candidate_experience_params.present? && !create_candidate_experience_titles
+    if params_present && !create_candidate_experience_titles
       render action: :second
     end
 
@@ -62,7 +66,7 @@ class Candidate::ExperienceController < ApplicationController
   end
 
   def sixth
-    if candidate_experience_params.present? && !create_candidate_experience_function
+    if params_present && !create_candidate_experience_function
       render action: :fifth
     end
 
@@ -121,7 +125,11 @@ class Candidate::ExperienceController < ApplicationController
     end
 
     def params_present_but_not_updated
-      candidate_experience_params.present? && !@candidate_experience.update_attributes(candidate_experience_params)
+      params_present && !@candidate_experience.update_attributes(candidate_experience_params)
+    end
+
+    def params_present
+      candidate_experience_params.present?
     end
 
     def set_years_and_months
