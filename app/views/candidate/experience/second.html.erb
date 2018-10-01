@@ -10,17 +10,20 @@
           <h5 class="center-align section">Como está distribuido seu tempo total de carreira nas posições abaixo:</h5>
         </li>
 
-        <li class="collection-item with-select">
-          <p>
-            <label>
-              <span><%= @title.name %></span>
-            </label>
-          </p>
+        <% @titles.each_with_index do |title, index| %>
+          <li class="collection-item with-select">
+            <p>
+              <label>
+                <span><%= title.name %></span>
+              </label>
+            </p>
 
-          <%= select_tag 'candidate_experience[current_title_year]', options_for_select(@years, selected: @candidate_experience.current_title_year), :class => "custom" %>
-          <p><label>E</label></p>
-          <%= select_tag 'candidate_experience[current_title_month]', options_for_select(@months, selected: @candidate_experience.current_title_month), :class => "custom" %>
-        </li>
+            <%= hidden_field_tag("candidate_experience[candidate_experience_titles][][title_id]", {}, value: title.id) %>
+            <%= select_tag 'candidate_experience[candidate_experience_titles][][years]', options_for_select(@years, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].years : false), :class => "custom" %>
+            <p><label>E</label></p>
+            <%= select_tag 'candidate_experience[candidate_experience_titles][][months]', options_for_select(@months, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].months : false), :class => "custom" %>
+          </li>
+        <% end %>
       </ul>
     </section>
 
