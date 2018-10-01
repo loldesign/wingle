@@ -54,7 +54,6 @@ var appendCompany = function(){
 
 unlockButton = function() {
   if(validateForm()) {
-    console.log("verdadeiro")
     $('#candidate_first').submit()
   } else {
     validateForm()

@@ -19,9 +19,9 @@
             </p>
 
             <%= hidden_field_tag("candidate_experience[candidate_experience_titles][][title_id]", {}, value: title.id) %>
-            <%= select_tag 'candidate_experience[candidate_experience_titles][][years]', options_for_select(@years, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].years : false), :class => "custom" %>
+            <%= select_tag 'candidate_experience[candidate_experience_titles][][years]', options_for_select(@years, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].years : false), :class => "custom", :include_blank => true %>
             <p><label>E</label></p>
-            <%= select_tag 'candidate_experience[candidate_experience_titles][][months]', options_for_select(@months, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].months : false), :class => "custom" %>
+            <%= select_tag 'candidate_experience[candidate_experience_titles][][months]', options_for_select(@months, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].months : false), :class => "custom", :include_blank => true %>
           </li>
         <% end %>
       </ul>
