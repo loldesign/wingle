@@ -1,0 +1,19 @@
+<section class="next-step-alert-container">
+  <% if @candidate.companies? || @candidate.habilities? %>
+    <div class="next-step-alert-box first">
+
+    </div>
+  <% end %>
+
+  <% if @candidate.education? || @candidate.pretension? %>
+    <div class="next-step-alert-box second">
+
+    </div>
+  <% end %>
+
+  <% if @candidate.complete?%>
+    <div class="next-step-alert-box third">
+      
+    </div>
+  <% end %>
+</section>  

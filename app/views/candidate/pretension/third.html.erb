@@ -31,7 +31,7 @@
             </label>
           </p>
         
-          <%= select_tag 'candidate_pretension[pretension_minimum_percent]', options_for_select(@claim.collect{ |claim| [claim.name, claim.value] }), class: "custom", id: "claim_list" %>
+          <%= select_tag 'candidate_pretension[pretension_minimum_percent]', options_for_select(@claim.collect{ |claim| [claim.name, claim.value] }), class: "custom", id: "claim_list", :include_blank => true %>
         </li>
         
         <h5 class="center-align section">Valores mínimos pretendidos</h5>
