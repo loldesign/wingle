@@ -12,7 +12,27 @@ var inputMasks = function(){
   };
 
   $('.cellphone').mask(PhoneMaskBehavior, phoneOptions);
-  $('.money').mask('#.##0', {reverse: true});
+
+  var PretensionMoneyMaskBehavior = function (val) {
+    var amount = val.replace(/\D/g, '')
+    if (amount <= 999) {
+      return '9999'
+    } else if (amount > 999 && amount <= 9999) {
+      return '0.0009'
+    } else if (amount > 9999 && amount <= 99999) {
+      return '00.0009'
+    } else if (amount > 99999) {
+      return '100.000'
+    } else {
+      return '100.000'
+    }
+  },
+  moneyOptions = {
+    onKeyPress: function(val, e, field, options) {
+        field.mask(PretensionMoneyMaskBehavior.apply({}, arguments), options);
+      }
+  };
+  $('.money').mask(PretensionMoneyMaskBehavior, moneyOptions, {reverse: true});
 
   $('.month_year').mask('00/0000');
   // END jQuery Mask //

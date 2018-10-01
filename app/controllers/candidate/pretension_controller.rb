@@ -24,6 +24,9 @@ class Candidate::PretensionController < ApplicationController
     end
 
     @claim = AnnualClaimRateList.all
+    rounded = @candidate_pretension.last_salary_total.present? ? (@candidate_pretension.last_salary_total/1000).ceil : 0
+    @last_salary_total = rounded * 1000
+    @selected = @candidate_pretension.pretension_minimum_percent.present? ? @candidate_pretension.pretension_minimum_percent : false
   end
 
   def complete
@@ -58,9 +61,9 @@ class Candidate::PretensionController < ApplicationController
       pretension_params = candidate_pretension_params
       pretension_params[:last_monthly_salary] = candidate_pretension_params[:last_monthly_salary].gsub('R$ ', '').gsub('.', '').gsub(',', '.')  if pretension_params[:last_monthly_salary].present?
       pretension_params[:variable]            = candidate_pretension_params[:variable].gsub('R$ ', '').gsub('.', '').gsub(',', '.')  if pretension_params[:variable].present?
-      pretension_params[:last_salary_total]   = candidate_pretension_params[:last_salary_total].gsub('R$ ', '').gsub('.', '').gsub(',', '.')
+      pretension_params[:last_salary_total]   = candidate_pretension_params[:last_salary_total].gsub('R$ ', '').gsub('.', '').gsub(',', '.') if pretension_params[:last_salary_total].present?
       pretension_params[:minimum_claim]       = candidate_pretension_params[:minimum_claim].gsub('R$ ', '').gsub('.', '').gsub(',', '.') if pretension_params[:minimum_claim].present?
-      pretension_params[:pretension_yearly_total]  = candidate_pretension_params[:last_salary_total].gsub('R$ ', '').gsub('.', '').gsub(',', '.')
+      pretension_params[:pretension_yearly_total]  = candidate_pretension_params[:pretension_yearly_total].gsub('R$ ', '').gsub('.', '').gsub(',', '.') if pretension_params[:pretension_yearly_total].present?
       return pretension_params
     end
 end
