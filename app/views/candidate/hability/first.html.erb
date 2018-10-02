@@ -10,24 +10,30 @@
           <h5 class="center-align section">Das experiências anteriores onde você se destaca?</h5>
         </li>
 
-        <% @area.each do |area| %>
-          <li class="collection-item">
-            <p>
-              <% area.functions.each do |functions| %>
-                <label>
-                  <%= check_box_tag "candidate_hability[functions][]", functions.id, (@candidate_hability.present? && @candidate_hability.functions.include?(functions.id) ? true : false), class: "with-gap" %>
-                    <span>
-                        <%= functions.name %> <br><br>
+        <% @functions.each do |functions| %>
+          <div class="hability-function-item-block">
+            <li class="function-list-item collection-item">
+              <label class="function-name">
+                <span><%= functions.name %></span>
+                <i class="icon ion-md-arrow-dropright"></i>
+              </label>
+            </li>
 
-                        <% functions.habilities.each do |hability| %>
-                          <strong><%= hability.name %> |</strong>
-                        <% end %>
-                        <br><br>
-                    </span>
-                </label>
+            <div class="list-function-hability hidden">
+              <% functions.habilities.each do |hability| %>
+                <li class="collection-item">
+                  <p>
+                    <label>
+                      <%= check_box_tag "candidate_hability[habilities][]", hability.id, (@candidate_hability.present? && @candidate_hability.habilities.include?(hability.id) ? true : false), class: "with-gap" %>
+                        <span>
+                            <strong><%= hability.name %></strong>
+                        </span>
+                    </label>
+                  </p>
+                </li>
               <% end %>
-            </p>
-          </li>
+            </div>
+          </div>
         <% end %>
       </ul>
     </section>
