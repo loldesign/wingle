@@ -9,17 +9,28 @@
           align-items: center;
           justify-content: space-between;
           flex-direction: column;
+
+          .error-message {
+            bottom: -.6vh;
+          }
+        }
+
+        .box-with-error {
+          width: 65%;
+          position: relative
         }
 
         select {
           float: left;
-          width: 65%;
+          width: 100%;
           margin-bottom: 2vh !important;
         }
         
         .language-level-box {
           width: 65%;
           float: left;
+          position: relative;
+          margin-top: 3vh;
 
           p {
             width: 100%;
@@ -29,6 +40,10 @@
             &:last-of-type {
               margin-bottom: 0;
             }
+          }
+
+          .radio-error-message {
+            bottom: 0;
           }
         }
       }

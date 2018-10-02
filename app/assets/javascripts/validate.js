@@ -23,13 +23,7 @@ validateRadio = function() {
       }
   });
   
-  if(check){
-      return true
-      // alert('One radio in each group is checked.');
-  }else{
-      return false
-      // alert('Please select one option in each question.');
-  }
+  return check
 }
 
 

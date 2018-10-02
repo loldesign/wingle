@@ -31,4 +31,6 @@ var optionsCount = function(){
       $(".max-option-notice").removeClass("visible")
     }
   }
+
+  checkCountOptions($("input[type=checkbox]:checked").length)
 }

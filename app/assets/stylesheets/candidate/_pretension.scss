@@ -39,6 +39,15 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 4vh 1.6vw !important;
+
+        .box-with-error {
+          width: 50%;
+
+          select {
+            margin-bottom: 0 !important;
+          }
+        }
 
         .half-label {
           width: 40%;
@@ -46,7 +55,7 @@
         }
 
         .half-input {
-          width: 50%;
+          width: 100%;
           margin-bottom: 0;
         }
 
@@ -56,6 +65,10 @@
             background-color: transparent !important;
             font-weight: bold;
           }
+        }
+
+        .error-message {
+          margin-top: .6vh;
         }
       }
 
