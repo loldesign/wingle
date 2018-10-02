@@ -22,7 +22,7 @@ var inputMasks = function(){
     } else if (amount > 9999 && amount <= 99999) {
       return '00.0009'
     } else if (amount > 99999) {
-      return '100.000'
+      return '000.000'
     } else {
       return '100.000'
     }
