@@ -1,15 +1,19 @@
 class Candidate::CompanyController < ApplicationController 
   before_action :authenticate_candidate!
-  before_action :set_candidate, only: [:first, :second, :complete]
+  before_action :set_candidate, only: [:first, :second, :third, :complete]
 
   def first
+    
+  end
+
+  def second
     @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
 
     @years  = CandidateManager.new.optionsForSelectYear
     @months = CandidateManager.new.optionsForSelectMonth
   end
 
-  def second
+  def third
     manager = CandidateManager.new(candidate: @candidate, candidate_company_params: candidate_company_params)
     manager.create_or_update_candidate_companies
 
