@@ -20,6 +20,8 @@ validateRadio = function() {
       if($('input:radio[name="'+name+'"]:checked').length == 0){
           check = false;
           $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').removeClass('hide')
+      } else {
+          $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').addClass('hide')
       }
   });
   
