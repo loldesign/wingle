@@ -26,7 +26,11 @@ var calculatePretension = function(){
   $("#minimum_claim").blur(function (event) {
     event.preventDefault();
     var val = $("#minimum_claim").val().replace(/^(R\$ )/, '')
-    $("#minimum_claim").val("R$ " + val)
+    // Round up
+    val = Math.ceil(val.replace(/\./g, '')/100)*100
+    // format again
+    var formatted = val.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    $("#minimum_claim").val("R$ " + formatted)
   });
 
   if (($("#candidate_pretension_last_monthly_salary").length > 0) && ($("#candidate_pretension_last_monthly_salary").val().length > 0)) {
@@ -56,14 +60,19 @@ var calculatePretension = function(){
     $("#candidate_pretension_last_salary_total").val(formatted)
   }
 
-  // Calculate pretension yearly total //
+  // Calculate pretension yearly total (step 3) //
   calculatePretensionYearlyTotal = function() {
     var last_salary_total = $("#last_salary_total").val().replace(/^(R\$ )/, '').replace(/\./g, '').replace(',', '.')
     var percent           = $("#claim_list").val()
 
     var total = last_salary_total*(1+(percent/100))
+    total = Math.ceil(total/1000)*1000
     var formatted = "R$ " + total.toFixed(0).replace('.', ',')
     formatted = formatted.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
     $("#pretension_yearly_total").val(formatted)
+  }
+
+  if ($("#pretension_yearly_total").length > 0) {
+    calculatePretensionYearlyTotal();
   }
 }

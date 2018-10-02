@@ -9,4 +9,10 @@ $(document).on('turbolinks:load', function() {
     $(this).parent().find(".list-city-locale").slideToggle('.hidden');
     $(this).find('.icon').toggleClass('rotated');
   });
+
+  // HABILITY DROP LIST //
+  $(".function-list-item").click(function(){
+    $(this).parent().find(".list-function-hability").slideToggle('.hidden');
+    $(this).find('.icon').toggleClass('rotated');
+  });
 });

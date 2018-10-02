@@ -19,7 +19,7 @@
             </label>
           </p>
 
-          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input black", value: number_to_currency(@candidate_pretension.last_salary_total, precision: 0), id: "last_salary_total", readonly: true %>
+          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input black", value: number_to_currency(@last_salary_total, precision: 0), id: "last_salary_total", readonly: true %>
         </li>
         
         <li class="collection-item pretension-calc-item">
@@ -31,7 +31,7 @@
             </label>
           </p>
         
-          <%= select_tag 'candidate_pretension[pretension_minimum_percent]', options_for_select(@claim.collect{ |claim| [claim.name, claim.value] }), class: "custom", id: "claim_list", :include_blank => true %>
+          <%= select_tag 'candidate_pretension[pretension_minimum_percent]', options_for_select(@claim.collect{ |claim| [claim.name, claim.value] }, selected: @selected), class: "custom", id: "claim_list", :include_blank => true %>
         </li>
         
         <h5 class="center-align section">Valores mínimos pretendidos</h5>
