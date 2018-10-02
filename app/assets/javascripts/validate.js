@@ -13,6 +13,26 @@ var validate = function(){
   }
 }
 
+validateRadio = function() {
+  var check = true;
+  $("input:radio").each(function(){
+      var name = $(this).attr("name");
+      if($('input:radio[name="'+name+'"]:checked').length == 0){
+          check = false;
+          $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').removeClass('hide')
+      }
+  });
+  
+  if(check){
+      return true
+      // alert('One radio in each group is checked.');
+  }else{
+      return false
+      // alert('Please select one option in each question.');
+  }
+}
+
+
 // Validate Form //
 function validateForm($btn) {
   var errors = 0;
@@ -21,9 +41,14 @@ function validateForm($btn) {
           $(this).addClass('warning');
           $(this).parent().find(".error-message").removeClass("hide")
           errors++;
+    } else if (!validateRadio()) {
+
+      errors++;
+
     } else if ($(this).val()) {
           $(this).removeClass('warning');
           $(this).parent().find(".error-message").addClass("hide")
+          $(this).parent().find(".radio-error-message").addClass("hide")
     }   
   });
 
