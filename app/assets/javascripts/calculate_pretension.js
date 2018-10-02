@@ -71,4 +71,8 @@ var calculatePretension = function(){
     formatted = formatted.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
     $("#pretension_yearly_total").val(formatted)
   }
+
+  if ($("#pretension_yearly_total").length > 0) {
+    calculatePretensionYearlyTotal();
+  }
 }
