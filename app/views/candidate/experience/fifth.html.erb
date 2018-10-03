@@ -18,9 +18,11 @@
             </p>
 
             <%= hidden_field_tag("candidate_experience[candidate_experience_function][][function_id]", {}, value: function.id) %>
-            <%= select_tag 'candidate_experience[candidate_experience_function][][years]', options_for_select(@years, selected: @candidate_experience.functions_time_period.present? && @candidate_experience.functions_time_period[index].present? ? @candidate_experience.functions_time_period[index].years : false), :class => "custom" %>
-            <p><label>E</label></p>
-            <%= select_tag 'candidate_experience[candidate_experience_function][][months]', options_for_select(@months, selected: @candidate_experience.functions_time_period.present? && @candidate_experience.functions_time_period[index].present? ? @candidate_experience.functions_time_period[index].months : false), :class => "custom" %>
+            <div class="box-with-error">
+              <%= text_field "candidate_experience[candidate_experience_function][][percentage]", "", placeholder: "%", class: "half-input percentage validate", value: @candidate_experience.candidate_experience_functions.present? && @candidate_experience.candidate_experience_functions[index].present? ? @candidate_experience.candidate_experience_functions[index].percentage : "", name: "candidate_experience[candidate_experience_function][][percentage]", id: "candidate_experience_functions_percentage" %>
+
+              <p class="error-message hide">Obrigatório</p>
+            </div>
           </li>
         <% end %>
       </ul>

@@ -111,7 +111,7 @@ class Candidate::ExperienceController < ApplicationController
 
     def candidate_experience_params
       params.fetch(:candidate_experience, {}).permit(:current_title, areas: [], functions: [], disconsidered_functions: [], considered_functions: [],
-        candidate_experience_function: [:function_id, :years, :months], candidate_experience_titles: [:title_id, :years, :months])
+        candidate_experience_function: [:function_id, :percentage], candidate_experience_titles: [:title_id, :years, :months])
     end
 
     def create_candidate_experience_function
