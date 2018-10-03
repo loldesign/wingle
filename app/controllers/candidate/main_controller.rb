@@ -14,12 +14,15 @@ class Candidate::MainController < ApplicationController
   end
 
   def profile
-    @header_options = {style: :dashboard_header}
-    @tab_bar        = {style: :with_tab_bar}
+    @current_company = @candidate.candidate_current_company
+    @header_options  = {style: :dashboard_header}
+    @tab_bar         = {style: :with_tab_bar}
   end
 
   def update_profile
-    if current_candidate.update_attributes(candidate_params)
+    @current_company = @candidate.candidate_current_company
+
+    if current_candidate.update_attributes(candidate_params) && @current_company.update_attributes(candidate_current_company_params)
       redirect_to candidate_profile_path(current_candidate)
     else
       render :edit
@@ -36,6 +39,10 @@ class Candidate::MainController < ApplicationController
   end
   
   def candidate_params 
-    params.require(:candidate).permit(:candidate_avatar, :candidate_curriculum, :new_challenges, :employed, :corporate_email)
+    params.require(:candidate).permit(:candidate_avatar, :candidate_curriculum, :new_challenges, :employed)
+  end
+
+  def candidate_current_company_params
+    params.require(:candidate_current_company).permit(:corporate_email)
   end
 end

@@ -74,7 +74,7 @@ var appendLanguage = function(){
 
   // Add Language //
   addLanguage = function($btn) {
-    if(validateForm()) {
+    if(validateForm($btn)) {
       // Candidate Language Add Action //
       var languageCounter         = $btn.closest('ul').find('.language-item .collection-item').length + 1
       var $languageContainer      = $btn.closest('ul').find('.language-item .collection-item:first')

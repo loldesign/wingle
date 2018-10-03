@@ -5,7 +5,7 @@ var validate = function(){
   });
 
   submitButton = function($btn) {
-    if(validateForm()) {
+    if(validateForm($btn)) {
       $btn.closest('form').submit()
     } else {
       validateForm()
@@ -21,10 +21,10 @@ validateRadio = function() {
           check = false;
           $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').removeClass('hide')
       } else {
-          check = true
-          $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').addClass('hide')
-        }
+        check = true
+        $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').addClass('hide')
       }
+      
   });
   
   return check
@@ -34,20 +34,21 @@ validateRadio = function() {
 // Validate Form //
 function validateForm($btn) {
   var errors = 0;
+  var withRadius = $btn.data('with-radios') || undefined
+
   $(".validate").map(function(){
      if( !$(this).val()) {
           $(this).addClass('warning');
           $(this).parent().find(".error-message").removeClass("hide")
           errors++;
-    } else if (!validateRadio()) {
+    } else if (withRadius && !validateRadio()) {
 
       errors++;
-
     } else if ($(this).val()) {
           $(this).removeClass('warning');
           $(this).parent().find(".error-message").addClass("hide")
           $(this).parent().find(".radio-error-message").addClass("hide")
-    }   
+    }
   });
 
   if(errors > 0){
