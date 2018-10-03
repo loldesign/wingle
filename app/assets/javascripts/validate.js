@@ -14,13 +14,16 @@ var validate = function(){
 }
 
 validateRadio = function() {
-  var check = true;
+  var check
   $("input:radio").each(function(){
       var name = $(this).attr("name");
       if($('input:radio[name="'+name+'"]:checked').length == 0){
           check = false;
           $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').removeClass('hide')
-      }
+      } else {
+          check = true
+          $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').addClass('hide')
+        }
   });
   
   return check
