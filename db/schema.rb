@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181001185210) do
+ActiveRecord::Schema.define(version: 20181002200202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,23 @@ ActiveRecord::Schema.define(version: 20181001185210) do
     t.date "start_date"
     t.date "end_date"
     t.index ["candidate_id"], name: "index_candidate_companies_on_candidate_id"
+  end
+
+  create_table "candidate_current_companies", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "company_size"
+    t.string "sector"
+    t.string "mode"
+    t.string "city"
+    t.string "city_locale"
+    t.string "neighborhod"
+    t.string "corporate_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_current_companies_on_candidate_id"
   end
 
   create_table "candidate_education_languages", force: :cascade do |t|
@@ -174,7 +191,6 @@ ActiveRecord::Schema.define(version: 20181001185210) do
     t.string "candidate_curriculum"
     t.boolean "new_challenges", default: false
     t.boolean "employed", default: false
-    t.string "corporate_email"
     t.index ["email"], name: "index_candidates_on_email", unique: true
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
   end
@@ -267,15 +283,6 @@ ActiveRecord::Schema.define(version: 20181001185210) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "locales", force: :cascade do |t|
-    t.bigint "city_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_locales_on_city_id"
-    t.index ["name"], name: "index_locales_on_name", unique: true
   end
 
   create_table "modes", force: :cascade do |t|
@@ -425,5 +432,6 @@ ActiveRecord::Schema.define(version: 20181001185210) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "candidate_current_companies", "candidates"
   add_foreign_key "candidate_educations", "candidates"
 end

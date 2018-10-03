@@ -3,7 +3,13 @@ class Candidate::CompanyController < ApplicationController
   before_action :set_candidate, only: [:first, :second, :third, :complete]
 
   def first
-    
+    @current_company = @candidate_current_company.present? ? @candidate_current_company : CandidateCurrentCompany.new
+    @size = CompanySize.all
+    @sector = Sector.all
+    @profile = Mode.all
+    @city = City.all
+    @city_locale = CityLocale.all
+    @neighborhood = Neighborhood.all
   end
 
   def second
@@ -43,6 +49,7 @@ class Candidate::CompanyController < ApplicationController
     def set_candidate
       @candidate = current_candidate
       @candidate_companies = @candidate.candidate_companies
+      @candidate_current_company = @candidate.candidate_current_company
     end
 
     def candidate_company_params
