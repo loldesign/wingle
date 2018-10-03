@@ -13,6 +13,14 @@ class Candidate::CompanyController < ApplicationController
   end
 
   def second
+    if @candidate_current_company.nil?
+      CandidateManager.new(candidate: @candidate).create_candidate_current_company
+      @candidate_current_company = @candidate.candidate_current_company
+    end
+
+    manager = CandidateManager.new(candidate_current_company: @candidate_current_company, candidate_current_company_params: candidate_current_company_params)
+    manager.update_candidate_current_companies
+
     @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
 
     @years  = CandidateManager.new.optionsForSelectYear
@@ -60,5 +68,9 @@ class Candidate::CompanyController < ApplicationController
           )
         end
       end
+    end
+
+    def candidate_current_company_params
+      params.require(:candidate_current_company).permit(:id, :name, :start_date, :end_date, :company_size, :sector, :mode, :city, :city_locale, :neighborhood, :corporate_email)
     end
 end

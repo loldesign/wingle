@@ -7,24 +7,23 @@
             <div class="determinate" style="width: 15%"></div>
           </div>
 
-          <h5 class="center-align section">Para manter sua privacidade registre sua empresa mais recente ou atual?</h5>
+          <h5 class="center-align section">Para manter sua privacidade registre sua empresa mais recente ou atual</h5>
         </li>
         
-        <%#= hidden_field_tag("candidate_companies[][id]", {}, value: current_company.id) %>
         <%= fields_for 'candidate_current_company', @current_company do |ccc| %>
           <li class="collection-item candidate-company-item">
             <div class="candidate-company-name">
-              <%= ccc.text_field :name, name: "candidate_companies[][name]", class: "candidate-company-name validate", value: @current_company.name, placeholder: "NOME" %>
+              <%= ccc.text_field :name, name: "candidate_current_company[name]", class: "candidate-company-name validate", value: @current_company.name, placeholder: "NOME" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
             
             <div class="candidate-company-date">
-              <%= ccc.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_current_company[start_date]", class: "month_year validate", value: @current_company.start_date.present? ? company.start_date.strftime("%m/%Y") : "" %>
+              <%= ccc.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_current_company[start_date]", class: "month_year validate", value: @current_company.start_date.present? ? @current_company.start_date.strftime("%m/%Y") : "" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
 
             <div class="candidate-company-date">
-              <%= ccc.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_current_company[end_date]", class: "month_year validate", value: @current_company.end_date.present? ? company.end_date.strftime("%m/%Y") : "" %>
+              <%= ccc.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_current_company[end_date]", class: "month_year validate", value: @current_company.end_date.present? ? @current_company.end_date.strftime("%m/%Y") : "" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
 
@@ -49,7 +48,7 @@
             </div>
 
             <div class="box-with-error">
-            	<%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id] }, selected: @current_company.neighborhod), :class => "full", prompt: "LOCALIZAÇÃO"  %>
+            	<%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id] }, selected: @current_company.neighborhood), :class => "full", prompt: "LOCALIZAÇÃO"  %>
             </div>
 
             <div class="candidate-company-date">
