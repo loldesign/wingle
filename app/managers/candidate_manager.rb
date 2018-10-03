@@ -5,7 +5,9 @@ class CandidateManager
     @candidate_experience        = options[:candidate_experience]
     @candidate_experience_params = options[:candidate_experience_params]
 
-    @candidate_company_params    = options[:candidate_company_params]
+    @candidate_company_params         = options[:candidate_company_params]
+    @candidate_current_company        = options[:candidate_current_company]
+    @candidate_current_company_params = options[:candidate_current_company_params]
 
     @candidate_education                 = options[:candidate_education]
     @candidate_education_language_params = options[:candidate_education_language_params]
@@ -83,6 +85,22 @@ class CandidateManager
         end
       end
       return true
+    else
+      false
+    end
+  end
+
+  def create_candidate_current_company
+    @candidate.build_candidate_current_company
+    candidate_current_company = @candidate.candidate_current_company
+    candidate_current_company.save
+  end
+
+  def update_candidate_current_companies
+    if @candidate_current_company_params.present?
+      ccc = @candidate_current_company_params
+      filter_date_params(ccc)
+      @candidate_current_company.update_attributes(ccc)
     else
       false
     end

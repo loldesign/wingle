@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181001185210) do
+ActiveRecord::Schema.define(version: 20181003161817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,23 @@ ActiveRecord::Schema.define(version: 20181001185210) do
     t.date "start_date"
     t.date "end_date"
     t.index ["candidate_id"], name: "index_candidate_companies_on_candidate_id"
+  end
+
+  create_table "candidate_current_companies", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "company_size"
+    t.string "sector"
+    t.string "mode"
+    t.string "city"
+    t.string "city_locale"
+    t.string "neighborhood"
+    t.string "corporate_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_current_companies_on_candidate_id"
   end
 
   create_table "candidate_education_languages", force: :cascade do |t|
@@ -174,7 +191,6 @@ ActiveRecord::Schema.define(version: 20181001185210) do
     t.string "candidate_curriculum"
     t.boolean "new_challenges", default: false
     t.boolean "employed", default: false
-    t.string "corporate_email"
     t.index ["email"], name: "index_candidates_on_email", unique: true
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
   end
@@ -425,5 +441,6 @@ ActiveRecord::Schema.define(version: 20181001185210) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "candidate_current_companies", "candidates"
   add_foreign_key "candidate_educations", "candidates"
 end

@@ -24,6 +24,7 @@ validateRadio = function() {
           check = true
           $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').addClass('hide')
         }
+      }
   });
   
   return check

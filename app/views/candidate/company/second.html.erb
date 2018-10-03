@@ -1,36 +1,54 @@
 <section id="second_step" class="question-container content">
-  <%= form_tag({controller: "company", action: "complete"}, method: "post", id: "candidate_second") do %>
+  <%= form_tag({controller: "company", action: "third"}, method: "post", id: "candidate_second") do %>
     <section class="content-box">
-      <ul class="collection with-header">
+      <ul class="collection with-header candidate-companies-form with-input">
         <li class="collection-header">
           <div class="progress ">
-            <div class="determinate" style="width: 65%"></div>
+            <div class="determinate" style="width: 30%"></div>
           </div>
 
-          <h5 class="center-align section">Agora classifique estas empresas</h5>
+          <h5 class="center-align section">Quais foram as empresas mais relevantes em que você trabalhou?</h5>
         </li>
-
+        
         <% @companies.each do |company| %>
-          <li class="collection-item with-select-full">
-            <p>
-              <label>
-                <span><%= company.name %></span>
-              </label>
-            </p>
-          
-            <%= hidden_field_tag("candidate_companies[][id]", {}, value: company.id) %>
-            <%= select_tag 'candidate_companies[][size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: company.size), :class => "full", prompt: "PORTE" %>
-            <%= select_tag 'candidate_companies[][sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }, selected: company.sector), :class => "full", prompt: "SETOR" %>
-            <%= select_tag 'candidate_companies[][title]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: company.title), :class => "full", prompt: "PERFIL" %>
+          <%= hidden_field_tag("candidate_companies[][id]", {}, value: company.id) %>
+          <%= fields_for 'candidate_companies[]', company do |co| %>
+            <li class="collection-item candidate-company-item">
+              <div class="candidate-company-name">
+                <%= label_tag 'candidate_companies_5_name', 'Nome da empresa' %>
+                <%= co.text_field :name, name: "candidate_companies[][name]", class: "candidate-company-name validate" %>
+                <p class="error-message hide">Obrigatório</p>
+              </div>
+              
+              <div class="candidate-company-date">
+                <%= label_tag 'candidate_companies_5_start_date', 'Data de início' %>
+                <%= co.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_companies[][start_date]", class: "month_year validate", value: company.start_date.present? ? company.start_date.strftime("%m/%Y") : "" %>
+                <p class="error-message hide">Obrigatório</p>
+              </div>
 
-          </li>
+              <div class="candidate-company-date">
+                <%= label_tag 'candidate_companies_5_end_date', 'Data de fim' %>
+                <%= co.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_companies[][end_date]", class: "month_year validate", value: company.end_date.present? ? company.end_date.strftime("%m/%Y") : "" %>
+                <p class="error-message hide">Obrigatório</p>
+              </div>
+            </li>
+          <% end %>
         <% end %>
+        
+        <div class="list-item-options">
+          <button id="btn-minus" class="btn-options <%= @companies.count == 1 ? 'hide' : '' %> waves-effect waves-light btn-large grey">
+            <i class="material-icons">remove_circle</i>
+          </button>
+          <button id="btn-plus" class="btn-options waves-effect waves-light btn-large grey">
+            <i class="material-icons">add_circle </i>
+          </button>
+        </div>
       </ul>
     </section>
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_company_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_second').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", id: "validate-form-button" %>
     </section>
   <% end %>
 </section>
