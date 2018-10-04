@@ -36,12 +36,12 @@ class CandidateManager
 
     exp_functions.each do |function|
       # verify to avoid duplicate
-      if @candidate_experience.functions_time_period.present? && @candidate_experience.functions_time_period.find_by_function_id(function[:function_id]).present?
-        exp_function = @candidate_experience.functions_time_period.find_by_function_id(function[:function_id])
+      if @candidate_experience.candidate_experience_functions.present? && @candidate_experience.candidate_experience_functions.find_by_function_id(function[:function_id]).present?
+        exp_function = @candidate_experience.candidate_experience_functions.find_by_function_id(function[:function_id])
         exp_function.update_attributes(function)
       else
         exp_function = CandidateExperienceFunction.new(function)
-        @candidate_experience.functions_time_period << exp_function
+        @candidate_experience.candidate_experience_functions << exp_function
       end
     end
 

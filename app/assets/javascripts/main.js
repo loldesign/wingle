@@ -20,4 +20,7 @@ $(document).on('turbolinks:load', function() {
   makeRadiosDeselectable();
 
   validate();
+
+  // Candidate Experience Functions //
+  calculatePercentage();
 });
