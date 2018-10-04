@@ -62,7 +62,7 @@
         input {
           &.black {
             color: #000 !important;
-            background-color: transparent !important;
+            background-color: #ece7e7 !important;
             font-weight: bold;
           }
         }
@@ -97,6 +97,12 @@
 #third_step {
   &.pretension-step {
     .collection {
+      .pretension-calc-item {
+        .half-input {
+          width: 50%;
+        }
+      }
+
       .fixed-minimum-pretension {
         display: flex;
         justify-content: center;
