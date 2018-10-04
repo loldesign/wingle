@@ -35,5 +35,7 @@ var inputMasks = function(){
   $('.money').mask(PretensionMoneyMaskBehavior, moneyOptions, {reverse: true});
 
   $('.month_year').mask('00/0000');
+
+  $('.percentage').mask('099');
   // END jQuery Mask //
 }

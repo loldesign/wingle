@@ -16,13 +16,6 @@
         label {
           font-size: 3.5vw !important;
         }
-
-        &.separator-responsive-label {
-          display: flex;
-          align-items: center;
-          height: 6vh;
-          margin: 0 3%;
-        }
       }
     }
 
@@ -46,5 +39,28 @@
         float: left;
   		}
   	}
+  }
+
+  #fifth_step {
+    &.experience-step {
+      .collection-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+
+        p {
+          &:first-of-type {
+            width: auto;
+            margin-right: 5%;
+          }
+        }
+
+        .box-with-error {
+          display: flex;
+          width: 40%;
+        }
+      }
+    }
   }
 }

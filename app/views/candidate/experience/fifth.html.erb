@@ -1,4 +1,4 @@
-<section id="fifth_step" class="question-container content">
+<section id="fifth_step" class="question-container content experience-step">
   <%= form_tag({controller: "experience", action: "sixth"}, method: "post", id: "candidate_fifth") do %>
     <section class="content-box">
       <ul class="collection with-header">
@@ -18,17 +18,36 @@
             </p>
 
             <%= hidden_field_tag("candidate_experience[candidate_experience_function][][function_id]", {}, value: function.id) %>
-            <%= select_tag 'candidate_experience[candidate_experience_function][][years]', options_for_select(@years, selected: @candidate_experience.functions_time_period.present? && @candidate_experience.functions_time_period[index].present? ? @candidate_experience.functions_time_period[index].years : false), :class => "custom" %>
-            <p class="separator-responsive-label"><label>E</label></p>
-            <%= select_tag 'candidate_experience[candidate_experience_function][][months]', options_for_select(@months, selected: @candidate_experience.functions_time_period.present? && @candidate_experience.functions_time_period[index].present? ? @candidate_experience.functions_time_period[index].months : false), :class => "custom" %>
+            
+            <div class="box-with-error">
+              <%= text_field "candidate_experience[candidate_experience_function][][percentage]", "", placeholder: "%", class: "half-input percentage validate experience-percentage", value: @candidate_experience.candidate_experience_functions.present? && @candidate_experience.candidate_experience_functions[index].present? ? @candidate_experience.candidate_experience_functions[index].percentage : "", name: "candidate_experience[candidate_experience_function][][percentage]", id: "candidate_experience_functions_percentage_#{index}" %>
+
+              <p class="error-message hide">Obrigatório</p>
+            </div>
           </li>
         <% end %>
+        <li class="collection-item experience-calc-result">
+          <p><label>A soma mínima deve ser 30% e a máxima 100%</label><p>
+          <p>
+            <label>
+              <span>
+                TOTAL
+              </span>
+            </label>
+          </p>
+
+          <div class="box-with-error">
+            <%= text_field "candidate_experience", "total_functions_percentage", placeholder: "0%", class: "half-input", readonly: true %>
+
+            <p class="error-message hide">Mínimo 30% e máximo 100%</p>
+          </div>
+        </li>
       </ul>
     </section>
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_experience_step_4_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_fifth').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_fifth').submit()", id: "form-button", disabled: true %>
     </section>
   <% end %>
 </section>
