@@ -1,6 +1,35 @@
 // MOBILE SCREEN //
 @include media ($mobile) {
 	#first_step {
+		&.company-step {
+			.box-with-error {
+				padding: 3vh 0 0;
+
+				select {
+					margin-bottom: 2vh !important;
+				}
+			}
+
+			.two-items,
+			.three-items {
+				flex-direction: column;
+
+				.half {
+					width: 100%;
+				}
+
+				.one-third {
+					width: 100%;
+
+					select {
+						background-size: 2.5%;
+					}
+				}
+			}
+		}
+	}
+
+	#second_step {
 		&.question-container {
 			.content-box {
 				.candidate-companies-form {

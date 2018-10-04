@@ -102,7 +102,7 @@
 
         <div class="article-content">
           <div class="corporate-email">
-            <%= f.text_field :corporate_email, placeholder: "Email corporativo" %>
+            <%= text_field :candidate_current_company, :corporate_email, placeholder: "Email corporativo", value: @current_company.corporate_email %>
           </div>
           
           <div class="profile-submit-box">
@@ -110,7 +110,7 @@
               *O e-mail é necessário para evitar que sua empresa atual visualize seu perfil
             </p>
 
-            <%= f.submit "Salvar", data:{disable_with: '...'}  %>
+            <%= f.submit "Salvar", data: {disable_with: '...'}  %>
           </div>
         </div>
       </article>

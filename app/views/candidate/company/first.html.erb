@@ -1,4 +1,4 @@
-<section id="first_step" class="question-container content">
+<section id="first_step" class="question-container content company-step">
   <%= form_tag({controller: "company", action: "second"}, method: "post", id: "candidate_first") do %>
     <section class="content-box">
       <ul class="collection with-header candidate-companies-form with-input">
@@ -12,47 +12,57 @@
         
         <%= fields_for 'candidate_current_company', @current_company do |ccc| %>
           <li class="collection-item candidate-company-item">
-            <div class="candidate-company-name">
+            <div class="candidate-company-name box-with-error">
               <%= ccc.text_field :name, name: "candidate_current_company[name]", class: "candidate-company-name validate", value: @current_company.name, placeholder: "NOME" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
             
-            <div class="candidate-company-date">
-              <%= ccc.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_current_company[start_date]", class: "month_year validate", value: @current_company.start_date.present? ? @current_company.start_date.strftime("%m/%Y") : "" %>
+            <div class="two-items">
+              <div class="candidate-company-date box-with-error half">
+                <%= ccc.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_current_company[start_date]", class: "month_year validate", value: @current_company.start_date.present? ? @current_company.start_date.strftime("%m/%Y") : "" %>
+                <p class="error-message hide">Obrigatório</p>
+              </div>
+
+              <div class="candidate-company-date box-with-error half">
+                <%= ccc.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_current_company[end_date]", class: "month_year validate", value: @current_company.end_date.present? ? @current_company.end_date.strftime("%m/%Y") : "" %>
+                <p class="error-message hide">Obrigatório</p>
+              </div>
+            </div>
+
+            <div class="box-with-error">
+            	<%= select_tag 'candidate_current_company[company_size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: @current_company.company_size), :class => "full validate", prompt: "PORTE" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
 
-            <div class="candidate-company-date">
-              <%= ccc.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_current_company[end_date]", class: "month_year validate", value: @current_company.end_date.present? ? @current_company.end_date.strftime("%m/%Y") : "" %>
+            <div class="box-with-error">
+            	<%= select_tag 'candidate_current_company[sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }, selected: @current_company.sector), :class => "full validate", prompt: "SETOR" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
 
             <div class="box-with-error">
-            	<%= select_tag 'candidate_current_company[company_size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: @current_company.company_size), :class => "full", prompt: "PORTE" %>
+            	<%= select_tag 'candidate_current_company[mode]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: @current_company.mode), :class => "full validate", prompt: "PERFIL" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+            
+            <div class="three-items">
+              <div class="box-with-error one-third">
+              	<%= select_tag 'candidate_current_company[city]', options_for_select(@city.collect{ |city| [city.name, city.id] }, selected: @current_company.city), :class => "full validate", prompt: "CIDADE" %>
+                <p class="error-message hide">Obrigatório</p>
+              </div>
+
+              <div class="box-with-error one-third">
+              	<%= select_tag 'candidate_current_company[city_locale]', options_for_select(@city_locale.collect{ |city_locale| [city_locale.name, city_locale.id] }, selected: @current_company.city_locale), :class => "full validate", prompt: "ZONA" %>
+                <p class="error-message hide">Obrigatório</p>
+              </div>
+
+              <div class="box-with-error one-third">
+              	<%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id] }, selected: @current_company.neighborhood), :class => "full validate", prompt: "LOCALIZAÇÃO"  %>
+                <p class="error-message hide">Obrigatório</p>
+              </div>
             </div>
 
-            <div class="box-with-error">
-            	<%= select_tag 'candidate_current_company[sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }, selected: @current_company.sector), :class => "full", prompt: "SETOR" %>
-            </div>
-
-            <div class="box-with-error">
-            	<%= select_tag 'candidate_current_company[mode]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: @current_company.mode), :class => "full", prompt: "PERFIL" %>
-            </div>
-
-            <div class="box-with-error">
-            	<%= select_tag 'candidate_current_company[city]', options_for_select(@city.collect{ |city| [city.name, city.id] }, selected: @current_company.city), :class => "full", prompt: "CIDADE" %>
-            </div>
-
-            <div class="box-with-error">
-            	<%= select_tag 'candidate_current_company[city_locale]', options_for_select(@city_locale.collect{ |city_locale| [city_locale.name, city_locale.id] }, selected: @current_company.city_locale), :class => "full", prompt: "ZONA" %>
-            </div>
-
-            <div class="box-with-error">
-            	<%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id] }, selected: @current_company.neighborhood), :class => "full", prompt: "LOCALIZAÇÃO"  %>
-            </div>
-
-            <div class="candidate-company-date">
-              <%= ccc.text_field :corporate_email, placeholder: "SEU EMAIL CORPORATIVO", name: "candidate_current_company[corporate_email]", class: "validate", value: @current_company.corporate_email, placeholder: "SEU EMAIL CORPORATIVO" %>
+            <div class="candidate-company-mail box-with-error">
+              <%= ccc.text_field :corporate_email, name: "candidate_current_company[corporate_email]", class: "validate", value: @current_company.corporate_email, placeholder: "SEU EMAIL CORPORATIVO" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
           </li>
@@ -62,7 +72,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_home_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_first').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", id: "validate-form-button" %>
     </section>
   <% end %>
 </section>
