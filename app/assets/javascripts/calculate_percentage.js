@@ -24,6 +24,7 @@ var calculatePercentage = function(){
     }
 
     validatePercentage = function() {
+      var errors = 0;
       $(".experience-percentage").each(function() {
         if ($(this).val()) {
           var val = parseInt($(this).val())
@@ -31,6 +32,7 @@ var calculatePercentage = function(){
             $(this).addClass('warning');
             $(this).parent().find(".error-message").removeClass("hide")
             $(this).parent().find(".error-message").html("Máximo 100%")
+            errors++;
           } else {
             $(this).removeClass('warning');
             $(this).parent().find(".error-message").addClass("hide")
@@ -40,13 +42,20 @@ var calculatePercentage = function(){
 
       var input_total = $("#candidate_experience_total_functions_percentage")[0]
       var val = parseInt(input_total.value)
-      console.log("input value: ", val)
       if ((val > 100) || val < 30) {
         $(input_total).addClass('warning');
         $(input_total).parent().find(".error-message").removeClass("hide")
+        errors++;
       } else {
         $(input_total).removeClass('warning')
         $(input_total).parent().find(".error-message").addClass("hide")
+      }
+
+      console.log(errors)
+      if(errors > 0){
+        $("#form-button").attr("disabled","disabled");
+      } else {
+        $("#form-button").removeAttr("disabled");
       }
     }
 
@@ -54,6 +63,7 @@ var calculatePercentage = function(){
     numbersToPercentage();
     // calculate on load
     calculateTotal();
+    validatePercentage();
 
     $(".experience-percentage").blur(function (event) {
       event.preventDefault();
