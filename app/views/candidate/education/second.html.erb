@@ -49,7 +49,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_education_step_1_path, class: "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-button", id: "validate-form-button" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-button", id: "validate-form-button", onclick: "$('#candidate_second').submit()" %>
     </section>
   <% end %>
 </section>

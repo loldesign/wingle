@@ -23,7 +23,6 @@ validateRadio = function() {
       } else {
           check = true
           $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').addClass('hide')
-        }
       }
   });
   
