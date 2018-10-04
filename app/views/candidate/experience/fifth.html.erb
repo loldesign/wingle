@@ -35,7 +35,11 @@
             </label>
           </p>
 
-          <%= text_field "candidate_experience", "total_functions_percentage", placeholder: "0%", class: "half-input", readonly: true %>
+          <div class="box-with-error">
+            <%= text_field "candidate_experience", "total_functions_percentage", placeholder: "0%", class: "half-input", readonly: true %>
+
+            <p class="error-message hide">Mínimo 30% e máximo 100%</p>
+          </div>
         </li>
       </ul>
     </section>
