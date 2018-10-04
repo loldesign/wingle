@@ -3,6 +3,10 @@
   #quick_details {
     padding: 0 5vw;
 
+    .main-title {
+      font-size: 6vw;
+    }
+
     .content-box {
       @include span-columns (6 of 6);
       padding-top: 6vh;
@@ -11,6 +15,7 @@
         @include span-columns (6 of 6);
         @include shift (0 of 6);
         padding-bottom: 3vh;
+        border: none;
 
         h5 {
           margin-bottom: 3vh;
@@ -44,6 +49,10 @@
       align-items: center;
       justify-content: center;
       padding-top: 8vh;
+
+      h4 {
+        font-size: 6vw;
+      }
     }
   }
 }

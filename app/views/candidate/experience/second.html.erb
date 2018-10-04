@@ -24,7 +24,7 @@
               <p class="error-message hide">Obrigatório</p>
             </div>
 
-            <p><label>E</label></p>
+            <p class="separator-responsive-label"><label>E</label></p>
             <div class="select-box-with-error">
               <%= select_tag 'candidate_experience[candidate_experience_titles][][months]', options_for_select(@months, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].months : false), :class => "custom validate", :include_blank => true %>
               <p class="error-message hide">Obrigatório</p>

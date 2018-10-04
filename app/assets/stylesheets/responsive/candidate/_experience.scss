@@ -2,11 +2,48 @@
 @include media ($mobile) {
   #second_step,
   #fifth_step {
+    .collection-item {
+      display: block;
+      float: left;
+      width: 100%;
+
+      p {
+        &:first-of-type {
+          width: 100%;
+          margin-bottom: 1vh;
+        }
+
+        label {
+          font-size: 3.5vw !important;
+        }
+
+        &.separator-responsive-label {
+          display: flex;
+          align-items: center;
+          height: 6vh;
+          margin: 0 3%;
+        }
+      }
+    }
+
+    .select-box-with-error {
+      width: 45%;
+      float: left;
+
+      select {
+        background-size: 8% !important;
+      }
+
+      .error-message {
+        bottom: -.6vh;
+      }
+    }
 
   	select {
   		&.custom {
-  			width: 35%;
-        background-size: 4%;
+  			width: 45%;
+        background-size: 8%;
+        float: left;
   		}
   	}
   }

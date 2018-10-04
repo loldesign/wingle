@@ -4,7 +4,9 @@
   <!-- Default Header -->
   <section class="not-logged-in-header content">
     <div class="top">
-      <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+      <%= link_to candidate_home_path do %>
+        <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+      <% end %>
       <%= image_tag 'wingle-logo.svg' %>
     </div>  
   </section>

@@ -97,7 +97,7 @@
   select {
     height: 6vh;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 3vh !important;
     padding-left: 3vw;
     background-color: transparent;
@@ -110,13 +110,13 @@
     background-repeat: no-repeat;
     background-position: right 50%;
     background-position-x: 97%;
-    background-size: 3.5%;
+    background-size: 8%;
 
     /* CUSTOM SELECT INSIDE LABEL */
     &.custom {
       width: 50%;
       margin-bottom: 0 !important;
-      font-size: 1vw !important;
+      font-size: 3.5vw !important;
       font-weight: 600;
     }
 

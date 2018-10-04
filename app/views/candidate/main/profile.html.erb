@@ -102,7 +102,7 @@
 
         <div class="article-content">
           <div class="corporate-email">
-            <%= text_field :candidate_current_company, :corporate_email, placeholder: "Email corporativo", value: @current_company.corporate_email %>
+            <%= text_field :candidate_current_company, :corporate_email, placeholder: "Email corporativo", value: @current_company.present? ? @current_company.corporate_email : '' %>
           </div>
           
           <div class="profile-submit-box">

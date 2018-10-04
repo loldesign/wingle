@@ -10,8 +10,7 @@
           justify-content: space-between;
 
           .half-label {
-            width: 30%;
-            margin-right: 10%;
+            width: 40%;
 
             label {
               width: 100%;
@@ -19,13 +18,13 @@
           }
 
           .half-input {
-            width: 60%;
+            width: 100%;
             margin-bottom: 0;
           }
 
           select {
             font-size: 3.3vw !important;
-            width: 60%;
+            width: 100%;
           }
         }
 
@@ -69,7 +68,26 @@
 
             p {
               margin: 0;
+
+              &.half-label {
+                margin-right: 0;
+              }
             }
+          }
+        }
+
+        .pretension-container {
+          .collection-item {
+            input {
+              width: 100%;
+              padding: 0 !important;
+            }
+          }
+        }
+
+        .collection-item {
+          .half-label {
+            width: 100%;
           }
         }
       }
