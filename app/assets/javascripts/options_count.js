@@ -1,5 +1,5 @@
 var optionsCount = function(){
-  this.container = $('.question-container')
+  this.container = $('.question-container').not('.habilities-container')
   this.minOptions = container.data("min")
   this.maxOptions = container.data("max")
 

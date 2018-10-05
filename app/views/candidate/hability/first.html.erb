@@ -1,4 +1,4 @@
-<section id="first_step" class="question-container content">
+<section id="first_step" class="question-container content habilities-container" data-max="5">
   <%= form_tag({controller: "hability", action: "complete"}, method: "post", id: "habilities_first") do %>
     <section class="content-box">
       <ul class="collection with-header">
@@ -40,7 +40,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_company_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#habilities_first').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-step", onclick: "$('#habilities_first').submit()" %>
     </section>
   <% end %>
 </section>

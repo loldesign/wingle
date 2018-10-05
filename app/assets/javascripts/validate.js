@@ -96,7 +96,7 @@ validateDate = function($input, errors) {
 // Validate Form //
 function validateForm($btn) {
   var errors = 0;
-  debugger;
+  
   var withRadius = $btn.data('with-radios') || undefined
 
 

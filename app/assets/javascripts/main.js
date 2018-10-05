@@ -23,4 +23,6 @@ $(document).on('turbolinks:load', function() {
 
   // Candidate Experience Functions //
   calculatePercentage();
+
+  new habilitiesFirstStepManager()
 });
