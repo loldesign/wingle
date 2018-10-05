@@ -18,8 +18,10 @@ class Candidate::CompanyController < ApplicationController
       @candidate_current_company = @candidate.candidate_current_company
     end
 
-    manager = CandidateManager.new(candidate_current_company: @candidate_current_company, candidate_current_company_params: candidate_current_company_params)
-    manager.update_candidate_current_companies
+    if candidate_current_company_params.present?
+      manager = CandidateManager.new(candidate_current_company: @candidate_current_company, candidate_current_company_params: candidate_current_company_params)
+      manager.update_candidate_current_companies
+    end
 
     @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
 
@@ -71,6 +73,6 @@ class Candidate::CompanyController < ApplicationController
     end
 
     def candidate_current_company_params
-      params.require(:candidate_current_company).permit(:id, :name, :start_date, :end_date, :company_size, :sector, :mode, :city, :city_locale, :neighborhood, :corporate_email)
+      params.fetch(:candidate_current_company, {}).permit(:id, :name, :start_date, :end_date, :company_size, :sector, :mode, :city, :city_locale, :neighborhood, :corporate_email)
     end
 end
