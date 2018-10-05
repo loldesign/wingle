@@ -19,18 +19,32 @@
             </li>
 
             <div class="list-city-locale hidden">
-              <ul>
-                <% city.city_locales.each do |city_locale| %>
-                  <li class="collection-item">
+              <% city.city_locales.each do |city_locale| %>
+                <ul class="city-locale-item-block">
+                  <li class="city-locale-item collection-item">
                     <p>
-                      <label>
-                        <%= check_box_tag "candidate_interest[locales][]", city_locale.id, @candidate_interest.locales.include?(city_locale.id) ? true : false, class: "with-gap" %>
+                      <label class="city-locale-name">
                         <span><%= city_locale.name %></span>
+                        <i class="icon ion-md-arrow-dropright"></i>
                       </label>
                     </p>
                   </li>
-                <% end %>
-              </ul>
+                  <div class="list-neighborhood hidden">
+                    <ul>
+                      <% city_locale.neighborhoods.each do |neighborhood| %>
+                        <li class="collection-item">
+                          <p>
+                            <label>
+                              <%= check_box_tag "candidate_interest[neighborhoods][]", neighborhood.id, @candidate_interest.neighborhoods.include?(neighborhood.id) ? true : false, class: "with-gap" %>
+                              <span><%= neighborhood.name %></span>
+                            </label>
+                          </p>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </ul>
+              <% end %>
             </div>
           </div>
         <% end %>

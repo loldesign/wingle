@@ -441,6 +441,8 @@ GEM
     selenium-webdriver (3.13.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    sentry-raven (2.7.4)
+      faraday (>= 0.7.6, < 1.0)
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -537,6 +539,7 @@ DEPENDENCIES
   rails-i18n (= 5.1.1)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sentry-raven
   spring
   spring-watcher-listen (~> 2.0.0)
   toastr-rails
@@ -548,4 +551,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.16.4
+   1.16.6

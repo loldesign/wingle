@@ -100,6 +100,13 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  # sentry config
+  config.filter_parameters << :password
+
+  Raven.configure do |config|
+    config.dsn = 'https://3b6de67a3bf44653835117d42355fb02:c9ca26d922cd4e7caec450c6e2d49225@sentry.io/1295366'
+  end
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
