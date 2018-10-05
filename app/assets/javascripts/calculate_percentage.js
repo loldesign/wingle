@@ -51,7 +51,6 @@ var calculatePercentage = function(){
         $(input_total).parent().find(".error-message").addClass("hide")
       }
 
-      console.log(errors)
       if(errors > 0){
         $("#form-button").attr("disabled","disabled");
       } else {
@@ -70,6 +69,7 @@ var calculatePercentage = function(){
       calculateTotal();
       validatePercentage();
       var val = $(this).val().replace(/\D/g, '')
+      val = (val == "") ? 0 : val 
       $(this).val(val+"%")
     });
 
