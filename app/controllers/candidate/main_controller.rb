@@ -10,7 +10,7 @@ class Candidate::MainController < ApplicationController
     @sectors       = Sector.where("id IN (?)", @candidate.candidate_interest.sectors)
     @company_sizes = CompanySize.where("id IN (?)", @candidate.candidate_interest.company_sizes)
     @modes         = Mode.where("id IN (?)", @candidate.candidate_interest.modes)
-    @city_locales  = CityLocale.where("id IN (?)", @candidate.candidate_interest.locales)
+    @city_locales  = CityLocale.joins(:neighborhoods).where('neighborhoods.id IN (?)', @candidate.candidate_interest.neighborhoods).distinct
   end
 
   def profile

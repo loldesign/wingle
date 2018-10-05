@@ -66,6 +66,12 @@
         <% @city_locales.each do |locale| %>
           <p class="gray bold">
             <%= locale.name.upcase %>
+            <br />
+            <%locale.neighborhoods.where(id: @candidate.candidate_interest.neighborhoods).each do |neighborhood|%>
+              <p class="gray">
+                <%= neighborhood.name.upcase %>
+              </p>
+            <% end -%>
           </p>
         <% end %>
       </div>
