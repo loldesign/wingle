@@ -73,6 +73,6 @@ class Candidate::CompanyController < ApplicationController
     end
 
     def candidate_current_company_params
-      params.require(:candidate_current_company).permit(:id, :name, :start_date, :end_date, :company_size, :sector, :mode, :city, :city_locale, :neighborhood, :corporate_email)
+      params.fetch(:candidate_current_company, {}).permit(:id, :name, :start_date, :end_date, :company_size, :sector, :mode, :city, :city_locale, :neighborhood, :corporate_email)
     end
 end
