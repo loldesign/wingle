@@ -67,7 +67,7 @@ class Candidate::InterestController < ApplicationController
     end
 
     def candidate_interest_params
-      params.fetch(:candidate_interest, {}).permit(locales: [], company_sizes: [], sectors: [], modes: [], relevances: [])
+      params.fetch(:candidate_interest, {}).permit(locales: [], neighborhoods: [], company_sizes: [], sectors: [], modes: [], relevances: [])
     end
 
     def params_present_but_not_updated

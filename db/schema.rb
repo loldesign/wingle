@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181003204231) do
+ActiveRecord::Schema.define(version: 20181004180933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 20181003204231) do
     t.datetime "updated_at", null: false
     t.integer "cities", default: [], array: true
     t.integer "areas", default: [], array: true
+    t.integer "neighborhoods", default: [], array: true
     t.index ["candidate_id"], name: "index_candidate_interests_on_candidate_id"
   end
 
@@ -307,7 +308,9 @@ ActiveRecord::Schema.define(version: 20181003204231) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.bigint "city_id"
+    t.bigint "city_locale_id"
     t.index ["city_id"], name: "index_neighborhoods_on_city_id"
+    t.index ["city_locale_id"], name: "index_neighborhoods_on_city_locale_id"
   end
 
   create_table "nofsalaries_lists", force: :cascade do |t|

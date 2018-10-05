@@ -40,17 +40,113 @@ end
 
 if Neighborhood.count == 0
   sp = City.first
+  east   = CityLocale.find(1)
+  south  = CityLocale.find(3)
+  center = CityLocale.find(5)
 
-  Neighborhood.create(name: 'Mooca', city: sp)
-  Neighborhood.create(name: 'Cambuci', city: sp)
-  Neighborhood.create(name: 'Jabaquara', city: sp)
-  Neighborhood.create(name: 'Sé', city: sp)
-  Neighborhood.create(name: 'Vila Mariana', city: sp)
-  Neighborhood.create(name: 'Itaim', city: sp)
-  Neighborhood.create(name: 'Sapopemba', city: sp)
-  Neighborhood.create(name: 'Morumbi', city: sp)
-  Neighborhood.create(name: 'Moema', city: sp)
-  Neighborhood.create(name: 'Interlagos', city: sp)
+  Neighborhood.create(name: 'Mooca', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Cambuci', city: sp, city_locale: center)
+  Neighborhood.create(name: 'Jabaquara', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Sé', city: sp, city_locale: center)
+  Neighborhood.create(name: 'Vila Mariana', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Itaim', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Sapopemba', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Morumbi', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Moema', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Interlagos', city: sp, city_locale: south)
+end
+
+# if after Oct 5, 2018 it may have 10 neighborhoods
+if Neighborhood.count == 10
+  sp = City.first
+  east   = CityLocale.find(1)
+  west   = CityLocale.find(2)
+  south  = CityLocale.find(3)
+  north  = CityLocale.find(4)
+  center = CityLocale.find(5)
+
+  # Update old neighborhoods
+  Neighborhood.find_by_name('Mooca').update_attributes(city_locale: east)
+  Neighborhood.find_by_name('Cambuci').update_attributes(city_locale: center)
+  Neighborhood.find_by_name('Jabaquara').update_attributes(city_locale: south)
+  Neighborhood.find_by_name('Sé').update_attributes(city_locale: center)
+  Neighborhood.find_by_name('Vila Mariana').update_attributes(city_locale: south)
+  Neighborhood.find_by_name('Itaim').update_attributes(city_locale: south)
+  Neighborhood.find_by_name('Sapopemba').update_attributes(city_locale: east)
+  Neighborhood.find_by_name('Morumbi').update_attributes(city_locale: south)
+  Neighborhood.find_by_name('Moema').update_attributes(city_locale: south)
+  Neighborhood.find_by_name('Interlagos').update_attributes(city_locale: south)
+
+  # Create new neighborhoods
+  # Center
+  Neighborhood.create(name: 'Bela Vista', city: sp, city_locale: center)
+  Neighborhood.create(name: 'Liberdade', city: sp, city_locale: center)
+  Neighborhood.create(name: 'Aclimação', city: sp, city_locale: center)
+  Neighborhood.create(name: 'Consolação', city: sp, city_locale: center)
+  Neighborhood.create(name: 'Higienópolis', city: sp, city_locale: center)
+  Neighborhood.create(name: 'Santa Cecília', city: sp, city_locale: center)
+  Neighborhood.create(name: 'República', city: sp, city_locale: center)
+  Neighborhood.create(name: 'Bom Retiro', city: sp, city_locale: center)
+  # South
+  Neighborhood.create(name: 'Jardins', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Paulista', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Berrini', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Vila Olímpia', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Brooklin', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Campo Belo', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Saúde', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Chác. Sto. Antônio', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Sto. Amaro', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Socorro', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Cidade Jardim', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Ipiranga', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Cursino', city: sp, city_locale: south)
+  Neighborhood.create(name: 'Sacomã', city: sp, city_locale: south)
+  Neighborhood.create(name: 'ABC e região', city: sp, city_locale: south)
+  # West
+  Neighborhood.create(name: 'Pinheiros', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Alto de Pinheiros', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Vila Madalena', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Lapa', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Barra Funda', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Perdizes', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Vila Leopoldina', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Jaguaré', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Butantã', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Vila Sônia', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Raposo Tavares', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Osasco', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Barueri', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Alphaville e região', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Cotia', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Embú', city: sp, city_locale: west)
+  Neighborhood.create(name: 'Taboão e região', city: sp, city_locale: west)
+  # North
+  Neighborhood.create(name: 'Santana', city: sp, city_locale: north)
+  Neighborhood.create(name: 'Casa Verde', city: sp, city_locale: north)
+  Neighborhood.create(name: 'Vila Guilherme', city: sp, city_locale: north)
+  Neighborhood.create(name: 'Vila Maria', city: sp, city_locale: north)
+  Neighborhood.create(name: 'Freguesia do Ó', city: sp, city_locale: north)
+  Neighborhood.create(name: 'Brasilândia', city: sp, city_locale: north)
+  Neighborhood.create(name: 'Pirituba', city: sp, city_locale: north)
+  Neighborhood.create(name: 'São Domingos', city: sp, city_locale: north)
+  Neighborhood.create(name: 'Jaraguá', city: sp, city_locale: north)
+  Neighborhood.create(name: 'Guarulhos e região', city: sp, city_locale: north)
+  # East
+  Neighborhood.create(name: 'Brás', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Pari', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Belém', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Tatuapé', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Água Rasa', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Vila Prudente', city: sp, city_locale: east)
+  Neighborhood.create(name: 'São Lucas', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Carrão', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Penha', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Vila Formosa', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Aricanduva', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Artur Alvim', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Itaquera', city: sp, city_locale: east)
+  Neighborhood.create(name: 'Cidade São Mateus', city: sp, city_locale: east)
 end
 
 # -------
@@ -710,8 +806,8 @@ end
 # Update Nofsalaries List if it already created (just in case this seed ran before 2018 Sep 24)
 # -------
 if NofsalariesList.count == 2
-  NofsalariesList.find_by_name('PJ (12 salários / ano)').update_attributes(value: 12)
-  NofsalariesList.find_by_name('CLT (13,33 salários / ano)').update_attributes(value: 13.33)
+  NofsalariesList.find(1).update_attributes(value: 12)
+  NofsalariesList.find(2).update_attributes(value: 13.33)
 end
 
 # -------
