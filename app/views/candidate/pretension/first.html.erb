@@ -36,7 +36,7 @@
           </p>
           
           <div class="box-with-error">
-            <%= select_tag 'candidate_pretension[nofsalaries]', options_for_select(@salary_list.collect{ |salary| [salary.name, salary.value] }), :class => "validate", :include_blank => true %>
+            <%= select_tag 'candidate_pretension[nofsalaries]', options_for_select(@salary_list.collect{ |salary| [salary.name, salary.value] }, selected: @candidate_pretension.present? ? @candidate_pretension.nofsalaries : false ), :class => "validate", :include_blank => true %>
 
             <p class="error-message hide">Obrigatório</p>
           </div>
