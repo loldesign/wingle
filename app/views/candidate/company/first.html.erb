@@ -19,12 +19,12 @@
             
             <div class="two-items">
               <div class="candidate-company-date box-with-error half">
-                <%= ccc.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_current_company[start_date]", class: "month_year validate", value: @current_company.start_date.present? ? @current_company.start_date.strftime("%m/%Y") : "" %>
+                <%= ccc.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_current_company[start_date]", class: "month_year validate start-date", value: @current_company.start_date.present? ? @current_company.start_date.strftime("%m/%Y") : "" %>
                 <p class="error-message hide">Obrigatório</p>
               </div>
 
               <div class="candidate-company-date box-with-error half">
-                <%= ccc.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_current_company[end_date]", class: "month_year validate", value: @current_company.end_date.present? ? @current_company.end_date.strftime("%m/%Y") : "" %>
+                <%= ccc.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_current_company[end_date]", class: "month_year validate end-date", value: @current_company.end_date.present? ? @current_company.end_date.strftime("%m/%Y") : "" %>
                 <p class="error-message hide">Obrigatório</p>
               </div>
             </div>
@@ -72,7 +72,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_home_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large" , onclick: "$('#candidate_first').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large" , id: "validate-only-date-button" %>
     </section>
   <% end %>
 </section>
