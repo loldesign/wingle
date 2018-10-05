@@ -43,6 +43,32 @@
         &.hidden {
           display: none;
         }
+
+        .city-locale-item {
+          .city-locale-name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            i {
+              font-size: 1rem;
+
+              &.rotated {
+                transform:rotate(90deg);
+                -webkit-transform:rotate(90deg);
+                -moz-transform:rotate(90deg);
+                -o-transform:rotate(90deg);
+              }
+            }
+          }
+        }
+
+        .list-neighborhood {
+          &.hidden {
+            display: none;
+          }
+        }
       }
 
       &:first-of-type {

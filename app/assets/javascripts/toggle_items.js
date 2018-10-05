@@ -10,6 +10,12 @@ $(document).on('turbolinks:load', function() {
     $(this).find('.icon').toggleClass('rotated');
   });
 
+  // INTEREST NEIGHBORHOODS DROP LIST //
+  $(".city-locale-item").click(function(){
+    $(this).parent().find(".list-neighborhood").slideToggle('.hidden');
+    $(this).find('.icon').toggleClass('rotated');
+  });
+
   // HABILITY DROP LIST //
   $(".function-list-item").click(function(){
     $(this).parent().find(".list-function-hability").slideToggle('.hidden');
