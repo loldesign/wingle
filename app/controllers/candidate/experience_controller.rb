@@ -49,6 +49,7 @@ class Candidate::ExperienceController < ApplicationController
     else
 
       @function = Function.by_areas(@candidate_experience.areas)
+      @areas    = @candidate_experience.list_areas
     end
   end
 

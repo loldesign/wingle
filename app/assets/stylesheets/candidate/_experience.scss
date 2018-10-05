@@ -46,3 +46,21 @@
     }
   }
 }
+
+#fourth_step {
+  &.experience-step {
+    .collection {
+      .collection-item {
+        .static-label {
+          font-size: 1.1vw;
+        }
+
+        &.list-function-area {
+          label {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
