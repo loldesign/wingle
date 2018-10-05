@@ -5,10 +5,10 @@ $(document).on('turbolinks:load', function() {
   });
 
   // INTEREST LOCALES DROP LIST //
-  $(".city-list-item").click(function(){
-    $(this).parent().find(".list-city-locale").slideToggle('.hidden');
-    $(this).find('.icon').toggleClass('rotated');
-  });
+  // $(".city-list-item").click(function(){
+  //   $(this).parent().find(".list-city-locale").slideToggle('.hidden');
+  //   $(this).find('.icon').toggleClass('rotated');
+  // });
 
   // INTEREST NEIGHBORHOODS DROP LIST //
   $(".city-locale-item").click(function(){

@@ -18,8 +18,10 @@ class Candidate::CompanyController < ApplicationController
       @candidate_current_company = @candidate.candidate_current_company
     end
 
-    manager = CandidateManager.new(candidate_current_company: @candidate_current_company, candidate_current_company_params: candidate_current_company_params)
-    manager.update_candidate_current_companies
+    if params[:candidate_current_company].present?
+      manager = CandidateManager.new(candidate_current_company: @candidate_current_company, candidate_current_company_params: candidate_current_company_params)
+      manager.update_candidate_current_companies
+    end
 
     @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
 

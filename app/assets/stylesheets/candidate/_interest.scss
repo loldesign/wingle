@@ -13,8 +13,6 @@
       border-bottom: 1px solid #e0e0e0;
       
       .city-list-item {
-        cursor: pointer;
-
         .city-name {
           font-size: 1.1vw;
           display: flex;
@@ -52,7 +50,7 @@
             cursor: pointer;
 
             i {
-              font-size: 1rem;
+              font-size: 2rem;
 
               &.rotated {
                 transform:rotate(90deg);

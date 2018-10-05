@@ -25,7 +25,7 @@ var appendCompany = function(){
 
   // Add Company //
   addCompany = function($btn) {
-    if(validateForm()) {
+    if(validateForm($btn)) {
       // Candidate Company Add Action//
       var companyCounter         = $btn.closest('ul').find('.candidate-company-item').length + 1
       var $companyContainer      = $btn.closest('ul').find('.candidate-company-item:first')

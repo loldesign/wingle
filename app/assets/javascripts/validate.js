@@ -34,7 +34,9 @@ validateRadio = function() {
 // Validate Form //
 function validateForm($btn) {
   var errors = 0;
+  debugger;
   var withRadius = $btn.data('with-radios') || undefined
+
 
   $(".validate").map(function(){
      if( !$(this).val()) {
