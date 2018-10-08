@@ -6,15 +6,35 @@
     </header>
 
     <article>
-      <%= f.input :title, wrapper_html: {class: 'col-12' } %>
+      <%= f.input :title, wrapper_html: {class: 'col-12' }, disabled: !@term.draft? %>
     </article>
 
     <article>
-      <%= f.input :term, wrapper_html: {class: 'col-12' } %>
+      <%= f.input :for, wrapper_html: {class: 'col-6' }, disabled: @term.persisted? %>
+    </article>
+
+    <article>
+      <%= f.input :term, wrapper_html: {class: 'col-12' }, disabled: !@term.draft?  %>
     </article>
   </section>
+
+  <% if @term.persisted? && @term.draft? %>
+    <section class='fields-wrapper one-column'>
+      <header>
+        <h2><%= "Publique Este termo de uso" %></h2>
+      </header>
+
+      <article>
+        <div class="input col-12">
+          <label class="string" for="publish_term">Publicar</label>
+          <%= check_box_tag(:publish_term) %>
+        </div>
+      </article>
+    </section>
+  <% end %>
+
   <footer>
     <%= cancel_action(path: admin_terms_path) %>
-    <%= submit_button f %>
+    <%= submit_button f if @term.draft? %>
   </footer>
 <% end %>

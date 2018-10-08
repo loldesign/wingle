@@ -1,5 +1,7 @@
 <tr>
   <td><%= term.title %></td>
+  <td><%= term.for_text %></td>
+  <td><%= term.aasm.human_state %></td>
   <td><%= truncate term.term, length: 10 %></td>
   <td>
     <%= show_resource_with_icon admin_term_path(term) %>

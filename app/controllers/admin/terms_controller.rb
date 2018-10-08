@@ -1,5 +1,5 @@
 class Admin::TermsController < AdminController
-  before_action :set_term, except: [:new, :create, :index]
+  before_action :set_term, except: [:new, :create, :index, :publish]
 
   def index
     @terms = Term.order(created_at: :desc).page(params[:page] || 1).per_page(30)
@@ -8,7 +8,7 @@ class Admin::TermsController < AdminController
   def show
   end
 
-  def new 
+  def new
     @term = Term.new
   end
 
@@ -27,10 +27,16 @@ class Admin::TermsController < AdminController
 
   def update
     if @term.update_attributes(term_params)
-      redirect_to admin_terms_path, notice: 'Atualizado com sucesso'
+      if params[:publish_term].present?
+        TermPublishManager.new(term: @term).process
+
+        redirect_to admin_terms_path, notice: 'Publicado com sucesso'
+      else
+        redirect_to admin_terms_path, notice: 'Atualizado com sucesso'
+      end
     else
       render action: :edit
-    end 
+    end
   end
 
   def destroy
@@ -44,7 +50,7 @@ class Admin::TermsController < AdminController
     @term = Term.find(params[:id])
   end
 
-  def term_params 
+  def term_params
     params.require(:term).permit(:title, :term)
   end
 end
