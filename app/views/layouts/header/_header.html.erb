@@ -23,7 +23,9 @@
     </div>
 
     <div class="logo-title-box">
-      <%= image_tag 'wingle-title.svg' %>
+      <%= link_to candidate_home_path do %>
+        <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+      <% end %>
     </div>  
   </section>
 <% elsif options[:style] == :dashboard_header %>

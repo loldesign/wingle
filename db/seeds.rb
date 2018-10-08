@@ -164,56 +164,48 @@ center = CityLocale.find_by_name("Centro")
 # Creating First Sectors
 # -------
 puts "---> Processing Sectors ..."
-if Sector.count == 0
-  Sector.create(name: 'INDÚSTRIA PESADA', description: 'Metais e Mineração, Siderurgia, Construção Pesada, Máquinas e Bens de Capital')
-  Sector.create(name: 'ENERGIA E RECURSOS NATURAIS', description: 'Óleo & Gás,Energias Renováveis,Combustíveis')
-  Sector.create(name: 'INDÚSTRIA DE MANUFATURA', description: 'Automotiva, Aeronáutica, Naval, Ferroviária, Maquinas e Equipamentos')
-  Sector.create(name: 'TRANSPORTE E LOGÍSTICA', description: 'Aéreo, Rodoviário, Marítimo, Ferroviário, Centros de Distribuição')
-  Sector.create(name: 'CONSTRUÇÃO E INCORPORAÇÃO', description: 'Residencial, Comercial, Galpões Logísticos, Infraestrutura, Imobiliárias')
-  Sector.create(name: 'INDÚSTRIA AGROPECUÁRIA', description: 'Frigoríficos, Tradings, Papel e Celulose, Commodities, Têxtil')
-  Sector.create(name: 'INDÚSTRIA QUÍMICA', description: 'Agroquímicos, Petroquímicos, Tintas,Polímeros')
-  Sector.create(name: 'INDÚSTRIA FARMACÊUTICA', description: 'Farmacêutica, Laboratórios')
-  Sector.create(name: 'BENS DE CONSUMO', description: 'Higiene e Limpeza, Utilidades Domésticas, Eletro Eletrônicos, Alimentos e Bebidas, Vestuário')
-  Sector.create(name: 'TI & TELECOM', description: 'Software, Hardware, Operadoras de Telefonia')
-  Sector.create(name: 'INOVAÇÃO DIGITAL', description: 'E-Commerce, Marketplaces, Tech Companies, IOT, Wearable')
-  Sector.create(name: 'MERCADO FINANCEIRO', description: 'Bancos, Seguradoras e Corretoras, Meios de Pagamento, Boutiques de Investimento, Serviços Financeiros')
-  Sector.create(name: 'CONSULTORIAS', description: '')
-  Sector.create(name: 'ESCRITÓRIOS JURÍDICOS', description: '')
-  Sector.create(name: 'VAREJO & ATACADO', description: 'Mercados e Atacadistas, Shopping Center e Franquias, Varejistas, Equipamentos Domésticos, Mobília e Decoração')
-  Sector.create(name: 'SERVIÇOS', description: 'Educação, Hospitais, Hotelaria e Turismo, Entretenimento, Saúde e Bem estar,etc')
-  Sector.create(name: 'PUBLICADADE E PROPAGANDA', description: '')
-  Sector.create(name: 'TERCEIRO SETOR', description: 'ONGs, Parceria Público Privadas, Iniciativa Privada sem fins lucrativos')
-end
+Sector.find_or_create_by(name: 'INDÚSTRIA PESADA', description: 'Metais e Mineração, Siderurgia, Construção Pesada, Máquinas e Bens de Capital')
+Sector.find_or_create_by(name: 'ENERGIA E RECURSOS NATURAIS', description: 'Óleo & Gás,Energias Renováveis,Combustíveis')
+Sector.find_or_create_by(name: 'INDÚSTRIA DE MANUFATURA', description: 'Automotiva, Aeronáutica, Naval, Ferroviária, Maquinas e Equipamentos')
+Sector.find_or_create_by(name: 'TRANSPORTE E LOGÍSTICA', description: 'Aéreo, Rodoviário, Marítimo, Ferroviário, Centros de Distribuição')
+Sector.find_or_create_by(name: 'CONSTRUÇÃO E INCORPORAÇÃO', description: 'Residencial, Comercial, Galpões Logísticos, Infraestrutura, Imobiliárias')
+Sector.find_or_create_by(name: 'INDÚSTRIA AGROPECUÁRIA', description: 'Frigoríficos, Tradings, Papel e Celulose, Commodities, Têxtil')
+Sector.find_or_create_by(name: 'INDÚSTRIA QUÍMICA', description: 'Agroquímicos, Petroquímicos, Tintas,Polímeros')
+Sector.find_or_create_by(name: 'INDÚSTRIA FARMACÊUTICA', description: 'Farmacêutica, Laboratórios')
+Sector.find_or_create_by(name: 'BENS DE CONSUMO', description: 'Higiene e Limpeza, Utilidades Domésticas, Eletro Eletrônicos, Alimentos e Bebidas, Vestuário')
+Sector.find_or_create_by(name: 'TI & TELECOM', description: 'Software, Hardware, Operadoras de Telefonia')
+Sector.find_or_create_by(name: 'INOVAÇÃO DIGITAL', description: 'E-Commerce, Marketplaces, Tech Companies, IOT, Wearable')
+Sector.find_or_create_by(name: 'MERCADO FINANCEIRO', description: 'Bancos, Seguradoras e Corretoras, Meios de Pagamento, Boutiques de Investimento, Serviços Financeiros')
+Sector.find_or_create_by(name: 'CONSULTORIAS', description: '')
+Sector.find_or_create_by(name: 'ESCRITÓRIOS JURÍDICOS', description: '')
+Sector.find_or_create_by(name: 'VAREJO & ATACADO', description: 'Mercados e Atacadistas, Shopping Center e Franquias, Varejistas, Equipamentos Domésticos, Mobília e Decoração')
+Sector.find_or_create_by(name: 'SERVIÇOS', description: 'Educação, Hospitais, Hotelaria e Turismo, Entretenimento, Saúde e Bem estar,etc')
+Sector.find_or_create_by(name: 'PUBLICADADE E PROPAGANDA', description: '')
+Sector.find_or_create_by(name: 'TERCEIRO SETOR', description: 'ONGs, Parceria Público Privadas, Iniciativa Privada sem fins lucrativos')
 
 # -------
 # Creating First Company Sizes
 # -------
 puts "---> Processing CompanySizes ..."
-if CompanySize.count == 0
-  CompanySize.create(name: 'INÍCIO DE OPERAÇÃO', description: 'maior autonomia, relevância e dinamismo')
-  CompanySize.create(name: 'EMPRESA MÉDIA', description: 'oportunidade de crescimento e estruturação de processos')
-  CompanySize.create(name: 'GRANDE CORPORAÇÃO', description: 'hierarquia, melhoria de processos e estabilidade')
-end
+CompanySize.find_or_create_by(name: 'INÍCIO DE OPERAÇÃO', description: 'maior autonomia, relevância e dinamismo')
+CompanySize.find_or_create_by(name: 'EMPRESA MÉDIA', description: 'oportunidade de crescimento e estruturação de processos')
+CompanySize.find_or_create_by(name: 'GRANDE CORPORAÇÃO', description: 'hierarquia, melhoria de processos e estabilidade')
 
 # -------
 # Creating First Modes
 # -------
 puts "---> Processing Modes ..."
-if Mode.count == 0
-  Mode.create(name: 'AGRESSIVA', description: 'foco no curto prazo, números e performance')
-  Mode.create(name: 'MODERADA', description: 'foco no médio prazo, negócio e pessoas')
-  Mode.create(name: 'CONSERVADORA', description: 'foco no longo prazo, hierarquizada e tradicional')
-end
+Mode.find_or_create_by(name: 'AGRESSIVA', description: 'foco no curto prazo, números e performance')
+Mode.find_or_create_by(name: 'MODERADA', description: 'foco no médio prazo, negócio e pessoas')
+Mode.find_or_create_by(name: 'CONSERVADORA', description: 'foco no longo prazo, hierarquizada e tradicional')
 
 # -------
 # Creating First Relevances
 # -------
 puts "---> Processing Relevances ..."
-if Relevance.count == 0
-  Relevance.create(name: 'PORTE DA EMPRESA', priority: 3)
-  Relevance.create(name: 'SETOR DE ATUAÇÃO', priority: 2)
-  Relevance.create(name: 'LOCALIZAÇÃO', priority: 1)
-end
+Relevance.find_or_create_by(name: 'PORTE DA EMPRESA', priority: 3)
+Relevance.find_or_create_by(name: 'SETOR DE ATUAÇÃO', priority: 2)
+Relevance.find_or_create_by(name: 'LOCALIZAÇÃO', priority: 1)
 
 # -------
 # Creating First Areas, Functions and Habilities
@@ -1266,13 +1258,13 @@ end
 # -------
 puts "---> Processing TitleList ..."
 if TitleList.count == 0
-  TitleList.create(name: 'Analista', priority: 1)
-  TitleList.create(name: 'Especialista', priority: 2)
-  TitleList.create(name: 'Consultor', priority: 3)
-  TitleList.create(name: 'Coordenador', priority: 4)
-  TitleList.create(name: 'Gerente', priority: 5)
-  TitleList.create(name: 'Gerente Sr', priority: 6)
-  TitleList.create(name: 'Diretor', priority: 7)
+  TitleList.find_or_create_by(name: 'Analista', priority: 1)
+  TitleList.find_or_create_by(name: 'Especialista', priority: 2)
+  TitleList.find_or_create_by(name: 'Consultor', priority: 3)
+  TitleList.find_or_create_by(name: 'Coordenador', priority: 4)
+  TitleList.find_or_create_by(name: 'Gerente', priority: 5)
+  TitleList.find_or_create_by(name: 'Gerente Sr', priority: 6)
+  TitleList.find_or_create_by(name: 'Diretor', priority: 7)
 end
 
 # -------
@@ -1280,38 +1272,34 @@ end
 # -------
 puts "---> Processing RangeList ..."
 if RangeList.count == 0
-  RangeList.create(name: 'Anos')
-  RangeList.create(name: 'Meses')
+  RangeList.find_or_create_by(name: 'Anos')
+  RangeList.find_or_create_by(name: 'Meses')
 end
 
 # -------
 # Creating First Education List
 # -------
 puts "---> Processing EducationList ..."
-if EducationList.count == 0
-  EducationList.create(name: 'Técnico Completo')
-  EducationList.create(name: 'Superior Incompleto')
-  EducationList.create(name: 'Superior Completo')
-  EducationList.create(name: 'Pós graduação ou MBA')
-  EducationList.create(name: 'Mestrado')
-  EducationList.create(name: 'Doutorado')
-end
+EducationList.find_or_create_by(name: 'Técnico Completo')
+EducationList.find_or_create_by(name: 'Superior Incompleto')
+EducationList.find_or_create_by(name: 'Superior Completo')
+EducationList.find_or_create_by(name: 'Pós graduação ou MBA')
+EducationList.find_or_create_by(name: 'Mestrado')
+EducationList.find_or_create_by(name: 'Doutorado')
 
 # -------
 # Creating First Language List
 # -------
 puts "---> Processing LanguageList ..."
-if LanguageList.count == 0
-  LanguageList.create(name: 'Inglês')
-  LanguageList.create(name: 'Espanhol')
-  LanguageList.create(name: 'Alemão')
-  LanguageList.create(name: 'Francês')
-  LanguageList.create(name: 'Português')
-  LanguageList.create(name: 'Italiano')
-  LanguageList.create(name: 'Japonês')
-  LanguageList.create(name: 'Mandarim')
-  LanguageList.create(name: 'Coreano')
-end
+LanguageList.find_or_create_by(name: 'Inglês')
+LanguageList.find_or_create_by(name: 'Espanhol')
+LanguageList.find_or_create_by(name: 'Alemão')
+LanguageList.find_or_create_by(name: 'Francês')
+LanguageList.find_or_create_by(name: 'Português')
+LanguageList.find_or_create_by(name: 'Italiano')
+LanguageList.find_or_create_by(name: 'Japonês')
+LanguageList.find_or_create_by(name: 'Mandarim')
+LanguageList.find_or_create_by(name: 'Coreano')
 
 # -------
 # Creating First Language Leve List
@@ -1341,19 +1329,17 @@ end
 # Creating First Benefits List
 # -------
 puts "---> Processing BenefitsList ..."
-if BenefitsList.count == 0
-  BenefitsList.create(name: 'Plano de saúde')
-  BenefitsList.create(name: 'Vale transporte')
-  BenefitsList.create(name: 'Ticket Refeição')
-  BenefitsList.create(name: 'Plano odontológico')
-  BenefitsList.create(name: 'Estacionamento')
-  BenefitsList.create(name: 'Vale supermercado')
-  BenefitsList.create(name: 'Seguro de vida')
-  BenefitsList.create(name: 'Previdência privada')
-  BenefitsList.create(name: 'Veículo')
-  BenefitsList.create(name: 'Bolsa de estudos')
-  BenefitsList.create(name: 'Ações')
-end
+BenefitsList.find_or_create_by(name: 'Plano de saúde')
+BenefitsList.find_or_create_by(name: 'Vale transporte')
+BenefitsList.find_or_create_by(name: 'Ticket Refeição')
+BenefitsList.find_or_create_by(name: 'Plano odontológico')
+BenefitsList.find_or_create_by(name: 'Estacionamento')
+BenefitsList.find_or_create_by(name: 'Vale supermercado')
+BenefitsList.find_or_create_by(name: 'Seguro de vida')
+BenefitsList.find_or_create_by(name: 'Previdência privada')
+BenefitsList.find_or_create_by(name: 'Veículo')
+BenefitsList.find_or_create_by(name: 'Bolsa de estudos')
+BenefitsList.find_or_create_by(name: 'Ações')
 
 # -------
 # Creating First Annual Claim Rate List
@@ -1371,39 +1357,33 @@ AnnualClaimRateList.find_or_create_by(name: '30% a menos', value: -30)
 # Creating First Status List
 # -------
 puts "---> Processing StatusList ..."
-if StatusList.count == 0
-  StatusList.create(name: 'Interessado')
-  StatusList.create(name: 'Em processo')
-  StatusList.create(name: 'Aprovados')
-  StatusList.create(name: 'Eliminados')
-  StatusList.create(name: 'Arquivados')
-end
+StatusList.find_or_create_by(name: 'Interessado')
+StatusList.find_or_create_by(name: 'Em processo')
+StatusList.find_or_create_by(name: 'Aprovados')
+StatusList.find_or_create_by(name: 'Eliminados')
+StatusList.find_or_create_by(name: 'Arquivados')
 
 # -------
 # Creating First Step List
 # -------
 puts "---> Processing StepList ..."
-if StepList.count == 0
-  StepList.create(name: 'Selecionados')
-  StepList.create(name: '1ª etapa')
-  StepList.create(name: '2ª etapa')
-  StepList.create(name: 'Última etapa')
-  StepList.create(name: 'Proposta')
-  StepList.create(name: 'Aprovados')
-end
+StepList.find_or_create_by(name: 'Selecionados')
+StepList.find_or_create_by(name: '1ª etapa')
+StepList.find_or_create_by(name: '2ª etapa')
+StepList.find_or_create_by(name: 'Última etapa')
+StepList.find_or_create_by(name: 'Proposta')
+StepList.find_or_create_by(name: 'Aprovados')
 
 # -------
 # Creating First Sort List
 # -------
 puts "---> Processing SortList ..."
-if SortList.count == 0
-  SortList.create(name: 'Maior Remuneração Anual')
-  SortList.create(name: 'Menor Remuneração Anual')
-  SortList.create(name: 'Maior Remuneração Mensal')
-  SortList.create(name: 'Menor Remuneração Mensal')
-  SortList.create(name: 'Maior Tempo de Carreira')
-  SortList.create(name: 'Menor Tempo de Carreira')
-end
+SortList.find_or_create_by(name: 'Maior Remuneração Anual')
+SortList.find_or_create_by(name: 'Menor Remuneração Anual')
+SortList.find_or_create_by(name: 'Maior Remuneração Mensal')
+SortList.find_or_create_by(name: 'Menor Remuneração Mensal')
+SortList.find_or_create_by(name: 'Maior Tempo de Carreira')
+SortList.find_or_create_by(name: 'Menor Tempo de Carreira')
 
 # -------
 # Update Annual Claim Rate List (2018 Sep 25)
