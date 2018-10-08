@@ -22,10 +22,13 @@ class Candidate::MainController < ApplicationController
   def update_profile
     @current_company = @candidate.candidate_current_company
 
-    if current_candidate.update_attributes(candidate_params) && @current_company.update_attributes(candidate_current_company_params)
+    if current_candidate.update_attributes(candidate_params) && (params[:candidate_current_company].present? && @current_company.update_attributes(candidate_current_company_params))
       redirect_to candidate_profile_path(current_candidate)
     else
-      render :edit
+      @header_options = {style: :dashboard_header}
+      @tab_bar        = {style: :with_tab_bar}
+      
+      render :profile
     end
   end
 
