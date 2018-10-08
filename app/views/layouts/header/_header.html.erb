@@ -4,8 +4,16 @@
   <!-- Default Header -->
   <section class="not-logged-in-header content">
     <div class="top">
-      <%= link_to candidate_home_path do %>
-        <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+      <% if current_candidate %>
+        <%= link_to candidate_home_path do %>
+          <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+        <% end %>
+      <% elsif current_company %>
+        <%= link_to company_home_path do %>
+          <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+        <% end %>
+      <% else %>
+        <%= image_tag 'wingle-title.svg', :class => "wingle-title without-link" %>
       <% end %>
       <%= image_tag 'wingle-logo.svg' %>
     </div>  
@@ -23,8 +31,16 @@
     </div>
 
     <div class="logo-title-box">
-      <%= link_to candidate_home_path do %>
-        <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+      <% if current_candidate %>
+        <%= link_to candidate_home_path do %>
+          <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+        <% end %>
+      <% elsif current_company %>
+        <%= link_to company_home_path do %>
+          <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+        <% end %>
+      <% else %>
+        <%= image_tag 'wingle-title.svg', :class => "wingle-title without-link" %>
       <% end %>
     </div>  
   </section>

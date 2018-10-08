@@ -91,6 +91,7 @@ class Candidate::ExperienceController < ApplicationController
       all_functions            = Function.by_areas(@candidate_experience.areas)
 
       @function = all_functions - experience_functions - disconsidered_functions
+      @areas    = @candidate_experience.list_areas
     end
   end
 

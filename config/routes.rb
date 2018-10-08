@@ -69,7 +69,21 @@ Rails.application.routes.draw do
   }
 
   namespace :company do
-    get '/dashboard', to: 'dashboard#index', as: :dashboard
+    get '/company-login'                , to: 'steps#login_or_register', as: :login_or_register
+    get '/terms'                        , to: 'steps#terms'            , as: :terms
+
+    ##### MAIN CANDIDATE AREA #####
+    get  '/home'                        , to: 'main#home'             , as: :home
+    get  '/perfil'                      , to: 'main#profile'          , as: :profile
+    post '/atualizar-perfil'            , to: 'main#update_profile'   , as: :update_profile
+
+    #### ABOUT SECTOR #####
+    get   'sobre/passo-1'               , to: 'about#first'        , as: :about_step_1
+    match 'sobre/passo-2'               , to: 'about#second'       , as: :about_step_2         , via: [:get, :post]
+    match 'sobre/passo-3'               , to: 'about#third'        , as: :about_step_3         , via: [:get, :post]
+    match 'sobre/passo-4'               , to: 'about#fourth'       , as: :about_step_4         , via: [:get, :post]
+    match 'sobre/passo-5'               , to: 'about#fifth'        , as: :about_step_5         , via: [:get, :post]
+    post  'sobre/passo-completo'        , to: 'about#complete'     , as: :about_step_complete
   end
 
 

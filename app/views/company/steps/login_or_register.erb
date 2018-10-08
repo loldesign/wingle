@@ -1,0 +1,51 @@
+<section id="login_or_register" class="content">
+  <div class="cloud-bg">
+    <p class="bold light-green-text">
+      Conheça as pessoas<br>
+      interessadas em trabalhar com você
+    </p>
+  </div>
+
+  <section class="content-box content-container">
+    <%#= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
+    <form action="">
+      <section class="content-box">
+        <!-- <% if flash[:notice] %>
+          <div id="notice-wrapper">
+            <p class="notice"><%= notice %></p>
+          </div>
+        <% end %> 
+
+        <div class="input string required candidate_name field_with_errors">
+          <%= text_field_tag :cpf, '', placeholder: "CPF", class: "cpf", minlength: 14, maxlength: 14 %>
+          <% if @errors.present? %>
+            <span class="error"><%= @errors[:cpf] %></span>
+          <% end %>
+        </div> -->
+
+        <div class="input string required candidate_name field_with_errors">
+          <input type="text" placeholder="EMAIL CORPORATIVO">
+        </div>
+
+        <div class="input string required candidate_name field_with_errors">
+          <input type="text" placeholder="CPF" class="cpf">
+        </div>
+
+        <div class="input string required candidate_name field_with_errors">
+          <input type="password" placeholder="SENHA">
+        </div>
+
+        <%#= password_field_tag :password, '', placeholder: "SENHA" %>
+
+        <%= link_to "RECUPERAR SENHA", "#{}" %>
+      </section>
+    </form>
+    <%# end %>
+  </section>
+
+  <section class="login-or-register-actions action-buttons-duo">
+    <%= link_to "SAIBA MAIS", "#{}", :class => 'waves-effect waves-light btn-default gray-default bold' %>
+    <%= link_to "CONTINUAR", company_terms_path, :class => 'waves-effect waves-light btn-default green-default bold' %>
+    <%#= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
+  </section>
+</section>

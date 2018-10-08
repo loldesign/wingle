@@ -12,17 +12,28 @@
 
           <h5 class="center-align section">Que outras funções você consideraria?</h5>
         </li>
-        <% @function.each do |function| %>
+        <% @areas.each do |area| %>
           <li class="collection-item">
             <p>
-              <label>
-                <%= check_box_tag "candidate_experience[considered_functions][]", function.id, @candidate_experience.considered_functions.include?(function.id) ? true : false, class: "with-gap" %>
-                  <span>
-                    <%= function.name %>
-                  </span>
+              <label class="static-label">
+                <span>
+                  <%= area.name %>
+                </span>
               </label>
             </p>
           </li>
+          <% area.functions.each do |function| %>
+            <li class="collection-item list-function-area">
+              <p>
+                <label>
+                  <%= check_box_tag "candidate_experience[considered_functions][]", function.id, @candidate_experience.considered_functions.include?(function.id) ? true : false, class: "with-gap" %>
+                    <span>
+                      <%= function.name %>
+                    </span>
+                </label>
+              </p>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </section>

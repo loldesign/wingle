@@ -1,0 +1,61 @@
+<section id="fourth_step" class="question-container content">
+  <form action="">
+  <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 90%"></div>
+          </div>
+
+          <h5 class="center-align section">Em qual região de São Paulo sua empresa está localizada?</h5>
+        </li>
+        <% @city.each do |city| %>
+          <div class="interest-locale-item-block">
+            <li class="city-list-item collection-item">
+              <label class="city-name">
+                <span><%= city.name %></span>
+              </label>
+            </li>
+
+            <div class="list-city-locale">
+              <% city.city_locales.each do |city_locale| %>
+                <ul class="city-locale-item-block">
+                  <li class="city-locale-item collection-item">
+                    <p>
+                      <label class="city-locale-name">
+                        <span><%= city_locale.name %></span>
+                        <i class="icon ion-md-arrow-dropright"></i>
+                      </label>
+                    </p>
+                  </li>
+                  <div class="list-neighborhood hidden">
+                    <ul>
+                      <% city_locale.neighborhoods.each do |neighborhood| %>
+                        <li class="collection-item">
+                          <p>
+                            <label>
+                              <%= check_box_tag "company_about[neighborhoods][]", neighborhood.id, false, class: "with-gap" %>
+                              <span><%= neighborhood.name %></span>
+                            </label>
+                          </p>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", company_about_step_3_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%#= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_first').submit()" %>
+      <%= link_to "Próximo", company_about_step_4_path, :class => "waves-effect waves-light btn-large" %>
+    </section>
+  <%# end %>
+  </form>
+</section>
