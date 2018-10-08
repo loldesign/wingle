@@ -38,10 +38,6 @@
           font-weight: 400;
         }
         
-        &.hidden {
-          display: none;
-        }
-
         .city-locale-item {
           .city-locale-name {
             display: flex;
@@ -67,30 +63,32 @@
             display: none;
           }
         }
-      }
 
-      &:first-of-type {
-        .city-list-item {
-          .city-name {
-            i {
-              transform:rotate(90deg); 
-              -webkit-transform:rotate(90deg); 
-              -moz-transform:rotate(90deg); 
-              -o-transform:rotate(90deg); 
+        .city-locale-item-block {
+          &:first-of-type {
+            .city-locale-item {
+              .city-locale-name {
+                i {
+                  transform:rotate(90deg); 
+                  -webkit-transform:rotate(90deg); 
+                  -moz-transform:rotate(90deg); 
+                  -o-transform:rotate(90deg); 
 
-              &.rotated {
-                transform:rotate(0deg); 
-                -webkit-transform:rotate(0deg); 
-                -moz-transform:rotate(0deg); 
-                -o-transform:rotate(0deg); 
+                  &.rotated {
+                    transform:rotate(0deg); 
+                    -webkit-transform:rotate(0deg); 
+                    -moz-transform:rotate(0deg); 
+                    -o-transform:rotate(0deg); 
+                  }
+                }
               }
             }
-          }
-        }
 
-        .list-city-locale {
-          &.hidden {
-            display: block;
+            .list-neighborhood {
+              &.hidden {
+                display: block;
+              }
+            }
           }
         }
       }

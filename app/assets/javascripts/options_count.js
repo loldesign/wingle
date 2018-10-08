@@ -22,7 +22,6 @@ var optionsCount = function(){
       });
 
       $(".action-buttons-duo a.next-step").removeClass("disabled")
-
     } else if (currentOptions < this.maxOptions) {
       $("input:checkbox:not(:checked)").prop({
         disabled: false

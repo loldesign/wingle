@@ -36,31 +36,31 @@
         }
       }
 
-      // &:first-of-type {
-      //   .function-list-item {
-      //     .function-name {
-      //       i {
-      //         transform:rotate(90deg); 
-      //         -webkit-transform:rotate(90deg); 
-      //         -moz-transform:rotate(90deg); 
-      //         -o-transform:rotate(90deg); 
+      &:first-of-type {
+        .function-list-item {
+          .function-name {
+            i {
+              transform:rotate(90deg); 
+              -webkit-transform:rotate(90deg); 
+              -moz-transform:rotate(90deg); 
+              -o-transform:rotate(90deg); 
 
-      //         &.rotated {
-      //           transform:rotate(0deg); 
-      //           -webkit-transform:rotate(0deg); 
-      //           -moz-transform:rotate(0deg); 
-      //           -o-transform:rotate(0deg); 
-      //         }
-      //       }
-      //     }
-      //   }
+              &.rotated {
+                transform:rotate(0deg); 
+                -webkit-transform:rotate(0deg); 
+                -moz-transform:rotate(0deg); 
+                -o-transform:rotate(0deg); 
+              }
+            }
+          }
+        }
 
-      //   .list-function-hability {
-      //     &.hidden {
-      //       display: block;
-      //     }
-      //   }
-      // }
+        .list-function-hability {
+          &.hidden {
+            display: block;
+          }
+        }
+      }
     }
   }
 }

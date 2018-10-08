@@ -46,6 +46,8 @@ var habilitiesFirstStepManager = function(){
   }
 
   this.startup = function(){
+    if(!this.$container[0]){ return false; }
+    
     var _this = this;
 
     this.toggleNextButton(true)
