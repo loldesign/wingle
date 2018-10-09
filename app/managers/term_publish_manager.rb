@@ -15,7 +15,17 @@ class TermPublishManager
   end
 
   def archive_terms
+    published_term = Term.with_for(@term.for).published.first
+
+    @term.update_attribute(:parent_id, published_term.id) if published_term.present?
+
     Term.with_for(@term.for).where.not(id: @term.id).published.each do |term|
+      term.archive!
+    end
+  end
+
+  def archive_terms_drafts
+    Term.with_for(@term.for).where.not(id: @term.id).draft.each do |term|
       term.archive!
     end
   end

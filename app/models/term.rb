@@ -17,7 +17,7 @@ class Term < ApplicationRecord
     end
 
     event :archive do
-      transitions :from => :published, :to => :archived
+      transitions :from => [:draft, :published], :to => :archived
     end
   end
 

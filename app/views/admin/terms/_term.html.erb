@@ -1,11 +1,13 @@
 <tr>
   <td><%= term.title %></td>
   <td><%= term.for_text %></td>
-  <td><%= term.aasm.human_state %></td>
+  <td> <%= display_term_status(term) %> </td>
   <td><%= truncate term.term, length: 10 %></td>
+  <td><%= l term.created_at , scope: [:resource] %></td>
+  <td><%= l term.updated_at , scope: [:resource] %></td>
   <td>
     <%= show_resource_with_icon admin_term_path(term) %>
-    <%= edit_resource edit_admin_term_path(term) %>
-    <%= remove_resource admin_term_path(term), {}%>
+    <%= edit_resource edit_admin_term_path(term)   unless term.published?%>
+    <%= remove_resource admin_term_path(term), {}  unless term.published? %>
   </td>
 </tr>

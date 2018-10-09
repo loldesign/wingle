@@ -2,7 +2,8 @@ class Admin::TermsController < AdminController
   before_action :set_term, except: [:new, :create, :index, :publish]
 
   def index
-    @terms = Term.order(created_at: :desc).page(params[:page] || 1).per_page(30)
+    @terms           = Term.order(state: :desc, created_at: :desc).where.not(state: :published).page(params[:page] || 1).per_page(30)
+    @terms_published = Term.order(created_at: :desc).published
   end
 
   def show
@@ -16,6 +17,8 @@ class Admin::TermsController < AdminController
     @term = Term.new(term_params)
 
     if @term.save
+      TermPublishManager.new(term: @term).archive_terms_drafts
+
       redirect_to edit_admin_term_path(@term), notice: 'Criado com sucesso'
     else
       render action: :new
@@ -51,6 +54,6 @@ class Admin::TermsController < AdminController
   end
 
   def term_params
-    params.require(:term).permit(:title, :term)
+    params.require(:term).permit(:title, :term, :for)
   end
 end

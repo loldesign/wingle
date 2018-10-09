@@ -19,4 +19,16 @@ module ApplicationHelper
 
     render partial: "/layouts/shared/candidate_welcome_message", locals: {candidate: candidate, link_text: link, link_path: path}
   end
+
+  def display_term_status(term)
+    status = {
+      'published' => :success,
+      'draft'     => :info,
+      'archived'  => :default
+    }
+
+    content_tag :li, class: [:label, status[term.state] ] do
+      term.aasm.human_state
+    end
+  end
 end

@@ -82,6 +82,8 @@ Rails.application.routes.draw do
 
   mount LoldesignPublisher::Rails::Engine => '/'
 
+  get '/admin', to: 'admin/areas#index'
+
   namespace :admin do
     resources :admins,                  path: :administradores
     resources :positions,               path: :cargos
