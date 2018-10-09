@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  enumerize:
+      defaults:
+        for:
+          candidate: "Candidato"
+          company: "Empresa"
   resource:
     time:
       formats:
@@ -59,6 +64,11 @@ pt-BR:
       term:
         title: "Título"
         term: "Termo"
+        for: "Tipo do Termo"
+        state:
+          draft: 'Rascunho'
+          published: 'Publicado'
+          archived: 'Arquivado'
       range_list:
         name: "Nome"
       benefits_list:

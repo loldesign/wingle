@@ -9,7 +9,17 @@
 
   <article>
     <p>
+      <strong>Tipo do Termo:</strong>
+      <%= @term.for_text %>
+    </p>
+
+    <p>
+      <strong>Conteúdo:</strong>
       <%= @term.term %>
     </p>
   </article>
 </section>
+
+<div class="pretty medium info btn cancel margin-top">
+  <%= link_to "Voltar", admin_terms_path %>
+</div>
