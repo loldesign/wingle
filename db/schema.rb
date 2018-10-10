@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181008202109) do
+ActiveRecord::Schema.define(version: 20181010144945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -228,6 +228,17 @@ ActiveRecord::Schema.define(version: 20181008202109) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "company_abouts", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.bigint "company_size_id"
+    t.bigint "mode_id"
+    t.integer "sectors", default: [], array: true
+    t.integer "neighborhoods", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_company_abouts_on_candidate_id"
   end
 
   create_table "company_sizes", force: :cascade do |t|
@@ -450,4 +461,5 @@ ActiveRecord::Schema.define(version: 20181008202109) do
 
   add_foreign_key "candidate_current_companies", "candidates"
   add_foreign_key "candidate_educations", "candidates"
+  add_foreign_key "company_abouts", "candidates"
 end
