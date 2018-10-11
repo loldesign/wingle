@@ -2,6 +2,7 @@ class Candidate::StepsController < ApplicationController
   before_action :authenticate_candidate!, except: [:login_or_register, :quick_details, :complete_register, :create_candidate]
   before_action :try_sign_in_candidate, only: [:quick_details]
   before_action :set_candidate, only: [:terms]
+  before_action :set_candidate_term, only: [:terms]
 
   def login_or_register
     redirect_to candidate_home_path if current_candidate.present?
@@ -81,5 +82,13 @@ class Candidate::StepsController < ApplicationController
       sign_in(candidate)
 
       redirect_to candidate_home_path
+    end
+
+    def set_candidate_term
+      @current_term = Term
+                        .with_for(@candidate.class.name.underscore.to_sym)
+                        .published
+                        .order(created_at: :desc)
+                        .first
     end
 end

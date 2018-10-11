@@ -4,6 +4,8 @@ class Candidate::InterestController < ApplicationController
   before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth]
 
   def first
+    TermAcceptPublishedManager.new(resource: @candidate).process
+
     @city = City.all
 
     if @candidate_interest.cities == []

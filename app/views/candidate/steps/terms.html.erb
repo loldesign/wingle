@@ -5,30 +5,9 @@
     </h2>
 
     <div class="term-box">
-      <h3 class="bold gray">Article 1</h3>
+      <h3 class="bold gray"><%= @current_term.title %></h3>
 
-      <p class="term-title bold gray">Who May Use the Services</p>
-
-      <p class="bold medium-gray">
-        When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us. 
-      </p>
-      
-      <ul>
-        <li class="bold medium-gray">
-          <span class="bold gray">Step 1</span>: You may use the Services only if you agree to form a binding contract with us and are not a person barred from receiving services under the laws of the applicable jurisdiction. 
-        </li>
-
-        <li class="bold medium-gray">
-          <span class="bold gray">Step 2</span>: Our Privacy Policy describes how we handle the information you provide to us when you use our Services.
-        </li>
-      </ul>
-
-      <p class="term-title bold gray">Privacy</p>
-
-      <p class="bold medium-gray">
-        When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us. 
-      </p>
-    </div>
+      <%= raw @current_term.term %>
   </section>
 
   <section class="candidate-terms-actions action-buttons-single">
