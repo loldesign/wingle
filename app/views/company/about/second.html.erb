@@ -2,8 +2,7 @@
   <div class="max-option-notice">
     <p class="gray bold">Você já atingiu o número máximo de opções</p>
   </div>
-  <form action="">
-  <%#= form_tag({controller: "interest", action: "fourth"}, method: "post", id: "candidate_third") do %>
+  <%= form_tag({controller: "about", action: "third"}, method: "post", id: "company_second") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -31,9 +30,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", company_about_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%#= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step #{@candidate_interest.sectors.empty? ? 'disabled' : ''}", :onclick => "$('#candidate_third').submit()" %>
-      <%= link_to "Próximo", company_about_step_3_path, :class => "waves-effect waves-light btn-large next-step" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step #{@company_about.sectors.empty? ? 'disabled' : ''}", :onclick => "$('#company_second').submit()" %>
     </section>
-  <%# end %>
-  </form>
+  <% end %>
 </section>
