@@ -239,8 +239,20 @@ ActiveRecord::Schema.define(version: 20181010210244) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cpf_cnpj"
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "company_abouts", force: :cascade do |t|
+    t.bigint "company_id"
+    t.bigint "company_size_id"
+    t.bigint "mode_id"
+    t.integer "sectors", default: [], array: true
+    t.integer "neighborhoods", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_abouts_on_company_id"
   end
 
   create_table "company_sizes", force: :cascade do |t|
@@ -474,4 +486,5 @@ ActiveRecord::Schema.define(version: 20181010210244) do
 
   add_foreign_key "candidate_current_companies", "candidates"
   add_foreign_key "candidate_educations", "candidates"
+  add_foreign_key "company_abouts", "companies"
 end

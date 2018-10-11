@@ -44,6 +44,7 @@ class Candidate::StepsController < ApplicationController
 
     if @candidate.save
       session[:cpf] = nil
+      session[:password] = nil
       sign_in(@candidate)
       redirect_to candidate_terms_path
     else
