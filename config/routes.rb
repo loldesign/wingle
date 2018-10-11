@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   ########### CANDIDATES AREA ###########
   devise_for :candidates, controllers: {
     sessions: 'candidates/sessions',

@@ -14,7 +14,7 @@
     </article>
 
     <article>
-      <%= f.input :term, wrapper_html: {class: 'col-12' }, disabled: !@term.draft?  %>
+      <%= f.input :term, wrapper_html: {class: 'col-18' }, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
     </article>
   </section>
 
