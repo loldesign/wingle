@@ -1,7 +1,7 @@
 class CreateCompanyAbouts < ActiveRecord::Migration[5.1]
   def change
     create_table :company_abouts do |t|
-    	t.references :candidate, foreign_key: true
+    	t.references :company, foreign_key: true
     	t.bigint :company_size_id
     	t.bigint :mode_id
     	t.integer :sectors, array:true, default: []

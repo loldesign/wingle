@@ -69,8 +69,9 @@ Rails.application.routes.draw do
   }
 
   namespace :company do
-    get '/company-login'                , to: 'steps#login_or_register', as: :login_or_register
-    get '/terms'                        , to: 'steps#terms'            , as: :terms
+    get   '/company-login'              , to: 'steps#login_or_register', as: :login_or_register
+    get   '/termos'                     , to: 'steps#terms'            , as: :terms
+    post  '/termos'                     , to: 'steps#create_company'   , as: :create_company
 
     ##### MAIN CANDIDATE AREA #####
     get  '/home'                        , to: 'main#home'             , as: :home
