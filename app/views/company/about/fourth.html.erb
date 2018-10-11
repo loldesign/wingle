@@ -34,7 +34,7 @@
                         <li class="collection-item">
                           <p>
                             <label>
-                              <%= check_box_tag "company_about[neighborhoods][]", neighborhood.id, false, class: "with-gap" %>
+                              <%= check_box_tag "company_about[neighborhoods][]", neighborhood.id, @company_about.neighborhoods.include?(neighborhood.id) ? true : false, class: "with-gap" %>
                               <span><%= neighborhood.name %></span>
                             </label>
                           </p>

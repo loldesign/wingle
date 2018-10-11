@@ -13,7 +13,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= radio_button_tag "company_about[mode_id]", mode.id, false, class: "with-gap" %>
+                <%= radio_button_tag "company_about[mode_id]", mode.id, @company_about.present? && @company_about.mode_id == mode.id ? true : false, class: "with-gap" %>
                   <span>
                     <%= mode.name %>
                   </span>
