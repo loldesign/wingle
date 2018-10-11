@@ -7,45 +7,35 @@
   </div>
 
   <section class="content-box content-container">
-    <%#= form_tag({controller: "steps", action: "quick_details"}, method: "post", id: "login_or_register_form") do %>
-    <form action="">
+    <%#= form_tag({controller: "steps", action: "terms"}, method: "post", id: "login_or_register_form") do %>
+    <%= simple_form_for(@company, as: :company, url: company_terms_url, defaults: {label: false}, html: { method: :post, id: "login_or_register_form"}) do |f| %>
       <section class="content-box">
         <!-- <% if flash[:notice] %>
           <div id="notice-wrapper">
             <p class="notice"><%= notice %></p>
           </div>
-        <% end %> 
+        <% end %> -->
 
         <div class="input string required candidate_name field_with_errors">
-          <%= text_field_tag :cpf, '', placeholder: "CPF", class: "cpf", minlength: 14, maxlength: 14 %>
-          <% if @errors.present? %>
-            <span class="error"><%= @errors[:cpf] %></span>
-          <% end %>
-        </div> -->
-
-        <div class="input string required candidate_name field_with_errors">
-          <input type="text" placeholder="EMAIL CORPORATIVO">
+          <%= f.input :email, required: true, autofocus: true, placeholder: "EMAIL CORPORATIVO" %>
         </div>
 
         <div class="input string required candidate_name field_with_errors">
-          <input type="text" placeholder="CPF" class="cpf">
+          <%= f.input :cpf_cnpj, required: true, placeholder: "CPF OU CNPJ", input_html: { class: "cpf_cnpj" } %>
         </div>
 
         <div class="input string required candidate_name field_with_errors">
-          <input type="password" placeholder="SENHA">
+          <%= f.input :password, placeholder: "SENHA", required: true %>
         </div>
 
-        <%#= password_field_tag :password, '', placeholder: "SENHA" %>
 
         <%= link_to "RECUPERAR SENHA", "#{}" %>
       </section>
-    </form>
-    <%# end %>
+    <% end %>
   </section>
 
   <section class="login-or-register-actions action-buttons-duo">
     <%= link_to "SAIBA MAIS", "#{}", :class => 'waves-effect waves-light btn-default gray-default bold' %>
-    <%= link_to "CONTINUAR", company_terms_path, :class => 'waves-effect waves-light btn-default green-default bold' %>
-    <%#= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
+    <%= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
   </section>
 </section>

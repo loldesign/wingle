@@ -1,6 +1,5 @@
 <section id="fourth_step" class="question-container content">
-  <form action="">
-  <%#= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
+  <%= form_tag({controller: "about", action: "complete"}, method: "post", id: "company_fourth") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -35,7 +34,7 @@
                         <li class="collection-item">
                           <p>
                             <label>
-                              <%= check_box_tag "company_about[neighborhoods][]", neighborhood.id, false, class: "with-gap" %>
+                              <%= check_box_tag "company_about[neighborhoods][]", neighborhood.id, @company_about.neighborhoods.include?(neighborhood.id) ? true : false, class: "with-gap" %>
                               <span><%= neighborhood.name %></span>
                             </label>
                           </p>
@@ -53,9 +52,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", company_about_step_3_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%#= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_first').submit()" %>
-      <%= link_to "Próximo", company_about_step_4_path, :class => "waves-effect waves-light btn-large" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", :onclick => "$('#company_fourth').submit()" %>
     </section>
-  <%# end %>
-  </form>
+  <% end %>
 </section>

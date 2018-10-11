@@ -1,5 +1,5 @@
 <section id="third_step" class="question-container content" data-min="0">
-  <%#= form_tag({controller: "interest", action: "fifth"}, method: "post", id: "candidate_fourth") do %>
+  <%= form_tag({controller: "about", action: "fourth"}, method: "post", id: "company_third") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -13,7 +13,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= radio_button_tag "company_about[modes][]", mode.id, false, class: "with-gap" %>
+                <%= radio_button_tag "company_about[mode_id]", mode.id, @company_about.present? && @company_about.mode_id == mode.id ? true : false, class: "with-gap" %>
                   <span>
                     <%= mode.name %>
                   </span>
@@ -26,8 +26,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", company_about_step_2_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%#= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_fourth').submit()" %>
-      <%= link_to "Próximo", company_about_step_4_path, :class => "waves-effect waves-light btn-large next-step" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step", :onclick => "$('#company_third').submit()" %>
     </section>
-  <%# end %>
+  <% end %>
 </section>
