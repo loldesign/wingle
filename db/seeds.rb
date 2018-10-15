@@ -1399,4 +1399,9 @@ if AnnualClaimRateList.count == 7 && AnnualClaimRateList.where("value IS ?", nil
   AnnualClaimRateList.find_by_name('30% a menos').update_attributes(value: -30)
 end
 
+puts "---> ProcessingTerms"
+
+Term.create(for: :candidate, title: 'Termos do Candidato', term: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima libero dicta necessitatibus alias voluptate, porro quo pariatur, illo eius magnam, ducimus, optio. Dicta, eos, repudiandae. Earum dicta non, voluptatum rem.", state: :published) unless Term.with_for(:candidate).published.present?
+Term.create(for: :company  , title: 'Termos da Empresa'  , term: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima libero dicta necessitatibus alias voluptate, porro quo pariatur, illo eius magnam, ducimus, optio. Dicta, eos, repudiandae. Earum dicta non, voluptatum rem.", state: :published) unless Term.with_for(:company).published.present?
+
 puts "---> Done :)"
