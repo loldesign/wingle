@@ -20,8 +20,7 @@ var habilitiesFirstStepManager = function(){
        var $areaContainer = $(val).closest('.list-function-hability');
        var totalChecked   = $areaContainer.find('input:checkbox:checked').size()
 
-       console.log('--->', totalChecked)
-       if(totalChecked >= 5){
+       if(totalChecked >= _this.maxOptions){
         _this.toggleNextButton(false)
        }else{
         _this.toggleNextButton(true)
@@ -47,7 +46,7 @@ var habilitiesFirstStepManager = function(){
 
   this.startup = function(){
     if(!this.$container[0]){ return false; }
-    
+
     var _this = this;
 
     this.toggleNextButton(true)
