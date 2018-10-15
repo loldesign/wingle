@@ -6,7 +6,7 @@ var habilitiesFirstStepManager = function(){
     var $areaContainer = $checkbox.closest('.list-function-hability');
     var totalChecked   = $areaContainer.find('input:checkbox:checked').size();
 
-    if(totalChecked >= this.maxOptions){
+    if(totalChecked >= 5){
       this.toggleCheckboxes($areaContainer.find('input:checkbox:not(:checked)'), { disabled: true })
     }else{
       this.toggleCheckboxes($areaContainer.find('input:checkbox'), { disabled: false })
