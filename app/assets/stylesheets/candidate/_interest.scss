@@ -14,7 +14,7 @@
 /* CONTAINER WITH DROP DOWN */
 .interest-locale-item-block {
   border-bottom: 1px solid #e0e0e0;
-  
+
   .city-list-item {
     .city-name {
       font-size: 1.1vw;
@@ -27,10 +27,10 @@
         font-size: 2rem;
 
         &.rotated {
-          transform:rotate(90deg); 
-          -webkit-transform:rotate(90deg); 
-          -moz-transform:rotate(90deg); 
-          -o-transform:rotate(90deg); 
+          transform:rotate(90deg);
+          -webkit-transform:rotate(90deg);
+          -moz-transform:rotate(90deg);
+          -o-transform:rotate(90deg);
         }
       }
     }
@@ -40,9 +40,10 @@
     span {
       font-weight: 400;
     }
-    
+
     .city-locale-item {
       .city-locale-name {
+        font-size: 1.1vw;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -72,16 +73,16 @@
         .city-locale-item {
           .city-locale-name {
             i {
-              transform:rotate(90deg); 
-              -webkit-transform:rotate(90deg); 
-              -moz-transform:rotate(90deg); 
-              -o-transform:rotate(90deg); 
+              transform:rotate(90deg);
+              -webkit-transform:rotate(90deg);
+              -moz-transform:rotate(90deg);
+              -o-transform:rotate(90deg);
 
               &.rotated {
-                transform:rotate(0deg); 
-                -webkit-transform:rotate(0deg); 
-                -moz-transform:rotate(0deg); 
-                -o-transform:rotate(0deg); 
+                transform:rotate(0deg);
+                -webkit-transform:rotate(0deg);
+                -moz-transform:rotate(0deg);
+                -o-transform:rotate(0deg);
               }
             }
           }

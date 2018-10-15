@@ -37,14 +37,18 @@ puts "---> Processing CityLocale ..."
 if CityLocale.count == 0
   sp = City.first
 
-  CityLocale.create(name: 'Zona Leste', city: sp)
-  CityLocale.create(name: 'Zona Oeste', city: sp)
-  CityLocale.create(name: 'Zona Sul', city: sp)
-  CityLocale.create(name: 'Zona Norte', city: sp)
-  CityLocale.create(name: 'Centro', city: sp)
+  CityLocale.create(name: 'Zona Sul'  , city: sp, priority: 0)
+  CityLocale.create(name: 'Zona Oeste', city: sp, priority: 1)
+  CityLocale.create(name: 'Centro'    , city: sp, priority: 2)
+  CityLocale.create(name: 'Zona Norte', city: sp, priority: 3)
+  CityLocale.create(name: 'Zona Leste', city: sp, priority: 4)
 else
   puts "---> No CityLocale afected..."
 end
+
+
+
+
 
 puts "---> Processing Neighborhood ..."
 # if after Oct 5, 2018 it may have 10 neighborhoods
@@ -54,6 +58,13 @@ west   = CityLocale.find_by_name("Zona Oeste")
 south  = CityLocale.find_by_name("Zona Sul")
 north  = CityLocale.find_by_name("Zona Norte")
 center = CityLocale.find_by_name("Centro")
+
+# setting priority for CityLocale
+south.update_attribute(:priority, 0)
+west.update_attribute(:priority, 1)
+center.update_attribute(:priority, 2)
+north.update_attribute(:priority, 3)
+east.update_attribute(:priority, 4)
 
 # Create neighborhood groups
   # Center
