@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
   inputMasks();
 
   // Candidate Companies Append or Remove //
-  appendCompany();  
+  appendCompany();
 
   // Candidate Language Append or Remove //
   appendLanguage();
@@ -25,4 +25,6 @@ $(document).on('turbolinks:load', function() {
   calculatePercentage();
 
   new habilitiesFirstStepManager()
+
+  new experiencesSecondStepManager()
 });
