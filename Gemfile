@@ -53,6 +53,7 @@ gem 'aasm'
 gem 'jquery_mask_rails'
 gem 'cpf_cnpj'
 gem 'ckeditor'
+gem 'paperclip'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
