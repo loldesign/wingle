@@ -18,7 +18,7 @@ var companiesFirstStepManager = function(){
     this.process($('#candidate_current_company_city_locale'), false)
   }
 
-  this.process = function($select, clear=true){
+  this.process = function($select, clear){
     if(clear){
       this.$localeSelect.val('');
     }
