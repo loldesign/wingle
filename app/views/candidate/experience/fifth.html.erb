@@ -18,16 +18,18 @@
             </p>
 
             <%= hidden_field_tag("candidate_experience[candidate_experience_function][][function_id]", {}, value: function.id) %>
-            
-            <div class="box-with-error">
-              <%= text_field "candidate_experience[candidate_experience_function][][percentage]", "", placeholder: "%", class: "half-input percentage validate experience-percentage", value: @candidate_experience.candidate_experience_functions.present? && @candidate_experience.candidate_experience_functions[index].present? ? @candidate_experience.candidate_experience_functions[index].percentage : "", name: "candidate_experience[candidate_experience_function][][percentage]", id: "candidate_experience_functions_percentage_#{index}" %>
 
+            <div class="select-box-with-error">
+              <% array_list =  Array.new(11) {|i| i*10 }.collect{|x| ["#{x}%", x]}%>
+              <% value      =  @candidate_experience.candidate_experience_functions.present? && @candidate_experience.candidate_experience_functions[index].present? ? @candidate_experience.candidate_experience_functions[index].percentage : "" %>
+
+              <%= select_tag "candidate_experience[candidate_experience_function][][percentage]", options_for_select(array_list, value), {class: 'half-input validate experience-percentage'} %>
               <p class="error-message hide">Obrigatório</p>
             </div>
           </li>
         <% end %>
         <li class="collection-item experience-calc-result">
-          <p><label>A soma mínima deve ser 30% e a máxima 100%</label><p>
+          <p><label>A soma deve ser 100%</label><p>
           <p>
             <label>
               <span>
@@ -39,7 +41,7 @@
           <div class="box-with-error">
             <%= text_field "candidate_experience", "total_functions_percentage", placeholder: "0%", class: "half-input", readonly: true %>
 
-            <p class="error-message hide">Mínimo 30% e máximo 100%</p>
+            <p class="error-message limit hide">A soma deve ser 100%</p>
           </div>
         </li>
       </ul>

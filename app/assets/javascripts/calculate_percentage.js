@@ -42,7 +42,8 @@ var calculatePercentage = function(){
 
       var input_total = $("#candidate_experience_total_functions_percentage")[0]
       var val = parseInt(input_total.value)
-      if ((val > 100) || val < 30) {
+      console.log(val)
+      if ((val > 100) || val < 100) {
         $(input_total).addClass('warning');
         $(input_total).parent().find(".error-message").removeClass("hide")
         errors++;
@@ -59,18 +60,18 @@ var calculatePercentage = function(){
     }
 
     // set numbers to percentage
-    numbersToPercentage();
+    // numbersToPercentage();
     // calculate on load
     calculateTotal();
     validatePercentage();
 
-    $(".experience-percentage").blur(function (event) {
+    $(".experience-percentage").change(function (event) {
       event.preventDefault();
       calculateTotal();
       validatePercentage();
-      var val = $(this).val().replace(/\D/g, '')
-      val = (val == "") ? 0 : val 
-      $(this).val(val+"%")
+      // var val = $(this).val().replace(/\D/g, '')
+      // val = (val == "") ? 0 : val
+      // $(this).val(val+"%")
     });
 
   }

@@ -1,7 +1,7 @@
 #second_step,
 #fifth_step {
   .select-box-with-error {
-    width: 35%;
+    width: 30%;
 
     select {
       &.custom {
@@ -9,6 +9,12 @@
         background-size: 4%;
       }
     }
+  }
+
+  p.error-message.limit{
+    position: relative;
+    text-align: center;
+    margin-bottom: 0px !important;
   }
 
   &.experience-step {
