@@ -1,9 +1,10 @@
 class Company::StepsController < ApplicationController
-  before_action :try_sign_in_company, only: [:terms]
+  before_action :try_sign_in_company, only: [:create_company]
+  before_action :set_company_term   , only: [:terms]
 
   def login_or_register
     @company = Company.new
-    # redirect_to company_home_path if current_company.present?
+    redirect_to company_home_path if current_company.present?
   end
 
   def terms
@@ -28,18 +29,26 @@ class Company::StepsController < ApplicationController
     end
 
     def try_sign_in_company
-      company = Company.find_by_cpf_cnpj(params[:cpf_cnpj])
+      company = Company.find_by_cpf_cnpj(company_params[:cpf_cnpj])
 
       return false if     company.nil?
-      return false unless company.valid_password?(params[:password])
+      return false unless company.valid_password?(company_params[:password])
 
       sign_in(company)
 
-      # redirect_to company_home_path
+      redirect_to company_home_path
     end
 
     def valid_cpf_or_cnpj
       (company_params[:cpf_cnpj].length <= 14 && CPF.valid?(company_params[:cpf_cnpj])) ||
       (company_params[:cpf_cnpj].length > 14  && CNPJ.valid?(company_params[:cpf_cnpj]))
+    end
+
+    def set_company_term
+      @current_term = Term
+                        .with_for(Company.name.underscore.to_sym)
+                        .published
+                        .order(created_at: :desc)
+                        .first
     end
 end

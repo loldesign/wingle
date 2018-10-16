@@ -1,8 +1,10 @@
-class Company::AboutController < ApplicationController 
+class Company::AboutController < ApplicationController
   before_action :authenticate_company!
   before_action :set_company, only: [:first, :second, :third, :fourth, :complete]
 
   def first
+    TermAcceptPublishedManager.new(resource: @company).process
+
     @company_size = CompanySize.all
   end
 
@@ -32,6 +34,8 @@ class Company::AboutController < ApplicationController
     if params_present_but_not_updated
       render action: :fourth
     end
+
+    redirect_to company_home_path
   end
 
   private

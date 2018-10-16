@@ -8,7 +8,7 @@
 
   <section class="content-box content-container">
     <%#= form_tag({controller: "steps", action: "terms"}, method: "post", id: "login_or_register_form") do %>
-    <%= simple_form_for(@company, as: :company, url: company_terms_url, defaults: {label: false}, html: { method: :post, id: "login_or_register_form"}) do |f| %>
+    <%= simple_form_for(@company, as: :company, url: company_create_company_path, defaults: {label: false}, html: { method: :post, id: "login_or_register_form"}) do |f| %>
       <section class="content-box">
         <!-- <% if flash[:notice] %>
           <div id="notice-wrapper">
@@ -35,7 +35,7 @@
   </section>
 
   <section class="login-or-register-actions action-buttons-duo">
-    <%= link_to "SAIBA MAIS", "#{}", :class => 'waves-effect waves-light btn-default gray-default bold' %>
+    <%= link_to "SAIBA MAIS", "javascript://", :class => 'waves-effect waves-light btn-default gray-default bold' %>
     <%= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
   </section>
 </section>
