@@ -27,4 +27,6 @@ $(document).on('turbolinks:load', function() {
   new habilitiesFirstStepManager()
 
   new experiencesSecondStepManager()
+
+  new companiesFirstStepManager()
 });

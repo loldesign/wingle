@@ -9,14 +9,14 @@
 
           <h5 class="center-align section">Para manter sua privacidade registre sua empresa mais recente ou atual</h5>
         </li>
-        
+
         <%= fields_for 'candidate_current_company', @current_company do |ccc| %>
           <li class="collection-item candidate-company-item">
             <div class="candidate-company-name box-with-error">
               <%= ccc.text_field :name, name: "candidate_current_company[name]", class: "candidate-company-name validate", value: @current_company.name, placeholder: "NOME" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
-            
+
             <div class="two-items">
               <div class="candidate-company-date box-with-error half">
                 <%= ccc.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_current_company[start_date]", class: "month_year validate start-date", value: @current_company.start_date.present? ? @current_company.start_date.strftime("%m/%Y") : "" %>
@@ -43,7 +43,7 @@
             	<%= select_tag 'candidate_current_company[mode]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: @current_company.mode), :class => "full validate", prompt: "PERFIL" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
-            
+
             <div class="three-items">
               <div class="box-with-error one-third">
               	<%= select_tag 'candidate_current_company[city]', options_for_select(@city.collect{ |city| [city.name, city.id] }, selected: @current_company.city), :class => "full validate", prompt: "CIDADE" %>
@@ -56,7 +56,7 @@
               </div>
 
               <div class="box-with-error one-third">
-              	<%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id] }, selected: @current_company.neighborhood), :class => "full validate", prompt: "LOCALIZAÇÃO"  %>
+              	<%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id, {'data-city-locale-id': neighborhood.city_locale.id}] }, selected: @current_company.neighborhood), :class => "full validate", prompt: "LOCALIZAÇÃO"  %>
                 <p class="error-message hide">Obrigatório</p>
               </div>
             </div>

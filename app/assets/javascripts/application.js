@@ -23,6 +23,7 @@
 //= require options_count
 //= require habilities
 //= require experiences
+//= require companies
 //= require jquery.validate
 //= require_tree .
 //= require turbolinks
