@@ -44,21 +44,21 @@
               <p class="error-message hide">Obrigatório</p>
             </div>
 
-            <div class="three-items">
-              <div class="box-with-error one-third">
+            <div class="two-items">
+              <div class="box-with-error half">
               	<%= select_tag 'candidate_current_company[city]', options_for_select(@city.collect{ |city| [city.name, city.id] }, selected: @current_company.city), :class => "full validate", prompt: "CIDADE" %>
                 <p class="error-message hide">Obrigatório</p>
               </div>
 
-              <div class="box-with-error one-third">
+              <div class="box-with-error half">
               	<%= select_tag 'candidate_current_company[city_locale]', options_for_select(@city_locale.collect{ |city_locale| [city_locale.name, city_locale.id] }, selected: @current_company.city_locale), :class => "full validate", prompt: "ZONA" %>
                 <p class="error-message hide">Obrigatório</p>
               </div>
+            </div>
 
-              <div class="box-with-error one-third">
-              	<%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id, {'data-city-locale-id': neighborhood.city_locale.id}] }, selected: @current_company.neighborhood), :class => "full validate", prompt: "LOCALIZAÇÃO"  %>
-                <p class="error-message hide">Obrigatório</p>
-              </div>
+            <div class="box-with-error">
+              <%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id, {'data-city-locale-id': neighborhood.city_locale.id}] }, selected: @current_company.neighborhood), :class => "full validate", prompt: "LOCALIZAÇÃO"  %>
+              <p class="error-message hide">Obrigatório</p>
             </div>
 
             <div class="candidate-company-mail box-with-error">
