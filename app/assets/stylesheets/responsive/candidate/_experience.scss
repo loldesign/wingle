@@ -39,6 +39,20 @@
         float: left;
   		}
   	}
+
+    &.experience-step {
+      .collection {
+        .collection-item {
+          .experience-box-item {
+            width: 100%;
+
+            .separator-responsive-label {
+              width: 30%;
+            }
+          }
+        }
+      }
+    }
   }
 
   #fifth_step {

@@ -312,6 +312,15 @@ ActiveRecord::Schema.define(version: 20181015195912) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "locales", force: :cascade do |t|
+    t.bigint "city_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_locales_on_city_id"
+    t.index ["name"], name: "index_locales_on_name", unique: true
+  end
+
   create_table "modes", force: :cascade do |t|
     t.string "name"
     t.text "description"

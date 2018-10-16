@@ -20,16 +20,18 @@
                 <p class="error-message hide">Obrigatório</p>
               </div>
               
-              <div class="candidate-company-date">
-                <%= label_tag 'candidate_companies_5_start_date', 'Data de início' %>
-                <%= co.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_companies[][start_date]", class: "month_year validate start-date", value: company.start_date.present? ? company.start_date.strftime("%m/%Y") : "" %>
-                <p class="error-message hide">Obrigatório</p>
-              </div>
+              <div class="responsive-container">
+                <div class="candidate-company-date">
+                  <%= label_tag 'candidate_companies_5_start_date', 'Data de início' %>
+                  <%= co.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_companies[][start_date]", class: "month_year validate start-date", value: company.start_date.present? ? company.start_date.strftime("%m/%Y") : "" %>
+                  <p class="error-message hide">Obrigatório</p>
+                </div>
 
-              <div class="candidate-company-date">
-                <%= label_tag 'candidate_companies_5_end_date', 'Data de fim' %>
-                <%= co.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_companies[][end_date]", class: "month_year validate end-date", value: company.end_date.present? ? company.end_date.strftime("%m/%Y") : "" %>
-                <p class="error-message hide">Obrigatório</p>
+                <div class="candidate-company-date">
+                  <%= label_tag 'candidate_companies_5_end_date', 'Data de fim' %>
+                  <%= co.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_companies[][end_date]", class: "month_year validate end-date", value: company.end_date.present? ? company.end_date.strftime("%m/%Y") : "" %>
+                  <p class="error-message hide">Obrigatório</p>
+                </div>
               </div>
             </li>
           <% end %>

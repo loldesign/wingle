@@ -38,7 +38,13 @@
 					.candidate-company-item {
 						display: flex;
 						justify-content: space-between;	
-						align-items: center;					
+						align-items: center;
+
+						.responsive-container {
+							width: 70%;
+							float: left;
+							display: flex;
+						}		
 					}
 
 					label {
@@ -46,7 +52,7 @@
 					}
 
 					.candidate-company-date {
-						width: 35%;
+						width: 100%;
 						margin-left: 2%;
 					}
 

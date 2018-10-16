@@ -34,6 +34,24 @@
 			.content-box {
 				.candidate-companies-form {
 					&.collection.with-input {
+						.candidate-company-item {
+							flex-direction: column;
+
+							.responsive-container {
+								width: 100%;
+
+								.candidate-company-date {
+									&:first-of-type {
+										margin-left: 0;
+									}
+								}
+							}
+						}
+
+						label {
+							font-size: 3.5vw;
+						}
+
 						select {
 							margin-bottom: 2vh !important;
 						}

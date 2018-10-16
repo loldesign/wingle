@@ -21,6 +21,20 @@
     .collection {
       .collection-item {
         padding: 4vh 1.6vw !important;
+
+        .experience-box-item {
+          width: 80%;
+          display: flex;
+          align-items: center;
+
+          .select-box-with-error {
+            width: 100%;
+          }
+
+          .separator-responsive-label {
+            text-align: center;
+          }
+        }
       }
 
       .error-message {
