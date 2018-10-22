@@ -19,12 +19,22 @@
 
             <div class="two-items">
               <div class="candidate-company-date box-with-error half">
-                <%= ccc.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_current_company[start_date]", class: "month_year validate start-date", value: @current_company.start_date.present? ? @current_company.start_date.strftime("%m/%Y") : "" %>
-                <p class="error-message hide">Obrigatório</p>
+                <div class="candidate-company-date half">
+                  <%= ccc.select :start_date_month, @months, { include_blank: "MÊS INÍCIO" }, { class: "validate #{'warning' if @current_company.errors[:start_date_month].present? }", name: "candidate_current_company[start_date_month]" } %>
+                </div>
+                <div class="candidate-company-date half">
+                  <%= ccc.select :start_date_year, @years, { include_blank: "ANO INÍCIO" }, { name: "candidate_current_company[start_date_year]", class: "validate #{'warning' if @current_company.errors[:start_date_year].present? }" } %>
+                </div>
+                <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date_year].first || @current_company.errors[:start_date_month].first if @start_date_error_present %></p>
               </div>
 
               <div class="candidate-company-date box-with-error half">
-                <%= ccc.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_current_company[end_date]", class: "month_year validate end-date", value: @current_company.end_date.present? ? @current_company.end_date.strftime("%m/%Y") : "" %>
+                <div class="candidate-company-date half">
+                  <%= ccc.select :end_date_month, @months, include_blank: "MÊS SAÍDA", name: "candidate_current_company[end_date_month]", class: "validate end-date" %>
+                </div>
+                <div class="candidate-company-date half">
+                  <%= ccc.select :end_date_year, @years, include_blank: "ANO SAÍDA", name: "candidate_current_company[end_date_year]", class: "validate end-date" %>
+                </div>
                 <p class="error-message hide">Obrigatório</p>
               </div>
             </div>

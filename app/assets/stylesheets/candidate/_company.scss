@@ -6,6 +6,12 @@
 			select {
 				margin-bottom: 2vh !important;
 			}
+
+			&.candidate-company-date {
+				.error-message {
+					position: initial;
+				}
+			}
 		}
 
 		.two-items,

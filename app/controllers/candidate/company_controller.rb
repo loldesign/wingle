@@ -4,12 +4,12 @@ class Candidate::CompanyController < ApplicationController
 
   def first
     @current_company = @candidate_current_company.present? ? @candidate_current_company : CandidateCurrentCompany.new
-    @size = CompanySize.all
-    @sector = Sector.all
-    @profile = Mode.all
+    load_size_sector_and_profile
     @city = City.all
     @city_locale = CityLocale.all
     @neighborhood = Neighborhood.all
+    @months = arrayForSelect(1, 12)
+    @years  = arrayForSelect(1990, Date.today.year)
   end
 
   def second
@@ -20,7 +20,18 @@ class Candidate::CompanyController < ApplicationController
 
     if params[:candidate_current_company].present?
       manager = CandidateManager.new(candidate_current_company: @candidate_current_company, candidate_current_company_params: candidate_current_company_params)
-      manager.update_candidate_current_companies
+      saved = manager.update_candidate_current_companies
+      if !saved
+        @current_company = @candidate_current_company
+        @start_date_error_present = @current_company.errors.present? && (@current_company.errors[:start_date_month].present? || @current_company.errors[:start_date_year].present?)
+        load_size_sector_and_profile
+        @city = City.all
+        @city_locale = CityLocale.all
+        @neighborhood = Neighborhood.all
+        @months = arrayForSelect(1, 12)
+        @years  = arrayForSelect(1990, Date.today.year)
+        render action: :first
+      end
     end
 
     @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
@@ -37,9 +48,7 @@ class Candidate::CompanyController < ApplicationController
       redirect_to action: :first
     else
       @companies = @candidate.candidate_companies
-      @size = CompanySize.all
-      @sector = Sector.all
-      @profile = Mode.all
+      load_size_sector_and_profile
     end
   end
 
@@ -73,6 +82,24 @@ class Candidate::CompanyController < ApplicationController
     end
 
     def candidate_current_company_params
-      params.fetch(:candidate_current_company, {}).permit(:id, :name, :start_date, :end_date, :company_size, :sector, :mode, :city, :city_locale, :neighborhood, :corporate_email)
+      params.fetch(:candidate_current_company, {}).permit(:id, :name, :start_date, :end_date, :start_date_month, :start_date_year, :end_date_month, :end_date_year, :company_size, :sector, :mode, :city, :city_locale, :neighborhood, :corporate_email)
+    end
+
+    def arrayForSelect(min, max)
+      array = []
+      for i in min..max
+        if i < 10
+          array << ["0#{i}", "#{i}"]
+        else
+          array << ["#{i}", "#{i}"]
+        end
+      end
+      array
+    end
+
+    def load_size_sector_and_profile
+      @size = CompanySize.all
+      @sector = Sector.all
+      @profile = Mode.all
     end
 end
