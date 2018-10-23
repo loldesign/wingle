@@ -20,27 +20,24 @@ class Candidate::CompanyController < ApplicationController
       @candidate_current_company = @candidate.candidate_current_company
     end
 
+    @months = arrayForSelect(1, 12)
+    @years  = arrayForSelect(1990, Date.today.year)
+
     if params[:candidate_current_company].present?
       manager = CandidateManager.new(candidate_current_company: @candidate_current_company, candidate_current_company_params: candidate_current_company_params)
       saved = manager.update_candidate_current_companies
       if !saved
-        @current_company = @candidate_current_company
         @start_date_error_present = @current_company.errors.present? && (@current_company.errors[:start_date_month].present? || @current_company.errors[:start_date_year].present? || @current_company.errors[:start_date].present?)
         @end_date_error_present   = @current_company.errors.present? && (@current_company.errors[:end_date_month].present? || @current_company.errors[:end_date_year].present?)
         load_size_sector_and_profile
         @city = City.all
         @city_locale = CityLocale.all
         @neighborhood = Neighborhood.all
-        @months = arrayForSelect(1, 12)
-        @years  = arrayForSelect(1990, Date.today.year)
         render action: :first
       end
     end
 
     @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
-
-    @years  = CandidateManager.new.optionsForSelectYear
-    @months = CandidateManager.new.optionsForSelectMonth
   end
 
   def third
@@ -77,8 +74,8 @@ class Candidate::CompanyController < ApplicationController
     def candidate_company_params
       if params[:candidate_companies].present?
         params.fetch(:candidate_companies, {}).map do |p|
-          p.permit(:id, :name, :years, :months,
-            :size, :sector, :title, :start_date, :end_date
+          p.permit(:id, :name, :months, :size, :sector, :title,
+            :start_date_month, :start_date_year, :end_date_month, :end_date_year
           )
         end
       end

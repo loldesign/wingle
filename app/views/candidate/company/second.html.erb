@@ -21,16 +21,22 @@
                 <p class="error-message hide">Obrigatório</p>
               </div>
               
-              <div class="responsive-container">
-                <div class="candidate-company-date">
+              <div class="responsive-container validate validate-date">
+                <div class="candidate-company-date start_date">
                   <%= label_tag 'candidate_companies_5_start_date', 'Data de início' %>
-                  <%= co.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_companies[][start_date]", class: "month_year validate start-date", value: company.start_date.present? ? company.start_date.strftime("%m/%Y") : @current_company.start_date.strftime("%m/%Y") %>
+                  <div class="two-items">
+                    <%= co.select :start_date_month, @months, { include_blank: "MÊS" }, { name: "candidate_companies[][start_date_month]", class: "start_date_month" } %>
+                    <%= co.select :start_date_year, @years, { include_blank: "ANO" }, { name: "candidate_companies[][start_date_year]", class: "start_date_year" } %>
+                  </div>
                   <p class="error-message hide">Obrigatório</p>
                 </div>
 
-                <div class="candidate-company-date">
+                <div class="candidate-company-date end_date">
                   <%= label_tag 'candidate_companies_5_end_date', 'Data de fim' %>
-                  <%= co.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_companies[][end_date]", class: "month_year validate end-date", value: company.end_date.present? ? company.end_date.strftime("%m/%Y") : @current_company.end_date.strftime("%m/%Y") %>
+                  <div class="two-items">
+                    <%= co.select :end_date_month, @months, { include_blank: "MÊS" }, { name: "candidate_companies[][end_date_month]", class: "end_date_month" } %>
+                    <%= co.select :end_date_year, @years, { include_blank: "ANO" }, { name: "candidate_companies[][end_date_year]", class: "end_date_year" } %>
+                  </div>
                   <p class="error-message hide">Obrigatório</p>
                 </div>
               </div>
