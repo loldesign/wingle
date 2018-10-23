@@ -1,4 +1,4 @@
-<section id="seventh_step" class="question-container content experience-step" data-min="1" data-max="5">
+<section id="seventh_step" class="question-container content experience-step" data-min="1" data-max="7">
   <div class="max-option-notice">
     <p class="gray bold">Você já atingiu o número máximo de opções</p>
   </div>
@@ -15,7 +15,7 @@
         <% @areas.each do |area| %>
           <li class="collection-item">
             <p>
-              <label class="static-label">
+              <label class="static-label light-green-text">
                 <span>
                   <%= area.name %>
                 </span>
@@ -26,10 +26,11 @@
             <li class="collection-item list-function-area">
               <p>
                 <label>
-                  <%= check_box_tag "candidate_experience[considered_functions][]", function.id, @candidate_experience.considered_functions.include?(function.id) ? true : false, class: "with-gap" %>
-                    <span>
-                      <%= function.name %>
-                    </span>
+                  <% option_included = Function.by_ids_list(@candidate_experience.functions).map(&:id).include?(function.id) || @candidate_experience.considered_functions.include?(function.id)%>
+                  <%= check_box_tag "candidate_experience[considered_functions][]", function.id, option_included, class: "with-gap" %>
+                  <span>
+                    <%= function.name %>
+                  </span>
                 </label>
               </p>
             </li>
