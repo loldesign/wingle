@@ -20,10 +20,9 @@
             <%= hidden_field_tag("candidate_experience[candidate_experience_function][][function_id]", {}, value: function.id) %>
 
             <div class="select-box-with-error">
-              <% array_list =  Array.new(11) {|i| i*10 }.collect{|x| ["#{x}%", x]}%>
               <% value      =  @candidate_experience.candidate_experience_functions.present? && @candidate_experience.candidate_experience_functions[index].present? ? @candidate_experience.candidate_experience_functions[index].percentage : "" %>
 
-              <%= select_tag "candidate_experience[candidate_experience_function][][percentage]", options_for_select(array_list, value), {class: 'half-input validate experience-percentage'} %>
+              <%= select_tag "candidate_experience[candidate_experience_function][][percentage]", options_for_select(@array_list, value), {include_blank: true, class: 'half-input validate experience-percentage'} %>
               <p class="error-message hide">Obrigatório</p>
             </div>
           </li>
