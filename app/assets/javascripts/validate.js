@@ -43,51 +43,52 @@ validateRadio = function() {
   return check
 }
 
-validateDate = function($input, errors) {
-  var date = $($input).val()
-  if(date != "" && !/^\d{2}\/\d{4}$/.test(date)) {
-    $input.addClass('warning');
-    $input.parent().find(".error-message").removeClass("hide")
-    $input.parent().find(".error-message").html("Data inválida!")
+validateDate = function($div, errors) {
+  var $startDateMonth = $($div).find(".start_date_month")
+  var $startDateYear  = $($div).find(".start_date_year")
+  var $endDateMonth   = $($div).find(".end_date_month")
+  var $endDateYear    = $($div).find(".end_date_year")
+
+  var startMonth = parseInt($startDateMonth.val());
+  var endMonth = parseInt($endDateMonth.val());
+  var startYear = parseInt($startDateYear.val());
+  var endYear = parseInt($endDateYear.val());
+  var currentYear = new Date().getFullYear();
+
+  $div.find(".error-message").addClass("hide")
+
+  // Check the ranges of month and year
+  if(startYear < 1990 || startYear > currentYear || startMonth == 0 || startMonth > 12) {
+    $startDateMonth.addClass('warning');
+    $startDateYear.addClass('warning');
+    $div.find(".start_date .error-message").removeClass("hide")
+    $div.find(".start_date .error-message").html("Data inválida!")
     errors++;
     return errors
   } else {
-    $input.removeClass('warning');
-    $input.parent().find(".error-message").addClass("hide")
+    $startDateMonth.removeClass('warning');
+    $startDateYear.removeClass('warning');
   }
-
-  // Parse the date parts to integers
-  var parts = date.split("/");
-  var month = parseInt(parts[0]);
-  var year = parseInt(parts[1]);
-  var currentYear = new Date().getFullYear();
-
-  // Check the ranges of month and year
-  if(year < 1900 || year > currentYear || month == 0 || month > 12) {
-    $input.addClass('warning');
-    $input.parent().find(".error-message").removeClass("hide")
-    $input.parent().find(".error-message").html("Data inválida!")
+  if (endYear < 1990 || endYear > currentYear || endMonth == 0 || endMonth > 12) {
+    $endDateMonth.addClass('warning');
+    $endDateYear.addClass('warning');
+    $div.find(".end_date .error-message").removeClass("hide")
+    $div.find(".end_date .error-message").html("Data inválida!")
     errors++;
     return errors
+  } else {
+    $endDateMonth.removeClass('warning');
+    $endDateYear.removeClass('warning');
   }
 
   // Check if start date is greater than end date
-  if ($input.hasClass("start-date")) {
-    var input_end_date = $input.parent().parent().find(".end-date")
-    var end_date = $(input_end_date).val()
-
-    // Parse the end-date to integers
-    var end_parts = end_date.split("/");
-    var end_month = parseInt(end_parts[0]);
-    var end_year = parseInt(end_parts[1]);
-
-    if (year > end_year || (year == end_year && month > end_month)) {
-      $input.addClass('warning');
-      $input.parent().find(".error-message").removeClass("hide")
-      $input.parent().find(".error-message").html("Data início maior que fim!")
-      errors++;
-      return errors
-    }
+  if (startYear > endYear || (startYear == endYear && startMonth > endMonth)) {
+    $startDateMonth.addClass('warning');
+    $startDateYear.addClass('warning');
+    $div.find(".start_date .error-message").removeClass("hide")
+    $div.find(".start_date .error-message").html("Data início maior que fim!")
+    errors++;
+    return errors
   }
 
   return errors
@@ -101,7 +102,10 @@ function validateForm($btn) {
 
 
   $(".validate").map(function(){
-     if( !$(this).val()) {
+     if ($(this).hasClass("validate-date")) {
+      errors = validateDate($(this), errors)
+
+    } else if( !$(this).val()) {
           $(this).addClass('warning');
           $(this).parent().find(".error-message").removeClass("hide")
           $(this).parent().find(".error-message").html("Obrigatório")
@@ -109,10 +113,6 @@ function validateForm($btn) {
     } else if (withRadius && !validateRadio()) {
 
       errors++;
-
-    } else if ($(this).hasClass("start-date") || $(this).hasClass("end-date")) {
-
-      errors = validateDate($(this), errors)
 
     } else if ($(this).val()) {
           $(this).removeClass('warning');
