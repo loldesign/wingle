@@ -16,7 +16,7 @@ class Candidate::ExperienceController < ApplicationController
 
     if params_present
       if @candidate_experience.update_attributes(candidate_experience_params)
-        @candidate_experience.title_experiences = []
+        @candidate_experience.title_experiences = [] unless @candidate_experience.title_experiences.present?
         @candidate_experience.save
       else
         render action: :first
