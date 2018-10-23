@@ -20,7 +20,7 @@
             <div class="two-items">
               <div class="candidate-company-date box-with-error half">
                 <div class="candidate-company-date half">
-                  <%= ccc.select :start_date_month, @months, { include_blank: "MÊS INÍCIO" }, { class: "validate #{'warning' if @current_company.errors[:start_date_month].present? }", name: "candidate_current_company[start_date_month]" } %>
+                  <%= ccc.select :start_date_month, @months, { include_blank: "MÊS INÍCIO" }, { name: "candidate_current_company[start_date_month]", class: "validate #{'warning' if @current_company.errors[:start_date_month].present? }" } %>
                 </div>
                 <div class="candidate-company-date half">
                   <%= ccc.select :start_date_year, @years, { include_blank: "ANO INÍCIO" }, { name: "candidate_current_company[start_date_year]", class: "validate #{'warning' if @current_company.errors[:start_date_year].present? }" } %>
@@ -28,16 +28,23 @@
                 <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date_year].first || @current_company.errors[:start_date_month].first if @start_date_error_present %></p>
               </div>
 
-              <div class="candidate-company-date box-with-error half">
+              <div class="candidate-company-date box-with-error half current-end-date">
                 <div class="candidate-company-date half">
-                  <%= ccc.select :end_date_month, @months, include_blank: "MÊS SAÍDA", name: "candidate_current_company[end_date_month]", class: "validate end-date" %>
+                  <%= ccc.select :end_date_month, @months, { include_blank: "MÊS SAÍDA" }, { name: "candidate_current_company[end_date_month]", class: "validate #{'warning' if @current_company.errors[:end_date_month].present? }" } %>
                 </div>
                 <div class="candidate-company-date half">
-                  <%= ccc.select :end_date_year, @years, include_blank: "ANO SAÍDA", name: "candidate_current_company[end_date_year]", class: "validate end-date" %>
+                  <%= ccc.select :end_date_year, @years, { include_blank: "ANO SAÍDA" }, { name: "candidate_current_company[end_date_year]", class: "validate #{'warning' if @current_company.errors[:end_date_year].present? }" } %>
                 </div>
-                <p class="error-message hide">Obrigatório</p>
+                <p class="error-message <%= 'hide' if !@end_date_error_present %>"><%= @current_company.errors[:end_date_year].first || @current_company.errors[:end_date_month].first if @end_date_error_present %></p>
               </div>
             </div>
+
+            <label>
+              <%= check_box_tag "candidate_current_company[current_working]", true, false, class: "with-gap" %>
+                <span>
+                  <strong>Trabalho aqui atualmente</strong>
+                </span>
+            </label>
 
             <div class="box-with-error">
             	<%= select_tag 'candidate_current_company[company_size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: @current_company.company_size), :class => "full validate", prompt: "PORTE" %>

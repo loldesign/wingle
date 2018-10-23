@@ -24,6 +24,7 @@ class Candidate::CompanyController < ApplicationController
       if !saved
         @current_company = @candidate_current_company
         @start_date_error_present = @current_company.errors.present? && (@current_company.errors[:start_date_month].present? || @current_company.errors[:start_date_year].present?)
+        @end_date_error_present   = @current_company.errors.present? && (@current_company.errors[:end_date_month].present? || @current_company.errors[:end_date_year].present?)
         load_size_sector_and_profile
         @city = City.all
         @city_locale = CityLocale.all
