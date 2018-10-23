@@ -61,6 +61,12 @@ class Candidate::ExperienceController < ApplicationController
     if @candidate_experience.functions.nil? || @candidate_experience.functions == []
       redirect_to action: :fourth
     else
+      @array_list = Array.new(10)
+      i = 10
+      10.times do |index|
+        @array_list[index] = ["#{i}%", i]
+        i = i + 10
+      end
 
       @function = Function.by_ids_list(@candidate_experience.functions)
     end
