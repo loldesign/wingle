@@ -4,7 +4,9 @@ class CandidateCurrentCompany < ApplicationRecord
 	validate :months_between_jan_dec, :end_date_after_start_date, :accept_only_empty_or_all_present_dates
 
 	def end_date_after_start_date
-		if dates_present? && (start_date_year > end_date_year) || (start_date_year == end_date_year && start_date_month > end_date_month)
+		return false unless dates_present? 
+		
+		if (start_date_year > end_date_year) || (start_date_year == end_date_year && start_date_month > end_date_month)
 			errors.add(:start_date, "início não pode ser depois de fim")
 		end
 	end

@@ -13,7 +13,7 @@ var companiesFirstStepManager = function(){
 
       var $select = $(this)
 
-      _this.process($select)
+      _this.process($select, true)
     });
 
     this.process($('#candidate_current_company_city_locale'), false)

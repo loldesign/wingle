@@ -17,7 +17,7 @@
             <li class="collection-item candidate-company-item">
               <div class="candidate-company-name">
                 <%= label_tag 'candidate_companies_5_name', 'Nome da empresa' %>
-                <%= co.text_field :name, name: "candidate_companies[][name]", class: "candidate-company-name validate", value: company.name.present? ? company.name : @current_company.name %>
+                <%= co.text_field :name, name: "candidate_companies[][name]", class: "candidate-company-name validate", value: (company.present? && company.name.present?) ? company.name : @current_company.name %>
                 <p class="error-message hide">Obrigatório</p>
               </div>
               
