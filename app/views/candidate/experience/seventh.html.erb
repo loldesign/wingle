@@ -1,47 +1,44 @@
-<section id="seventh_step" class="question-container content experience-step" data-min="1" data-max="7">
+<!-- OLD SIXTH STEP -->
+
+<section id="sixth_step" class="question-container content experience-step" data-min="0" data-max="5">
   <div class="max-option-notice">
     <p class="gray bold">Você já atingiu o número máximo de opções</p>
   </div>
-  <%= form_tag({controller: "experience", action: "complete"}, method: "post", id: "candidate_seventh") do %>
+  <%= form_tag({controller: "experience", action: "seventh"}, method: "post", id: "candidate_sixth") do %>
     <section class="content-box">
       <ul class="collection with-header">
         <li class="collection-header">
           <div class="progress ">
-            <div class="determinate" style="width: 95%"></div>
+            <div class="determinate" style="width: 77%"></div>
           </div>
 
-          <h5 class="center-align section">Onde você avalia oportunidades?</h5>
+          <h5 class="center-align section">Em um próximo passo você descartaria alguma destas funções?</h5>
         </li>
-        <% @areas.each do |area| %>
+        <% @function.each do |function| %>
           <li class="collection-item">
             <p>
-              <label class="static-label light-green-text">
-                <span>
-                  <%= area.name %>
-                </span>
-              </label>
-            </p>
-          </li>
-          <% area.functions.each do |function| %>
-            <li class="collection-item list-function-area">
-              <p>
-                <label>
-                  <% option_included = Function.by_ids_list(@candidate_experience.functions).map(&:id).include?(function.id) || @candidate_experience.considered_functions.include?(function.id)%>
-                  <%= check_box_tag "candidate_experience[considered_functions][]", function.id, option_included, class: "with-gap" %>
+              <label>
+                <%= hidden_field_tag "candidate_experience[disconsidered_functions][]", nil %>
+                <%= check_box_tag "candidate_experience[disconsidered_functions][]", function.id, @candidate_experience.disconsidered_functions.include?(function.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= function.name %>
                   </span>
-                </label>
-              </p>
-            </li>
-          <% end %>
+              </label>
+            </p>
+          </li>
         <% end %>
       </ul>
     </section>
 
+    <div class="observation-box">
+      <p class="medium-gray">
+        <strong>Obs:</strong> Se você considera oportunidades em todas estas áreas clique em PRÓXIMO
+      </p>
+    </div>
+
     <section class="action-buttons-duo">
-      <%= link_to "Anterior", candidate_experience_step_6_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-step #{@candidate_experience.considered_functions.empty? ? 'disabled' : ''}", onclick: "$('#candidate_seventh').submit()" %>
+      <%= link_to "Anterior", candidate_experience_step_5_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-step", onclick: "$('#candidate_sixth').submit()" %>
     </section>
   <% end %>
 </section>

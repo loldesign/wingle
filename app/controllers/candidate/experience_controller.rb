@@ -74,18 +74,6 @@ class Candidate::ExperienceController < ApplicationController
     if @candidate_experience.areas.nil? || @candidate_experience.areas == []
       redirect_to action: :third
     else
-      @function = Function.by_ids_list(@candidate_experience.functions)
-    end
-  end
-
-  def seventh
-    if params_present_but_not_updated
-      render action: :sixth
-    end
-
-    if @candidate_experience.areas.nil? || @candidate_experience.areas == []
-      redirect_to action: :third
-    else
       disconsidered_functions  = Function.by_ids_list(@candidate_experience.disconsidered_functions)
       experience_functions     = Function.by_ids_list(@candidate_experience.functions)
       all_functions            = Function.by_areas(@candidate_experience.areas)
@@ -93,6 +81,16 @@ class Candidate::ExperienceController < ApplicationController
       @function = all_functions - experience_functions - disconsidered_functions
       @areas    = @candidate_experience.list_areas
     end
+  end
+
+  def seventh
+    ##### OLD SIXTH STEP #####
+
+    # if @candidate_experience.areas.nil? || @candidate_experience.areas == []
+    #   redirect_to action: :third
+    # else
+    #   @function = Function.by_ids_list(@candidate_experience.functions)
+    # end
   end
 
   def complete
