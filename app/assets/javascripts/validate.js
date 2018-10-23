@@ -13,7 +13,7 @@ var validate = function(){
     if(validateForm($btn)) {
       $btn.closest('form').submit()
     } else {
-      validateForm()
+      validateForm($btn)
     }
   }
 
@@ -37,7 +37,6 @@ validateRadio = function() {
         check = true
         $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').addClass('hide')
       }
-      
   });
   
   return check

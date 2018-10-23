@@ -10,13 +10,13 @@ var experiencesSecondStepManager = function(){
     this.$container.on('change', ['select.years', 'select.months'], function(event) {
       event.preventDefault();
 
-      _this.countList();
+      _this.caulculateTime();
     });
 
-    this.countList();
+    this.caulculateTime();
   }
 
-  this.countList = function(){
+  this.caulculateTime = function(){
     var yearsTotal  = this.sumArray(this.getTotalList($('select.years')))
     var monthsTotal = this.sumArray(this.getTotalList($('select.months')))
 
@@ -27,7 +27,12 @@ var experiencesSecondStepManager = function(){
       yearsTotal  = yearsTotal + monthsYear
       monthsTotal = restMonths
     }
-    console.log(yearsTotal, monthsTotal)
+
+    if(yearsTotal === 0 && monthsTotal === 0){
+      this.disableNextButton()
+    }else{
+      this.enableNextButton()
+    }
 
     this.setDisclaimer(yearsTotal, monthsTotal)
   }
@@ -45,6 +50,14 @@ var experiencesSecondStepManager = function(){
 
   this.sumArray = function(array){
     return array.reduce(function(a, b) { return a + b; }, 0);
+  }
+
+  this.enableNextButton = function(){
+    $(".action-buttons-duo a.next-step").removeClass("disabled")
+  }
+
+  this.disableNextButton = function(){
+    $(".action-buttons-duo a.next-step").addClass("disabled")
   }
 
   this.setDisclaimer = function(years, months){

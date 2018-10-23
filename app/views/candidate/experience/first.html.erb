@@ -1,6 +1,6 @@
 <section id="first_step" class="question-container content experience-step">
   <%= form_tag({controller: "experience", action: "second"}, method: "post", id: "candidate_first") do %>
-    <section class="content-box">
+    <section class="content-box language-level-box">
       <ul class="collection with-header">
         <li class="collection-header">
           <div class="progress ">
@@ -14,18 +14,19 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= radio_button_tag "candidate_experience[current_title]", title_list.id, (@candidate_experience && @candidate_experience.current_title == title_list.id) ? true : false, class: "with-gap" %>
+                <%= radio_button_tag "candidate_experience[current_title]", title_list.id, (@candidate_experience && @candidate_experience.current_title == title_list.id) ? true : false, class: "with-gap validate" %>
                 <span><%= title_list.name %></span>
               </label>
             </p>
           </li>
         <% end %>
       </ul>
+      <p class="radio-error-message hide">Obrigatório</p> 
     </section>
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_home_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_first').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large radio-validate", id: "validate-form-button", data: {with_radios: 'true'} %>
     </section>
   <% end %>
 </section>
