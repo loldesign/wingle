@@ -1,6 +1,6 @@
 var experiencesSecondStepManager = function(){
   this.$container  = $('#second_step.experience-step')
-  this.$disclaimer = $('p.total-years-sum')
+  this.$disclaimer = $('span.total-years-sum')
 
   this.startup = function(){
     if(!this.$container[0]){ return false; }

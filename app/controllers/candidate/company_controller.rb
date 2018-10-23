@@ -13,6 +13,8 @@ class Candidate::CompanyController < ApplicationController
   end
 
   def second
+    @current_company = @candidate_current_company
+
     if @candidate_current_company.nil?
       CandidateManager.new(candidate: @candidate).create_candidate_current_company
       @candidate_current_company = @candidate.candidate_current_company
