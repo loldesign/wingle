@@ -19,28 +19,32 @@
 
             <div class="two-items">
               <div class="candidate-company-date box-with-error half">
-                <div class="candidate-company-date half">
-                  <%= ccc.select :start_date_month, @months, { include_blank: "MÊS INÍCIO" }, { name: "candidate_current_company[start_date_month]", class: "validate #{'warning' if @current_company.errors[:start_date_month].present? }" } %>
+                <div class="candidate-company-date box-with-error half">
+                  <%= ccc.select :start_date_month, @months, { include_blank: "MÊS INÍCIO" }, { name: "candidate_current_company[start_date_month]", class: "validate #{'warning' if @current_company.errors[:start_date_month].present? || @current_company.errors[:start_date].present? }" } %>
+                  <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date_month].first if @start_date_error_present %></p>
                 </div>
-                <div class="candidate-company-date half">
-                  <%= ccc.select :start_date_year, @years, { include_blank: "ANO INÍCIO" }, { name: "candidate_current_company[start_date_year]", class: "validate #{'warning' if @current_company.errors[:start_date_year].present? }" } %>
+                <div class="candidate-company-date box-with-error half">
+                  <%= ccc.select :start_date_year, @years, { include_blank: "ANO INÍCIO" }, { name: "candidate_current_company[start_date_year]", class: "validate #{'warning' if @current_company.errors[:start_date_year].present? || @current_company.errors[:start_date].present? }" } %>
+                  <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date_year].first if @start_date_error_present %></p>
                 </div>
-                <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date_year].first || @current_company.errors[:start_date_month].first if @start_date_error_present %></p>
+                <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date].first if @start_date_error_present %></p>
               </div>
 
-              <div class="candidate-company-date box-with-error half current-end-date">
+              <div class="candidate-company-date box-with-error half current-end-date" id="current_end_date">
                 <div class="candidate-company-date half">
                   <%= ccc.select :end_date_month, @months, { include_blank: "MÊS SAÍDA" }, { name: "candidate_current_company[end_date_month]", class: "validate #{'warning' if @current_company.errors[:end_date_month].present? }" } %>
+                  <p class="error-message <%= 'hide' if !@end_date_error_present %>"><%= @current_company.errors[:end_date_month].first if @end_date_error_present %></p>
                 </div>
                 <div class="candidate-company-date half">
                   <%= ccc.select :end_date_year, @years, { include_blank: "ANO SAÍDA" }, { name: "candidate_current_company[end_date_year]", class: "validate #{'warning' if @current_company.errors[:end_date_year].present? }" } %>
+                  <p class="error-message <%= 'hide' if !@end_date_error_present %>"><%= @current_company.errors[:end_date_year].first if @end_date_error_present %></p>
                 </div>
-                <p class="error-message <%= 'hide' if !@end_date_error_present %>"><%= @current_company.errors[:end_date_year].first || @current_company.errors[:end_date_month].first if @end_date_error_present %></p>
               </div>
             </div>
 
             <label>
-              <%= check_box_tag "candidate_current_company[current_working]", true, false, class: "with-gap" %>
+              <%= hidden_field_tag 'candidate_current_company[currently_work_here]', '' %>
+              <%= check_box_tag "candidate_current_company[currently_work_here]", true, @current_company.currently_work_here, class: "with-gap" %>
                 <span>
                   <strong>Trabalho aqui atualmente</strong>
                 </span>

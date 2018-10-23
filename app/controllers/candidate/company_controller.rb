@@ -23,7 +23,7 @@ class Candidate::CompanyController < ApplicationController
       saved = manager.update_candidate_current_companies
       if !saved
         @current_company = @candidate_current_company
-        @start_date_error_present = @current_company.errors.present? && (@current_company.errors[:start_date_month].present? || @current_company.errors[:start_date_year].present?)
+        @start_date_error_present = @current_company.errors.present? && (@current_company.errors[:start_date_month].present? || @current_company.errors[:start_date_year].present? || @current_company.errors[:start_date].present?)
         @end_date_error_present   = @current_company.errors.present? && (@current_company.errors[:end_date_month].present? || @current_company.errors[:end_date_year].present?)
         load_size_sector_and_profile
         @city = City.all
@@ -83,7 +83,7 @@ class Candidate::CompanyController < ApplicationController
     end
 
     def candidate_current_company_params
-      params.fetch(:candidate_current_company, {}).permit(:id, :name, :start_date, :end_date, :start_date_month, :start_date_year, :end_date_month, :end_date_year, :company_size, :sector, :mode, :city, :city_locale, :neighborhood, :corporate_email)
+      params.fetch(:candidate_current_company, {}).permit(:id, :name, :start_date, :end_date, :start_date_month, :start_date_year, :end_date_month, :end_date_year, :currently_work_here, :company_size, :sector, :mode, :city, :city_locale, :neighborhood, :corporate_email)
     end
 
     def arrayForSelect(min, max)
@@ -99,8 +99,8 @@ class Candidate::CompanyController < ApplicationController
     end
 
     def load_size_sector_and_profile
-      @size = CompanySize.all
-      @sector = Sector.all
+      @size    = CompanySize.all
+      @sector  = Sector.all
       @profile = Mode.all
     end
 end
