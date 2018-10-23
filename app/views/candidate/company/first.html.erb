@@ -19,15 +19,36 @@
 
             <div class="two-items">
               <div class="candidate-company-date box-with-error half">
-                <%= ccc.text_field :start_date, placeholder: "MM/YYYY", name: "candidate_current_company[start_date]", class: "month_year validate start-date", value: @current_company.start_date.present? ? @current_company.start_date.strftime("%m/%Y") : "" %>
-                <p class="error-message hide">Obrigatório</p>
+                <div class="candidate-company-date box-with-error half">
+                  <%= ccc.select :start_date_month, @months, { include_blank: "MÊS INÍCIO" }, { name: "candidate_current_company[start_date_month]", class: "validate #{'warning' if @current_company.errors[:start_date_month].present? || @current_company.errors[:start_date].present? }" } %>
+                  <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date_month].first if @start_date_error_present %></p>
+                </div>
+                <div class="candidate-company-date box-with-error half">
+                  <%= ccc.select :start_date_year, @years, { include_blank: "ANO INÍCIO" }, { name: "candidate_current_company[start_date_year]", class: "validate #{'warning' if @current_company.errors[:start_date_year].present? || @current_company.errors[:start_date].present? }" } %>
+                  <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date_year].first if @start_date_error_present %></p>
+                </div>
+                <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date].first if @start_date_error_present %></p>
               </div>
 
-              <div class="candidate-company-date box-with-error half">
-                <%= ccc.text_field :end_date, placeholder: "MM/YYYY", name: "candidate_current_company[end_date]", class: "month_year validate end-date", value: @current_company.end_date.present? ? @current_company.end_date.strftime("%m/%Y") : "" %>
-                <p class="error-message hide">Obrigatório</p>
+              <div class="candidate-company-date box-with-error half current-end-date" id="current_end_date">
+                <div class="candidate-company-date half">
+                  <%= ccc.select :end_date_month, @months, { include_blank: "MÊS SAÍDA" }, { name: "candidate_current_company[end_date_month]", class: "validate #{'warning' if @current_company.errors[:end_date_month].present? }" } %>
+                  <p class="error-message <%= 'hide' if !@end_date_error_present %>"><%= @current_company.errors[:end_date_month].first if @end_date_error_present %></p>
+                </div>
+                <div class="candidate-company-date half">
+                  <%= ccc.select :end_date_year, @years, { include_blank: "ANO SAÍDA" }, { name: "candidate_current_company[end_date_year]", class: "validate #{'warning' if @current_company.errors[:end_date_year].present? }" } %>
+                  <p class="error-message <%= 'hide' if !@end_date_error_present %>"><%= @current_company.errors[:end_date_year].first if @end_date_error_present %></p>
+                </div>
               </div>
             </div>
+
+            <label>
+              <%= hidden_field_tag 'candidate_current_company[currently_work_here]', '' %>
+              <%= check_box_tag "candidate_current_company[currently_work_here]", true, @current_company.currently_work_here, class: "with-gap" %>
+                <span>
+                  <strong>Trabalho aqui atualmente</strong>
+                </span>
+            </label>
 
             <div class="box-with-error">
             	<%= select_tag 'candidate_current_company[company_size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: @current_company.company_size), :class => "full validate", prompt: "PORTE" %>

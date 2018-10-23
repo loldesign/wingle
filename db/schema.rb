@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181015195912) do
+ActiveRecord::Schema.define(version: 20181023141735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,11 @@ ActiveRecord::Schema.define(version: 20181015195912) do
     t.string "corporate_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "start_date_month"
+    t.integer "start_date_year"
+    t.integer "end_date_month"
+    t.integer "end_date_year"
+    t.boolean "currently_work_here", default: false
     t.index ["candidate_id"], name: "index_candidate_current_companies_on_candidate_id"
   end
 

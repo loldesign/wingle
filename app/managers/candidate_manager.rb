@@ -99,7 +99,6 @@ class CandidateManager
   def update_candidate_current_companies
     if @candidate_current_company_params.present?
       ccc = @candidate_current_company_params
-      filter_date_params(ccc)
       @candidate_current_company.update_attributes(ccc)
     else
       false
