@@ -15,6 +15,7 @@ class Candidate::PretensionController < ApplicationController
       CandidateManager.new(candidate: @candidate).create_candidate_pretension
       @candidate_pretension = @candidate.candidate_pretension
     end
+
     if params_present_but_not_updated_filtered
       render action: :first
     end
@@ -57,7 +58,7 @@ class Candidate::PretensionController < ApplicationController
     end
 
     def candidate_pretension_params
-      params.fetch(:candidate_pretension, {}).permit(:last_monthly_salary, :nofsalaries, :variable, :last_salary_total, :pretension_minimum_percent, :pretension_yearly_total, :minimum_claim, benefits: [])
+      params.fetch(:candidate_pretension, {}).permit(:last_monthly_salary, :nofsalaries, :variable, :last_salary_total, :pretension_minimum_percent, :pretension_yearly_total, :minimum_claim, :bonus_or_plr, :total_pretended_from, benefits: [])
     end
 
     def candidate_pretension_filtered_params

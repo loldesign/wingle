@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181023172553) do
+ActiveRecord::Schema.define(version: 20181024172718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,6 +174,8 @@ ActiveRecord::Schema.define(version: 20181023172553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "minimum_claim"
+    t.decimal "bonus_or_plr"
+    t.decimal "total_pretended_from", precision: 8, scale: 2
     t.index ["candidate_id"], name: "index_candidate_pretensions_on_candidate_id"
   end
 
