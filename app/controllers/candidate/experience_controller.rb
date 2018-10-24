@@ -89,16 +89,6 @@ class Candidate::ExperienceController < ApplicationController
     end
   end
 
-  def seventh
-    ##### OLD SIXTH STEP #####
-
-    # if @candidate_experience.areas.nil? || @candidate_experience.areas == []
-    #   redirect_to action: :third
-    # else
-    #   @function = Function.by_ids_list(@candidate_experience.functions)
-    # end
-  end
-
   def complete
     if params_present_but_not_updated
       render action: :seventh

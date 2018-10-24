@@ -37,7 +37,6 @@ Rails.application.routes.draw do
     match 'experiencia/passo-4'         , to: 'experience#fourth'     , as: :experience_step_4        , via: [:get, :post]
     match 'experiencia/passo-5'         , to: 'experience#fifth'      , as: :experience_step_5        , via: [:get, :post]
     match 'experiencia/passo-6'         , to: 'experience#sixth'      , as: :experience_step_6        , via: [:get, :post]
-    match 'experiencia/passo-7'         , to: 'experience#seventh'    , as: :experience_step_7        , via: [:get, :post]
     post  'experiencia/passo-completo'  , to: 'experience#complete'   , as: :experience_step_complete
 
     #### COMPANY SECTOR #####
@@ -58,7 +57,6 @@ Rails.application.routes.draw do
     #### PRETENSION SECTOR #####
     get   'pretensao/passo-1'           , to: 'pretension#first'      , as: :pretension_step_1
     match 'pretensao/passo-2'           , to: 'pretension#second'     , as: :pretension_step_2         , via: [:get, :post]
-    match 'pretensao/passo-3'           , to: 'pretension#third'      , as: :pretension_step_3         , via: [:get, :post]
     post  'pretensao/complete'          , to: 'pretension#complete'   , as: :pretension_step_complete
   end
 

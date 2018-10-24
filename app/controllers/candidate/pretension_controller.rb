@@ -23,16 +23,6 @@ class Candidate::PretensionController < ApplicationController
     @benefits = BenefitsList.all
   end
 
-  def third
-    # @claim = AnnualClaimRateList.all
-    # rounded = @candidate_pretension.last_salary_total.present? ? (@candidate_pretension.last_salary_total/1000).ceil : 0
-    # @last_salary_total = rounded * 1000
-    # @selected = @candidate_pretension.pretension_minimum_percent.present? ? @candidate_pretension.pretension_minimum_percent : false
-    # if params_present_but_not_updated
-    #   render action: :second
-    # end
-  end
-
   def complete
     if params_present_but_not_updated
       render action: :second
