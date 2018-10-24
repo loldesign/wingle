@@ -10,6 +10,7 @@ class Company::AboutController < ApplicationController
 
   def second
     if params_present_but_not_updated
+      @company_size = CompanySize.all
       render action: :first
     end
 
@@ -18,6 +19,7 @@ class Company::AboutController < ApplicationController
 
   def third
     if params_present_but_not_updated
+      @sector = Sector.all
       render action: :second
     end
     @mode = Mode.all
@@ -25,6 +27,7 @@ class Company::AboutController < ApplicationController
 
   def fourth
     if params_present_but_not_updated
+      @mode = Mode.all
       render action: :third
     end
     @city = City.all
@@ -32,10 +35,11 @@ class Company::AboutController < ApplicationController
 
   def complete
     if params_present_but_not_updated
+      @city = City.all
       render action: :fourth
+    else
+      redirect_to company_home_path
     end
-
-    redirect_to company_home_path
   end
 
   private
