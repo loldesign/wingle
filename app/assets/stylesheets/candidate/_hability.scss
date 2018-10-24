@@ -1,8 +1,8 @@
 #first_step {
-  .collection {    
+  .collection {
     .hability-function-item-block {
       border-bottom: 1px solid #e0e0e0;
-      
+
       .function-list-item {
         cursor: pointer;
 
@@ -17,10 +17,10 @@
             font-size: 2rem;
 
             &.rotated {
-              transform:rotate(90deg); 
-              -webkit-transform:rotate(90deg); 
-              -moz-transform:rotate(90deg); 
-              -o-transform:rotate(90deg); 
+              transform:rotate(90deg);
+              -webkit-transform:rotate(90deg);
+              -moz-transform:rotate(90deg);
+              -o-transform:rotate(90deg);
             }
           }
         }
@@ -30,9 +30,13 @@
         span {
           font-weight: 400;
         }
-        
+
         &.hidden {
           display: none;
+        }
+
+        .action-item{
+          text-align: center;
         }
       }
 
@@ -40,16 +44,16 @@
         .function-list-item {
           .function-name {
             i {
-              transform:rotate(90deg); 
-              -webkit-transform:rotate(90deg); 
-              -moz-transform:rotate(90deg); 
-              -o-transform:rotate(90deg); 
+              transform:rotate(90deg);
+              -webkit-transform:rotate(90deg);
+              -moz-transform:rotate(90deg);
+              -o-transform:rotate(90deg);
 
               &.rotated {
-                transform:rotate(0deg); 
-                -webkit-transform:rotate(0deg); 
-                -moz-transform:rotate(0deg); 
-                -o-transform:rotate(0deg); 
+                transform:rotate(0deg);
+                -webkit-transform:rotate(0deg);
+                -moz-transform:rotate(0deg);
+                -o-transform:rotate(0deg);
               }
             }
           }
@@ -59,6 +63,12 @@
           &.hidden {
             display: block;
           }
+        }
+      }
+
+      &:last-of-type{
+        .action-item{
+          display: none;
         }
       }
     }
