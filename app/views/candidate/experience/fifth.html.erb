@@ -27,6 +27,18 @@
             </div>
           </li>
         <% end %>
+        <li class="collection-item with-select">
+          <p>
+            <label>
+              <span>Outros</span>
+            </label>
+          </p>
+
+          <div class="select-box-with-error">
+            <%= select_tag "candidate_experience[others_percentage]", options_for_select(@array_list, @candidate_experience.present? && @candidate_experience.others_percentage.present? ? @candidate_experience.others_percentage : ""), {include_blank: true, class: 'half-input validate experience-percentage'} %>
+            <p class="error-message hide">Obrigatório</p>
+          </div>
+        </li>
         <li class="collection-item experience-calc-result">
           <p><label class='percentage-sum-text'>&nbsp;</label><p>
           <p>
