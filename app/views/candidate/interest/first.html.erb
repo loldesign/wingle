@@ -1,4 +1,4 @@
-<section id="first_step" class="question-container content">
+<section id="first_step" class="question-container content" data-min="1">
   <%= form_tag({controller: "interest", action: "second"}, method: "post", id: "candidate_first") do %>
     <section class="content-box">
       <ul class="collection with-header">
@@ -9,6 +9,7 @@
 
           <h5 class="center-align section">Qual a sua localização de interesse?</h5>
         </li>
+        
         <% @city.each do |city| %>
           <div class="interest-locale-item-block">
             <li class="city-list-item collection-item">
@@ -52,7 +53,7 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", @link_url, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_first').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large next-step #{@candidate_interest.cities.empty? ? 'disabled' : ''}", :onclick => "$('#candidate_first').submit()" %>
     </section>
   <% end %>
 </section>

@@ -4,6 +4,10 @@ class Candidate::PretensionController < ApplicationController
 
   def first
     @salary_list = NofsalariesList.all
+    @claim = AnnualClaimRateList.all
+    rounded = @candidate_pretension.last_salary_total.present? ? (@candidate_pretension.last_salary_total/1000).ceil : 0
+    @last_salary_total = rounded * 1000
+    @selected = @candidate_pretension.pretension_minimum_percent.present? ? @candidate_pretension.pretension_minimum_percent : false
   end
 
   def second
@@ -19,19 +23,18 @@ class Candidate::PretensionController < ApplicationController
   end
 
   def third
-    if params_present_but_not_updated
-      render action: :second
-    end
-
-    @claim = AnnualClaimRateList.all
-    rounded = @candidate_pretension.last_salary_total.present? ? (@candidate_pretension.last_salary_total/1000).ceil : 0
-    @last_salary_total = rounded * 1000
-    @selected = @candidate_pretension.pretension_minimum_percent.present? ? @candidate_pretension.pretension_minimum_percent : false
+    # @claim = AnnualClaimRateList.all
+    # rounded = @candidate_pretension.last_salary_total.present? ? (@candidate_pretension.last_salary_total/1000).ceil : 0
+    # @last_salary_total = rounded * 1000
+    # @selected = @candidate_pretension.pretension_minimum_percent.present? ? @candidate_pretension.pretension_minimum_percent : false
+    # if params_present_but_not_updated
+    #   render action: :second
+    # end
   end
 
   def complete
-    if params_present_but_not_updated_filtered
-      render action: :third
+    if params_present_but_not_updated
+      render action: :second
     end
 
     @candidate.completed! if @candidate.reload.pretension?

@@ -1,6 +1,6 @@
 <section id="fourth_step" class="question-container content">
   <%= form_tag({controller: "interest", action: "fifth"}, method: "post", id: "candidate_fourth") do %>
-    <section class="content-box">
+    <section class="content-box validate-radio-box">
       <ul class="collection with-header">
         <li class="collection-header">
           <div class="progress ">
@@ -13,7 +13,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= radio_button_tag "candidate_interest[modes][]", mode.id, @candidate_interest.modes.include?(mode.id) ? true : false, class: "with-gap" %>
+                <%= radio_button_tag "candidate_interest[modes][]", mode.id, @candidate_interest.modes.include?(mode.id) ? true : false, class: "with-gap validate" %>
                   <span>
                     <%= mode.name %>
                   </span>
@@ -22,11 +22,12 @@
           </li>
         <% end %>
       </ul>
+      <p class="radio-error-message hide">Favor preencher algum dos campos</p> 
     </section>
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_interest_step_3_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large", :onclick => "$('#candidate_fourth').submit()" %>
+      <%= link_to "Próximo", 'javascript:void(0);', :class => "waves-effect waves-light btn-large radio-validate", id: "validate-form-button", data: {with_radios: 'true'} %>
     </section>
   <% end %>
 </section>

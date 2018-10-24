@@ -1,9 +1,9 @@
 <section id="first_step" class="question-container content experience-step">
   <%= form_tag({controller: "experience", action: "second"}, method: "post", id: "candidate_first") do %>
-    <section class="content-box language-level-box">
+    <section class="content-box validate-radio-box">
       <ul class="collection with-header">
         <li class="collection-header">
-          <div class="progress ">
+          <div class="progress">
             <div class="determinate" style="width: 15%"></div>
           </div>
 
@@ -21,7 +21,7 @@
           </li>
         <% end %>
       </ul>
-      <p class="radio-error-message hide">Obrigatório</p> 
+      <p class="radio-error-message hide">Favor preencher algum dos campos</p> 
     </section>
 
     <section class="action-buttons-duo">

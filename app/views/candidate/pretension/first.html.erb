@@ -7,14 +7,14 @@
             <div class="determinate" style="width: 60%"></div>
           </div>
 
-          <h5 class="center-align section">Informe sua última remuneração</h5>
+          <h5 class="center-align section">Informe sua remuneração e pretensão</h5>
         </li>
 
         <li class="collection-item pretension-calc-item">
           <p class="half-label">
             <label>
               <span>
-                SALÁRIO FIXO MENSAL
+                ÚLTIMO SALÁRIO FIXO
               </span>
             </label>
           </p>
@@ -46,7 +46,7 @@
           <p class="half-label">
             <label>
               <span>
-                VARIÁVEL ANUAL
+                BÔNUS OU PLR
               </span>
             </label>
           </p>
@@ -58,16 +58,46 @@
           </div>
         </li>
 
-        <li class="collection-item pretension-calc-result">
-          <p>
+        <li class="collection-item pretension-calc-item">
+          <p class="half-label">
             <label>
-              <span class="light-green-text">
+              <span>
+                PRETENSÃO ANUAL
+              </span>
+            </label>
+          </p>
+        
+          <%= select_tag 'candidate_pretension[pretension_minimum_percent]', options_for_select(@claim.collect{ |claim| [claim.name, claim.value] }, selected: @selected), class: "custom", id: "claim_list", :include_blank => true %>
+        </li>
+
+        <li class="collection-item pretension-calc-item">
+          <p class="half-label">
+            <label>
+              <span>
                 TOTAL ANUAL
               </span>
             </label>
           </p>
           
-          <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input", value: @candidate_pretension.present? ? number_to_currency(@candidate_pretension.last_salary_total, precision: 0) : "" ,readonly: true %>
+          <div class="box-with-error">
+            <%= text_field "candidate_pretension", "last_salary_total", placeholder: "R$:", class: "half-input validate", value: @candidate_pretension.present? ? number_to_currency(@candidate_pretension.last_salary_total, precision: 0) : "" ,readonly: true %>
+
+            <p class="error-message hide">Obrigatório</p>
+          </div>
+        </li>
+
+        <li class="collection-item pretension-calc-item">
+          <p class="half-label">
+            <label>
+              <span>
+                TOTAL PRETENDIDO A PARTIR DE
+              </span>
+            </label>
+          </p>
+          
+          <!-- <div class="box-with-error">
+            <%= text_field "candidate_pretension", "pretension_yearly_total", placeholder: "R$:", class: "half-input black", value: number_to_currency(@candidate_pretension.pretension_yearly_total, precision: 0), id: "pretension_yearly_total", readonly: true %>
+          </div> -->
         </li>
       </ul>
     </section>

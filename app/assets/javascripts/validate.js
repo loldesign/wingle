@@ -32,10 +32,10 @@ validateRadio = function() {
       var name = $(this).attr("name");
       if($('input:radio[name="'+name+'"]:checked').length == 0){
           check = false;
-          $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').removeClass('hide')
+          $('input:radio[name="'+name+'"]').closest('.validate-radio-box').find('.radio-error-message').removeClass('hide')
       } else {
         check = true
-        $('input:radio[name="'+name+'"]').closest('.language-level-box').find('.radio-error-message').addClass('hide')
+        $('input:radio[name="'+name+'"]').closest('.validate-radio-box').find('.radio-error-message').addClass('hide')
       }
   });
   
