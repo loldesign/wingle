@@ -16,7 +16,7 @@
           <li class="collection-item">
             <p>
               <label>
-                <%= check_box_tag "company_about[sectors][]", sector.id, @company_about.sectors.include?(sector.id) ? true : false, class: "with-gap" %>
+                <%= radio_button_tag "company_about[sectors][]", sector.id, @company_about.sectors.include?(sector.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= sector.name %><br>
                     <strong><%= sector.description %></strong>
