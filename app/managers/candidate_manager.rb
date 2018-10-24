@@ -32,6 +32,7 @@ class CandidateManager
   end
 
   def create_candidate_experience_function
+    @candidate_experience.others_percentage = @candidate_experience_params[:others_percentage]
     exp_functions = @candidate_experience_params[:candidate_experience_function]
 
     exp_functions.each do |function|
