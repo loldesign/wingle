@@ -17,14 +17,14 @@ class Candidate::CompanyController < ApplicationController
 
     if @candidate_current_company.nil?
       CandidateManager.new(candidate: @candidate).create_candidate_current_company
-      @candidate_current_company = @candidate.candidate_current_company
+      @current_company = @candidate.candidate_current_company
     end
 
     @months = arrayForSelect(1, 12)
     @years  = arrayForSelect(1990, Date.today.year)
 
     if params[:candidate_current_company].present?
-      manager = CandidateManager.new(candidate_current_company: @candidate_current_company, candidate_current_company_params: candidate_current_company_params)
+      manager = CandidateManager.new(candidate_current_company: @current_company, candidate_current_company_params: candidate_current_company_params)
       saved = manager.update_candidate_current_companies
       if !saved
         @start_date_error_present = @current_company.errors.present? && (@current_company.errors[:start_date_month].present? || @current_company.errors[:start_date_year].present? || @current_company.errors[:start_date].present?)
