@@ -92,7 +92,7 @@
           </p>
           
           <div class="box-with-error">
-            <%= text_field "candidate_pretension", "total_pretended_from", placeholder: "R$:", class: "half-input", value: number_to_currency(@candidate_pretension.total_pretended_from, precision: 0), id: "total_pretended_from" %>
+            <%= text_field "candidate_pretension", "total_pretended_from", placeholder: "R$:", class: "half-input", value: @candidate_pretension.present? ? number_to_currency(@candidate_pretension.total_pretended_from, precision: 0) : "", id: "total_pretended_from" %>
           </div>
         </li>
       </ul>

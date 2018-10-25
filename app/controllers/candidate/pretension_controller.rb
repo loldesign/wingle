@@ -5,6 +5,7 @@ class Candidate::PretensionController < ApplicationController
   def first
     @salary_list = NofsalariesList.all
     @claim = AnnualClaimRateList.all
+    @candidate_pretension = @candidate.build_candidate_pretension if @candidate_pretension.nil?
     rounded = @candidate_pretension.last_salary_total.present? ? (@candidate_pretension.last_salary_total/1000).ceil : 0
     @last_salary_total = rounded * 1000
     @selected = @candidate_pretension.pretension_minimum_percent.present? ? @candidate_pretension.pretension_minimum_percent : false
