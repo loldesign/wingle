@@ -23,11 +23,12 @@
               
               <div class="responsive-container validate validate-date">
                 <div class="candidate-company-date start_date">
+                  <% binding.pry %>
                   <%= label_tag 'candidate_companies_5_start_date', 'Data de início' %>
                   <div class="two-items">
-                    <%= co.select :start_date_month, @months, { include_blank: "MÊS" }, { name: "candidate_companies[][start_date_month]", class: "start_date_month", value: (company.present? && company.start_date_month.present?) ? company.start_date_month : @current_company.start_date_month } %>
+                    <%= co.select :start_date_month, @months, { include_blank: "MÊS", selected: (company.present? && company.start_date_month.present?) ? company.start_date_month : @current_company.start_date_month }, { name: "candidate_companies[][start_date_month]", class: "start_date_month" } %>
 
-                    <%= co.select :start_date_year, @years, { include_blank: "ANO" }  , { name: "candidate_companies[][start_date_year]", class: "start_date_year", value: (company.present? && company.start_date_year.present?) ? company.start_date_year : @current_company.start_date_year } %>
+                    <%= co.select :start_date_year, @years, { include_blank: "ANO", selected: (company.present? && company.start_date_year.present?) ? company.start_date_year : @current_company.start_date_year }, { name: "candidate_companies[][start_date_year]", class: "start_date_year" } %>
                   </div>
                   <p class="error-message hide">Obrigatório</p>
                 </div>
@@ -35,9 +36,9 @@
                 <div class="candidate-company-date end_date">
                   <%= label_tag 'candidate_companies_5_end_date', 'Data de fim' %>
                   <div class="two-items">
-                    <%= co.select :end_date_month, @months, { include_blank: "MÊS" }, { name: "candidate_companies[][end_date_month]", class: "end_date_month", value: (company.present? && company.end_date_month.present?) ? company.end_date_month : @current_company.end_date_month } %>
+                    <%= co.select :end_date_month, @months, { include_blank: "MÊS", selected: (company.present? && company.end_date_month.present?) ? company.end_date_month : @current_company.end_date_month }, { name: "candidate_companies[][end_date_month]", class: "end_date_month" } %>
 
-                    <%= co.select :end_date_year, @years, { include_blank: "ANO" }, { name: "candidate_companies[][end_date_year]", class: "end_date_year", value: (company.present? && company.end_date_year.present?) ? company.end_date_year : @current_company.end_date_year } %>
+                    <%= co.select :end_date_year, @years, { include_blank: "ANO", selected: (company.present? && company.end_date_year.present?) ? company.end_date_year : @current_company.end_date_year}, { name: "candidate_companies[][end_date_year]", class: "end_date_year" } %>
                   </div>
                   <p class="error-message hide">Obrigatório</p>
                 </div>

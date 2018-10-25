@@ -22,12 +22,12 @@
                 <div class="candidate-company-date box-with-error content-box">
                   <%= ccc.select :start_date_month, @months, { include_blank: "MÊS INÍCIO" }, { name: "candidate_current_company[start_date_month]", class: "validate #{'warning' if @current_company.errors[:start_date_month].present? || @current_company.errors[:start_date].present? }" } %>
                   <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date_month].first if @start_date_error_present %></p>
+                  <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date].first if @start_date_error_present %></p>
                 </div>
                 <div class="candidate-company-date box-with-error content-box">
                   <%= ccc.select :start_date_year, @years, { include_blank: "ANO INÍCIO" }, { name: "candidate_current_company[start_date_year]", class: "validate #{'warning' if @current_company.errors[:start_date_year].present? || @current_company.errors[:start_date].present? }" } %>
                   <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date_year].first if @start_date_error_present %></p>
                 </div>
-                <p class="error-message <%= 'hide' if !@start_date_error_present %>"><%= @current_company.errors[:start_date].first if @start_date_error_present %></p>
               </div>
 
               <div class="candidate-company-date box-with-error half current-end-date" id="current_end_date">
