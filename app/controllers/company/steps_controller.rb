@@ -16,6 +16,7 @@ class Company::StepsController < ApplicationController
     @company.company_about = CompanyAbout.new
 
     if @company.save
+      sign_out(current_candidate) if current_candidate
       sign_in(@company)
       redirect_to company_terms_path
     else
@@ -34,6 +35,7 @@ class Company::StepsController < ApplicationController
       return false if     company.nil?
       return false unless company.valid_password?(company_params[:password])
 
+      sign_out(current_candidate) if current_candidate
       sign_in(company)
 
       redirect_to company_home_path

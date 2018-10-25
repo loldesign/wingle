@@ -46,6 +46,7 @@ class Candidate::StepsController < ApplicationController
     if @candidate.save
       session[:cpf] = nil
       session[:password] = nil
+      sign_out(current_company) if current_company
       sign_in(@candidate)
       redirect_to candidate_terms_path
     else
@@ -80,6 +81,7 @@ class Candidate::StepsController < ApplicationController
       return false if     candidate.nil?
       return false unless candidate.valid_password?(params[:password])
 
+      sign_out(current_company) if current_company
       sign_in(candidate)
 
       redirect_to candidate_home_path
