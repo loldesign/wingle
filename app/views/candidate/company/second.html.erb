@@ -23,7 +23,6 @@
               
               <div class="responsive-container validate validate-date">
                 <div class="candidate-company-date start_date">
-                  <% binding.pry %>
                   <%= label_tag 'candidate_companies_5_start_date', 'Data de início' %>
                   <div class="two-items">
                     <%= co.select :start_date_month, @months, { include_blank: "MÊS", selected: (company.present? && company.start_date_month.present?) ? company.start_date_month : @current_company.start_date_month }, { name: "candidate_companies[][start_date_month]", class: "start_date_month" } %>
