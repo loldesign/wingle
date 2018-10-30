@@ -1,0 +1,22 @@
+<section id="third_step" class="filter-container content">
+  <section class="content-box">
+    <ul class="collection with-header">
+      <li class="collection-header">
+        <div class="progress">
+          <div class="determinate" style="width: 60%"></div>
+        </div>
+        <h5 class="center-align section"></h5>
+      </li>
+
+      <% @title_list.each do |title_list| %>
+        <li class="collection-item">
+          <%= link_to title_list.name, company_filter_step_4_path %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="action-buttons-single">
+    <%= link_to "Anterior", company_filter_step_2_path, class: "waves-effect waves-light btn-large" %>
+  </section>
+</section>

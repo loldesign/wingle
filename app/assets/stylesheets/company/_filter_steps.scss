@@ -1,0 +1,47 @@
+/* GENERAL FILTER STEPS */
+.filter-container {
+  .collection-item {
+    font-size: 1.1vw;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 2vh 1.6vw !important;
+
+    a {
+      color: #9e9e9e;
+    }
+
+    &.company-filter-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: none;
+
+      .half-label {
+        width: 40%;
+        margin-bottom: 0;
+      }
+
+      .box-with-error {
+        width: 50%;
+
+        select {
+          width: 100%;
+          margin-bottom: 0 !important;
+        }
+      }
+    }
+  }
+
+  .action-buttons-single {
+    padding-top: 4vh;
+  }
+
+  .action-buttons-duo {
+    padding: 5vh 0 7vh;
+  }
+
+  .error-message {
+    margin-top: .3vh;
+    font-size: .7vw;
+  }
+}

@@ -47,9 +47,6 @@ else
 end
 
 
-
-
-
 puts "---> Processing Neighborhood ..."
 # if after Oct 5, 2018 it may have 10 neighborhoods
 sp = City.first
@@ -791,18 +788,6 @@ Relevance.find_or_create_by(name: 'LOCALIZAÇÃO', priority: 1)
   Hability.find_or_create_by(name: "Apoiar líderes de departamentos com análises detalhadas", function: function_48)
   Hability.find_or_create_by(name: "Preparar apresentações para o conselho de administração", function: function_48)
 
-  function_48 = Function.find_or_create_by(name: 'Planejamento Financeiro', area: area_05)
-  Hability.find_or_create_by(name: "Analisar receita, custo, despesas e ganhos de capital", function: function_48)
-  Hability.find_or_create_by(name: "Monitorar indicadores de desempenho", function: function_48)
-  Hability.find_or_create_by(name: "Analisar tendências e variação inesperada", function: function_48)
-  Hability.find_or_create_by(name: "Gerenciar ferramentas de orçamento, previsão e plano operacional", function: function_48)
-  Hability.find_or_create_by(name: "Atualizar relatórios financeiros trimestrais e mensais", function: function_48)
-  Hability.find_or_create_by(name: "Avaliar eficiência de processos", function: function_48)
-  Hability.find_or_create_by(name: "Entender o ROI de produtos ou serviços", function: function_48)
-  Hability.find_or_create_by(name: "Desenvolver modelos financeiros para apoiar iniciativas estratégicas", function: function_48)
-  Hability.find_or_create_by(name: "Apoiar líderes de departamentos com análises detalhadas", function: function_48)
-  Hability.find_or_create_by(name: "Preparar apresentações para o conselho de administração", function: function_48)
-
   function_49 = Function.find_or_create_by(name: 'Planejamento Estratégico (MKT)', area: area_05)
   Hability.find_or_create_by(name: "Modelar a estratégia e missão da empresa", function: function_49)
   Hability.find_or_create_by(name: "Desenvolver planos de negócio", function: function_49)
@@ -1127,7 +1112,7 @@ Relevance.find_or_create_by(name: 'LOCALIZAÇÃO', priority: 1)
   Hability.find_or_create_by(name: "Investigar novas possibilidades através de dados", function: function_75)
 
   # AREA 11
-  area_11 = Area.find_or_create_by(name: 'TI: Banco de dados e Analytics')
+  area_11 = Area.find_or_create_by(name: 'TI: Desenvolvimento e metodologia Ágil')
 
   # FUNCOES AREA 11
   function_76 = Function.find_or_create_by(name: 'Arquitetura de Software', area: area_11)

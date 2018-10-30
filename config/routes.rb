@@ -73,18 +73,28 @@ Rails.application.routes.draw do
     get   '/termos'                     , to: 'steps#terms'            , as: :terms
     post  '/termos'                     , to: 'steps#create_company'   , as: :create_company
 
-    ##### MAIN CANDIDATE AREA #####
+    ##### MAIN COMPANY AREA #####
     get  '/home'                        , to: 'main#home'             , as: :home
     get  '/perfil'                      , to: 'main#profile'          , as: :profile
     post '/atualizar-perfil'            , to: 'main#update_profile'   , as: :update_profile
 
     #### ABOUT SECTOR #####
-    get   'sobre/passo-1'               , to: 'about#first'        , as: :about_step_1
-    match 'sobre/passo-2'               , to: 'about#second'       , as: :about_step_2         , via: [:get, :post]
-    match 'sobre/passo-3'               , to: 'about#third'        , as: :about_step_3         , via: [:get, :post]
-    match 'sobre/passo-4'               , to: 'about#fourth'       , as: :about_step_4         , via: [:get, :post]
-    match 'sobre/passo-5'               , to: 'about#fifth'        , as: :about_step_5         , via: [:get, :post]
-    post  'sobre/passo-completo'        , to: 'about#complete'     , as: :about_step_complete
+    get   'sobre/passo-1'               , to: 'about#first'             , as: :about_step_1
+    match 'sobre/passo-2'               , to: 'about#second'            , as: :about_step_2         , via: [:get, :post]
+    match 'sobre/passo-3'               , to: 'about#third'             , as: :about_step_3         , via: [:get, :post]
+    match 'sobre/passo-4'               , to: 'about#fourth'            , as: :about_step_4         , via: [:get, :post]
+    match 'sobre/passo-5'               , to: 'about#fifth'             , as: :about_step_5         , via: [:get, :post]
+    post  'sobre/passo-completo'        , to: 'about#complete'          , as: :about_step_complete
+    get   'sobre/passo-completo'        , to: 'about#complete_register' , as: :about_complete_register
+
+    #### FILTER CANDIDATE AREA #####
+    get   'buscar-candidato/passo-1'    , to: 'filter_candidate#first'  , as: :filter_step_1
+    get   'buscar-candidato/passo-2'    , to: 'filter_candidate#second' , as: :filter_step_2
+    get   'buscar-candidato/passo-3'    , to: 'filter_candidate#third'  , as: :filter_step_3
+    get   'buscar-candidato/passo-4'    , to: 'filter_candidate#fourth' , as: :filter_step_4
+
+    #### CANDIDATE PROFILE AREA #####
+    get   'candidato/perfil'            , to: 'candidate#profile'       , as: :candidate_profile
   end
 
 
