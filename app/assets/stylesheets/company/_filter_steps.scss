@@ -29,6 +29,42 @@
           margin-bottom: 0 !important;
         }
       }
+
+      .price-range-block {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 4vh 2vw;
+
+        #slider-range {
+          width: 100%;
+          border-radius: 50px;
+          margin-bottom: 6vh;
+
+          .ui-slider-range {
+            background: #06bebd; /* Old browsers */
+            background: -moz-linear-gradient(left, #06bebd 0%, #51c597 50%, #b7ce63 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(left, #06bebd 0%,#51c597 50%,#b7ce63 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right, #06bebd 0%,#51c597 50%,#b7ce63 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#06bebd', endColorstr='#b7ce63',GradientType=1 );
+          }
+
+          .ui-slider-handle {
+            border-radius: 50px;
+            background-color: #73CBAF;
+          }
+        }
+
+        input {
+          width: 20%;
+          margin-bottom: 0;
+        }
+      }
+
+      &:last-of-type {
+        justify-content: center;
+      }
     }
   }
 

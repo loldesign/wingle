@@ -18,6 +18,7 @@
 //= require main
 //= require materialize.min
 //= require toastr
+//= require price_range_script
 //= require toggle_items
 //= require reset_password
 //= require options_count

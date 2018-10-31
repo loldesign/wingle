@@ -89,7 +89,11 @@
       </li>
 
       <li class="collection-item company-filter-item">
-        teste
+        <div class="price-range-block">
+          <div id="slider-range" class="price-filter-range" name="rangeInput"></div>
+          <input type="number" min=0 max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
+          <input type="number" min=0 max="10000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field" />
+        </div>
       </li>
 
       <li class="collection-item company-filter-item">
