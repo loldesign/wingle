@@ -28,7 +28,9 @@ Rails.application.configure do
 
   # assets path
   config.asset_host = 'http://localhost:8000'
+  # config.asset_host = '192.168.1.2:8000'
   config.action_controller.asset_host = 'http://localhost:8000'
+  # config.action_controller.asset_host = '192.168.1.2:8000'
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

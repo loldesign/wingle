@@ -68,7 +68,7 @@ Rails.application.routes.draw do
     passwords: 'companies/passwords'
   }
 
-  namespace :company do
+  namespace :company, path: "empresa" do
     get   '/company-login'              , to: 'steps#login_or_register', as: :login_or_register
     get   '/termos'                     , to: 'steps#terms'            , as: :terms
     post  '/termos'                     , to: 'steps#create_company'   , as: :create_company

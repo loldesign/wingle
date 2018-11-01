@@ -1,0 +1,243 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #company_candidate_profile {
+    padding: 0 5vw;
+
+    .candidate-contact-infos {
+      .top-infos {
+        flex-wrap: wrap;
+        margin-bottom: 6vh;
+
+        .button-box {
+          display: none;
+        }
+
+        .button-box-responsive,
+        select {
+          width: 45%;
+          background-size: 4vw;
+          background-position-x: 95%;
+        }
+
+        .button-box-responsive {
+          display: block;
+
+          button {
+            width: 100%;
+            background-color: $light-green;
+          }
+        }
+
+        .main-infos {
+          width: 100%;
+          margin-bottom: 4vh;
+        }
+      }
+
+      .contact-actions {
+        i {
+          font-size: 10vw;
+        }
+      }
+    }
+    
+    .candidate-complete-infos {
+      .title-area-left,
+      .title-area {
+        font-size: 6vw;
+      }
+
+      .candidate-carrer-experience-info {
+        flex-direction: column;
+        padding: 2vh 3vw;
+
+        .candidate-title-box {
+          flex-direction: row;
+          justify-content: flex-start;
+          margin-bottom: 3vh;
+          width: 100%;
+
+          p {
+            text-align: left;
+          }
+
+          .candidate-experience-level {
+            width: 40%;
+            height: 8vh;
+            margin-right: 6vw;
+            margin-bottom: 0;
+          }
+
+          &.first-box {
+            .candidate-experience-level {
+              border-top-left-radius: 14px;
+              border-top-right-radius: 14px;
+              border-bottom-left-radius: 0;
+            }
+          }
+
+          &.fourth-box {
+            margin-bottom: 0;
+
+            .candidate-experience-level {
+              border-bottom-left-radius: 14px;
+              border-bottom-right-radius: 14px;
+              border-top-right-radius: 0;
+            }
+          }
+        }
+      }
+
+      .candidate-companies-info {
+        padding: 2vh 3vw;
+
+        .compatibility-with-company-size {
+          &.active {
+            justify-content: center;
+            font-size: 4vw;
+            font-weight: bold;
+            color: $gray;
+            margin-bottom: 2vh;
+
+            span {
+              margin-right: 1.5vw;
+              font-size: 7vw;
+            }
+          }
+        }
+
+        .relevant-companies {
+          flex-direction: column;
+
+          .candidate-company-box {
+            width: 100%;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            margin-bottom: 3vh;
+
+            p {
+              text-align: left;
+              margin-bottom: 0;
+            }
+
+            .candidate-company-time {
+              width: 40%;
+              height: 8vh;
+              margin-right: 6vw;
+              margin-bottom: 0;
+            }
+
+            &.first-box {
+              .candidate-company-time {
+                border-top-left-radius: 14px;
+                border-top-right-radius: 14px;
+                border-bottom-left-radius: 0;
+              }
+            }
+
+            &.fifth-box {
+              margin-bottom: 0;
+
+              .candidate-company-time {
+                border-bottom-left-radius: 14px;
+                border-bottom-right-radius: 14px;
+                border-top-right-radius: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .candidate-main-functions {
+        padding: 2vh 3vw;
+
+        .title-area {
+          align-items: flex-end;
+
+          h5 {
+            text-align: center;
+          }
+
+          i {
+            font-size: 12vw;
+          }
+        }
+
+        .functions-and-languages {
+          flex-direction: column;
+
+          .candidate-functions,
+          .candidate-languages {
+            width: 100%;
+
+            .function-item {
+              align-items: center;
+
+              p {
+                &:last-of-type {
+                  font-size: 5vw;
+                  margin-right: 2vw;
+                }
+              }
+            }
+          }
+
+          .candidate-languages {
+            margin-top: 4vh;
+
+            .language-item {
+              .language-level {
+                margin-right: 2vw;
+
+                .circle {
+                  width: 5vw;
+                  height: 5vw;
+                  margin-right: 3vw;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .candidate-experiences-info {
+      padding: 2vh 3vw;
+    }
+
+    .interest-infos-container {
+      h5 {
+        font-size: 6vw;
+      }
+
+      .candidate-interest-infos {
+        padding: 2vh 3vw;
+
+        .left-infos,
+        .right-infos {
+          width: 100%;
+        }
+
+        .left-infos {
+          .localization,
+          .size,
+          .sector {
+            .circle {
+              width: 7.3vw;
+              height: 7.3vw;
+              margin-right: 4.5vw;
+            }
+          }
+        }
+
+        .right-infos {
+          align-items: flex-start;
+
+          p {
+            margin-bottom: 2vh;
+          }
+        }
+      }
+    }
+  }
+}
