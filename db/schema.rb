@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181024174420) do
+ActiveRecord::Schema.define(version: 20181101141321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -359,6 +359,17 @@ ActiveRecord::Schema.define(version: 20181024174420) do
     t.string "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "process_selections", force: :cascade do |t|
+    t.bigint "company_id"
+    t.string "owner_type"
+    t.bigint "owner_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_process_selections_on_company_id"
+    t.index ["owner_type", "owner_id"], name: "index_process_selections_on_owner_type_and_owner_id"
   end
 
   create_table "range_lists", force: :cascade do |t|
