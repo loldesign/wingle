@@ -4,7 +4,8 @@ class Company < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :company_about, dependent: :destroy
+  has_one  :company_about, dependent: :destroy
+  has_many :process_selections
 
   scope :by_company_size, -> (company_size_id){ joins(:company_about).where("? = company_abouts.company_size_id", company_size_id) }
   scope :by_mode        , -> (mode_id)        { joins(:company_about).where("? = company_abouts.modes", mode_id) }

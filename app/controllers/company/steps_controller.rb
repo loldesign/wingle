@@ -16,8 +16,12 @@ class Company::StepsController < ApplicationController
     @company.company_about = CompanyAbout.new
 
     if @company.save
+      ProcessSelectionManager::Create.new(company: @company, owner: @company).process
+
       sign_out(current_candidate) if current_candidate
+
       sign_in(@company)
+
       redirect_to company_terms_path
     else
       render action: :login_or_register
