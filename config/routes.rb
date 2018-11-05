@@ -93,7 +93,8 @@ Rails.application.routes.draw do
     get   'buscar-candidato/passo-4'    , to: 'filter_candidate#fourth' , as: :filter_step_4
 
     #### CANDIDATE PROFILE AREA #####
-    get   'candidato/perfil'            , to: 'candidate#profile'       , as: :candidate_profile
+    get   'candidato/perfil'                , to: 'candidate#profile'        , as: :candidate_profile
+    get   'candidato/perfil-confidencial'   , to: 'candidate#blind_profile'  , as: :candidate_profile_blind
   end
 
 
