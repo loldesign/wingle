@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181101141321) do
+ActiveRecord::Schema.define(version: 20181101185731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,6 +178,16 @@ ActiveRecord::Schema.define(version: 20181101141321) do
     t.decimal "bonus_or_plr"
     t.decimal "total_pretended_from", precision: 8, scale: 2
     t.index ["candidate_id"], name: "index_candidate_pretensions_on_candidate_id"
+  end
+
+  create_table "candidate_process_selections", force: :cascade do |t|
+    t.bigint "process_selection_id"
+    t.bigint "candidate_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_candidate_process_selections_on_candidate_id"
+    t.index ["process_selection_id"], name: "index_candidate_process_selections_on_process_selection_id"
   end
 
   create_table "candidates", force: :cascade do |t|
@@ -359,6 +369,16 @@ ActiveRecord::Schema.define(version: 20181101141321) do
     t.string "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "process_selection_candidates", force: :cascade do |t|
+    t.bigint "process_selection_id"
+    t.bigint "candidate_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_process_selection_candidates_on_candidate_id"
+    t.index ["process_selection_id"], name: "index_process_selection_candidates_on_process_selection_id"
   end
 
   create_table "process_selections", force: :cascade do |t|

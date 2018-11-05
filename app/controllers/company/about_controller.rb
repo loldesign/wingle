@@ -38,7 +38,7 @@ class Company::AboutController < ApplicationController
       @city = City.all
       render action: :fourth
     else
-      redirect_to company_about_complete_register_path
+      redirect_to company_home_path
     end
   end
 

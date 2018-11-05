@@ -85,7 +85,6 @@ Rails.application.routes.draw do
     match 'sobre/passo-4'               , to: 'about#fourth'            , as: :about_step_4         , via: [:get, :post]
     match 'sobre/passo-5'               , to: 'about#fifth'             , as: :about_step_5         , via: [:get, :post]
     post  'sobre/passo-completo'        , to: 'about#complete'          , as: :about_step_complete
-    get   'sobre/passo-completo'        , to: 'about#complete_register' , as: :about_complete_register
 
     #### FILTER CANDIDATE AREA #####
     get   'buscar-candidato/passo-1'    , to: 'filter_candidate#first'  , as: :filter_step_1

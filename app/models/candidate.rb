@@ -19,6 +19,8 @@ class Candidate < ApplicationRecord
   validates_associated :candidate_interest
 
   has_many :candidate_companies, dependent: :destroy
+  has_many :candidate_process_selections
+  has_many :process_selections, through: :candidate_process_selections
 
   validates :name, :cpf, :cellphone, presence: true
   validates_uniqueness_of :cpf

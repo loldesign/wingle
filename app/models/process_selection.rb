@@ -3,6 +3,8 @@ class ProcessSelection < ApplicationRecord
 
   belongs_to :owner, polymorphic: true
   belongs_to :company
+  has_many :candidate_process_selections
+  has_many :candidates, through: :candidate_process_selections
 
   aasm :column => :state, :logger => Rails.logger do
     state :setting, initial: true
