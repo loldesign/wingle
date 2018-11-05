@@ -1,0 +1,112 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  .filter-container {
+    padding: 0 5vw;
+
+    .content-box {
+      @include span-columns (6 of 6);
+      @include shift (0 of 6);
+
+      .collection {
+        .collection-item {
+          padding: 2vh 3vw !important;
+
+          p,
+          label {
+            margin-bottom: 0;
+          }
+
+          a {
+            text-transform: uppercase;
+            font-size: 3.5vw !important;
+            line-height: 2.4;
+          }
+
+          label {
+            span {
+              text-transform: uppercase;
+              font-size: 3.5vw !important;
+              line-height: 2.4;
+            }
+          }
+
+          &.with-select {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            p {
+              float: left;
+
+              &:first-of-type {
+                width: 10vw;
+              }
+
+              label {
+                font-size: 1vw;
+              }
+            }
+          }
+
+          &.with-select-full {
+            display: flex;
+            flex-direction: column;
+
+            p {
+              margin-bottom: 2vh;
+
+              label {
+                font-size: 1vw;
+              }
+            }
+          }
+
+          &.company-filter-item {
+            flex-direction: column;
+
+            p,
+            .box-with-error {
+              width: 100%;
+
+              select {
+                font-size: 3.5vw !important;
+                background-size: 3.5vw;
+              }
+            }
+
+            .price-range-block {
+              #slider-range {
+                height: 3vh;
+
+                .ui-slider-range {
+                  border-radius: 50px;
+                }
+
+                .ui-slider-handle {
+                  height: 7vw;
+                  width: 7vw;
+                  top: -.7vh;
+
+                  &:last-of-type {
+                    margin-left: -5.8vw;
+                  }
+                }
+              }
+
+              input {
+                width: 45%;
+              }
+            }
+
+            &:last-of-type {
+              p {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
