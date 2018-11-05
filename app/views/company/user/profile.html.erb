@@ -1,0 +1,51 @@
+<section id="company_user_profile" class="content">
+  <%= render :partial => "company/main/company_infos" %>
+
+  <section class="company-active-users-container shadow-box">
+    <ul>
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="active-user-info">
+            <p>Joaquim Moreira</p>
+          </div>
+        </div> 
+      </li>
+
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="active-user-info">
+            <p>Finanças</p>
+          </div>
+
+          <%= submit_tag "Minha carreira", class: "add-user-button", data: { disable_with: "..." } %>
+        </div> 
+      </li>
+
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="active-user-info">
+            <p>Diretor</p>
+          </div>
+        </div> 
+      </li>
+
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="active-user-info">
+            <p>(11) 99345-1423</p>
+          </div>
+        </div> 
+      </li>
+
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="active-user-info">
+            <p>fabio.saad@nestlé.com</p>
+          </div>
+
+          <%= submit_tag "Alterar Email", class: "add-user-button", data: { disable_with: "..." } %>
+        </div> 
+      </li>
+    </ul>
+  </section>
+</section>

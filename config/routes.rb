@@ -78,6 +78,9 @@ Rails.application.routes.draw do
     get  '/perfil'                      , to: 'main#profile'          , as: :profile
     post '/atualizar-perfil'            , to: 'main#update_profile'   , as: :update_profile
 
+    ##### MAIN USER COMPANY AREA #####
+    get  '/usuario/perfil'              , to: 'user#profile'          , as: :company_user_profile
+
     #### ABOUT SECTOR #####
     get   'sobre/passo-1'               , to: 'about#first'             , as: :about_step_1
     match 'sobre/passo-2'               , to: 'about#second'            , as: :about_step_2         , via: [:get, :post]

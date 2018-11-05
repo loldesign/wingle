@@ -1,0 +1,117 @@
+<section id="company_profile" class="content">
+  <%= render :partial => "company_infos" %>
+
+  <section class="add-user-container shadow-box">
+    <p>Adicionar Usuário</p>
+
+    <div class="add-user-field">
+      <div class="add-user-img-box">
+        <i class="material-icons">person_add</i>
+      </div>
+
+      <%= text_field_tag 'add_company_user', "", class: 'form-control' %>
+
+      <%= submit_tag "Autorizar", class: "add-user-button", data: { disable_with: "..." } %>
+    </div>
+  </section>
+
+  <section class="company-active-users-container">
+    <p>Usuários Ativos</p>
+    <ul>
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="add-user-img-box">
+            <i class="material-icons">person</i>
+          </div>
+
+          <div class="active-user-info">
+            <p>Rebecca Silva</p>
+            <p>Diretor - RH</p>
+          </div>
+
+          <%= submit_tag "Desativar", class: "add-user-button", data: { disable_with: "..." } %>
+        </div> 
+      </li>
+
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="add-user-img-box">
+            <i class="material-icons">person</i>
+          </div>
+
+          <div class="active-user-info">
+            <p>Martins dos Santos</p>
+            <p>Coordenador - RH</p>
+          </div>
+
+          <%= submit_tag "Desativar", class: "add-user-button", data: { disable_with: "..." } %>
+        </div> 
+      </li>
+
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="add-user-img-box">
+            <i class="material-icons">person</i>
+          </div>
+
+          <div class="active-user-info">
+            <p>Silvana Fisher (Admin)</p>
+            <p>Gerente - Marketing</p>
+          </div>
+
+          <%= submit_tag "Desativar", class: "add-user-button", data: { disable_with: "..." } %>
+        </div> 
+      </li>
+
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="add-user-img-box">
+            <i class="material-icons">person</i>
+          </div>
+
+          <div class="active-user-info">
+            <p>Laura Gouveia</p>
+            <p>Gerente - Finanças</p>
+          </div>
+
+          <%= submit_tag "Desativar", class: "add-user-button", data: { disable_with: "..." } %>
+        </div> 
+      </li>
+    </ul>
+  </section>
+
+  <section class="company-user-solicitations">
+    <p>Solicitações</p>
+    <ul>
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="add-user-img-box">
+            <i class="material-icons">person</i>
+          </div>
+
+          <div class="active-user-info">
+            <p>Paulo Augusto</p>
+            <p>Analista - Controladoria</p>
+          </div>
+
+          <%= submit_tag "Autorizar", class: "add-user-button", data: { disable_with: "..." } %>
+        </div> 
+      </li>
+
+      <li class="active-user-item">
+        <div class="add-user-field">
+          <div class="add-user-img-box">
+            <i class="material-icons">person</i>
+          </div>
+
+          <div class="active-user-info">
+            <p>Ubirajá Santos</p>
+            <p>Analista - Contábil</p>
+          </div>
+
+          <%= submit_tag "Autorizar", class: "add-user-button", data: { disable_with: "..." } %>
+        </div> 
+      </li>
+    </ul>
+  </section>
+</section>
