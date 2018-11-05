@@ -3,6 +3,12 @@
   #company_candidate_profile {
     padding: 0 5vw;
 
+    .order-by-icon {
+      right: 5vw;
+      top: 0;
+      font-size: 11vw;
+    }
+
     .candidate-contact-infos {
       .top-infos {
         flex-wrap: wrap;

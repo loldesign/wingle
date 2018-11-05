@@ -133,9 +133,11 @@
   /* ERROR INPUT MESSAGE */
   .error {
     margin-top: -3vh;
-    position: relative;
-    float: left;
     margin-bottom: 3vh;
     color: $error;
   }
+}
+
+#order-modal {
+  width: 90%;
 }
