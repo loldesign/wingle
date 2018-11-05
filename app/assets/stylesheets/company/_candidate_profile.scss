@@ -1,4 +1,15 @@
 #company_candidate_profile {
+  z-index: 99999;
+  
+  .order-by-icon {
+    position: absolute;
+    right: 9vw;
+    top: -12vh;
+    font-size: 3vw;
+    cursor: pointer;
+    color: $light-green;
+  }
+
   .candidate-contact-infos {
     display: flex;
     flex-direction: column;

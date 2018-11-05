@@ -1,4 +1,40 @@
 <section id="company_candidate_profile" class="content">
+  <div id="order-modal">
+    <h4 class="light-green-text">
+      <b>Ordenar Por:</b>
+    </h4>
+    
+    <ul>
+      <li>
+        Maior Remuneração Anual
+      </li>
+
+      <li>
+        Menor Remuneração Anual
+      </li>
+
+      <li>
+        Maior Remuneração Mensal
+      </li>
+
+      <li>
+        Menor Remuneração Mensal
+      </li>
+
+      <li>
+        Maior Tempo de Carreira
+      </li>
+
+      <li>
+        Menor Tempo de Carreira
+      </li>
+    </ul>
+  </div>
+
+  <%= link_to "#order-modal", :class => "fancybox" do %>
+    <i class="material-icons order-by-icon">filter_list</i>
+  <% end %>
+
   <article class="candidate-contact-infos">
     <div class="top-infos">
       <div class="button-box">
