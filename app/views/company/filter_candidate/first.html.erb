@@ -1,18 +1,23 @@
-<section id="first_step" class="filter-container content">
+<section id="first_step" class="filter-container content process-selection-options">
   <section class="content-box">
     <ul class="collection with-header">
       <li class="collection-header">
         <div class="progress">
           <div class="determinate" style="width: 20%"></div>
         </div>
-        <h5 class="center-align section"></h5>
+        <h5 class="center-align section">Área</h5>
       </li>
 
-      <% @area.each do |area| %>
-        <li class="collection-item">
-          <%= link_to area.name, company_filter_step_2_path %>
-        </li>
+      <%= form_tag company_filter_step_2_path do %>
+        <% @area.each do |area| %>
+          <li class="collection-item">
+            <%= link_to area.name, 'javascript://', data: {id: area.id}, class: 'option' %>
+          </li>
+        <% end %>
+
+        <%= hidden_field_tag 'process_selection[area_id]' %>
       <% end %>
+
     </ul>
   </section>
 

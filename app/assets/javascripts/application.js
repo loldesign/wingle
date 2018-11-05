@@ -26,6 +26,7 @@
 //= require habilities
 //= require experiences
 //= require companies
+//= require process_selection_manager
 //= require jquery.validate
 //= require_tree .
 //= require turbolinks

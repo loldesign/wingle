@@ -15,3 +15,6 @@ module ProcessSelectionManager
     end
   end
 end
+
+# How to use
+# ProcessSelectionManager::List.new(owner: current_company).active

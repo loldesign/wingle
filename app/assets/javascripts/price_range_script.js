@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+
 	$('#price-range-submit').hide();
 
 	$("#min_price,#max_price").on('change', function () {
@@ -17,23 +17,23 @@ $(document).ready(function(){
 	  $("#slider-range").slider({
 		values: [min_price_range, max_price_range]
 	  });
-	  
+
 	});
 
 
-	$("#min_price,#max_price").on("paste keyup", function () {                                        
+	$("#min_price,#max_price").on("paste keyup", function () {
 
 	  $('#price-range-submit').show();
 
 	  var min_price_range = parseInt($("#min_price").val());
 
 	  var max_price_range = parseInt($("#max_price").val());
-	  
+
 	  if(min_price_range == max_price_range){
 
 			max_price_range = min_price_range + 100;
-			
-			$("#min_price").val(min_price_range);		
+
+			$("#min_price").val(min_price_range);
 			$("#max_price").val(max_price_range);
 	  }
 
@@ -50,14 +50,14 @@ $(document).ready(function(){
 		orientation: "horizontal",
 		min: 0,
 		max: 10000,
-		values: [0, 10000],
+		values: [$("#min_price").val() || 0, $("#max_price").val() || 10000],
 		step: 100,
 
 		slide: function (event, ui) {
 		  if (ui.values[0] == ui.values[1]) {
 			  return false;
 		  }
-		  
+
 		  $("#min_price").val(ui.values[0]);
 		  $("#max_price").val(ui.values[1]);
 		}

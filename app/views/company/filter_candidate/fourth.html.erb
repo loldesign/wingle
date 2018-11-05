@@ -1,116 +1,118 @@
 <section id="fourth_step" class="filter-container content">
-  <section class="content-box">
-    <ul class="collection with-header">
-      <li class="collection-header">
-        <div class="progress">
-          <div class="determinate" style="width: 80%"></div>
-        </div>
-        <h5 class="center-align section"></h5>
-      </li>
-  
-      <li class="collection-item company-filter-item">
-        <p class="half-label">
-          <label>
-            <span>
-              GRAU DE INSTRUÇÃO
-            </span>
-          </label>
-        </p>
-        
-        <div class="box-with-error">
-          <%= select_tag 'company_filter[education]', options_for_select(@education_list.collect{ |education| [education.name] }), :class => "validate", :include_blank => true %>
+  <%= form_tag company_filter_step_5_path do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress">
+            <div class="determinate" style="width: 80%"></div>
+          </div>
+          <h5 class="center-align section">Informações</h5>
+        </li>
 
-          <p class="error-message hide">Obrigatório</p>
-        </div>
-      </li>
+        <li class="collection-item company-filter-item">
+          <p class="half-label">
+            <label>
+              <span>
+                GRAU DE INSTRUÇÃO
+              </span>
+            </label>
+          </p>
 
-      <li class="collection-item company-filter-item">
-        <p class="half-label">
-          <label>
-            <span>
-              IDIOMAS OBRIGATÓRIOS
-            </span>
-          </label>
-        </p>
-        
-        <div class="box-with-error">
-          <%= select_tag 'company_filter[language]', options_for_select(@language.collect{ |language| [language.name] }), :class => "validate", :include_blank => true %>
+          <div class="box-with-error">
+            <%= select_tag 'process_selection[education_list_id]', options_for_select(@education_list.collect{ |education| [education.name, education.id] }, @process_selection.education_list_id), :class => "validate", :include_blank => true %>
 
-          <p class="error-message hide">Obrigatório</p>
-        </div>
-      </li>
+            <p class="error-message hide">Obrigatório</p>
+          </div>
+        </li>
 
-      <li class="collection-item company-filter-item">
-        <p class="half-label">
-          <label>
-            <span>
-              TEMPO MÍNIMO NA FUNÇÃO
-            </span>
-          </label>
-        </p>
-        
-        <div class="box-with-error">
-          <%= select_tag 'company_filter[language]', options_for_select([["0 ano", 0], ["1 ano", 1], ["2 anos", 2], ["3 anos", 3], ["4 anos", 4], ["5 anos", 5], ["6 anos", 6], ["7 anos", 7], ["8 anos", 8], ["9 anos", 9], ["10 anos", 10], ["11 anos", 11], ["12 anos", 12], ["13 anos", 13], ["14 anos", 14], ["15 anos", 15]]), :class => "validate", :include_blank => true %>
+        <li class="collection-item company-filter-item">
+          <p class="half-label">
+            <label>
+              <span>
+                IDIOMAS OBRIGATÓRIOS
+              </span>
+            </label>
+          </p>
 
-          <p class="error-message hide">Obrigatório</p>
-        </div>
-      </li>
+          <div class="box-with-error">
+            <%= select_tag 'process_selection[language_list_id]', options_for_select(@language.collect{ |language| [language.name, language.id] }, @process_selection.language_list_id), :class => "validate", :include_blank => true %>
 
-      <li class="collection-item company-filter-item">
-        <p class="half-label">
-          <label>
-            <span>
-              TEMPO MÍNIMO NO CARGO
-            </span>
-          </label>
-        </p>
-        
-        <div class="box-with-error">
-          <%= select_tag 'company_filter[language]', options_for_select([["0 ano", 0], ["1 ano", 1], ["2 anos", 2], ["3 anos", 3], ["4 anos", 4], ["5 anos", 5], ["6 anos", 6], ["7 anos", 7], ["8 anos", 8], ["9 anos", 9], ["10 anos", 10], ["11 anos", 11], ["12 anos", 12], ["13 anos", 13], ["14 anos", 14], ["15 anos", 15]]), :class => "validate", :include_blank => true %>
+            <p class="error-message hide">Obrigatório</p>
+          </div>
+        </li>
 
-          <p class="error-message hide">Obrigatório</p>
-        </div>
-      </li>
+        <li class="collection-item company-filter-item">
+          <p class="half-label">
+            <label>
+              <span>
+                TEMPO MÍNIMO NA FUNÇÃO
+              </span>
+            </label>
+          </p>
 
-      <li class="collection-item company-filter-item">
-        <p class="half-label">
-          <label>
-            <span>
-              DESEJÁVEL EXPERIÊNCIA PRÉVIA
-            </span>
-          </label>
-        </p>
-        
-        <div class="box-with-error">
-          <%= select_tag 'company_filter[language]', options_for_select([["Setor", 0], ["Porte", 1], ["Setor e Porte", 2], ["Indiferente", 3]]), :class => "validate", :include_blank => true %>
+          <div class="box-with-error">
+            <%= select_tag 'process_selection[min_time_function]', options_for_select([["0 ano", 0], ["1 ano", 1], ["2 anos", 2], ["3 anos", 3], ["4 anos", 4], ["5 anos", 5], ["6 anos", 6], ["7 anos", 7], ["8 anos", 8], ["9 anos", 9], ["10 anos", 10], ["11 anos", 11], ["12 anos", 12], ["13 anos", 13], ["14 anos", 14], ["15 anos", 15]], @process_selection.min_time_function), :class => "validate", :include_blank => true %>
 
-          <p class="error-message hide">Obrigatório</p>
-        </div>
-      </li>
+            <p class="error-message hide">Obrigatório</p>
+          </div>
+        </li>
 
-      <li class="collection-item company-filter-item range-slider-item">
-        <p class="slider-label">Anual</p>
-        <div class="price-range-block">
-          <div id="slider-range" class="price-filter-range" name="rangeInput"></div>
-          <input type="number" min=0 max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
-          <input type="number" min=0 max="10000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field" />
-        </div>
-      </li>
+        <li class="collection-item company-filter-item">
+          <p class="half-label">
+            <label>
+              <span>
+                TEMPO MÍNIMO NO CARGO
+              </span>
+            </label>
+          </p>
 
-      <li class="collection-item company-filter-item">
-        <p>
-          <label>
-            <span>
-              Qtd de pessoas interessadas: 84
-            </span>
-          </label>
-        </p>
-      </li>
-    </ul>
-  </section>
+          <div class="box-with-error">
+            <%= select_tag 'process_selection[min_time_title]', options_for_select([["0 ano", 0], ["1 ano", 1], ["2 anos", 2], ["3 anos", 3], ["4 anos", 4], ["5 anos", 5], ["6 anos", 6], ["7 anos", 7], ["8 anos", 8], ["9 anos", 9], ["10 anos", 10], ["11 anos", 11], ["12 anos", 12], ["13 anos", 13], ["14 anos", 14], ["15 anos", 15]], @process_selection.min_time_title), :class => "validate", :include_blank => true %>
 
-  <section class="action-buttons-duo">
-    <%= link_to "Anterior", company_filter_step_3_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-    <%= link_to "Buscar",   company_candidate_profile_path, :class => "waves-effect waves-light btn-large" %>
-  </section>
+            <p class="error-message hide">Obrigatório</p>
+          </div>
+        </li>
+
+        <li class="collection-item company-filter-item">
+          <p class="half-label">
+            <label>
+              <span>
+                DESEJÁVEL EXPERIÊNCIA PRÉVIA
+              </span>
+            </label>
+          </p>
+
+          <div class="box-with-error">
+            <%= select_tag 'process_selection[title_list_id]', options_for_select([["Setor", 0], ["Porte", 1], ["Setor e Porte", 2], ["Indiferente", 3]], @process_selection.title_list_id), :class => "validate", :include_blank => true %>
+
+            <p class="error-message hide">Obrigatório</p>
+          </div>
+        </li>
+
+        <li class="collection-item company-filter-item range-slider-item">
+          <p class="slider-label">Anual</p>
+          <div class="price-range-block">
+            <div id="slider-range" class="price-filter-range" name="rangeInput"></div>
+            <input type="text" name="process_selection[min_anual_salary]" min=0 max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" value="<%= @process_selection.min_anual_salary %>"/>
+            <input type="number" name="process_selection[max_anual_salary]" min=0 max="10000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field" value="<%= @process_selection.max_anual_salary %>" />
+          </div>
+        </li>
+
+        <li class="collection-item company-filter-item">
+          <p>
+            <label>
+              <span>
+                Qtd de pessoas interessadas: 84
+              </span>
+            </label>
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", company_filter_step_3_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Buscar", "javascript://", :class => "waves-effect waves-light btn-large", onclick: "$('form:first').submit()" %>
+    </section>
+  <% end %>
 </section>

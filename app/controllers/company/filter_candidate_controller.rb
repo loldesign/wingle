@@ -1,4 +1,7 @@
-class Company::FilterCandidateController < ApplicationController 
+class Company::FilterCandidateController < ApplicationController
+  before_action :load_process_selection
+  before_action :update_process_selection, only: [:second, :third, :fourth, :fith]
+
   def first
     @area = Area.all
   end
@@ -14,5 +17,22 @@ class Company::FilterCandidateController < ApplicationController
   def fourth
     @education_list = EducationList.all
     @language       = LanguageList.all
+  end
+
+  def fith
+    redirect_to company_candidate_profile_path
+  end
+
+  private
+  def load_process_selection
+    @process_selection = ProcessSelectionManager::List.new(owner: current_company).active
+  end
+
+  def process_selection_params
+    params.require(:process_selection).permit(:area_id, :function_id, :title_list_id, :min_time_function, :min_time_title, :min_anual_salary, :max_anual_salary, :education_list_id, :language_list_id)
+  end
+
+  def update_process_selection
+    @process_selection.update_attributes(process_selection_params) if params[:process_selection].present?
   end
 end

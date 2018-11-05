@@ -91,9 +91,10 @@ Rails.application.routes.draw do
 
     #### FILTER CANDIDATE AREA #####
     get   'buscar-candidato/passo-1'    , to: 'filter_candidate#first'  , as: :filter_step_1
-    get   'buscar-candidato/passo-2'    , to: 'filter_candidate#second' , as: :filter_step_2
-    get   'buscar-candidato/passo-3'    , to: 'filter_candidate#third'  , as: :filter_step_3
-    get   'buscar-candidato/passo-4'    , to: 'filter_candidate#fourth' , as: :filter_step_4
+    match 'buscar-candidato/passo-2'    , to: 'filter_candidate#second' , as: :filter_step_2, via: [:get, :post]
+    match 'buscar-candidato/passo-3'    , to: 'filter_candidate#third'  , as: :filter_step_3, via: [:get, :post]
+    match 'buscar-candidato/passo-4'    , to: 'filter_candidate#fourth' , as: :filter_step_4, via: [:get, :post]
+    match 'buscar-candidato/passo-5'    , to: 'filter_candidate#fith'   , as: :filter_step_5, via: [:get, :post]
 
     #### CANDIDATE PROFILE AREA #####
     get   'candidato/perfil'                , to: 'candidate#profile'        , as: :candidate_profile
