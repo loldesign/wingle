@@ -1,13 +1,31 @@
 #complete_register {
   .content-box {
-    @include span-columns (6 of 6);
+    @include span-columns (12 of 12);
     padding-top: 6vh;
 
     form {
-      @include span-columns (4 of 6);
-      @include shift (1 of 6);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      div {
+      .left-box, 
+      .right-box {
+        width: auto;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left-box {
+        margin-right: 2vw;
+      }
+
+      .input,
+      select {
+        width: 32.2vw;
+
         &.field_with_errors {
           margin-bottom: 3vh;
 
@@ -35,11 +53,6 @@
 
       .action-buttons-single {
         padding-top: 5vh;
-
-        a {
-          @include span-columns (2 of 4);
-          @include shift (1 of 4);
-        }
       }
     }
   }
