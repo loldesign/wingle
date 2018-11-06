@@ -57,45 +57,45 @@ north  = CityLocale.find_by_name("Zona Norte")
 center = CityLocale.find_by_name("Centro")
 
 # setting priority for CityLocale
-south.update_attribute(:priority, 0)
-west.update_attribute(:priority, 1)
-center.update_attribute(:priority, 2)
-north.update_attribute(:priority, 3)
-east.update_attribute(:priority, 4)
+south.update_attributes(priority: 0, code: 'S')
+west.update_attributes(priority: 1, code: 'O')
+center.update_attributes(priority: 2, code: 'C')
+north.update_attributes(priority: 3, code: 'N')
+east.update_attributes(priority: 4, code: 'L')
 
 # Create neighborhood groups
   # Center
-  Neighborhood.find_or_create_by(name: 'Bela Vista, Liberdade, Aclimação e Cambuci', city: sp, city_locale: center)
-  Neighborhood.find_or_create_by(name: 'Consolação, Higienópolis, Santa Cecília', city: sp, city_locale: center)
-  Neighborhood.find_or_create_by(name: 'Sé e República e Bom Retiro', city: sp, city_locale: center)
+  Neighborhood.find_or_create_by(name: 'Bela Vista, Liberdade, Aclimação e Cambuci', code: 'C1', city: sp, city_locale: center)
+  Neighborhood.find_or_create_by(name: 'Consolação, Higienópolis, Santa Cecília'   , code: 'C2', city: sp, city_locale: center)
+  Neighborhood.find_or_create_by(name: 'Sé e República e Bom Retiro'               , code: 'C3', city: sp, city_locale: center)
 
   # South
-  Neighborhood.find_or_create_by(name: 'Itaim, Jardins e Paulista', city: sp, city_locale: south)
-  Neighborhood.find_or_create_by(name: 'Berrini, Vila Olímpia, Brooklin, Campo Belo, Moema', city: sp, city_locale: south)
-  Neighborhood.find_or_create_by(name: 'Vila Mariana, Saúde e Jabaquara', city: sp, city_locale: south)
-  Neighborhood.find_or_create_by(name: 'Chác. Sto.Antonio, Sto Amaro, Socorro e Interlagos', city: sp, city_locale: south)
-  Neighborhood.find_or_create_by(name: 'Morumbi, Cidade Jardim', city: sp, city_locale: south)
-  Neighborhood.find_or_create_by(name: 'Ipiranga, Cursino e Sacomã', city: sp, city_locale: south)
-  Neighborhood.find_or_create_by(name: 'ABC e região', city: sp, city_locale: south)
+  Neighborhood.find_or_create_by(name: 'Itaim, Jardins e Paulista'                          , code: 'S1', city: sp, city_locale: south)
+  Neighborhood.find_or_create_by(name: 'Berrini, Vila Olímpia, Brooklin, Campo Belo, Moema' , code: 'S2', city: sp, city_locale: south)
+  Neighborhood.find_or_create_by(name: 'Vila Mariana, Saúde e Jabaquara'                    , code: 'S3', city: sp, city_locale: south)
+  Neighborhood.find_or_create_by(name: 'Chác. Sto.Antonio, Sto Amaro, Socorro e Interlagos' , code: 'S4', city: sp, city_locale: south)
+  Neighborhood.find_or_create_by(name: 'Morumbi, Cidade Jardim'                             , code: 'S5', city: sp, city_locale: south)
+  Neighborhood.find_or_create_by(name: 'Ipiranga, Cursino e Sacomã'                         , code: 'S6', city: sp, city_locale: south)
+  Neighborhood.find_or_create_by(name: 'ABC e região'                                       , code: 'S7', city: sp, city_locale: south)
 
   # West
-  Neighborhood.find_or_create_by(name: 'Pinheiros, Alto de Pinheiros e Vila Madalena', city: sp, city_locale: west)
-  Neighborhood.find_or_create_by(name: 'Lapa, Barra Funda, Perdizes, Vila Leopoldina e Jaguaré', city: sp, city_locale: west)
-  Neighborhood.find_or_create_by(name: 'Butantã, Vila Sônia e Raposo Tavares', city: sp, city_locale: west)
-  Neighborhood.find_or_create_by(name: 'Osasco, Barueri, Alphaville e região', city: sp, city_locale: west)
-  Neighborhood.find_or_create_by(name: 'Cotia, Embú, Taboão e região', city: sp, city_locale: west)
+  Neighborhood.find_or_create_by(name: 'Pinheiros, Alto de Pinheiros e Vila Madalena'           , code: 'O1', city: sp, city_locale: west)
+  Neighborhood.find_or_create_by(name: 'Lapa, Barra Funda, Perdizes, Vila Leopoldina e Jaguaré' , code: 'O2', city: sp, city_locale: west)
+  Neighborhood.find_or_create_by(name: 'Butantã, Vila Sônia e Raposo Tavares'                   , code: 'O3', city: sp, city_locale: west)
+  Neighborhood.find_or_create_by(name: 'Osasco, Barueri, Alphaville e região'                   , code: 'O4', city: sp, city_locale: west)
+  Neighborhood.find_or_create_by(name: 'Cotia, Embú, Taboão e região'                           , code: 'O5', city: sp, city_locale: west)
 
   # North
-  Neighborhood.find_or_create_by(name: 'Santana, Casa Verde, Vila Guilherme e Vila Maria', city: sp, city_locale: north)
-  Neighborhood.find_or_create_by(name: 'Freguesia do Ó e Brasilândia', city: sp, city_locale: north)
-  Neighborhood.find_or_create_by(name: 'Pirituba, São Domingos e Jaraguá', city: sp, city_locale: north)
-  Neighborhood.find_or_create_by(name: 'Guarulhos e região', city: sp, city_locale: north)
+  Neighborhood.find_or_create_by(name: 'Santana, Casa Verde, Vila Guilherme e Vila Maria' , code: 'N1', city: sp, city_locale: north)
+  Neighborhood.find_or_create_by(name: 'Freguesia do Ó e Brasilândia'                     , code: 'N2', city: sp, city_locale: north)
+  Neighborhood.find_or_create_by(name: 'Pirituba, São Domingos e Jaraguá'                 , code: 'N3', city: sp, city_locale: north)
+  Neighborhood.find_or_create_by(name: 'Guarulhos e região'                               , code: 'N4', city: sp, city_locale: north)
 
   # East
-  Neighborhood.find_or_create_by(name: 'Móoca , Brás, Pari, Belém, Tatuapé e Agua Rasa', city: sp, city_locale: east)
-  Neighborhood.find_or_create_by(name: 'Vila Prudente, São Lucas e Sapopemba', city: sp, city_locale: east)
-  Neighborhood.find_or_create_by(name: 'Carrão, Penha, Vila Formosa e Aricanduva', city: sp, city_locale: east)
-  Neighborhood.find_or_create_by(name: 'Artur Alvim, Itaquera, Cidade São Mateus', city: sp, city_locale: east)
+  Neighborhood.find_or_create_by(name: 'Móoca , Brás, Pari, Belém, Tatuapé e Agua Rasa' , code: 'L1', city: sp, city_locale: east)
+  Neighborhood.find_or_create_by(name: 'Vila Prudente, São Lucas e Sapopemba'           , code: 'L2', city: sp, city_locale: east)
+  Neighborhood.find_or_create_by(name: 'Carrão, Penha, Vila Formosa e Aricanduva'       , code: 'L3', city: sp, city_locale: east)
+  Neighborhood.find_or_create_by(name: 'Artur Alvim, Itaquera, Cidade São Mateus'       , code: 'L4', city: sp, city_locale: east)
 
 # Create new neighborhoods
 # Center
@@ -172,32 +172,32 @@ east.update_attribute(:priority, 4)
 # Creating First Sectors
 # -------
 puts "---> Processing Sectors ..."
-Sector.find_or_create_by(name: 'INDÚSTRIA PESADA', description: 'Metais e Mineração, Siderurgia, Construção Pesada, Máquinas e Bens de Capital')
-Sector.find_or_create_by(name: 'ENERGIA E RECURSOS NATURAIS', description: 'Óleo & Gás,Energias Renováveis,Combustíveis')
-Sector.find_or_create_by(name: 'INDÚSTRIA DE MANUFATURA', description: 'Automotiva, Aeronáutica, Naval, Ferroviária, Maquinas e Equipamentos')
-Sector.find_or_create_by(name: 'TRANSPORTE E LOGÍSTICA', description: 'Aéreo, Rodoviário, Marítimo, Ferroviário, Centros de Distribuição')
-Sector.find_or_create_by(name: 'CONSTRUÇÃO E INCORPORAÇÃO', description: 'Residencial, Comercial, Galpões Logísticos, Infraestrutura, Imobiliárias')
-Sector.find_or_create_by(name: 'INDÚSTRIA AGROPECUÁRIA', description: 'Frigoríficos, Tradings, Papel e Celulose, Commodities, Têxtil')
-Sector.find_or_create_by(name: 'INDÚSTRIA QUÍMICA', description: 'Agroquímicos, Petroquímicos, Tintas,Polímeros')
-Sector.find_or_create_by(name: 'INDÚSTRIA FARMACÊUTICA', description: 'Farmacêutica, Laboratórios')
-Sector.find_or_create_by(name: 'BENS DE CONSUMO', description: 'Higiene e Limpeza, Utilidades Domésticas, Eletro Eletrônicos, Alimentos e Bebidas, Vestuário')
-Sector.find_or_create_by(name: 'TI & TELECOM', description: 'Software, Hardware, Operadoras de Telefonia')
-Sector.find_or_create_by(name: 'INOVAÇÃO DIGITAL', description: 'E-Commerce, Marketplaces, Tech Companies, IOT, Wearable')
-Sector.find_or_create_by(name: 'MERCADO FINANCEIRO', description: 'Bancos, Seguradoras e Corretoras, Meios de Pagamento, Boutiques de Investimento, Serviços Financeiros')
-Sector.find_or_create_by(name: 'CONSULTORIAS', description: '')
-Sector.find_or_create_by(name: 'ESCRITÓRIOS JURÍDICOS', description: '')
-Sector.find_or_create_by(name: 'VAREJO & ATACADO', description: 'Mercados e Atacadistas, Shopping Center e Franquias, Varejistas, Equipamentos Domésticos, Mobília e Decoração')
-Sector.find_or_create_by(name: 'SERVIÇOS', description: 'Educação, Hospitais, Hotelaria e Turismo, Entretenimento, Saúde e Bem estar,etc')
-Sector.find_or_create_by(name: 'PUBLICADADE E PROPAGANDA', description: '')
-Sector.find_or_create_by(name: 'TERCEIRO SETOR', description: 'ONGs, Parceria Público Privadas, Iniciativa Privada sem fins lucrativos')
+Sector.find_or_create_by(name: 'INDÚSTRIA PESADA'           , code: 'S1', description: 'Metais e Mineração, Siderurgia, Construção Pesada, Máquinas e Bens de Capital')
+Sector.find_or_create_by(name: 'ENERGIA E RECURSOS NATURAIS', code: 'S2', description: 'Óleo & Gás,Energias Renováveis,Combustíveis')
+Sector.find_or_create_by(name: 'INDÚSTRIA DE MANUFATURA'    , code: 'S3', description: 'Automotiva, Aeronáutica, Naval, Ferroviária, Maquinas e Equipamentos')
+Sector.find_or_create_by(name: 'TRANSPORTE E LOGÍSTICA'     , code: 'S4', description: 'Aéreo, Rodoviário, Marítimo, Ferroviário, Centros de Distribuição')
+Sector.find_or_create_by(name: 'CONSTRUÇÃO E INCORPORAÇÃO'  , code: 'S5', description: 'Residencial, Comercial, Galpões Logísticos, Infraestrutura, Imobiliárias')
+Sector.find_or_create_by(name: 'INDÚSTRIA AGROPECUÁRIA'     , code: 'S6', description: 'Frigoríficos, Tradings, Papel e Celulose, Commodities, Têxtil')
+Sector.find_or_create_by(name: 'INDÚSTRIA QUÍMICA'          , code: 'S7', description: 'Agroquímicos, Petroquímicos, Tintas,Polímeros')
+Sector.find_or_create_by(name: 'INDÚSTRIA FARMACÊUTICA'     , code: 'S8', description: 'Farmacêutica, Laboratórios')
+Sector.find_or_create_by(name: 'BENS DE CONSUMO'            , code: 'S9', description: 'Higiene e Limpeza, Utilidades Domésticas, Eletro Eletrônicos, Alimentos e Bebidas, Vestuário')
+Sector.find_or_create_by(name: 'TI & TELECOM'               , code: 'S10', description: 'Software, Hardware, Operadoras de Telefonia')
+Sector.find_or_create_by(name: 'INOVAÇÃO DIGITAL'           , code: 'S11', description: 'E-Commerce, Marketplaces, Tech Companies, IOT, Wearable')
+Sector.find_or_create_by(name: 'MERCADO FINANCEIRO'         , code: 'S12', description: 'Bancos, Seguradoras e Corretoras, Meios de Pagamento, Boutiques de Investimento, Serviços Financeiros')
+Sector.find_or_create_by(name: 'CONSULTORIAS'               , code: 'S13', description: '')
+Sector.find_or_create_by(name: 'ESCRITÓRIOS JURÍDICOS'      , code: 'S14', description: '')
+Sector.find_or_create_by(name: 'VAREJO & ATACADO'           , code: 'S15', description: 'Mercados e Atacadistas, Shopping Center e Franquias, Varejistas, Equipamentos Domésticos, Mobília e Decoração')
+Sector.find_or_create_by(name: 'SERVIÇOS'                   , code: 'S16', description: 'Educação, Hospitais, Hotelaria e Turismo, Entretenimento, Saúde e Bem estar,etc')
+Sector.find_or_create_by(name: 'PUBLICADADE E PROPAGANDA'   , code: 'S17', description: '')
+Sector.find_or_create_by(name: 'TERCEIRO SETOR'             , code: 'S18', description: 'ONGs, Parceria Público Privadas, Iniciativa Privada sem fins lucrativos')
 
 # -------
 # Creating First Company Sizes
 # -------
 puts "---> Processing CompanySizes ..."
-CompanySize.find_or_create_by(name: 'INÍCIO DE OPERAÇÃO', description: 'maior autonomia, relevância e dinamismo')
-CompanySize.find_or_create_by(name: 'EMPRESA MÉDIA', description: 'oportunidade de crescimento e estruturação de processos')
-CompanySize.find_or_create_by(name: 'GRANDE CORPORAÇÃO', description: 'hierarquia, melhoria de processos e estabilidade')
+CompanySize.find_or_create_by(name: 'INÍCIO DE OPERAÇÃO', code: 'C1', description: 'maior autonomia, relevância e dinamismo')
+CompanySize.find_or_create_by(name: 'EMPRESA MÉDIA'     , code: 'C2', description: 'oportunidade de crescimento e estruturação de processos')
+CompanySize.find_or_create_by(name: 'GRANDE CORPORAÇÃO' , code: 'C3', description: 'hierarquia, melhoria de processos e estabilidade')
 
 # -------
 # Creating First Modes

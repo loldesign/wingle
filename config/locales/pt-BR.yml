@@ -52,12 +52,14 @@ pt-BR:
         description: "Descrição"
         score: "Pontuação"
       company_size:
+        code: "Código"
         name: "Nome"
         description: "Descrição"
         score: "Pontuação"
       relevance:
         name: "Nome"
       sector:
+        code: "Código"
         name: "Nome"
         description: "Descrição"
         score: "Pontuação"
@@ -92,6 +94,12 @@ pt-BR:
       status_list:
         name: "Nome"
       title_list:
+        name: "Nome"
+      city_locale:
+        code: "Código"
+        name: "Nome"
+      neighborhood:
+        code: "Código"
         name: "Nome"
 
     errors:

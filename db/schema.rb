@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181101185731) do
+ActiveRecord::Schema.define(version: 20181106140315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(version: 20181101185731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority", default: 1000
+    t.string "code"
     t.index ["city_id"], name: "index_city_locales_on_city_id"
   end
 
@@ -281,6 +282,7 @@ ActiveRecord::Schema.define(version: 20181101185731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "score"
+    t.string "code"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -345,6 +347,7 @@ ActiveRecord::Schema.define(version: 20181101185731) do
     t.string "name"
     t.bigint "city_id"
     t.bigint "city_locale_id"
+    t.string "code"
     t.index ["city_id"], name: "index_neighborhoods_on_city_id"
     t.index ["city_locale_id"], name: "index_neighborhoods_on_city_locale_id"
   end
@@ -402,6 +405,7 @@ ActiveRecord::Schema.define(version: 20181101185731) do
     t.datetime "updated_at", null: false
     t.string "nickname"
     t.decimal "score"
+    t.string "code"
   end
 
   create_table "sort_lists", force: :cascade do |t|

@@ -28,7 +28,7 @@ class Admin::CityLocalesController < AdminController
 
   def update
     if @city_locale.update_attributes(city_locale_params)
-      redirect_to edit_admin_state_city_city_locale_path(@state, @city, @city_locale), notice: 'Atualizado com sucesso'
+      redirect_to admin_state_city_city_locales_path(@state, @city), notice: 'Atualizado com sucesso'
     else
       render action: :edit
     end
@@ -51,6 +51,6 @@ class Admin::CityLocalesController < AdminController
   end
 
   def city_locale_params
-    params.require(:city_locale).permit(:name)
+    params.require(:city_locale).permit(:code, :name)
   end
 end

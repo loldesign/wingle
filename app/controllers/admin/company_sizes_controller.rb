@@ -45,6 +45,6 @@ class Admin::CompanySizesController < AdminController
 	end
 
 	def company_size_params
-		params.require(:company_size).permit(:name, :description, :score)
+		params.require(:company_size).permit(:code, :name, :description, :score)
 	end
 end

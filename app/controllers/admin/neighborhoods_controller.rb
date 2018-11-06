@@ -51,6 +51,6 @@ class Admin::NeighborhoodsController < AdminController
   end
 
   def neighborhood_params
-    params.require(:neighborhood).permit(:name)
+    params.require(:neighborhood).permit(:code, :name)
   end
 end
