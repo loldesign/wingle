@@ -6,12 +6,11 @@ class ProcessSelection < ApplicationRecord
   has_many :candidate_process_selections
   has_many :candidates, through: :candidate_process_selections
 
-  belongs_to :area
-  belongs_to :function
-  belongs_to :title_list
-  belongs_to :title_list
-  belongs_to :education_list
-  belongs_to :language_list
+  belongs_to :area          , optional: true
+  belongs_to :function      , optional: true
+  belongs_to :title_list    , optional: true
+  belongs_to :education_list, optional: true
+  belongs_to :language_list , optional: true
 
   aasm :column => :state, :logger => Rails.logger do
     state :setting, initial: true
