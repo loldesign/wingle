@@ -1,17 +1,21 @@
-<section id="second_step" class="filter-container content">
+<section id="second_step" class="filter-container content process-selection-options">
   <section class="content-box">
     <ul class="collection with-header">
       <li class="collection-header">
         <div class="progress">
           <div class="determinate" style="width: 40%"></div>
         </div>
-        <h5 class="center-align section"></h5>
+        <h5 class="center-align section">Funções</h5>
       </li>
 
-      <% @function.each do |function| %>
-        <li class="collection-item">
-          <%= link_to function.name, company_filter_step_3_path %>
-        </li>
+      <%= form_tag company_filter_step_3_path do %>
+        <% @function.each do |function| %>
+          <li class="collection-item">
+            <%= link_to function.name, 'javascript://', data: {id: function.id}, class: 'option' %>
+          </li>
+        <% end %>
+
+        <%= hidden_field_tag 'process_selection[function_id]' %>
       <% end %>
     </ul>
   </section>
