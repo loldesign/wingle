@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181105134957) do
+ActiveRecord::Schema.define(version: 20181106130824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -371,6 +371,16 @@ ActiveRecord::Schema.define(version: 20181105134957) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "process_selection_candidates", force: :cascade do |t|
+    t.bigint "process_selection_id"
+    t.bigint "candidate_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_process_selection_candidates_on_candidate_id"
+    t.index ["process_selection_id"], name: "index_process_selection_candidates_on_process_selection_id"
+  end
+
   create_table "process_selections", force: :cascade do |t|
     t.bigint "company_id"
     t.string "owner_type"
@@ -387,6 +397,7 @@ ActiveRecord::Schema.define(version: 20181105134957) do
     t.bigint "title_list_id"
     t.bigint "education_list_id"
     t.bigint "language_list_id"
+    t.integer "prior_experience"
     t.index ["area_id"], name: "index_process_selections_on_area_id"
     t.index ["company_id"], name: "index_process_selections_on_company_id"
     t.index ["education_list_id"], name: "index_process_selections_on_education_list_id"

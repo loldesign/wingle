@@ -6,6 +6,6 @@
   </section>
 
   <section class="action-buttons-single">
-    <%= link_to "CONTINUAR", company_filter_step_1_path, class: "waves-effect waves-light btn-large" %>
+    <%= link_to "CONTINUAR", @process_selection.setting? ? company_filter_step_1_path : company_candidate_profile_path, class: "waves-effect waves-light btn-large" %>
   </section>
 </section>

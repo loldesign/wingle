@@ -83,7 +83,7 @@
           </p>
 
           <div class="box-with-error">
-            <%= select_tag 'process_selection[title_list_id]', options_for_select([["Setor", 0], ["Porte", 1], ["Setor e Porte", 2], ["Indiferente", 3]], @process_selection.title_list_id), :class => "validate", :include_blank => true %>
+            <%= select_tag 'process_selection[prior_experience]', options_for_select([["Setor", 0], ["Porte", 1], ["Setor e Porte", 2], ["Indiferente", 3]], @process_selection.prior_experience), :class => "validate", :include_blank => true %>
 
             <p class="error-message hide">Obrigatório</p>
           </div>
@@ -112,7 +112,8 @@
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", company_filter_step_3_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Buscar", "javascript://", :class => "waves-effect waves-light btn-large", onclick: "$('form:first').submit()" %>
+      <%#= link_to "Buscar", "javascript://", :class => "waves-effect waves-light btn-large", onclick: "$('form:first').submit()" %>
+      <%= link_to "Buscar", "javascript://", :id => "validate-form-button", :class => "waves-effect waves-light btn-large" %>
     </section>
   <% end %>
 </section>

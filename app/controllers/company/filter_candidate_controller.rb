@@ -7,7 +7,7 @@ class Company::FilterCandidateController < ApplicationController
   end
 
   def second
-    @function = Function.all
+    @function = Function.where(area_id: @process_selection.area_id)
   end
 
   def third
@@ -20,6 +20,8 @@ class Company::FilterCandidateController < ApplicationController
   end
 
   def fith
+    @process_selection.start! if @process_selection.setting?
+
     redirect_to company_candidate_profile_path
   end
 
@@ -29,7 +31,7 @@ class Company::FilterCandidateController < ApplicationController
   end
 
   def process_selection_params
-    params.require(:process_selection).permit(:area_id, :function_id, :title_list_id, :min_time_function, :min_time_title, :min_anual_salary, :max_anual_salary, :education_list_id, :language_list_id)
+    params.require(:process_selection).permit(:area_id, :function_id, :title_list_id, :min_time_function, :min_time_title, :min_anual_salary, :max_anual_salary, :education_list_id, :language_list_id, :prior_experience)
   end
 
   def update_process_selection
