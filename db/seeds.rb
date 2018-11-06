@@ -37,11 +37,11 @@ puts "---> Processing CityLocale ..."
 if CityLocale.count == 0
   sp = City.first
 
-  CityLocale.create(name: 'Zona Sul'  , city: sp, priority: 0)
-  CityLocale.create(name: 'Zona Oeste', city: sp, priority: 1)
-  CityLocale.create(name: 'Centro'    , city: sp, priority: 2)
-  CityLocale.create(name: 'Zona Norte', city: sp, priority: 3)
-  CityLocale.create(name: 'Zona Leste', city: sp, priority: 4)
+  CityLocale.create(name: 'Zona Sul'  , city: sp, priority: 0, code: 'S')
+  CityLocale.create(name: 'Zona Oeste', city: sp, priority: 1, code: 'O')
+  CityLocale.create(name: 'Centro'    , city: sp, priority: 2, code: 'C')
+  CityLocale.create(name: 'Zona Norte', city: sp, priority: 3, code: 'N')
+  CityLocale.create(name: 'Zona Leste', city: sp, priority: 4, code: 'L')
 else
   puts "---> No CityLocale afected..."
 end
@@ -57,11 +57,11 @@ north  = CityLocale.find_by_name("Zona Norte")
 center = CityLocale.find_by_name("Centro")
 
 # setting priority for CityLocale
-south.update_attributes(priority: 0, code: 'S')
-west.update_attributes(priority: 1, code: 'O')
-center.update_attributes(priority: 2, code: 'C')
-north.update_attributes(priority: 3, code: 'N')
-east.update_attributes(priority: 4, code: 'L')
+south.update_attributes(priority: 0)
+west.update_attributes(priority: 1)
+center.update_attributes(priority: 2)
+north.update_attributes(priority: 3)
+east.update_attributes(priority: 4)
 
 # Create neighborhood groups
   # Center
