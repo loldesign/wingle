@@ -203,9 +203,9 @@ CompanySize.find_or_create_by(name: 'GRANDE CORPORAÇÃO' , code: 'C3', descript
 # Creating First Modes
 # -------
 puts "---> Processing Modes ..."
-Mode.find_or_create_by(name: 'AGRESSIVA', description: 'foco no curto prazo, números e performance')
-Mode.find_or_create_by(name: 'MODERADA', description: 'foco no médio prazo, negócio e pessoas')
-Mode.find_or_create_by(name: 'CONSERVADORA', description: 'foco no longo prazo, hierarquizada e tradicional')
+Mode.find_or_create_by(name: 'AGRESSIVA'      , code: 'Amd',  description: 'foco no curto prazo, números e performance')
+Mode.find_or_create_by(name: 'MODERADA'       , code: 'Md',   description: 'foco no médio prazo, negócio e pessoas')
+Mode.find_or_create_by(name: 'CONSERVADORA'   , code: 'Cmd',  description: 'foco no longo prazo, hierarquizada e tradicional')
 
 # -------
 # Creating First Relevances

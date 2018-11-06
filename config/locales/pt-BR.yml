@@ -48,6 +48,7 @@ pt-BR:
       locale:
         name: "Nome"
       mode:
+        code: "Código"
         name: "Nome"
         description: "Descrição"
         score: "Pontuação"

@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20181106130824) do
+ActiveRecord::Schema.define(version: 20181106190915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -340,6 +339,7 @@ ActiveRecord::Schema.define(version: 20181106130824) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "score"
+    t.string "code"
   end
 
   create_table "neighborhoods", force: :cascade do |t|
@@ -373,16 +373,6 @@ ActiveRecord::Schema.define(version: 20181106130824) do
     t.string "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "process_selection_candidates", force: :cascade do |t|
-    t.bigint "process_selection_id"
-    t.bigint "candidate_id"
-    t.string "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["candidate_id"], name: "index_process_selection_candidates_on_candidate_id"
-    t.index ["process_selection_id"], name: "index_process_selection_candidates_on_process_selection_id"
   end
 
   create_table "process_selections", force: :cascade do |t|
