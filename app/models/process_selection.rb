@@ -6,6 +6,13 @@ class ProcessSelection < ApplicationRecord
   has_many :candidate_process_selections
   has_many :candidates, through: :candidate_process_selections
 
+  belongs_to :area
+  belongs_to :function
+  belongs_to :title_list
+  belongs_to :title_list
+  belongs_to :education_list
+  belongs_to :language_list
+
   aasm :column => :state, :logger => Rails.logger do
     state :setting, initial: true
     state :started, :completed, :canceled
