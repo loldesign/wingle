@@ -10,8 +10,6 @@ var processSelectionManager = function(){
     var _this = this;
 
     this.$container.on('click', 'li.collection-item a.option', function(event) {
-      console.log('---> options selected', $(this).data('id'))
-
       _this.$hiddenField.val($(this).data('id'))
 
       _this.$form.submit()
