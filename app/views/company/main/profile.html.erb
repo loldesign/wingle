@@ -5,112 +5,100 @@
     <p>Adicionar Usuário</p>
 
     <div class="add-user-field">
-      <div class="add-user-img-box">
+      <div class="default-bg">
         <i class="material-icons">person_add</i>
       </div>
 
-      <%= text_field_tag 'add_company_user', "", class: 'form-control' %>
+      <%= text_field_tag 'add_company_user', "", class: 'form-control', placeholder: 'email empresa' %>
 
-      <%= submit_tag "Autorizar", class: "add-user-button", data: { disable_with: "..." } %>
+      <%= submit_tag "Autorizar", class: "submit-action", data: { disable_with: "..." } %>
     </div>
   </section>
 
-  <section class="company-active-users-container">
+  <section class="company-active-users-container shadow-box">
     <p>Usuários Ativos</p>
     <ul>
       <li class="active-user-item">
-        <div class="add-user-field">
-          <div class="add-user-img-box">
-            <i class="material-icons">person</i>
-          </div>
+        <div class="default-bg">
+          <i class="material-icons">person</i>
+        </div>
 
-          <div class="active-user-info">
-            <p>Rebecca Silva</p>
-            <p>Diretor - RH</p>
-          </div>
+        <div class="active-user-info">
+          <p class="bold">Rebecca Silva</p>
+          <p class="bold">Diretor - RH</p>
+        </div>
 
-          <%= submit_tag "Desativar", class: "add-user-button", data: { disable_with: "..." } %>
-        </div> 
+        <%= submit_tag "Desativar", class: "submit-action", data: { disable_with: "..." } %>
       </li>
 
       <li class="active-user-item">
-        <div class="add-user-field">
-          <div class="add-user-img-box">
-            <i class="material-icons">person</i>
-          </div>
+        <div class="default-bg">
+          <i class="material-icons">person</i>
+        </div>
 
-          <div class="active-user-info">
-            <p>Martins dos Santos</p>
-            <p>Coordenador - RH</p>
-          </div>
+        <div class="active-user-info">
+          <p class="bold">Martins dos Santos</p>
+          <p class="bold">Coordenador - RH</p>
+        </div>
 
-          <%= submit_tag "Desativar", class: "add-user-button", data: { disable_with: "..." } %>
-        </div> 
+        <%= submit_tag "Desativar", class: "submit-action", data: { disable_with: "..." } %>
       </li>
 
       <li class="active-user-item">
-        <div class="add-user-field">
-          <div class="add-user-img-box">
-            <i class="material-icons">person</i>
-          </div>
+        <div class="default-bg">
+          <i class="material-icons">person</i>
+        </div>
 
-          <div class="active-user-info">
-            <p>Silvana Fisher (Admin)</p>
-            <p>Gerente - Marketing</p>
-          </div>
+        <div class="active-user-info">
+          <p class="bold">Silvana Fisher (Admin)</p>
+          <p class="bold">Gerente - Marketing</p>
+        </div>
 
-          <%= submit_tag "Desativar", class: "add-user-button", data: { disable_with: "..." } %>
-        </div> 
+        <%= submit_tag "Desativar", class: "submit-action", data: { disable_with: "..." } %>
       </li>
 
       <li class="active-user-item">
-        <div class="add-user-field">
-          <div class="add-user-img-box">
-            <i class="material-icons">person</i>
-          </div>
+        <div class="default-bg">
+          <i class="material-icons">person</i>
+        </div>
 
-          <div class="active-user-info">
-            <p>Laura Gouveia</p>
-            <p>Gerente - Finanças</p>
-          </div>
+        <div class="active-user-info">
+          <p class="bold">Laura Gouveia</p>
+          <p class="bold">Gerente - Finanças</p>
+        </div>
 
-          <%= submit_tag "Desativar", class: "add-user-button", data: { disable_with: "..." } %>
-        </div> 
+        <%= submit_tag "Desativar", class: "submit-action", data: { disable_with: "..." } %>
       </li>
     </ul>
   </section>
 
-  <section class="company-user-solicitations">
+  <section class="company-user-solicitations-container shadow-box">
     <p>Solicitações</p>
     <ul>
       <li class="active-user-item">
-        <div class="add-user-field">
-          <div class="add-user-img-box">
-            <i class="material-icons">person</i>
-          </div>
+        <div class="default-bg">
+          <i class="material-icons">person</i>
+        </div>
 
-          <div class="active-user-info">
-            <p>Paulo Augusto</p>
-            <p>Analista - Controladoria</p>
-          </div>
+        <div class="active-user-info">
+          <p class="bold">Paulo Augusto</p>
+          <p class="bold">Analista - Controladoria</p>
+        </div>
 
-          <%= submit_tag "Autorizar", class: "add-user-button", data: { disable_with: "..." } %>
-        </div> 
+        <%= submit_tag "Autorizar", class: "submit-action", data: { disable_with: "..." } %>
       </li>
 
       <li class="active-user-item">
-        <div class="add-user-field">
-          <div class="add-user-img-box">
-            <i class="material-icons">person</i>
-          </div>
+        <div class="default-bg">
+          <i class="material-icons">person</i>
+        </div>
 
-          <div class="active-user-info">
-            <p>Ubirajá Santos</p>
-            <p>Analista - Contábil</p>
-          </div>
+        <div class="active-user-info">
+          <p class="bold">Ubirajá Santos</p>
+          <p class="bold">Analista - Contábil</p>
+        </div>
 
-          <%= submit_tag "Autorizar", class: "add-user-button", data: { disable_with: "..." } %>
-        </div> 
+        <%= submit_tag "Autorizar", class: "submit-action", data: { disable_with: "..." } %>
       </li>
     </ul>
   </section>

@@ -7,6 +7,88 @@
     width: 100%;
     float: left;
   }
+
+  .default-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(43, 168, 149);
+    margin-right: 1vw;
+    width: 6.41vw;
+    height: 9.05vh;
+    border-radius: 50px;
+
+    i {
+      font-size: 2vw;
+      color: $white;
+    }
+  }
+
+  input {
+    &.submit-action {
+      padding: 1.6vh 1vw;
+      width: 8vw;
+      margin-left: 1vw;
+      font-size: .8vw;
+      font-weight: bold;
+    }
+  }
+
+  .add-user-container {
+    width: 100%;
+    float: left;
+    padding: 2vh 1vw;
+    margin-bottom: 4vh;
+
+    .add-user-field {
+      display: flex;
+      align-items: center;
+
+      input {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .company-active-users-container,
+  .company-user-solicitations-container {
+    width: 100%;
+    float: left;
+    padding: 2vh 1vw;
+    margin-bottom: 4vh;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+
+      .active-user-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 2vh;
+
+        .active-user-info {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          justify-content: space-between;
+
+          p {
+            margin-bottom: 0;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }
 
 .company-infos-container {
