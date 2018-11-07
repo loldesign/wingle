@@ -1,4 +1,4 @@
-<section id="company_candidate_profile" class="content">
+<section id="company_candidate_profile">
   <div id="order-modal">
     <h4 class="light-green-text">
       <b>Ordenar Por:</b>
@@ -56,116 +56,125 @@
       <%= select_tag 'candidate_profile[status]', options_for_select([["interessado", 0], ["1a Etapa", 1], ["2a Etapa", 2], ["Última Etapa", 3], ["Proposta", 4], ["Aprovados", 5]]), :class => "validate", :include_blank => true %>
     </div>
 
-    <div class="contact-actions">
+    <!-- <div class="contact-actions">
       <i class="material-icons">stay_current_portrait</i>
       <i class="material-icons">mail_outline</i>
       <i class="material-icons">insert_drive_file</i>
       <i class="material-icons">forum</i>
-    </div>
+    </div> -->
   </article>
 
   <section class="candidate-complete-infos">
-    <h5 class="title-area-left bold gray">
-      15 anos de carreira
-    </h5>
-    <div class="candidate-carrer-experience-info shadow-box">
-      <div class="candidate-title-box first-box">
-        <div class="candidate-experience-level active">
-          <p class="white-text">3.2</p>
+    <section class="candidate-carrer-experience-info-container default-container small-size border-bottom">
+      <h5 class="title-area-left bold gray">
+        15 anos de carreira
+      </h5>
+      <div class="candidate-carrer-experience-info shadow-box">
+        <div class="candidate-title-box first-box">
+          <p class="bold">Analista</p>
+
+          <div class="candidate-experience-level active">
+            <p class="white-text">3.2</p>
+          </div>
         </div>
 
-        <p class="bold">Analista</p>
-      </div>
-
-      <div class="candidate-title-box second-box">
-        <div class="candidate-experience-level active">
-          <p class="white-text">3.4</p>
-        </div>
-
-        <p class="bold">
-          ESPECIALISTA<br>
-          CONSULTOR
-        </p>
-      </div>
-
-      <div class="candidate-title-box third-box">
-        <div class="candidate-experience-level active">
-          <p class="white-text">6.1</p>
-        </div>
-
-        <p class="bold">
-          COORDENADOR<br>
-          GERENTE
-        </p>
-      </div>
-
-      <div class="candidate-title-box fourth-box">
-        <div class="candidate-experience-level">
-          <p class="white-text">
-            
+        <div class="candidate-title-box second-box">
+          <p class="bold">
+            ESPECIALISTA<br>
+            CONSULTOR
           </p>
+
+          <div class="candidate-experience-level active">
+            <p class="white-text">3.4</p>
+          </div>
         </div>
 
-        <p class="bold">
-          GERENTE SR.<br>
-          DIRETOR
+        <div class="candidate-title-box third-box">
+          <p class="bold">
+            COORDENADOR<br>
+            GERENTE
+          </p>
+
+          <div class="candidate-experience-level active">
+            <p class="white-text">6.1</p>
+          </div>
+        </div>
+
+        <div class="candidate-title-box fourth-box">
+          <p class="bold">
+            GERENTE SR.<br>
+            DIRETOR
+          </p>
+
+          <div class="candidate-experience-level">
+            <p class="white-text">
+              
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="responsive-divider"></div>
+    </section>
+
+    
+    <section class="candidate-companies-info-container default-container small-size border-bottom">
+      <h5 class="title-area-left bold gray">
+        Empresas mais relevantes
+      </h5>
+      <div class="candidate-companies-info shadow-box">
+        <div class="relevant-companies">
+          <div class="candidate-company-box first-box">
+            <p class="bold">BAYER</p>
+
+            <div class="candidate-company-time">
+              <p>3.2</p>
+            </div>
+          </div>
+
+          <div class="candidate-company-box second-box">
+            <p class="bold">NEOQUÍMICA</p>
+
+            <div class="candidate-company-time">
+              <p>3.4</p>
+            </div>
+          </div>
+
+          <div class="candidate-company-box third-box">
+            <p class="bold">NESTLÉ</p>
+
+            <div class="candidate-company-time">
+              <p>6.1</p>
+            </div>
+          </div>
+
+          <div class="candidate-company-box fourth-box active">
+            <p class="bold">TAM</p>
+
+            <div class="candidate-company-time">
+              <p>5.4</p>
+            </div>
+          </div>
+
+          <div class="candidate-company-box fifth-box active">
+            <p class="bold">VIVO</p>
+
+            <div class="candidate-company-time">
+              <p>5.4</p>
+            </div>
+          </div>
+        </div>
+        <p class="compatibility-with-company-size active">
+          <span>•</span> 
+          Experiência no porte da sua empresa
         </p>
       </div>
-    </div>
 
-    <h5 class="title-area-left bold gray">
-      Empresas mais relevantes
-    </h5>
-    <div class="candidate-companies-info shadow-box">
-      <p class="compatibility-with-company-size active">
-        <span>•</span> 
-        Experiência no porte da sua empresa
-      </p>
+      <div class="responsive-divider"></div>
+    </section>
 
-      <div class="relevant-companies">
-        <div class="candidate-company-box first-box">
-          <p class="bold">BAYER</p>
 
-          <div class="candidate-company-time">
-            <p>3.2</p>
-          </div>
-        </div>
-
-        <div class="candidate-company-box second-box">
-          <p class="bold">NEOQUÍMICA</p>
-
-          <div class="candidate-company-time">
-            <p>3.4</p>
-          </div>
-        </div>
-
-        <div class="candidate-company-box third-box">
-          <p class="bold">NESTLÉ</p>
-
-          <div class="candidate-company-time">
-            <p>6.1</p>
-          </div>
-        </div>
-
-        <div class="candidate-company-box fourth-box active">
-          <p class="bold">TAM</p>
-
-          <div class="candidate-company-time">
-            <p>5.4</p>
-          </div>
-        </div>
-
-        <div class="candidate-company-box fifth-box active">
-          <p class="bold">VIVO</p>
-
-          <div class="candidate-company-time">
-            <p>5.4</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="candidate-main-functions">
+    <section class="candidate-main-functions default-container">
       <div class="title-area">
         <h5 class="bold gray">
           Principais funções e onde agrega mais valor
@@ -227,6 +236,8 @@
           </div>
         </div>
 
+        <div class="responsive-divider"></div>
+
         <div class="candidate-languages">
           <div class="language-item company-require-match">  
             <p class="bold">
@@ -277,81 +288,62 @@
           </div>
         </div>
       </article>
-    </div>
 
-    <article class="candidate-experiences-info gray-box shadow-box">
-      <p>
-        Principais pontos técnicos
-      </p>
+      <div class="responsive-divider"></div>
+    </section>
 
-      <p>
-        Principais pontos técnicos
-      </p>
 
-      <p>
-        Principais pontos técnicos
-      </p>
+    <section class="interest-infos-container default-container">
+      <h5 class="bold gray">
+        Motivação para considerar a sua empresa
+      </h5>
 
-      <p>
-        Principais pontos técnicos
-      </p>
+      <div class="candidate-interest-infos shadow-box">
+        <div class="left-infos">
+          <div class="localization">
+            <div class="circle active"></div>
+            <p class="semi-bold">Localização</p>
+          </div>
 
-      <p>
-        Principais pontos técnicos
-      </p>
-    </article>
-  </section>
+          <div class="size">
+            <div class="circle"></div>
+            <p class="semi-bold">Porte</p>
+          </div>
 
-  <section class="interest-infos-container">
-    <h5 class="bold gray">
-      Motivação para considerar a sua empresa
-    </h5>
-
-    <div class="candidate-interest-infos shadow-box">
-      <div class="left-infos">
-        <div class="localization">
-          <div class="circle active"></div>
-          <p class="semi-bold">Localização</p>
+          <div class="sector">
+            <div class="circle active"></div>
+            <p class="semi-bold">Setor</p>
+          </div>
         </div>
 
-        <div class="size">
-          <div class="circle"></div>
-          <p class="semi-bold">Porte</p>
-        </div>
-
-        <div class="sector">
-          <div class="circle active"></div>
-          <p class="semi-bold">Setor</p>
-        </div>
-      </div>
-
-      <div class="right-infos">
-        <p class="semi-bold">Remuneração a partir de:</p>
-
-        <div class="company-salary">
-          <p class="bold">
-            R$ 7.000/mês
-          </p>
-
-          <p class="bold">
-            R$ 120.000/ano
-          </p>
-        </div>
-      </div>
-      
-      <div class="bottom-infos">
         <div class="company-extra-infos">
           <p>
             Meio Período/Tempo Integral/Por Projetos
           </p>
         </div>
 
-        <div class="extra-salary-infos">
-          <p class="white-text">
-            O VALOR PRETENDIDO CORRESPONDE A UM ACRÉSCIMO / DECRÉSCIMO DE XX % FIXO MENSAL E XX % ANUAL
-          </p>
+        <div class="right-infos">
+          <p class="semi-bold">Remuneração a partir de:</p>
+
+          <div class="company-salary">
+            <p class="bold">
+              R$ 7.000/mês
+            </p>
+
+            <p class="bold">
+              R$ 120.000/ano
+            </p>
+          </div>
+        </div>
+        
+        <div class="bottom-infos">
+          <div class="extra-salary-infos">
+            <p class="white-text">
+              O VALOR PRETENDIDO CORRESPONDE A UM ACRÉSCIMO / DECRÉSCIMO DE XX % FIXO MENSAL E XX % ANUAL
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </section>
 </section>

@@ -1,5 +1,11 @@
 #company_candidate_profile {
   z-index: 99999;
+  box-shadow: 0 0 1em rgba(170, 170, 170, 0.5);
+  padding-top: 4vh;
+
+  .responsive-divider {
+    display: none;
+  }
   
   .order-by-icon {
     position: absolute;
@@ -13,22 +19,21 @@
   .candidate-contact-infos {
     display: flex;
     flex-direction: column;
-    margin-bottom: 6vh;
+    border-bottom: solid 2px rgba(170, 170, 170, 0.5);
 
     .top-infos {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 8vh;
+      margin-bottom: 4vh;
+      padding: 0 3vw;
 
       .button-box,
       select {
-        width: 25%;
+        width: 15%;
       }
 
       .button-box {
-        padding-right: 10%;
-
         button {
           width: 100%;
           background-color: $light-green;
@@ -41,7 +46,7 @@
 
       select {
         background-size: 0.7vw;
-        background-position-x: 10.8vw;
+        background-position-x: 12.3vw;
       }
 
       .main-infos {
@@ -75,18 +80,38 @@
     }
   }
 
-  .shadow-box {
-    -webkit-box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
-    -moz-box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
-    box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
-    border-radius: 14px;
-    width: 100%;
-    float: left;
-  }
+  // .shadow-box {
+  //   -webkit-box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
+  //   -moz-box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
+  //   box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
+  //   border-radius: 14px;
+  //   width: 100%;
+  //   float: left;
+  // }
 
   .candidate-complete-infos {
+    .default-container {
+      float: left;
+      width: 50%;
+      border-right: solid 2px rgba(170, 170, 170, 0.5);
+      padding: 4vh 0;
+      height: 43vh;
+      display: flex;
+      flex-direction: column;
+
+      &.border-bottom {
+        border-bottom: solid 2px rgba(170, 170, 170, 0.5);
+        opacity: .7;
+      }
+
+      &.small-size {
+        height: 35vh;
+      }
+    }
+
     .title-area-left {
       margin: 0 0 2vh 0;
+      text-align: center;
     }
 
     .gray-box {
@@ -96,8 +121,7 @@
     .candidate-carrer-experience-info {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 6vh;
-      padding: 2vh 1vw;
+      padding: 2vh 3vw;
 
       .candidate-title-box {
         width: 24%;
@@ -112,6 +136,9 @@
           text-transform: uppercase;
           height: 5vh;
           color: $gray;
+          margin-bottom: 1vh;
+          display: flex;
+          align-items: center;
         }
 
         .candidate-experience-level {
@@ -152,8 +179,7 @@
     .candidate-companies-info {
       width: 100%;
       float: left;
-      margin-bottom: 6vh;
-      padding: 2vh 1vw;
+      padding: 2vh 3vw;
 
       .compatibility-with-company-size {
         display: none;
@@ -161,7 +187,7 @@
         &.active {
           display: flex;
           align-items: center;
-          margin-bottom: 4vh;
+          margin: 4vh 0 0;
           
           span {
             color: $light-green;
@@ -187,6 +213,11 @@
 
           p {
             color: $gray;
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1vh;
           }
 
           .candidate-company-time {
@@ -199,6 +230,7 @@
 
             p {
               margin-bottom: 0;
+              height: auto;
             }
           }
 
@@ -230,10 +262,7 @@
     }
 
     .candidate-main-functions {
-      width: 100%;
-      float: left;
-      margin-bottom: 4vh;
-      padding: 2vh 1vw;
+      padding: 4vh 0vw;
 
       .title-area {
         display: flex;
@@ -255,6 +284,7 @@
       .functions-and-languages {
         display: flex;
         justify-content: space-between;
+        padding: 0 3vw;
 
         .candidate-functions,
         .candidate-languages {
@@ -277,6 +307,10 @@
               margin-bottom: 0;
             }
           }
+        }
+
+        .candidate-divider {
+          display: none;
         }
 
         .candidate-functions {
@@ -375,20 +409,28 @@
     float: left;
 
     h5 {
-      margin-bottom: 2vh;
+      margin: 0 0 2vh 0;
+      text-align: center;
     }
 
     .candidate-interest-infos {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      padding: 2vh 1vw;
+      padding: 2vh 3vw;
 
       .left-infos,
-      .rifht-infos {
-        width: 49%;
+      .company-extra-infos,
+      .right-infos, {
+        width: 33%;
         display: flex;
         flex-direction: column;
+      }
+
+      .company-extra-infos {
+        p {
+          text-align: center;
+        }
       }
 
       .left-infos {
@@ -420,8 +462,6 @@
       }
 
       .right-infos {
-        display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: space-between;
 
@@ -448,12 +488,6 @@
         display: flex;
         flex-direction: column;
         margin-top: 3vh;
-
-        .company-extra-infos {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 2vh;
-        }
 
         .extra-salary-infos {
           display: flex;

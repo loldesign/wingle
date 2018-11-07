@@ -57,6 +57,29 @@
       display: none;
     }
 
+    // COMPANY CANDIDATE PROFILE HEADER //
+    .full-header {
+      .header-top {
+        padding: 0vh 5vw;
+
+        .left-box {
+          i {
+            font-size: 10vw;
+          }
+        }
+
+        .center-box {
+          img {
+            width: 35%;
+          }
+        }
+
+        .profile-container {
+          visibility: hidden;
+        }
+      }
+    }
+
     // DASHBOARD HEADER RESPONSIVE //
     .responsive-dashboard-header {
       @include span-columns (12 of 12);

@@ -44,6 +44,7 @@
       <% end %>
     </div>  
   </section>
+
 <% elsif options[:style] == :dashboard_header %>
   <!-- Dashboard -->
   <section class="dashboard-header">
@@ -127,4 +128,27 @@
       <% end %>
     </div>
   </section>
+
+<% elsif options[:style] == :company_full_header %>
+  <!-- Dashboard -->
+  <section class="full-header">
+    <section class="header-top">
+      <div class="left-box">
+        <i class="material-icons">menu</i>
+      </div>
+
+      <div class="center-box">
+        <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
+      </div>
+      
+      <div class="profile-container">
+        <div class="profile-box">
+          <div class="profile-image-box">
+            <%= image_tag "icons/company.svg", class: "without_image" %>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
 <% end %>
