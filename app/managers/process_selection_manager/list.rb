@@ -8,10 +8,10 @@ module ProcessSelectionManager
         .first
     end
 
-    def completed
+    def historic
       @owner
         .process_selections
-        .where(state: [:completed])
+        .where(state: [:historic])
     end
   end
 end
