@@ -14,18 +14,14 @@ class ProcessSelection < ApplicationRecord
 
   aasm :column => :state, :logger => Rails.logger do
     state :setting, initial: true
-    state :started, :completed, :canceled
+    state :started, :historic
 
     event :start do
       transitions from: :setting, to: :started
     end
 
-    event :complete, after: :create_new_process do
-      transitions from: :started, to: :completed
-    end
-
-    event :cancel do
-      transitions from: [:started, :completed], to: :canceled
+    event :history, after: :create_new_process do
+      transitions from: :started, to: :historic
     end
   end
 

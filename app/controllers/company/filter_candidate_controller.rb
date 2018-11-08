@@ -1,4 +1,5 @@
 class Company::FilterCandidateController < ApplicationController
+  before_action :history_process_selection, only: [:first]
   before_action :load_process_selection
   before_action :update_process_selection, only: [:second, :third, :fourth, :fith]
 
@@ -26,6 +27,12 @@ class Company::FilterCandidateController < ApplicationController
   end
 
   private
+  def history_process_selection
+    process_selection = ProcessSelectionManager::List.new(owner: current_company).active
+
+    process_selection.history! if process_selection.started?
+  end
+
   def load_process_selection
     @process_selection = ProcessSelectionManager::List.new(owner: current_company).active
   end
