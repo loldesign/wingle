@@ -55,13 +55,6 @@
 
       <%= select_tag 'candidate_profile[status]', options_for_select([["interessado", 0], ["1a Etapa", 1], ["2a Etapa", 2], ["Última Etapa", 3], ["Proposta", 4], ["Aprovados", 5]]), :class => "validate", :include_blank => true %>
     </div>
-
-    <!-- <div class="contact-actions">
-      <i class="material-icons">stay_current_portrait</i>
-      <i class="material-icons">mail_outline</i>
-      <i class="material-icons">insert_drive_file</i>
-      <i class="material-icons">forum</i>
-    </div> -->
   </article>
 
   <section class="candidate-complete-infos">
@@ -346,4 +339,30 @@
       </div>
     </section>
   </section>
+
+  <div class="contact-actions hidden">
+    <div class="contact-actions-box">
+      <div class="item-box">
+        <i class="material-icons">stay_current_portrait</i>
+      </div>
+      
+      <div class="item-box">
+        <i class="material-icons">mail_outline</i>
+      </div>
+      
+      <div class="item-box">
+        <i class="material-icons">insert_drive_file</i>
+      </div>
+      
+      <div class="item-box">
+        <i class="material-icons">forum</i>
+      </div>
+    </div>
+  </div>
+
+  <div class="candidate-contact-actions-container">
+    <button class="action-button"> 
+      <%= image_tag "icons/candidate_info_white.svg" %>
+    </button>
+  </div>
 </section>

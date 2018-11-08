@@ -278,5 +278,32 @@
         }
       }
     }
+
+    .contact-actions {
+      width: 28%;
+      right: 1vw;
+      bottom: 13.8vh;
+
+      .contact-actions-box {
+        padding: 2vh 0;
+
+        .item-box {
+          width: 15vw;
+          height: 15vw;
+          margin-bottom: 2vh;
+
+          i {
+            font-size: 7.7vw;
+          }
+        }
+      }
+    }
+
+    .candidate-contact-actions-container {
+      right: 5vw;
+      bottom: 2.2vh;
+      width: 20vw;
+      height: 20vw;
+    } 
   }
 }
