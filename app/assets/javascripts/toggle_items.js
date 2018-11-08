@@ -17,6 +17,22 @@ $(document).on('turbolinks:load', function() {
   });
 
   // ##### COMPANY ONBOARDING ##### //
+  // SIDE MENU //
+  $(function () {
+    $(".header-top .left-box i").click(function(e){
+      $(this).closest('.full-header').find('#menu').toggleClass('open');
+      $(this).closest('.full-header').find('#menu .close-menu-area').toggleClass('hidden');
+
+      e.stopPropagation();
+      return false;
+    });
+    
+    $('.close-menu-area').click(function() {
+      $(this).parents().find('#menu').removeClass('open');
+      $(this).addClass('hidden');
+    });
+  });
+    
   // CANDIDATE CONTACT ACTIONS //
   $(".candidate-contact-actions-container .action-button").click(function(){
     $(this).parents().find('.contact-actions').toggle("slide", { direction: "down" }, 400);

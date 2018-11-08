@@ -149,6 +149,40 @@
         </div>
       </div>
     </section>
-  </section>
 
+    <section id="menu" class="side-menu">
+      <div class="close-menu-area hidden"></div>
+      <nav>
+        <div class="candidates-interested">
+          <%= link_to "#" do %>
+            <i class="material-icons">grade</i>
+            <p class="bold">Ver Interessados</p>
+          <% end %>
+        </div>
+
+        <div class="find-step-process">
+          <i class="material-icons">search</i>
+          <%= text_field_tag 'search_step_process', "", class: 'form-control', placeholder: 'Buscar...' %>
+        </div>
+
+        <ul>
+          <li>
+            <%= link_to "Em processo (23)", "#" %>
+          </li>
+
+          <li>
+            <%= link_to "Aprovados (12)", "#" %>
+          </li>
+
+          <li>
+            <%= link_to "Eliminados (6)", "#" %>
+          </li>
+
+          <li>
+            <%= link_to "Arquivados (0)", "#" %>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </section>
 <% end %>

@@ -107,6 +107,10 @@
       &.small-size {
         height: 35vh;
       }
+
+      &:nth-of-type(2n) {
+        border-right: none;
+      }
     }
 
     .title-area-left {
