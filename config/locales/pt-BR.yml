@@ -20,6 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  candidate:
+      carrier:
+        total:
+          zero: 'início da carreira'
+          one: '1 ano de carreira'
+          other: '%{count} anos de carreira'
   enumerize:
       defaults:
         for:

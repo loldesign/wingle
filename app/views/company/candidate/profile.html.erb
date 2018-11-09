@@ -3,7 +3,7 @@
     <h4 class="light-green-text">
       <b>Ordenar Por:</b>
     </h4>
-    
+
     <ul>
       <li>
         Maior Remuneração Anual
@@ -40,10 +40,10 @@
       <div class="button-box">
         <button>Recuperar</button>
       </div>
-      
+
       <div class="main-infos">
-        <h4>João da Silva</h4>
-        <h4>Gerente</h4>
+        <h4><%= @candidate.name  %></h4>
+        <h4><%= @manager.current_position %></h4>
         <p class="description">
           Promoção em até três anos seria a resposta
         </p>
@@ -60,7 +60,7 @@
   <section class="candidate-complete-infos">
     <section class="candidate-carrer-experience-info-container default-container small-size border-bottom">
       <h5 class="title-area-left bold gray">
-        15 anos de carreira
+        <%=t :total, scope: [:candidate, :carrier], count: @manager.carrier_total_years %>
       </h5>
       <div class="candidate-carrer-experience-info shadow-box">
         <div class="candidate-title-box first-box">
@@ -101,7 +101,7 @@
 
           <div class="candidate-experience-level">
             <p class="white-text">
-              
+
             </p>
           </div>
         </div>
@@ -110,7 +110,7 @@
       <div class="responsive-divider"></div>
     </section>
 
-    
+
     <section class="candidate-companies-info-container default-container small-size border-bottom">
       <h5 class="title-area-left bold gray">
         Empresas mais relevantes
@@ -158,7 +158,7 @@
           </div>
         </div>
         <p class="compatibility-with-company-size active">
-          <span>•</span> 
+          <span>•</span>
           Experiência no porte da sua empresa
         </p>
       </div>
@@ -187,7 +187,7 @@
               3.2
             </p>
           </div>
-          
+
           <div class="function-item">
             <p class="bold">
               AUDITORIA
@@ -197,7 +197,7 @@
               2.1
             </p>
           </div>
-          
+
           <div class="function-item">
             <p class="bold">
               CONTROLES INTERNOS
@@ -218,7 +218,7 @@
             </p>
           </div>
 
-          <div class="function-item">  
+          <div class="function-item">
             <p class="bold">
               CONTABILIDADE
             </p>
@@ -232,7 +232,7 @@
         <div class="responsive-divider"></div>
 
         <div class="candidate-languages">
-          <div class="language-item company-require-match">  
+          <div class="language-item company-require-match">
             <p class="bold">
               ESPANHOL
             </p>
@@ -244,7 +244,7 @@
             </div>
           </div>
 
-          <div class="language-item">  
+          <div class="language-item">
             <p class="bold">
               PORTUGUÊS
             </p>
@@ -256,7 +256,7 @@
             </div>
           </div>
 
-          <div class="language-item">  
+          <div class="language-item">
             <p class="bold">
               ITALIANO
             </p>
@@ -268,7 +268,7 @@
             </div>
           </div>
 
-          <div class="language-item company-require-match">  
+          <div class="language-item company-require-match">
             <p class="bold">
               INGLÊS
             </p>
@@ -328,7 +328,7 @@
             </p>
           </div>
         </div>
-        
+
         <div class="bottom-infos">
           <div class="extra-salary-infos">
             <p class="white-text">
@@ -345,15 +345,15 @@
       <div class="item-box">
         <i class="material-icons">stay_current_portrait</i>
       </div>
-      
+
       <div class="item-box">
         <i class="material-icons">mail_outline</i>
       </div>
-      
+
       <div class="item-box">
         <i class="material-icons">insert_drive_file</i>
       </div>
-      
+
       <div class="item-box">
         <i class="material-icons">forum</i>
       </div>
@@ -361,7 +361,7 @@
   </div>
 
   <div class="candidate-contact-actions-container">
-    <button class="action-button"> 
+    <button class="action-button">
       <%= image_tag "icons/candidate_info_white.svg" %>
     </button>
   </div>

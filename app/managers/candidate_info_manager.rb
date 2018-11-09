@@ -4,6 +4,10 @@ class CandidateInfoManager
     @candidate_experience = @candidate.candidate_experience
   end
 
+  def current_position
+    TitleList.find(@candidate_experience.current_title).name
+  end
+
   def carrier_detailed
     @carrier ||= @candidate_experience
                   .title_experiences
