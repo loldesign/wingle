@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
       return false;
     });
     
-    $('.close-menu-area').click(function() {
+    $('.close-menu-area, .close-responsive-side-menu').click(function() {
       $(this).parents().find('#menu').removeClass('open');
       $(this).addClass('hidden');
     });

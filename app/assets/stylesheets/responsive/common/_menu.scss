@@ -1,5 +1,7 @@
 // MOBILE SCREEN //
 @include media ($mobile) {
+  // ##### CANDIDATE ONBOARD ##### //
+  // CUSTOM TOP MENU //
   #responsive_nav {
     @include span-columns (12 of 12);
     padding: 1vh 0;
@@ -37,6 +39,119 @@
           margin-bottom: 0;
           font-size: 3.3vw;
         }
+      }
+    }
+  }
+
+  // ##### COMPANY ONBOARD ##### //
+  // SIDE MENU //
+  #menu {
+    width: 85vw;
+
+    .company-responsive-profile-box {
+      display: flex;
+      justify-content: space-between;
+      padding: 4vh 5vw;
+      border-right: solid 1px $medium-gray;
+
+      .profile-container {
+        width: 50%;
+
+        .profile-box {
+          width: 24.24vw;
+          height: 14.04vh;
+          border: solid 1.5px $medium-gray;
+          border-radius: 90px;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+
+          .profile-image-box {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            img {
+              &.without_image{
+                padding: 0 4vw;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .profile-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        i {
+          margin-bottom: 4vh;
+        }
+
+        a {
+          font-size: 4vw;
+          border: solid 1px $medium-gray;
+          padding: 1vh 3vw;
+        }
+      }
+    }
+
+    .close-menu-area {
+      width: 18%;
+      right: -18%;
+    }
+
+    nav {
+      box-shadow: none;
+      border-right: solid 1px $medium-gray;
+
+      .candidates-interested {
+        padding: 3vh 0;
+        border-top: solid 2px rgba(170, 170, 170, 0.5);
+
+        a {
+          font-size: 5vw;
+
+          i {
+            margin: 0 5vw;
+            font-size: 5.6vw;
+          }
+        }
+      }
+
+      .find-step-process {
+        padding: 3vh 0;
+
+        i {
+          margin: 0 5vw;
+          font-size: 6.6vw;
+        }
+
+        input {
+          width: 70%;
+          margin-bottom: 0;
+        }
+      }
+
+      ul {
+        padding: 0 0 0 16.5vw;
+
+        li {
+          padding: 1.5vh 0;
+        }
+        
+        a {
+          font-size: 5vw;
+        }
+      }
+
+      .company-logout {
+        display: block;
       }
     }
   }

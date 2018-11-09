@@ -152,6 +152,23 @@
 
     <section id="menu" class="side-menu">
       <div class="close-menu-area hidden"></div>
+      
+      <div class="company-responsive-profile-box">
+        <div class="profile-container">
+          <div class="profile-box">
+            <div class="profile-image-box">
+              <%= image_tag "icons/company.svg", class: "without_image" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <i class="material-icons close-responsive-side-menu">clear</i>
+
+          <%= link_to "Minha conta", "#{}" %>
+        </div>
+      </div>
+
       <nav>
         <div class="candidates-interested">
           <%= link_to "#" do %>
@@ -182,6 +199,10 @@
             <%= link_to "Arquivados (0)", "#" %>
           </li>
         </ul>
+
+        <div class="company-logout">
+          <%= link_to "Sair", "#{}" %>
+        </div>
       </nav>
     </section>
   </section>
