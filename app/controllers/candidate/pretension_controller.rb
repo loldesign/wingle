@@ -54,11 +54,17 @@ class Candidate::PretensionController < ApplicationController
 
     def candidate_pretension_filtered_params
       pretension_params = candidate_pretension_params
-      pretension_params[:last_monthly_salary] = candidate_pretension_params[:last_monthly_salary].gsub('R$ ', '').gsub('.', '').gsub(',', '.')  if pretension_params[:last_monthly_salary].present?
-      pretension_params[:variable]            = candidate_pretension_params[:variable].gsub('R$ ', '').gsub('.', '').gsub(',', '.')  if pretension_params[:variable].present?
-      pretension_params[:last_salary_total]   = candidate_pretension_params[:last_salary_total].gsub('R$ ', '').gsub('.', '').gsub(',', '.') if pretension_params[:last_salary_total].present?
-      pretension_params[:minimum_claim]       = candidate_pretension_params[:minimum_claim].gsub('R$ ', '').gsub('.', '').gsub(',', '.') if pretension_params[:minimum_claim].present?
-      pretension_params[:pretension_yearly_total]  = candidate_pretension_params[:pretension_yearly_total].gsub('R$ ', '').gsub('.', '').gsub(',', '.') if pretension_params[:pretension_yearly_total].present?
+      pretension_params[:last_monthly_salary]      = clear_currency_param(candidate_pretension_params[:last_monthly_salary])     if pretension_params[:last_monthly_salary].present?
+      pretension_params[:variable]                 = clear_currency_param(candidate_pretension_params[:variable])                if pretension_params[:variable].present?
+      pretension_params[:last_salary_total]        = clear_currency_param(candidate_pretension_params[:last_salary_total])       if pretension_params[:last_salary_total].present?
+      pretension_params[:total_pretended_from]     = clear_currency_param(candidate_pretension_params[:total_pretended_from])    if pretension_params[:total_pretended_from].present?
+      pretension_params[:minimum_claim]            = clear_currency_param(candidate_pretension_params[:minimum_claim])           if pretension_params[:minimum_claim].present?
+      pretension_params[:pretension_yearly_total]  = clear_currency_param(candidate_pretension_params[:pretension_yearly_total]) if pretension_params[:pretension_yearly_total].present?
+
       return pretension_params
+    end
+
+    def clear_currency_param(amount)
+      amount.gsub('R$ ', '').gsub('.', '').gsub(',', '.')
     end
 end
