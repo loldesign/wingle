@@ -147,6 +147,32 @@
             <%= image_tag "icons/company.svg", class: "without_image" %>
           </div>
         </div>
+
+        <div class="profile-options hidden">
+          <ul>
+            <li>
+              <%= link_to "#{}" do %>
+                <div class="icon-box">
+                  <%= image_tag 'icons/company_white.svg' %>
+                  <!-- <i class="material-icons">settings</i> -->
+                </div>
+
+                <p>Perfil</p>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to destroy_company_session_path, method: :delete, data: {confirm: 'Deseja sair?'} do %>
+                <!-- SIGNOUT LINK -->
+                <div class="icon-box">
+                  <%= image_tag 'icons/logout.svg' %>
+                </div>
+
+                <p>Sair</p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -201,7 +227,7 @@
         </ul>
 
         <div class="company-logout">
-          <%= link_to "Sair", "#{}" %>
+          <%= link_to "Sair", destroy_company_session_path, method: :delete, data: {confirm: 'Deseja sair?'} %>
         </div>
       </nav>
     </section>

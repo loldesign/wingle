@@ -152,6 +152,16 @@
 
       .company-logout {
         display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding-left: 16.5vw;
+
+        a {
+          font-size: 5vw;
+          color: $medium-gray;
+          font-weight: bold;
+        }
       }
     }
   }

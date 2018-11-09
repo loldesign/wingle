@@ -213,6 +213,10 @@ header {
 
       .profile-container {
         justify-content: flex-end;
+
+        .profile-options {
+          left: 3vw;
+        }
       }
     }
   }
