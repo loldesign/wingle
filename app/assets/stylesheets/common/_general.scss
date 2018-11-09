@@ -35,7 +35,11 @@ body {
 }
 
 header {
-  z-index: 99999;
+  .not-logged-in-header,
+  .questions-header, 
+  .dashboard-header {
+    z-index: 99999;
+  }
 }
 
 footer {
