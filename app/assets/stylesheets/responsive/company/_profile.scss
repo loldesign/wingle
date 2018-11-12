@@ -1,0 +1,75 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #company_profile {
+    flex-direction: column;
+
+    .left-box {
+      border-bottom: solid 1px $medium-gray;
+      border-right: none;
+    }
+
+    .left-box,
+    .right-box {
+      padding: 3vh 0;
+      width: 100%;
+    }
+
+    .shadow-box {
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .add-user-container { 
+      padding: 3vh 0 0;
+      margin-bottom: 0vh;
+    }
+
+    .company-infos-container,
+    .add-user-container {
+      padding: 0 5vw;
+    }
+
+    .default-bg {
+      margin-right: 2vw;
+      width: 26.41vw;
+      height: 8.05vh;
+
+      i {
+        font-size: 8vw;
+      }
+    }
+
+    input {
+      &.submit-action {
+        width: 25vw;
+        margin-left: 2vw;
+        font-size: 3.8vw;
+      }
+    }
+
+    .company-active-users-container,
+    .company-user-solicitations-container {
+      padding: 0 5vw;
+      margin-bottom: 3vh;
+    }
+
+    .company-user-solicitations-container {
+      padding-top: 3vh;
+      border-top: solid 1px $medium-gray;
+    }
+
+    .company-infos-container {
+      .company-infos-box {
+        margin-bottom: 4vh;
+
+        .company-account-status {
+          .button-box {
+            button {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

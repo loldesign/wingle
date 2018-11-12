@@ -1,0 +1,45 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #company_user_profile {
+    flex-direction: column;
+
+    .company-infos-container {
+      border-right: none;
+    }
+
+    .company-infos-container,
+    .company-active-users-container {
+      width: 100%;
+    }
+
+    .company-infos-container {
+      .company-infos-box {
+        margin-bottom: 0;
+
+        .company-account-status {
+          .button-box {
+            button {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .company-active-users-container {
+      ul {
+        .active-user-item {
+          input {
+            &.submit-action {
+              padding: 1.6vh 2vw;
+              width: 30vw;
+              margin-left: 2vw;
+              font-size: 3vw;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}

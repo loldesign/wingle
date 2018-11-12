@@ -59,6 +59,8 @@
 
     // COMPANY CANDIDATE PROFILE HEADER //
     .full-header {
+      padding: 2vh 0;
+      
       .header-top {
         padding: 0vh 5vw;
 
@@ -76,6 +78,7 @@
 
         .profile-container {
           visibility: hidden;
+          height: 0;
         }
       }
     }

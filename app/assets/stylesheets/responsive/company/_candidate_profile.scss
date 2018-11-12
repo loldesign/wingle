@@ -1,19 +1,10 @@
 // MOBILE SCREEN //
 @include media ($mobile) {
   #company_candidate_profile {
-    padding: 0 5vw;
+    padding: 0;
 
     .shadow-box {
       box-shadow: none;
-    }
-
-    .responsive-divider {
-      display: block;
-      position: absolute;
-      height: 0.4vh;
-      width: 111%;
-      border-bottom: solid 2px rgba(170, 170, 170, 0.5);
-      left: -5vw;
     }
 
     .order-by-icon {
@@ -28,6 +19,7 @@
       border-bottom: none;
 
       .top-infos {
+        padding: 0 5vw;
         flex-wrap: wrap;
         margin-bottom: 4vh;
 
@@ -70,7 +62,7 @@
         width: 100%;
         height: auto;
         border-right: none;
-        padding: 4vh 0 0;
+        padding: 3vh 5vw 2vh;
         position: relative;
 
         &.border-bottom {
@@ -79,6 +71,7 @@
 
         &.small-size {
           height: auto;
+          border-bottom: solid 2px rgba(170, 170, 170, 0.5);
         }
       }
 
@@ -119,7 +112,6 @@
       .candidate-companies-info-container {
         .candidate-companies-info {
           padding: 0;
-          margin-bottom: 4vh;
 
           .compatibility-with-company-size {
             &.active {
@@ -167,8 +159,9 @@
       }
 
       .candidate-main-functions {
-        padding: 0;
-        margin-bottom: 4vh;
+        padding: 5vh 5vw;
+        margin-bottom: 2vh;
+        border-bottom: solid 1px $medium-gray;
 
         .title-area {
           align-items: flex-end;
