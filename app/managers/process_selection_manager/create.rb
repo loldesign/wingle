@@ -17,7 +17,7 @@ module ProcessSelectionManager
     def transfer_candidates
       historic_process = @owner.process_selections.where(state: :historic).order(created_at: :desc).first
 
-      historic_process.candidate_process_selections.update_all(process_selection_id: @process_selection.id)
+      historic_process.candidate_process_selections.update_all(process_selection_id: @process_selection.id) if historic_process.present?
     end
   end
 end
