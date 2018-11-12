@@ -1,4 +1,17 @@
 #company_profile {
+  display: flex;
+  border-top: solid 1px $medium-gray;
+  
+  .left-box,
+  .right-box {
+    padding: 3vh 3vw;
+    width: 50%;
+  }
+
+  .left-box {
+    border-right: solid 1px $medium-gray;
+  }
+
   .shadow-box {
     -webkit-box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
     -moz-box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);

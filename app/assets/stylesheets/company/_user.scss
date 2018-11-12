@@ -1,19 +1,26 @@
 #company_user_profile {
+  display: flex;
+  border-top: solid 1px $medium-gray;
+
+  .company-infos-container {
+    border-right: solid 1px $medium-gray;
+  }
+
+  .company-infos-container,
+  .company-active-users-container {
+    padding: 3vh 3vw;
+    width: 50%;
+    border-bottom: solid 1px $medium-gray;
+  }
+
   .shadow-box {
     -webkit-box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
     -moz-box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
     box-shadow: 0px 5px 13px 8px rgba(0,0,0,0.16);
     border-radius: 14px;
-    width: 100%;
-    float: left;
   }
 
   .company-active-users-container {
-    width: 100%;
-    float: left;
-    padding: 2vh 1vw;
-    margin-bottom: 4vh;
-
     ul {
       display: flex;
       flex-direction: column;

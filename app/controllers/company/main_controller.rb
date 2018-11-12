@@ -4,6 +4,10 @@ class Company::MainController < ApplicationController
   def home
   end
 
+  def profile
+    @header_options = {style: :company_full_header}
+  end
+
   private
   def load_process_selection
     @process_selection = ProcessSelectionManager::List.new(owner: current_company).active
