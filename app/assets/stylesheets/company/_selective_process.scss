@@ -1,0 +1,61 @@
+#candidate-list-process {
+  padding: 3vh 0;
+  
+  .title-list {
+    margin-bottom: 3vh;
+
+    h4 {
+      margin: 0;
+    }
+  }
+
+  .list-container {
+    padding: 3vh 0;
+    -webkit-box-shadow: 0px 7px 13px 2px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 7px 13px 2px rgba(0,0,0,0.16);
+    box-shadow: 0px 7px 13px 2px rgba(0,0,0,0.16);
+    border-radius: 14px;
+
+    .list-item {
+      width: 100%;
+      border-bottom: solid 2px rgba(170, 170, 170, 0.5);
+
+      a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3vh 2vw;
+      }
+
+      &:first-of-type {
+        a {
+          padding-top: 0;
+        }
+      }
+
+      &:last-of-type {
+        border-bottom: none;
+
+        a {
+          padding-bottom: 0;
+        }
+      }
+
+      .candidate-info {
+        width: 80%;
+
+        p {
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .feedback-button-box {
+        button {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #candidate-list-process {
+    padding: 3vh 0;
+
+    .title-list {
+      padding: 0 5vw;
+      margin-bottom: 0;
+
+      h4 {
+        text-align: center;
+      }
+    }
+
+    .list-container {
+      padding: 3vh 0;
+      box-shadow: none;
+      border-radius: 0;
+
+      .list-item {
+        width: 100%;
+        border-bottom: solid 2px rgba(170, 170, 170, 0.5);
+
+        a {
+          padding: 3vh 5vw;
+        }
+
+        &:first-of-type {
+          border-top: solid 2px rgba(170, 170, 170, 0.5);
+
+          a {
+            padding-top: 3vh;
+          }
+        }
+
+        &:last-of-type {
+          border-bottom: solid 2px rgba(170, 170, 170, 0.5);
+
+          a {
+            padding-bottom: 3vh
+          }
+        }
+
+        .candidate-info {
+          width: 80%;
+
+          p {
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        .feedback-button-box {
+          button {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}

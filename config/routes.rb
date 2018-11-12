@@ -99,6 +99,9 @@ Rails.application.routes.draw do
     #### CANDIDATE PROFILE AREA #####
     get   'candidato/perfil'                , to: 'candidate#profile'        , as: :candidate_profile
     get   'candidato/perfil-confidencial'   , to: 'candidate#blind_profile'  , as: :candidate_profile_blind
+
+    #### SELECTIVE PROCESS AREA #####
+    get   '/processo-seletivo'          , to: 'selective_process#index' , as: :selective_process
   end
 
 
