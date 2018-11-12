@@ -117,7 +117,16 @@
       </h5>
       <div class="candidate-companies-info shadow-box">
         <div class="relevant-companies">
-          <div class="candidate-company-box first-box">
+          <% @manager.company_list.each do |company| %>
+            <div class="candidate-company-box">
+              <p class="bold"><%= company[:name] %></p>
+
+              <div class="candidate-company-time">
+                <p>3.2</p>
+              </div>
+            </div>
+          <% end %>
+          <!-- <div class="candidate-company-box first-box">
             <p class="bold">BAYER</p>
 
             <div class="candidate-company-time">
@@ -156,7 +165,7 @@
               <p>5.4</p>
             </div>
           </div>
-        </div>
+        </div> -->
         <p class="compatibility-with-company-size active">
           <span>•</span>
           Experiência no porte da sua empresa
@@ -178,7 +187,18 @@
 
       <article class="functions-and-languages">
         <div class="candidate-functions">
-          <div class="function-item company-require-match">
+          <% @manager.function_list.each_with_index do |function, index| %>
+            <div class="function-item">
+              <p class="bold">
+                <%= function.upcase %>
+              </p>
+
+              <p>
+                2.1
+              </p>
+            </div>
+          <% end %>
+          <!-- <div class="function-item company-require-match">
             <p class="bold">
               PLANEJ. FINANCEIRO
             </p>
@@ -186,9 +206,9 @@
             <p>
               3.2
             </p>
-          </div>
+          </div> -->
 
-          <div class="function-item">
+          <!-- <div class="function-item">
             <p class="bold">
               AUDITORIA
             </p>
@@ -226,7 +246,7 @@
             <p>
               1.0
             </p>
-          </div>
+          </div> -->
         </div>
 
         <div class="responsive-divider"></div>
