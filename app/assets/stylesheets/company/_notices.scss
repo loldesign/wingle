@@ -1,0 +1,59 @@
+#notice_container {
+  .content-box {
+    padding: 5vh 4vw;
+    -webkit-box-shadow: 0px 7px 13px 2px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 7px 13px 2px rgba(0,0,0,0.16);
+    box-shadow: 0px 7px 13px 2px rgba(0,0,0,0.16);
+    border-radius: 14px;
+
+    .pending-payment-content,
+    .upgrade-plan-content,
+    .update-company-profile-content,
+    .payment-option-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+
+      .payment-plan-options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          &:first-of-type {
+            margin: 0 0 3vh;
+            background-color: $light-green;
+          }
+        }
+      }
+    }
+
+    h4 {
+      margin: 0 0 12vh 0;
+      font-size: 2vw;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    p {
+      &.light-blue-text {
+        color: #3ACCE1 !important;
+        font-size: 1.1vw;
+        text-align: center;
+      }
+    }
+
+    a {
+      border-radius: 12px;
+      width: 20vw;
+      background-color: #c1c1c1;
+    }
+  }
+}

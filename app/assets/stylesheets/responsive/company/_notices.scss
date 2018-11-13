@@ -1,0 +1,50 @@
+// MOBILE SCREEN //
+@include media ($mobile) {  
+  #notice_container {
+    .content-box {
+      padding: 3vh 5vw;
+      box-shadow: none;
+      border-radius: 0;
+
+      .pending-payment-content,
+      .upgrade-plan-content,
+      .update-company-profile-content,
+      .payment-option-content {
+        .payment-plan-options {
+          a {
+            &:first-of-type {
+              margin: 0 0 3vh;
+              font-size: 5.3vw;
+            }
+          }
+        }
+      }
+
+      h4 {
+        margin: 0 0 5vh 0;
+        font-size: 6vw;
+        line-height: 1.4;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      p {
+        &.light-blue-text {
+          color: #3ACCE1 !important;
+          font-size: 5vw;
+          text-align: center;
+        }
+      }
+
+      a {
+        border-radius: 12px;
+        width: 100%;
+        font-size: 4vw;
+        background-color: #c1c1c1;
+        text-transform: none;
+      }
+    }
+  } 
+}

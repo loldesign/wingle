@@ -102,6 +102,9 @@ Rails.application.routes.draw do
 
     #### SELECTIVE PROCESS AREA #####
     get   '/processo-seletivo'          , to: 'selective_process#index' , as: :selective_process
+
+    #### COMPANY NOTICES AREA #####
+    get   '/avisos-conta'               , to: 'notices#index'           , as: :notices
   end
 
 
