@@ -63,7 +63,16 @@
         <%=t :total, scope: [:candidate, :carrier], count: @manager.carrier_total_years %>
       </h5>
       <div class="candidate-carrer-experience-info shadow-box">
-        <div class="candidate-title-box first-box">
+        <% @manager.carrier_detailed.each do |carrier| %>
+          <div class="candidate-title-box first-box">
+              <p class="bold"><%= carrier[:title] %></p>
+
+              <div class="candidate-experience-level active">
+                <p class="white-text"><%= carrier[:years] %>.<%= carrier[:months] %></p>
+              </div>
+            </div>
+        <% end -%>
+        <!-- <div class="candidate-title-box first-box">
           <p class="bold">Analista</p>
 
           <div class="candidate-experience-level active">
@@ -104,7 +113,7 @@
 
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -247,7 +256,23 @@
         </div>
 
         <div class="candidate-languages">
-          <div class="language-item company-require-match">
+
+          <% @manager.language_list.each do |language| %>
+            <div class="language-item company-require-match">
+              <p class="bold">
+                <%= language[:name] %>
+              </p>
+
+              <div class="language-level">
+                <div class="circle <%=  language[:level] > 0 ? :active : ''%>"></div>
+                <div class="circle <%=  language[:level] > 1 ? :active : ''%>"></div>
+                <div class="circle <%=  language[:level] > 2 ? :active : ''%>"></div>
+              </div>
+            </div>
+          <% end -%>
+
+          <!-- <div class="language-item company-require-match">
+
             <p class="bold">
               ESPANHOL
             </p>
@@ -293,7 +318,7 @@
               <div class="circle"></div>
               <div class="circle"></div>
             </div>
-          </div>
+          </div> -->
         </div>
       </article>
     </section>
@@ -306,17 +331,17 @@
       <div class="candidate-interest-infos shadow-box">
         <div class="left-infos">
           <div class="localization">
-            <div class="circle active"></div>
+            <div class="circle <%=  @manager.relevance_list.include?('LOCALIZAÇÃO') ? :active : ''%>"></div>
             <p class="semi-bold">Localização</p>
           </div>
 
           <div class="size">
-            <div class="circle"></div>
+            <div class="circle <%=  @manager.relevance_list.include?('PORTE DA EMPRESA') ? :active : ''%>""></div>
             <p class="semi-bold">Porte</p>
           </div>
 
           <div class="sector">
-            <div class="circle active"></div>
+            <div class="circle <%=  @manager.relevance_list.include?('SETOR DE ATUAÇÃO') ? :active : ''%>"></div>
             <p class="semi-bold">Setor</p>
           </div>
         </div>
@@ -332,11 +357,7 @@
 
           <div class="company-salary">
             <p class="bold">
-              R$ 7.000/mês
-            </p>
-
-            <p class="bold">
-              R$ 120.000/ano
+              <%= number_to_currency(@manager.pretension_list[:anual])%>/ano
             </p>
           </div>
         </div>

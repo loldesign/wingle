@@ -62,6 +62,12 @@ class CandidateInfoManager
     }
   end
 
+  def relevance_list
+    relevances = @candidate.candidate_interest.relevances
+
+    Relevance.where(id: relevances).collect{|x| x.name}
+  end
+
   def pretension_list
     pretension = @candidate.candidate_pretension
 
