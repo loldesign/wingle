@@ -124,7 +124,7 @@
 
     .candidate-carrer-experience-info {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       padding: 2vh 3vw;
 
       .candidate-title-box {
@@ -133,6 +133,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-right: 1%;
 
         p {
           margin-bottom: 0;
@@ -164,14 +165,16 @@
           }
         }
 
-        &.first-box {
+        &:first-child {
           .candidate-experience-level {
             border-top-left-radius: 14px;
             border-bottom-left-radius: 14px;
           }
         }
 
-        &.fourth-box {
+        &:last-child {
+          margin-right: 0;
+
           .candidate-experience-level {
             border-top-right-radius: 14px;
             border-bottom-right-radius: 14px;
