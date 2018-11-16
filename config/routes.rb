@@ -81,6 +81,7 @@ Rails.application.routes.draw do
     ##### MAIN USER COMPANY AREA #####
     get  '/usuario/perfil'              , to: 'user#profile'          , as: :company_user_profile
 
+
     #### ABOUT SECTOR #####
     get   'sobre/passo-1'               , to: 'about#first'             , as: :about_step_1
     match 'sobre/passo-2'               , to: 'about#second'            , as: :about_step_2         , via: [:get, :post]
@@ -97,11 +98,14 @@ Rails.application.routes.draw do
     match 'buscar-candidato/passo-5'    , to: 'filter_candidate#fith'   , as: :filter_step_5, via: [:get, :post]
 
     #### CANDIDATE PROFILE AREA #####
-    get   'candidato/perfil'                , to: 'candidate#profile'        , as: :candidate_profile
-    get   'candidato/perfil-confidencial'   , to: 'candidate#blind_profile'  , as: :candidate_profile_blind
+    get   'candidato/perfil'                           , to: 'candidate#profile'        , as: :candidate_profile
+    get   'candidato/perfil-confidencial'              , to: 'candidate#blind_profile'  , as: :candidate_profile_blind
+    put   'candidato/perfil/:candidate_id/update-state', to: 'candidate#update_state'
+    get   'candidato/perfil/:id'                       , to: 'candidate#profile'        , as: :candidate_profile_view
 
     #### SELECTIVE PROCESS AREA #####
-    get   '/processo-seletivo'          , to: 'selective_process#index' , as: :selective_process
+    get   '/processo-seletivo/info'     , to: 'selective_process#info'
+    get   '/processo-seletivo/:state'   , to: 'selective_process#index' , as: :selective_process
 
     #### COMPANY NOTICES AREA #####
     get   '/avisos-conta'               , to: 'notices#index'           , as: :notices

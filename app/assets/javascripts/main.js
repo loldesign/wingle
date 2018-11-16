@@ -31,4 +31,6 @@ $(document).on('turbolinks:load', function() {
   new companiesFirstStepManager()
 
   new processSelectionManager()
+
+  new processSelectionCandidateManager()
 });

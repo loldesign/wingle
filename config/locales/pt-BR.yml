@@ -20,6 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  company:
+    process_selection:
+      state:
+        'interessado': 'Interessado'
+        '1-etapa': '1º Etapa'
+        '2-etapa': '2º Etapa'
+        'ultima-etapa': 'Última Etapa'
+        'proposta':  'Proposta'
+        'aprovados': 'Aprovado'
+        'ignorados': 'Ignorados'
   candidate:
       carrier:
         total:

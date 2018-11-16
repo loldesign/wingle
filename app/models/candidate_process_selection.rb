@@ -6,7 +6,7 @@ class CandidateProcessSelection < ApplicationRecord
 
   aasm :column => :state, :logger => Rails.logger do
     state :selected, initial: true
-    state :first_level, :second_level, :third_level, :received_proposal, :accepted_proposal
+    state :first_level, :second_level, :third_level, :fourth_level, :received_proposal, :accepted_proposal, :ignored
 
     event :to_first_level do
       transitions from: :selected, to: :first_level

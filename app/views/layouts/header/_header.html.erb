@@ -1,6 +1,6 @@
 <!-- params of partial: {style: :with_logo_back_button, back_button: false} -->
 
-<% if options[:style] == :with_logo %>  
+<% if options[:style] == :with_logo %>
   <!-- Default Header -->
   <section class="not-logged-in-header content">
     <div class="top">
@@ -16,7 +16,7 @@
         <%= image_tag 'wingle-title.svg', :class => "wingle-title without-link" %>
       <% end %>
       <%= image_tag 'wingle-logo.svg' %>
-    </div>  
+    </div>
   </section>
 
 <% elsif options[:style] == :with_logo_back_button %>
@@ -25,7 +25,7 @@
     <div class="left-box">
       <%if options[:back_button].nil? || options[:back_button] %>
         <%= link_to :back do %>
-          <i class="icon ion-md-arrow-round-back"></i> 
+          <i class="icon ion-md-arrow-round-back"></i>
         <% end %>
       <% end %>
     </div>
@@ -42,7 +42,7 @@
       <% else %>
         <%= image_tag 'wingle-title.svg', :class => "wingle-title without-link" %>
       <% end %>
-    </div>  
+    </div>
   </section>
 
 <% elsif options[:style] == :dashboard_header %>
@@ -60,7 +60,7 @@
         <ul>
           <li class="schedule">
             <%#= image_tag 'icons/schedule.svg' %>
-            <%= link_to "Interesses e Experiências", candidate_interest_step_1_path %>            
+            <%= link_to "Interesses e Experiências", candidate_interest_step_1_path %>
           </li>
 
           <li class="company">
@@ -86,7 +86,7 @@
           </li>
         </ul>
       </nav>
-      
+
       <div class="profile-container">
         <div class="profile-box">
           <%= candidate_avatar(current_candidate, :thumb)%>
@@ -140,7 +140,7 @@
       <div class="center-box">
         <%= image_tag 'wingle-title.svg', :class => "wingle-title" %>
       </div>
-      
+
       <div class="profile-container">
         <div class="profile-box">
           <div class="profile-image-box">
@@ -178,7 +178,7 @@
 
     <section id="menu" class="side-menu">
       <div class="close-menu-area hidden"></div>
-      
+
       <div class="company-responsive-profile-box">
         <div class="profile-container">
           <div class="profile-box">
@@ -197,7 +197,7 @@
 
       <nav>
         <div class="candidates-interested">
-          <%= link_to "#" do %>
+          <%= link_to company_candidate_profile_path do %>
             <i class="material-icons">grade</i>
             <p class="bold">Ver Interessados</p>
           <% end %>
@@ -208,21 +208,30 @@
           <%= text_field_tag 'search_step_process', "", class: 'form-control', placeholder: 'Buscar...' %>
         </div>
 
-        <ul>
+        <ul class='process-selsection-info'>
+          <% total_info = ProcessSelectionManager::Info.new(owner: current_company).process %>
           <li>
-            <%= link_to "Em processo (23)", company_selective_process_path %>
+            <%= link_to "(#{total_info[:first_level]}) - Interessado", company_selective_process_path(:interessado), data: {level: :first_level} %>
           </li>
 
           <li>
-            <%= link_to "Aprovados (12)", company_selective_process_path %>
+            <%= link_to "(#{total_info[:second_level]}) - 1ª Etapa", company_selective_process_path(:'1-etapa'), data: {level: :second_level} %>
           </li>
 
           <li>
-            <%= link_to "Eliminados (6)", company_selective_process_path %>
+            <%= link_to "(#{total_info[:third_level]}) - 2ª Etapa", company_selective_process_path(:'2-etapa'), data: {level: :third_level} %>
           </li>
 
           <li>
-            <%= link_to "Arquivados (0)", company_selective_process_path %>
+            <%= link_to "(#{total_info[:fourth_level]}) - Última Etapa", company_selective_process_path(:'ultima-etapa'), data: {level: :fourth_level} %>
+          </li>
+
+          <li>
+            <%= link_to "(#{total_info[:received_proposal]}) - Proposta", company_selective_process_path(:'proposta'), data: {level: :received_proposal} %>
+          </li>
+
+          <li>
+            <%= link_to "(#{total_info[:accepted_proposal]}) - Aprovados", company_selective_process_path(:'aprovados'), data: {level: :accepted_proposal} %>
           </li>
         </ul>
 

@@ -2,75 +2,41 @@
 
 <section id="candidate-list-process" class="content">
   <div class="title-list">
-    <h4 class="bold light-green-text">Em Processo</h4>
+    <h4 class="bold light-green-text"><%= t params[:state], scope: [:company, :process_selection, :state] %></h4>
   </div>
 
   <div class="list-container">
     <ul>
-      <li class="list-item">
-        <%= link_to "#" do %>
-          <div class="candidate-info">
-            <p>Planejamento Financeiro - Gerente</p>
-            <p>João da Silva - 1a Etapa</p>
-          </div>
+      <!-- CANDIDATE LIST -->
+      <% @candidate_process_selection.each do |candidate_process| %>
+        <li class="list-item">
+          <%= link_to company_candidate_profile_view_path(candidate_process.candidate) do %>
+            <% manager =  CandidateInfoManager.new(candidate: candidate_process.candidate) %>
 
-          <div class="feedback-button-box">
-            <button>Feedback</button>
-          </div>
-        <% end %>
-      </li>
+            <div class="candidate-info">
+              <p><%= manager.current_position %></p>
+              <p><%= candidate_process.candidate.name %></p>
+            </div>
 
-      <li class="list-item">
-        <%= link_to "#" do %>
-          <div class="candidate-info">
-            <p>Planejamento Financeiro - Gerente</p>
-            <p>João da Silva - 1a Etapa</p>
-          </div>
+            <div class="feedback-button-box">
+              <% if candidate_process.ignored? %>
+                <button>Feedback</button>
+              <% end %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
 
-          <div class="feedback-button-box">
-            <button>Feedback</button>
-          </div>
-        <% end %>
-      </li>
-
-      <li class="list-item">
-        <%= link_to "#" do %>
-          <div class="candidate-info">
-            <p>Planejamento Financeiro - Gerente</p>
-            <p>João da Silva - 1a Etapa</p>
-          </div>
-
-          <div class="feedback-button-box">
-            <button>Feedback</button>
-          </div>
-        <% end %>
-      </li>
-
-      <li class="list-item">
-        <%= link_to "#" do %>
-          <div class="candidate-info">
-            <p>Planejamento Financeiro - Gerente</p>
-            <p>João da Silva - 1a Etapa</p>
-          </div>
-
-          <div class="feedback-button-box">
-            <button>Feedback</button>
-          </div>
-        <% end %>
-      </li>
-
-      <li class="list-item">
-        <%= link_to "#" do %>
-          <div class="candidate-info">
-            <p>Planejamento Financeiro - Gerente</p>
-            <p>João da Silva - 1a Etapa</p>
-          </div>
-
-          <div class="feedback-button-box">
-            <button>Feedback</button>
-          </div>
-        <% end %>
-      </li>
+      <!-- CANDIDATE NO LIST -->
+      <% if @candidate_process_selection.empty? %>
+        <li class="list-item">
+          <%= link_to "#" do %>
+            <div class="candidate-info">
+              <p>Não existem candidatos nesta etapa</p>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </section>

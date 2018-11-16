@@ -1,4 +1,4 @@
-<section id="company_candidate_profile">
+<section id="company_candidate_profile" data-candidate-id="<%= @candidate.id %>">
   <div id="order-modal">
     <h4 class="light-green-text">
       <b>Ordenar Por:</b>
@@ -38,7 +38,9 @@
   <article class="candidate-contact-infos">
     <div class="top-infos">
       <div class="button-box">
-        <button>Recuperar</button>
+        <% if @candidate_process_selection.ignored? %>
+          <button>Recuperar</button>
+        <% end %>
       </div>
 
       <div class="main-infos">
@@ -50,10 +52,12 @@
       </div>
 
       <div class="button-box-responsive">
-        <button>Recuperar</button>
+        <% if @candidate_process_selection.ignored? %>
+          <button>Recuperar</button>
+        <% end %>
       </div>
 
-      <%= select_tag 'candidate_profile[status]', options_for_select([["interessado", 0], ["1a Etapa", 1], ["2a Etapa", 2], ["Última Etapa", 3], ["Proposta", 4], ["Aprovados", 5]]), :class => "validate", :include_blank => true %>
+      <%= select_tag 'candidate_profile[status]', options_for_select([["interessado", :first_level], ["1a Etapa", :second_level], ["2a Etapa", :third_level], ["Última Etapa", :fourth_level], ["Proposta", :received_proposal], ["Aprovados", :accepted_proposal]], selected: @candidate_process_selection.state), :class => "validate", :include_blank => true %>
     </div>
   </article>
 
