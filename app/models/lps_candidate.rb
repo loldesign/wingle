@@ -1,0 +1,2 @@
+class LpsCandidate < ApplicationRecord
+end
