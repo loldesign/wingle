@@ -182,9 +182,9 @@ Sector.find_or_initialize_by(name: 'TERCEIRO SETOR'             ).update_attribu
 # Creating First Company Sizes
 # -------
 puts "---> Processing CompanySizes ..."
-CompanySize.find_or_initialize_by(name: 'INÍCIO DE OPERAÇÃO').update_attributes!(code: 'C1', description: 'maior autonomia, relevância e dinamismo')
-CompanySize.find_or_initialize_by(name: 'EMPRESA MÉDIA'     ).update_attributes!(code: 'C2', description: 'oportunidade de crescimento e estruturação de processos')
-CompanySize.find_or_initialize_by(name: 'GRANDE CORPORAÇÃO' ).update_attributes!(code: 'C3', description: 'hierarquia, melhoria de processos e estabilidade')
+CompanySize.find_or_initialize_by(name: 'INÍCIO DE OPERAÇÃO').update_attributes!(code: 'P', description: 'maior autonomia, relevância e dinamismo')
+CompanySize.find_or_initialize_by(name: 'EMPRESA MÉDIA'     ).update_attributes!(code: 'M', description: 'oportunidade de crescimento e estruturação de processos')
+CompanySize.find_or_initialize_by(name: 'GRANDE CORPORAÇÃO' ).update_attributes!(code: 'G', description: 'hierarquia, melhoria de processos e estabilidade')
 
 # -------
 # Creating First Modes
@@ -198,9 +198,9 @@ Mode.find_or_initialize_by(name: 'CONSERVADORA').update_attributes!(code: 'Cmd',
 # Creating First Relevances
 # -------
 puts "---> Processing Relevances ..."
-Relevance.find_or_initialize_by(name: 'PORTE DA EMPRESA').update_attributes!(priority: 3)
-Relevance.find_or_initialize_by(name: 'SETOR DE ATUAÇÃO').update_attributes!(priority: 2)
-Relevance.find_or_initialize_by(name: 'LOCALIZAÇÃO'     ).update_attributes!(priority: 1)
+Relevance.find_or_initialize_by(name: 'PORTE DA EMPRESA').update_attributes!(priority: 3, code: 'P')
+Relevance.find_or_initialize_by(name: 'SETOR DE ATUAÇÃO').update_attributes!(priority: 2, code: 'S')
+Relevance.find_or_initialize_by(name: 'LOCALIZAÇÃO'     ).update_attributes!(priority: 1, code: 'L')
 
 # -------
 # Creating First Areas, Functions and Habilities
