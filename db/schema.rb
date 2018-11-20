@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181106190915) do
+ActiveRecord::Schema.define(version: 20181120210942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -333,6 +333,37 @@ ActiveRecord::Schema.define(version: 20181106190915) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "lps_candidates", force: :cascade do |t|
+    t.string "name"
+    t.string "cpf"
+    t.string "locale"
+    t.string "region"
+    t.string "size"
+    t.string "mode"
+    t.string "port"
+    t.string "sector_key"
+    t.string "sector"
+    t.string "relevance"
+    t.text "lps_key", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lps_companies", force: :cascade do |t|
+    t.string "name"
+    t.string "cpf_cnpj"
+    t.string "locale"
+    t.string "region"
+    t.string "size"
+    t.string "mode"
+    t.string "port"
+    t.string "sector_key"
+    t.string "sector"
+    t.text "lps_key", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "modes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -375,6 +406,16 @@ ActiveRecord::Schema.define(version: 20181106190915) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "process_selection_candidates", force: :cascade do |t|
+    t.bigint "process_selection_id"
+    t.bigint "candidate_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_process_selection_candidates_on_candidate_id"
+    t.index ["process_selection_id"], name: "index_process_selection_candidates_on_process_selection_id"
+  end
+
   create_table "process_selections", force: :cascade do |t|
     t.bigint "company_id"
     t.string "owner_type"
@@ -412,6 +453,7 @@ ActiveRecord::Schema.define(version: 20181106190915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority"
+    t.string "code"
   end
 
   create_table "sectors", force: :cascade do |t|
