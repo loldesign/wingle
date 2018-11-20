@@ -1,0 +1,2 @@
+class LpsCompany < ApplicationRecord
+end
