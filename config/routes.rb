@@ -157,6 +157,9 @@ Rails.application.routes.draw do
         resources :city_locales, path: :'regiões-da-cidade'
       end
     end
+
+    get '/lps/candidatos', to: 'lps#candidates', as: :lps_candidates
+    get '/lps/empresas'  , to: 'lps#companies' , as: :lps_companies
   end
 
   root 'landing_page#session_type'

@@ -38,14 +38,14 @@ puts "---> Processing CityLocale ..."
 sp     = City.first
 south  = CityLocale.find_or_initialize_by(name: 'Zona Sul'  )
 south.update_attributes!(city: sp, priority: 0, code: 'S')
-east   = CityLocale.find_or_initialize_by(name: 'Zona Oeste')
-east.update_attributes!(city: sp, priority: 1, code: 'O')
+west   = CityLocale.find_or_initialize_by(name: 'Zona Oeste')
+west.update_attributes!(city: sp, priority: 1, code: 'O')
 center = CityLocale.find_or_initialize_by(name: 'Centro'    )
 center.update_attributes!(city: sp, priority: 2, code: 'C')
 north  = CityLocale.find_or_initialize_by(name: 'Zona Norte')
 north.update_attributes!(city: sp, priority: 3, code: 'N')
-west   = CityLocale.find_or_initialize_by(name: 'Zona Leste')
-west.update_attributes!(city: sp, priority: 4, code: 'L')
+east   = CityLocale.find_or_initialize_by(name: 'Zona Leste')
+east.update_attributes!(city: sp, priority: 4, code: 'L')
 
 
 puts "---> Processing Neighborhood ..."

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181120210942) do
+ActiveRecord::Schema.define(version: 20181122184417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -360,6 +360,20 @@ ActiveRecord::Schema.define(version: 20181120210942) do
     t.string "sector_key"
     t.string "sector"
     t.text "lps_key", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lps_matches", force: :cascade do |t|
+    t.string "cpf_candidate"
+    t.string "cpf_cnpj_company"
+    t.string "relevance"
+    t.decimal "locale_score"
+    t.decimal "port_score"
+    t.decimal "sector_score"
+    t.decimal "score"
+    t.string "lps_company_key"
+    t.string "lps_candidate_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
