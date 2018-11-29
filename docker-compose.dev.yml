@@ -10,7 +10,7 @@ services:
       POSTGRES_USER: loldesign
       POSTGRES_PASSWORD: c8d2xtvfdd
     ports:
-      - '5433:5432'
+      - '5435:5436'
     volumes:
       - db:/var/lib/postgresql/data
 
