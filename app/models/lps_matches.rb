@@ -1,0 +1,2 @@
+class LpsMatch < ApplicationRecord
+end

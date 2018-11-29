@@ -6,17 +6,18 @@ module Lps
     end
 
     def process
+
       total = {
         locale: calculate_locale(),
         port: calculate_port(),
-        sector: calculate_sector()
+        sector: calculate_sector(),
+        #total_score: total_score
       }
-
       total_score =  total[:locale] + total[:port] + total[:sector]
+      total_score = 4 if total_score > 4
 
-      return total_score = 4 if total_score > 4
-
-      total.merge({total: total_score})
+      total.merge({total_score: total_score})
+     
     end
 
     private

@@ -27,7 +27,7 @@ namespace :lps do
 
     LpsCompany.all.each do |lps_company|
       LpsCandidate.where(lps_key: lps_company.lps_key).each do |lps_candidate|
-        LPS::Score.new(lps_candidate: lps_candidate, lps_company: lps_company).process
+        Lps::Match.new(lps_candidate: lps_candidate, lps_company: lps_company).process
 
       end
 
