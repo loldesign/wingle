@@ -41,7 +41,7 @@ module Lps
       score = 0.5 if @lps_company.sector_key == @lps_candidate.sector_key
       score = 1   if @lps_company.sector == @lps_candidate.sector
 
-      if @lps_candidate.relevance == 'P'
+      if @lps_candidate.relevance == 'S'
         score = score * 2
       end
 
@@ -55,7 +55,7 @@ module Lps
       score = 0.5 if @lps_company.mode == @lps_candidate.mode
       score = 1   if @lps_company.port == @lps_candidate.port
 
-      if @lps_candidate.relevance == 'S'
+      if @lps_candidate.relevance == 'P'
         score = score * 2
       end
 

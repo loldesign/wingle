@@ -37,7 +37,7 @@ module Lps
         array = []
         array_size_mode = []
         array_final = []
-
+          # REVIEW PORT CALCULATION
           result.company_size.each do |size|
             result.mode.each do |mode|
               array_size_mode << [size, mode]
