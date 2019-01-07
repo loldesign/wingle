@@ -1,8 +1,8 @@
-<%= simple_form_for [:admin, @state, @city, @neighborhood_group, @neighborhood] , html: {class: 'form'} do |f| %>
+<%= simple_form_for [:admin, @state, @city, @neighborhood_group] , html: {class: 'form'} do |f| %>
 
   <section class='fields-wrapper one-column'>
     <header>
-      <h2><%= "#{@neighborhood.persisted? ? 'Editar' : 'Criar'} Bairro" %></h2>
+      <h2><%= "#{@neighborhood_group.persisted? ? 'Editar' : 'Criar'} Bairro" %></h2>
     </header>
     
     <article>
@@ -11,7 +11,7 @@
     </article>
   </section>
   <footer>
-    <%= cancel_action(path: admin_state_city_neighborhood_group_neighborhoods_path(@state, @city)) %>
+    <%= cancel_action(path: admin_state_city_neighborhood_groups_path(@state, @city)) %>
     <%= submit_button f %>
   </footer>
 <% end %>

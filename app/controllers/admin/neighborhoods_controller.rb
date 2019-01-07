@@ -3,7 +3,7 @@ class Admin::NeighborhoodsController < AdminController
   before_action :set_neighborhood, except: [:new, :create, :index]
 
   def index
-    @neighborhoods = @city.neighborhoods.order(created_at: :desc).page(params[:page] || 1).per_page(30)
+    @neighborhoods = @neighborhood_group.neighborhoods.order(created_at: :desc).page(params[:page] || 1).per_page(30)
   end
 
   def show
@@ -14,7 +14,7 @@ class Admin::NeighborhoodsController < AdminController
   end
 
   def create
-    @neighborhood = @city.neighborhoods.build(neighborhood_params)
+    @neighborhood = @neighborhood_group.neighborhoods.build(neighborhood_params)
 
     if @neighborhood.save
       redirect_to edit_admin_state_city_neighborhood_path(@state, @city, @neighborhood), notice: 'Criado com sucesso'
@@ -42,7 +42,8 @@ class Admin::NeighborhoodsController < AdminController
 
   private
   def set_city
-    @city = City.find(params[:city_id])
+    @neighborhood_group = NeighborhoodGroup.find(params[:neighborhood_group_id])
+    @city = @neighborhood_group.city
     @state = @city.state
   end
 

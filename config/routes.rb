@@ -153,7 +153,9 @@ Rails.application.routes.draw do
     end
     resources :states,                  path: :estados do
       resources :cities, path: :cidades do
-        resources :neighborhoods, path: :bairros
+        resources :neighborhood_groups, path: :'sub-regiões' do
+            resources :neighborhoods, path: :bairros
+        end
         resources :city_locales, path: :'regiões-da-cidade'
       end
     end
