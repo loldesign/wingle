@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190108130927) do
+ActiveRecord::Schema.define(version: 20190108163031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20190108130927) do
     t.integer "end_date_month"
     t.integer "end_date_year"
     t.boolean "currently_work_here", default: false
+    t.string "neighborhood_group"
     t.index ["candidate_id"], name: "index_candidate_current_companies_on_candidate_id"
   end
 

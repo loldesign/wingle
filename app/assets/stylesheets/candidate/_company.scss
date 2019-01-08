@@ -16,6 +16,10 @@
 					position: initial;
 				}
 			}
+
+			&.neighborhood.hidden {
+				display: none;
+			}
 		}
 
 		.two-items,

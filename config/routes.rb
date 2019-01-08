@@ -44,6 +44,8 @@ Rails.application.routes.draw do
     match 'empresa/passo-2'             , to: 'company#second'        , as: :company_step_2           , via: [:get, :post]
     match 'empresa/passo-3'             , to: 'company#third'         , as: :company_step_3           , via: [:get, :post]
     post  'empresa/passo-completo'      , to: 'company#complete'      , as: :company_step_complete
+    get   'empresa/passo-1/bairros'     , to: 'company#neighborhoods' , as: :list_neighborhood
+    get   'empresa/passo-1/subsectors'  , to: 'company#subsectors'    , as: :list_subsectors
 
     #### HABILITY SECTOR #####
     get  'habilidade/passo-1'           , to: 'hability#first'        , as: :hability_step_1

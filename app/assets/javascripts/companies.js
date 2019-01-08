@@ -16,6 +16,12 @@ var companiesFirstStepManager = function(){
       _this.process($select, true)
     });
 
+    this.$container.on('change', '#candidate_current_company_neighborhood_group', function(event) {
+      event.preventDefault();
+
+      _this.populateNeighborhood($(this))
+    });
+
     this.process($('#candidate_current_company_city_locale'), false)
 
     this.$container.on('change', '#candidate_current_company_currently_work_here', function(event) {
@@ -55,6 +61,66 @@ var companiesFirstStepManager = function(){
 
   this.showOnlyLocale = function(id){
     this.$localeSelect.find('option').filter("[data-city-locale-id="+id+"]").show()
+  }
+
+  this.populateSubsectors = function($select) {
+    var $subsectors = $('#candidate_current_company_neighborhood')
+
+    if ($select.val() != "") {
+      $subsectors.parent().removeClass('hidden');
+      
+      $.ajax({
+        url: '/candidato/empresa/passo-1/subsectors?sector_id='+$select.val(),
+        type: 'get',
+        dataType: 'json',
+      })
+      .success(function(data) {
+        $subsectors.children('option:not(:first)').remove();
+        $subsectors.append('<option value>Bairro</option>');
+
+        $.each(data, function(i, obj) {
+          $subsectors.append($("<option />").val(obj.id).text(obj.name));
+        });
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      });
+    } else {
+      $('#candidate_current_company_neighborhood').parent().addClass('hidden');
+    }
+  }
+
+  this.populateNeighborhood = function($select) {
+    var $neighborhood = $('#candidate_current_company_neighborhood')
+
+    if ($select.val() != "") {
+      $neighborhood.parent().removeClass('hidden');
+      
+      $.ajax({
+        url: '/candidato/empresa/passo-1/bairros?neighborhood_group_id='+$select.val(),
+        type: 'get',
+        dataType: 'json',
+      })
+      .success(function(data) {
+        $neighborhood.children('option:not(:first)').remove();
+        $neighborhood.append('<option value>Bairro</option>');
+
+        $.each(data, function(i, obj) {
+          $neighborhood.append($("<option />").val(obj.id).text(obj.name));
+        });
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      });
+    } else {
+      $('#candidate_current_company_neighborhood').parent().addClass('hidden');
+    }
   }
 
   this.hideEndDates = function(){

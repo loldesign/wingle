@@ -78,7 +78,12 @@
             </div>
 
             <div class="box-with-error">
-              <%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id, {'data-city-locale-id': neighborhood.city_locale.id}] }, selected: @current_company.neighborhood), :class => "full validate", prompt: "LOCALIZAÇÃO"  %>
+              <%= select_tag 'candidate_current_company[neighborhood_group]', options_for_select(@neighborhood_group.collect{ |neighborhood_group| [neighborhood_group.name, neighborhood_group.id, {'data-city-locale-id': neighborhood_group.city_locale.id}] }, selected: @current_company.neighborhood_group), :class => "full validate", prompt: "LOCALIZAÇÃO"  %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
+            <div class="box-with-error neighborhood hidden">
+              <%= select_tag 'candidate_current_company[neighborhood]', options_for_select(@neighborhood.collect{ |neighborhood| [neighborhood.name, neighborhood.id, {'data-city-locale-id': neighborhood.city_locale.id}] }, selected: @current_company.neighborhood), :class => "full validate", prompt: "Bairro"  %>
               <p class="error-message hide">Obrigatório</p>
             </div>
 

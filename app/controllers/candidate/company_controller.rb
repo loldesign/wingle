@@ -7,6 +7,7 @@ class Candidate::CompanyController < ApplicationController
     load_size_sector_and_profile
     @city = City.all
     @city_locale = CityLocale.all
+    @neighborhood_group = NeighborhoodGroup.all
     @neighborhood = Neighborhood.all
     @months = arrayForSelect(1, 12)
     @years  = arrayForSelect(1990, Date.today.year)
@@ -61,6 +62,30 @@ class Candidate::CompanyController < ApplicationController
       @candidate.completed_companies! if @candidate.reload.companies?
 
       redirect_to candidate_hability_step_1_path
+    end
+  end
+
+  def neighborhoods
+    neighborhood_group = NeighborhoodGroup.find(params[:neighborhood_group_id])
+
+    if neighborhood_group.present?
+      @neighborhoods = neighborhood_group.neighborhoods
+
+      render json: @neighborhoods
+    else
+      render json: {status: 422}
+    end
+  end
+
+  def subsectors
+    sector = Sector.find(params[:sector_id])
+
+    if sector.present?
+      @subsectors = sector.subsectors
+
+      render json: @subsectors
+    else
+      render json: {status: 422}
     end
   end
 
