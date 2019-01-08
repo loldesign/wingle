@@ -1,6 +1,6 @@
 var companiesFirstStepManager = function(){
   this.$container    = $('#first_step.company-step')
-  this.$localeSelect = $('#candidate_current_company_neighborhood')
+  this.$localeSelect = $('#candidate_current_company_neighborhood_group')
   this.$endDate      = $('#current_end_date')
 
   this.startup = function(){
@@ -119,7 +119,6 @@ var companiesFirstStepManager = function(){
       })
       .success(function(data) {
         $neighborhood.children('option:not(:first)').remove();
-        $neighborhood.append('<option value>Bairro</option>');
 
         $.each(data, function(i, obj) {
           $neighborhood.append($("<option />").val(obj.id).text(obj.name));

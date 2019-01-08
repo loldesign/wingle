@@ -8,9 +8,18 @@ class Candidate::CompanyController < ApplicationController
     @city = City.all
     @city_locale = CityLocale.all
     @neighborhood_group = NeighborhoodGroup.all
-    @neighborhood = Neighborhood.all
     @months = arrayForSelect(1, 12)
     @years  = arrayForSelect(1990, Date.today.year)
+
+    @subsectors = []
+    if @current_company.sector.present?
+      @subsectors = Subsector.where(sector_id: @current_company.sector)
+    end
+
+    @neighborhoods =[]
+    if @current_company.neighborhood_group.present?
+      @neighborhoods = Neighborhood.where(neighborhood_group_id: @current_company.neighborhood_group)
+    end
   end
 
   def second
@@ -125,7 +134,6 @@ class Candidate::CompanyController < ApplicationController
     def load_size_sector_and_profile
       @size       = CompanySize.all
       @sector     = Sector.all
-      @subsectors = Subsector.all
       @profile    = Mode.all
     end
 end
