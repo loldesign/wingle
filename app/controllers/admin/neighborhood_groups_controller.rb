@@ -3,7 +3,7 @@ class Admin::NeighborhoodGroupsController < AdminController
   before_action :set_neighborhood_group, except: [:new, :create, :index]
 
   def index
-    @neighborhood_groups = @city.neighborhood_groups.order(created_at: :desc).page(params[:page] || 1).per_page(30)
+    @neighborhood_groups = @city_locale.neighborhood_groups.order(created_at: :desc).page(params[:page] || 1).per_page(30)
   end
 
   def show
