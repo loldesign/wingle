@@ -1,6 +1,6 @@
-<%= title_page "Bairros da Cidade #{@city.name}" %>
+<%= title_page "Sub-regiões da Cidade #{@city.name}" %>
 
-<%= add_resource 'Nova Sub-região', new_admin_state_city_neighborhood_group_path(@state, @city) %>
+<%= add_resource 'Nova Sub-região', new_admin_state_city_city_locale_neighborhood_group_path(@state, @city) %>
 
 <table class='table-page'>
   <thead>

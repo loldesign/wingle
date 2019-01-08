@@ -1,5 +1,5 @@
 class Admin::NeighborhoodGroupsController < AdminController
-  before_action :set_city
+  before_action :set_city_locale
   before_action :set_neighborhood_group, except: [:new, :create, :index]
 
   def index
@@ -15,9 +15,10 @@ class Admin::NeighborhoodGroupsController < AdminController
 
   def create
     @neighborhood_group = @city.neighborhood_groups.build(neighborhood_group_params)
+    @neighborhood_group.city_locale = @city_locale
 
     if @neighborhood_group.save
-      redirect_to edit_admin_state_city_neighborhood_group_path(@state, @city, @neighborhood_group), notice: 'Criado com sucesso'
+      redirect_to edit_admin_state_city_city_locale_neighborhood_group_path(@state, @city, @city_locale, @neighborhood_group), notice: 'Criado com sucesso'
     else
       render action: :new
     end
@@ -28,7 +29,7 @@ class Admin::NeighborhoodGroupsController < AdminController
 
   def update
     if @neighborhood_group.update_attributes(neighborhood_group_params)
-      redirect_to admin_state_city_neighborhood_groups_path(@state, @city), notice: 'Atualizado com sucesso'
+      redirect_to admin_state_city_city_locale_neighborhood_groups_path(@state, @city, @city_locale), notice: 'Atualizado com sucesso'
     else
       render action: :edit
     end
@@ -37,20 +38,21 @@ class Admin::NeighborhoodGroupsController < AdminController
   def destroy
     @neighborhood_group.destroy
 
-    redirect_to admin_state_city_neighborhood_groups_path(@state, @city), notice: 'Removido com sucesso'
+    redirect_to admin_state_city_city_locale_neighborhood_groups_path(@state, @city, @city_locale), notice: 'Removido com sucesso'
   end
 
   private
-  def set_city
-    @city = City.find(params[:city_id])
+  def set_city_locale
+    @city_locale = CityLocale.find(params[:city_locale_id])
+    @city = @city_locale.city
     @state = @city.state
   end
 
   def set_neighborhood_group
-    @neighborhood_group = @city.neighborhood_groups.find(params[:id])
+    @neighborhood_group = @city_locale.neighborhood_groups.find(params[:id])
   end
 
   def neighborhood_group_params
-    params.require(:neighborhood).permit(:code, :name)
+    params.require(:neighborhood_group).permit(:code, :name)
   end
 end

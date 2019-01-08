@@ -2,6 +2,7 @@
   <td><%= city_locale.code %></td>
   <td><%= city_locale.name %></td>
   <td><%= l city_locale.created_at, scope: [:resource] %></td>
+  <td> <%= link_to "Sub-regiões (#{city_locale.neighborhood_groups.count})", admin_state_city_city_locale_neighborhood_groups_path(@state, @city, city_locale) %> </td>
   <td>
     <%= edit_resource edit_admin_state_city_city_locale_path(@state, @city, city_locale) %>
     <%= remove_resource admin_state_city_city_locale_path(@state, @city, city_locale), {}%>

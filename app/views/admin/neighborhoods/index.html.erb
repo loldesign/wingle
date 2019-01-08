@@ -1,6 +1,6 @@
 <%= title_page "Bairros da Cidade #{@city.name}" %>
 
-<%= add_resource 'Novo Bairro', new_admin_state_city_neighborhood_group_neighborhood_path(@state, @city) %>
+<%= add_resource 'Novo Bairro', new_admin_state_city_city_locale_neighborhood_group_neighborhood_path(@state, @city, @city_locale, @neighborhood_group) %>
 
 <table class='table-page'>
   <thead>

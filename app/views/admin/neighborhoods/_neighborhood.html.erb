@@ -3,7 +3,7 @@
   <td><%= neighborhood.name %></td>
   <td><%= l neighborhood.created_at, scope: [:resource] %></td>
   <td>
-    <%= edit_resource edit_admin_state_city_neighborhood_group_neighborhood_path(@state, @city, @neighborhood_group, neighborhood) %>
-    <%= remove_resource admin_state_city_neighborhood_group_neighborhood_path(@state, @city, @neighborhood_group, neighborhood), {}%>
+    <%= edit_resource edit_admin_state_city_city_locale_neighborhood_group_neighborhood_path(@state, @city, @city_locale, @neighborhood_group, neighborhood) %>
+    <%= remove_resource admin_state_city_city_locale_neighborhood_group_neighborhood_path(@state, @city, @city_locale, @neighborhood_group, neighborhood), {}%>
   </td>
 </tr>
