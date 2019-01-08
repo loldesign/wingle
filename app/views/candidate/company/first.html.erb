@@ -60,6 +60,11 @@
               <p class="error-message hide">Obrigatório</p>
             </div>
 
+            <div class="box-with-error subsectors hidden">
+              <%= select_tag 'candidate_current_company[subsector]', options_for_select(@subsectors.collect{ |subsector| [subsector.name, subsector.id] }, selected: @current_company.subsector), :class => "full validate", prompt: "SUBSETOR" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
             <div class="box-with-error">
             	<%= select_tag 'candidate_current_company[mode]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: @current_company.mode), :class => "full validate", prompt: "PERFIL" %>
               <p class="error-message hide">Obrigatório</p>

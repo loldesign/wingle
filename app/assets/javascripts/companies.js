@@ -16,11 +16,25 @@ var companiesFirstStepManager = function(){
       _this.process($select, true)
     });
 
+    this.$container.on('change', '#candidate_current_company_sector', function(event) {
+      event.preventDefault();
+
+      _this.populateSubsectors($(this))
+    });
+
+    if ($("#candidate_current_company_sector").val() != "") {
+      $('#candidate_current_company_subsector').parent().removeClass('hidden');
+    }
+
     this.$container.on('change', '#candidate_current_company_neighborhood_group', function(event) {
       event.preventDefault();
 
       _this.populateNeighborhood($(this))
     });
+
+    if ($("#candidate_current_company_neighborhood_group").val() != "") {
+      $('#candidate_current_company_neighborhood').parent().removeClass('hidden');
+    }
 
     this.process($('#candidate_current_company_city_locale'), false)
 
@@ -64,7 +78,7 @@ var companiesFirstStepManager = function(){
   }
 
   this.populateSubsectors = function($select) {
-    var $subsectors = $('#candidate_current_company_neighborhood')
+    var $subsectors = $('#candidate_current_company_subsector')
 
     if ($select.val() != "") {
       $subsectors.parent().removeClass('hidden');
@@ -76,7 +90,6 @@ var companiesFirstStepManager = function(){
       })
       .success(function(data) {
         $subsectors.children('option:not(:first)').remove();
-        $subsectors.append('<option value>Bairro</option>');
 
         $.each(data, function(i, obj) {
           $subsectors.append($("<option />").val(obj.id).text(obj.name));

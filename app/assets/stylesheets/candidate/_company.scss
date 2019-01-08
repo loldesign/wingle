@@ -17,7 +17,8 @@
 				}
 			}
 
-			&.neighborhood.hidden {
+			&.neighborhood.hidden,
+			&.subsectors.hidden {
 				display: none;
 			}
 		}
