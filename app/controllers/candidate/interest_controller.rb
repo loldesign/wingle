@@ -1,7 +1,11 @@
 class Candidate::InterestController < ApplicationController
-  before_action :authenticate_candidate!
+  before_action :authenticate_candidate!, except: [:transition]
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete]
   before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth]
+
+  def transition
+    @header_options = {style: :only_logo}
+  end
 
   def first
     TermAcceptPublishedManager.new(resource: @candidate).process

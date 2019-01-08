@@ -6,7 +6,7 @@ class Candidate < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :candidate_interest       , dependent: :destroy
@@ -72,4 +72,9 @@ class Candidate < ApplicationRecord
       transitions from: :pretension, to: :complete
     end
   end
+
+  protected
+    # def password_required?
+    #   confirmed? ? super : false
+    # end
 end

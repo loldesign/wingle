@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :candidate, path: "candidato" do
     get   '/user-login'                 , to: 'steps#login_or_register' , as: :login_or_register
+    get   '/pre-register'               , to: 'steps#pre_register'      , as: :pre_register
     get   '/termos'                     , to: 'steps#terms'             , as: :terms
     match '/detalhes-rapidos'           , to: 'steps#quick_details'     , as: :quick_details , via: [:get, :post]
     get   '/completar-registro'         , to: 'steps#complete_register' , as: :complete_register
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
     get   '/dashboard'                  , to: 'dashboard#index'         , as: :dashboard
 
     ##### INTEREST SECTOR #####
+    get   'interesse/primeira-etapa'    , to: 'interest#transition'   , as: :first_transition_path
     get   'interesse/passo-1'           , to: 'interest#first'        , as: :interest_step_1
     match 'interesse/passo-2'           , to: 'interest#second'       , as: :interest_step_2         , via: [:get, :post]
     match 'interesse/passo-3'           , to: 'interest#third'        , as: :interest_step_3         , via: [:get, :post]
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
     post '/atualizar-perfil'            , to: 'main#update_profile'   , as: :update_profile
 
     ##### EXPERIENCE SECTOR #####
+    get   'experiencia/segunda-etapa'   , to: 'experience#transition' , as: :second_transition_path
     get   'experiencia/passo-1'         , to: 'experience#first'      , as: :experience_step_1
     match 'experiencia/passo-2'         , to: 'experience#second'     , as: :experience_step_2        , via: [:get, :post]
     match 'experiencia/passo-3'         , to: 'experience#third'      , as: :experience_step_3        , via: [:get, :post]
@@ -40,6 +43,7 @@ Rails.application.routes.draw do
     post  'experiencia/passo-completo'  , to: 'experience#complete'   , as: :experience_step_complete
 
     #### COMPANY SECTOR #####
+    get   'empresa/terceira-etapa'      , to: 'company#transition'    , as: :third_transition_path
     get   'empresa/passo-1'             , to: 'company#first'         , as: :company_step_1
     match 'empresa/passo-2'             , to: 'company#second'        , as: :company_step_2           , via: [:get, :post]
     match 'empresa/passo-3'             , to: 'company#third'         , as: :company_step_3           , via: [:get, :post]
