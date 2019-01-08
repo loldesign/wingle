@@ -120,3 +120,21 @@
 		}
 	}
 }
+
+#third_step {
+  &.question-container {
+    .content-box {
+      .collection {
+        .collection-item {
+          &.with-select-full {
+            select {
+              &.full.hidden {
+                display: none !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

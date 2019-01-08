@@ -30,6 +30,8 @@ $(document).on('turbolinks:load', function() {
 
   new companiesFirstStepManager()
 
+  new companiesThirdStepManager()
+
   new processSelectionManager()
 
   new processSelectionCandidateManager()

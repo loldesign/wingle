@@ -10,7 +10,7 @@
           <h5 class="center-align section">Agora classifique estas empresas</h5>
         </li>
 
-        <% @companies.each do |company| %>
+        <% @companies.each_with_index do |company, index| %>
           <li class="collection-item with-select-full">
             <p>
               <label>
@@ -18,10 +18,11 @@
               </label>
             </p>
           
-            <%= hidden_field_tag("candidate_companies[][id]", {}, value: company.id) %>
-            <%= select_tag 'candidate_companies[][size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: company.size), :class => "full", prompt: "PORTE" %>
-            <%= select_tag 'candidate_companies[][sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }, selected: company.sector), :class => "full", prompt: "SETOR" %>
-            <%= select_tag 'candidate_companies[][title]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: company.title), :class => "full", prompt: "PERFIL" %>
+            <%= hidden_field_tag("candidate_companies[][id]", {}, value: company.id, id: "candidate_companies_#{index}_id") %>
+            <%= select_tag 'candidate_companies[][size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: company.size), :class => "full", prompt: "PORTE", id: "candidate_companies_#{index}_size" %>
+            <%= select_tag 'candidate_companies[][sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }, selected: company.sector), :class => "full", prompt: "SETOR", id: "candidate_companies_#{index}_sector" %>
+            <%= select_tag 'candidate_companies[][subsector]', options_for_select(@subsectors.collect{ |subsector| [subsector.name, subsector.id] }, selected: company.subsector), :class => "full hidden", prompt: "SUBSETOR", id: "candidate_companies_#{index}_subsector" %>
+            <%= select_tag 'candidate_companies[][title]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: company.title), :class => "full", prompt: "PERFIL", id: "candidate_companies_#{index}_title" %>
 
           </li>
         <% end %>

@@ -11,7 +11,6 @@ class Candidate::CompanyController < ApplicationController
     @months = arrayForSelect(1, 12)
     @years  = arrayForSelect(1990, Date.today.year)
 
-    @subsectors = []
     if @current_company.sector.present?
       @subsectors = Subsector.where(sector_id: @current_company.sector)
     end
@@ -59,6 +58,7 @@ class Candidate::CompanyController < ApplicationController
     else
       @companies = @candidate.candidate_companies
       load_size_sector_and_profile
+      @subsectors = Subsector.all
     end
   end
 
@@ -108,7 +108,7 @@ class Candidate::CompanyController < ApplicationController
     def candidate_company_params
       if params[:candidate_companies].present?
         params.fetch(:candidate_companies, {}).map do |p|
-          p.permit(:id, :name, :months, :size, :sector, :title,
+          p.permit(:id, :name, :months, :size, :sector, :subsector, :title,
             :start_date_month, :start_date_year, :end_date_month, :end_date_year
           )
         end
@@ -134,6 +134,7 @@ class Candidate::CompanyController < ApplicationController
     def load_size_sector_and_profile
       @size       = CompanySize.all
       @sector     = Sector.all
+      @subsectors = []
       @profile    = Mode.all
     end
 end

@@ -150,3 +150,54 @@ var companiesFirstStepManager = function(){
 
   this.startup()
 }
+
+var companiesThirdStepManager = function(){
+  this.$container    = $('#third_step.content')
+
+  this.startup = function(){
+    if(!this.$container[0]){ return false; }
+
+    var _this = this;
+
+    $(".collection-item.with-select-full").each(function(index) {
+      $(this).on('change', '#candidate_companies_'+index+'_sector', function(event) {
+        event.preventDefault();
+
+        _this.populateSubsectors($(this), $('#candidate_companies_'+index+'_subsector'))
+      });
+
+      if ($("#candidate_companies_"+index+"_sector").val() != "") {
+        $('#candidate_companies_'+index+'_subsector').removeClass('hidden');
+      }
+    })
+  }
+
+  this.populateSubsectors = function($select, $subsectors) {
+    if ($select.val() != "") {
+      $subsectors.removeClass('hidden');
+
+      $.ajax({
+        url: '/candidato/empresa/passo-1/subsectors?sector_id='+$select.val(),
+        type: 'get',
+        dataType: 'json',
+      })
+      .success(function(data) {
+        $subsectors.children('option:not(:first)').remove();
+
+        $.each(data, function(i, obj) {
+          $subsectors.append($("<option />").val(obj.id).text(obj.name));
+        });
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      });
+    } else {
+      $('#candidate_current_company_neighborhood').addClass('hidden');
+    }
+  }
+
+  this.startup()
+}
