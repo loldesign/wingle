@@ -6,6 +6,11 @@ $(document).on('turbolinks:load', function() {
 
   // INTEREST NEIGHBORHOODS DROP LIST //
   $(".city-locale-item").click(function(){
+    $(this).parent().find(".list-neighborhood-group").slideToggle('.hidden');
+    $(this).find('.icon').toggleClass('rotated');
+  });
+
+  $(".neighborhood-group-item").click(function(){
     $(this).parent().find(".list-neighborhood").slideToggle('.hidden');
     $(this).find('.icon').toggleClass('rotated');
   });

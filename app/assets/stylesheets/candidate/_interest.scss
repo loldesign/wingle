@@ -36,6 +36,28 @@
     }
   }
 
+  .neighborhood-group-item {
+    .neighborhood-group-name {
+      font-size: 1.1vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      margin-left: 1em;
+
+      i {
+        font-size: 2rem;
+
+        &.rotated {
+          transform:rotate(90deg);
+          -webkit-transform:rotate(90deg);
+          -moz-transform:rotate(90deg);
+          -o-transform:rotate(90deg);
+        }
+      }
+    }
+  }
+
   .list-city-locale {
     span {
       font-weight: 400;
@@ -59,6 +81,16 @@
             -o-transform:rotate(90deg);
           }
         }
+      }
+    }
+
+    .list-neighborhood-group {
+      &.hidden {
+        display: none;
+      }
+
+      ul {
+        border-bottom: 1px solid #e0e0e0
       }
     }
 
@@ -92,7 +124,7 @@
           }
         }
 
-        .list-neighborhood {
+        .list-neighborhood-group {
           &.hidden {
             display: block;
           }
