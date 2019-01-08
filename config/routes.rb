@@ -131,7 +131,6 @@ Rails.application.routes.draw do
     resources :terms,                   path: :termos
     resources :package_services,        path: :'pacotes-de-servico'
     resources :locales,                 path: :localidades
-    resources :sectors,                 path: :setores
     resources :company_sizes,           path: :portes
     resources :modes,                   path: :modes
     resources :relevances,              path: :relevancias
@@ -156,6 +155,9 @@ Rails.application.routes.draw do
         resources :neighborhoods, path: :bairros
         resources :city_locales, path: :'regiões-da-cidade'
       end
+    end
+    resources :sectors,                 path: :setores do
+      resources :subsectors, path: :subsetores
     end
 
     get '/lps/candidatos', to: 'lps#candidates', as: :lps_candidates

@@ -1,0 +1,8 @@
+<tr>
+  <td><%= subsector.name %></td>
+  <td><%= l subsector.created_at, scope: [:resource] %></td>
+  <td>
+    <%= edit_resource edit_admin_sector_subsector_path(@sector, subsector) %>
+    <%= remove_resource admin_sector_subsector_path(@sector, subsector) %>
+  </td>
+</tr>

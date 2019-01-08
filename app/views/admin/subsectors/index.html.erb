@@ -1,0 +1,19 @@
+<%= title_page 'Subsetores' %>
+
+<%= add_resource 'Novo Subsetor', new_admin_sector_subsector_path %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Setor</th>
+      <th>Criado em</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@subsectors, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @subsectors %>

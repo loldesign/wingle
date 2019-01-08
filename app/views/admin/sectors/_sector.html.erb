@@ -5,6 +5,7 @@
   <td><%= sector.description %></td>
   <td><%= sector.score %></td>
   <td><%= l sector.created_at, scope: [:resource] %></td>
+  <td><%= link_to "Subsetores (#{sector.subsectors.count})", admin_sector_subsectors_path(sector) %></td>
   <td>
     <%= edit_resource edit_admin_sector_path(sector) %>
     <%= remove_resource admin_sector_path(sector), {}%>
