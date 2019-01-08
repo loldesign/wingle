@@ -102,7 +102,7 @@ var companiesFirstStepManager = function(){
         console.log("error");
       });
     } else {
-      $('#candidate_current_company_neighborhood').parent().addClass('hidden');
+      $subsectors.parent().addClass('hidden');
     }
   }
 
@@ -131,7 +131,7 @@ var companiesFirstStepManager = function(){
         console.log("error");
       });
     } else {
-      $('#candidate_current_company_neighborhood').parent().addClass('hidden');
+      $neighborhood.parent().addClass('hidden');
     }
   }
 
@@ -163,16 +163,18 @@ var companiesThirdStepManager = function(){
       $(this).on('change', '#candidate_companies_'+index+'_sector', function(event) {
         event.preventDefault();
 
-        _this.populateSubsectors($(this), $('#candidate_companies_'+index+'_subsector'))
+        _this.populateSubsectors($(this), $('#candidate_companies_'+index+'_subsector'), "")
       });
 
       if ($("#candidate_companies_"+index+"_sector").val() != "") {
-        $('#candidate_companies_'+index+'_subsector').removeClass('hidden');
+        var val = $("#candidate_companies_"+index+"_subsector").val()
+
+        _this.populateSubsectors($("#candidate_companies_"+index+"_sector"), $("#candidate_companies_"+index+"_subsector"), val)
       }
     })
   }
 
-  this.populateSubsectors = function($select, $subsectors) {
+  this.populateSubsectors = function($select, $subsectors, val) {
     if ($select.val() != "") {
       $subsectors.removeClass('hidden');
 
@@ -187,6 +189,10 @@ var companiesThirdStepManager = function(){
         $.each(data, function(i, obj) {
           $subsectors.append($("<option />").val(obj.id).text(obj.name));
         });
+
+        if (val != "") {
+          $subsectors.val(val)
+        }
       })
       .done(function() {
         console.log("success");
@@ -195,7 +201,7 @@ var companiesThirdStepManager = function(){
         console.log("error");
       });
     } else {
-      $('#candidate_current_company_neighborhood').addClass('hidden');
+      $subsectors.addClass('hidden');
     }
   }
 
