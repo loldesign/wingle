@@ -1,0 +1,10 @@
+<tr>
+  <td><%= neighborhood_group.code %></td>
+  <td><%= neighborhood_group.name %></td>
+  <td><%= l neighborhood_group.created_at, scope: [:resource] %></td>
+  <td><%= link_to "Bairros (#{neighborhood_group.neighborhoods.count})", admin_state_city_city_locale_neighborhood_group_neighborhoods_path(@state, @city, @city_locale, neighborhood_group) %></td>
+  <td>
+    <%= edit_resource edit_admin_state_city_city_locale_neighborhood_group_path(@state, @city, @city_locale, neighborhood_group) %>
+    <%= remove_resource admin_state_city_city_locale_neighborhood_group_path(@state, @city, @city_locale, neighborhood_group), {}%>
+  </td>
+</tr>
