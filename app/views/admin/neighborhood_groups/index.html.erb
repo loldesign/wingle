@@ -1,0 +1,21 @@
+<%= title_page "Sub-regiões da Cidade #{@city.name}" %>
+
+<%= add_resource 'Nova Sub-região', new_admin_state_city_city_locale_neighborhood_group_path(@state, @city) %>
+
+<table class='table-page'>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Sub-região</th>
+      <th>Criado em</th>
+      <th>Bairros</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= display_list_for(@neighborhood_groups, fields: 3) %>
+  </tbody>
+</table>
+
+<%= will_paginate @neighborhood_groups %>

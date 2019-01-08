@@ -1,0 +1,17 @@
+<%= simple_form_for [:admin, @state, @city, @city_locale, @neighborhood_group] , html: {class: 'form'} do |f| %>
+
+  <section class='fields-wrapper one-column'>
+    <header>
+      <h2><%= "#{@neighborhood_group.persisted? ? 'Editar' : 'Criar'} Sub-região" %></h2>
+    </header>
+    
+    <article>
+      <%= f.input :code, wrapper_html: {class: 'col-2' } %>
+      <%= f.input :name, wrapper_html: {class: 'col-10' } %>
+    </article>
+  </section>
+  <footer>
+    <%= cancel_action(path: admin_state_city_city_locale_neighborhood_groups_path(@state, @city, @city_locale)) %>
+    <%= submit_button f %>
+  </footer>
+<% end %>

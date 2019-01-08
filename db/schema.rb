@@ -396,6 +396,17 @@ ActiveRecord::Schema.define(version: 20190108130927) do
     t.string "code"
   end
 
+  create_table "neighborhood_groups", force: :cascade do |t|
+    t.string "name"
+    t.bigint "city_id"
+    t.bigint "city_locale_id"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_neighborhood_groups_on_city_id"
+    t.index ["city_locale_id"], name: "index_neighborhood_groups_on_city_locale_id"
+  end
+
   create_table "neighborhoods", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -403,8 +414,10 @@ ActiveRecord::Schema.define(version: 20190108130927) do
     t.bigint "city_id"
     t.bigint "city_locale_id"
     t.string "code"
+    t.bigint "neighborhood_group_id"
     t.index ["city_id"], name: "index_neighborhoods_on_city_id"
     t.index ["city_locale_id"], name: "index_neighborhoods_on_city_locale_id"
+    t.index ["neighborhood_group_id"], name: "index_neighborhoods_on_neighborhood_group_id"
   end
 
   create_table "nofsalaries_lists", force: :cascade do |t|
