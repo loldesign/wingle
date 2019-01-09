@@ -1,0 +1,48 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #transition_step {
+    height: 100%;
+    float: left;
+    -webkit-box-shadow: 0px -3px 3px -1px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px -3px 3px -1px rgba(0,0,0,0.16);
+    box-shadow: 0px -3px 3px -1px rgba(0,0,0,0.16);
+
+    .box-shadow {
+      -webkit-box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.16);
+      -moz-box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.16);
+      box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.16);
+      margin: 4vh 5vw;
+      padding: 4vh 0;
+      border-radius: 20px;
+      overflow: hidden;
+
+      img {
+        width: 80%;
+        margin: 2vh auto;
+        display: block;
+      }
+
+      h5 {
+        font-size: 5vw;
+        color: $dark-blue;
+        text-align: center;
+        margin: 4vh 4vw 0;
+      }
+    }
+
+    .step-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        font-size: 5vw;
+      }
+    }
+
+    .action-buttons-single {
+      padding-top: 5vh;
+    }
+  }
+}

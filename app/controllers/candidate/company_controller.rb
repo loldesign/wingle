@@ -1,5 +1,5 @@
 class Candidate::CompanyController < ApplicationController 
-  before_action :authenticate_candidate!, except: [:transition]
+  before_action :authenticate_candidate!
   before_action :set_candidate, only: [:first, :second, :third, :complete]
 
   def first
