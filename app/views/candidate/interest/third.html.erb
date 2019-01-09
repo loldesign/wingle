@@ -19,7 +19,7 @@
                 <%= check_box_tag "candidate_interest[sectors][]", sector.id, @candidate_interest.sectors.include?(sector.id) ? true : false, class: "with-gap" %>
                   <span>
                     <%= sector.name %><br>
-                    <strong><%= sector.description %></strong>
+                    <strong><%= sector.description %><span class="separator">|</span></strong>
                   </span>
               </label>
             </p>

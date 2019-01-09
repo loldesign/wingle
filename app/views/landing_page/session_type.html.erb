@@ -1,10 +1,43 @@
-<section id="session_type" class="content">
+<section id="session_type" class="content">  
   <div class="cloud-bg">
-    <p class="bold medium-gray light-green-text">
-      Mercado de trabalho<br>
-      compartilhado na nuvem
+    <p class="bold medium-gray">
+      Movimentação<br>
+      profissional em<br>
+      tempo real
     </p>
   </div>
+
+  <section class="action-buttons-single candidate-first-infos">
+    <div class="candidate-main-infos">
+      <i class="material-icons">business_center</i>
+
+      <%#= select_tag_with_error("candidate_interest[areas][]", options_from_collection_for_select(@areas, "id", "name"), 'Área atual', nil,@candidate.errors[:"candidate_interest.areas"]) %>
+
+      <input id="current_area" name="candidate[current_area]" type="text" placeholder="Área atual">  
+    </div>
+
+    <div class="candidate-main-infos">
+      <i class="material-icons">people</i>
+      
+      <%#= select_tag_with_error("candidate_interest[title_list][]", options_from_collection_for_select(@title_list, "id", "name"), 'Cargo atual', nil,@candidate.errors[:"candidate_interest.title_list"]) %>
+
+      <input id="current_position" name="candidate[current_position]" type="text" placeholder="Cargo atual">  
+    </div>
+
+    <div class="candidate-main-infos">
+      <i class="material-icons">place</i>
+      <select name="distributor[uf_rg]">
+        <option value="">Localidade</option>
+        <option value="sp">São Paulo</option>
+        <option value="other">Outra</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- <section class="session-type-options action-buttons-duo">
+    <%#= link_to "LOGIN", candidate_login_or_register_path, :class => 'waves-effect waves-light btn-default green-default bold' %>
+    <%#= link_to "ENTRAR", candidate_pre_register_path, :class => 'waves-effect waves-light btn-default green-default bold' %>
+  </section> -->
 
   <section class="session-type-options action-buttons-single">
     <%= link_to "Minha carreira", candidate_login_or_register_path, :class => 'waves-effect waves-light btn-default green-default bold' %>

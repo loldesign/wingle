@@ -1,11 +1,17 @@
 class Candidate::StepsController < ApplicationController
-  before_action :authenticate_candidate!, except: [:login_or_register, :quick_details, :complete_register, :create_candidate]
+  before_action :authenticate_candidate!, except: [:login_or_register, :quick_details, :complete_register, :create_candidate, :pre_register]
   before_action :try_sign_in_candidate, only: [:quick_details]
   before_action :set_candidate, only: [:terms]
   before_action :set_candidate_term, only: [:terms]
 
   def login_or_register
+    @header_options = {style: :only_logo}
+
     redirect_to candidate_home_path if current_candidate.present?
+  end
+
+  def pre_register 
+    @header_options = {style: :only_title}
   end
 
   def quick_details
@@ -23,7 +29,8 @@ class Candidate::StepsController < ApplicationController
     @header_options = {style: :with_logo_back_button}
 
     if @candidate_interest.cities.first.present?
-      @link_url = candidate_interest_step_1_path
+      # @link_url = candidate_interest_step_1_path
+      @link_url = candidate_first_transition_path
     else
       @link_url = candidate_welcome_message_path
     end

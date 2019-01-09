@@ -1,18 +1,23 @@
 class Candidate::InterestController < ApplicationController
   before_action :authenticate_candidate!
-  before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete]
+  before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :complete, :transition]
   before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth]
 
-  def first
-    TermAcceptPublishedManager.new(resource: @candidate).process
+  def transition
+    @header_options = {style: :only_logo}
 
-    @city = City.all
+    TermAcceptPublishedManager.new(resource: @candidate).process
 
     if @candidate_interest.cities == []
       @link_url = candidate_welcome_message_path
     else
-      @link_url = candidate_terms_path
+      # @link_url = candidate_terms_path
+      @link_url = candidate_first_transition_path
     end
+  end
+
+  def first
+    @city = City.all
   end
 
   def second
@@ -55,7 +60,8 @@ class Candidate::InterestController < ApplicationController
 
     @candidate.completed_interest! if @candidate.reload.interest?
 
-    redirect_to candidate_experience_step_1_path
+    # redirect_to candidate_experience_step_1_path
+    redirect_to candidate_second_transition_path
   end
 
   private

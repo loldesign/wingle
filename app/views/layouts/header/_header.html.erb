@@ -19,6 +19,27 @@
     </div>
   </section>
 
+<% elsif options[:style] == :with_login_button %>
+ <!-- With Login Button -->
+  <section class="not-logged-in-header content">
+    <div class="top">
+      <%= image_tag 'wingle-title.svg', :class => "wingle-title without-link" %>
+      
+      <%= image_tag 'wingle-logo.svg', :class => "wingle-title without-link" %>
+    </div>
+  </section>
+
+<% elsif options[:style] == :only_logo %>
+  <section class="only-logo-header-box">
+    <%= image_tag 'wingle-title.svg', :class => "wingle-title without-link" %>
+  </section>
+<% elsif options[:style] == :only_title %>
+  <section class="only-title-header-box">
+    <h4 class="bold">
+      Invista em sua carreira
+    </h4>
+  </section>
+
 <% elsif options[:style] == :with_logo_back_button %>
   <!-- Steps With Back Buton -->
   <section class="questions-header content">

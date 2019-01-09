@@ -1,8 +1,12 @@
 class Candidate::ExperienceController < ApplicationController
   before_action :authenticate_candidate!
-  before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh, :complete]
+  before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh, :complete, :transition]
   before_action :set_years_and_months, only: [:second, :fifth]
   before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh]
+
+  def transition
+    @header_options = {style: :only_logo}
+  end
 
   def first
     @title_list = TitleList.order(priority: :asc)

@@ -1,0 +1,50 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #session_type {
+    .cloud-bg {
+      p {
+        text-align: left;
+        color: $light-blue-nav-text;
+        line-height: 1.2;
+        font-size: 10vw;
+      }
+    }
+
+    .candidate-first-infos {
+      padding: 8vh 5vw 0 5vw;
+
+      .candidate-main-infos {
+        width: 70%;
+        margin: 2vh auto;
+        background-color: rgba(120, 132, 158, .16);
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        padding: 1vh 5vw;
+
+        input,
+        select {
+          background-color: transparent !important;
+          border: none;
+          margin-left: 5vw;
+          margin-bottom: 0 !important;
+          text-transform: none !important;
+          color: $dark-blue !important;
+          background: none;
+
+          &::-webkit-input-placeholder {
+            color: $dark-blue;
+          }
+        }
+
+        i {
+          color: $dark-blue;
+        }
+      }
+    }
+
+    .session-type-options {
+      padding-top: 6vh;
+    }
+  }
+}

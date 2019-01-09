@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :candidate, path: "candidato" do
     get   '/user-login'                 , to: 'steps#login_or_register' , as: :login_or_register
+    get   '/pre-register'               , to: 'steps#pre_register'      , as: :pre_register
     get   '/termos'                     , to: 'steps#terms'             , as: :terms
     match '/detalhes-rapidos'           , to: 'steps#quick_details'     , as: :quick_details , via: [:get, :post]
     get   '/completar-registro'         , to: 'steps#complete_register' , as: :complete_register
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
     get   '/dashboard'                  , to: 'dashboard#index'         , as: :dashboard
 
     ##### INTEREST SECTOR #####
+    get   'interesse/primeira-etapa'    , to: 'interest#transition'   , as: :first_transition
     get   'interesse/passo-1'           , to: 'interest#first'        , as: :interest_step_1
     match 'interesse/passo-2'           , to: 'interest#second'       , as: :interest_step_2         , via: [:get, :post]
     match 'interesse/passo-3'           , to: 'interest#third'        , as: :interest_step_3         , via: [:get, :post]
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
     post '/atualizar-perfil'            , to: 'main#update_profile'   , as: :update_profile
 
     ##### EXPERIENCE SECTOR #####
+    get   'experiencia/segunda-etapa'   , to: 'experience#transition' , as: :second_transition
     get   'experiencia/passo-1'         , to: 'experience#first'      , as: :experience_step_1
     match 'experiencia/passo-2'         , to: 'experience#second'     , as: :experience_step_2        , via: [:get, :post]
     match 'experiencia/passo-3'         , to: 'experience#third'      , as: :experience_step_3        , via: [:get, :post]
@@ -40,12 +43,11 @@ Rails.application.routes.draw do
     post  'experiencia/passo-completo'  , to: 'experience#complete'   , as: :experience_step_complete
 
     #### COMPANY SECTOR #####
+    get   'empresa/terceira-etapa'      , to: 'company#transition'    , as: :third_transition
     get   'empresa/passo-1'             , to: 'company#first'         , as: :company_step_1
     match 'empresa/passo-2'             , to: 'company#second'        , as: :company_step_2           , via: [:get, :post]
     match 'empresa/passo-3'             , to: 'company#third'         , as: :company_step_3           , via: [:get, :post]
     post  'empresa/passo-completo'      , to: 'company#complete'      , as: :company_step_complete
-    get   'empresa/passo-1/bairros'     , to: 'company#neighborhoods' , as: :list_neighborhood
-    get   'empresa/passo-1/subsectors'  , to: 'company#subsectors'    , as: :list_subsectors
 
     #### HABILITY SECTOR #####
     get  'habilidade/passo-1'           , to: 'hability#first'        , as: :hability_step_1
@@ -133,6 +135,7 @@ Rails.application.routes.draw do
     resources :terms,                   path: :termos
     resources :package_services,        path: :'pacotes-de-servico'
     resources :locales,                 path: :localidades
+    resources :sectors,                 path: :setores
     resources :company_sizes,           path: :portes
     resources :modes,                   path: :modes
     resources :relevances,              path: :relevancias
@@ -154,16 +157,9 @@ Rails.application.routes.draw do
     end
     resources :states,                  path: :estados do
       resources :cities, path: :cidades do
-        resources :city_locales, path: :'regioes-da-cidade' do
-          resources :neighborhood_groups, path: :'sub-regioes' do
-            resources :neighborhoods, path: :bairros
-          end
-        end
-        get 'bairros', to: "neighborhoods#index_by_city", as: :neighborhoods
+        resources :neighborhoods, path: :bairros
+        resources :city_locales, path: :'regiões-da-cidade'
       end
-    end
-    resources :sectors,                 path: :setores do
-      resources :subsectors, path: :subsetores
     end
 
     get '/lps/candidatos', to: 'lps#candidates', as: :lps_candidates

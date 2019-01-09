@@ -1,0 +1,55 @@
+// MOBILE SCREEN //
+@include media ($mobile) {
+  #transition_step {
+    height: 100%;
+    float: left;
+    -webkit-box-shadow: 0px -3px 3px -1px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px -3px 3px -1px rgba(0,0,0,0.16);
+    box-shadow: 0px -3px 3px -1px rgba(0,0,0,0.16);
+
+    .box-shadow {
+      // -webkit-box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.16);
+      // -moz-box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.16);
+      // box-shadow: 0px 2px 11px 1px rgba(0,0,0,0.16);
+      margin: 2vh 5vw;
+      padding: 2vh 0 0;
+      border-radius: 20px;
+      overflow: hidden;
+
+      img {
+        width: 80%;
+        margin: 2vh auto;
+        display: block;
+      }
+
+      h5 {
+        font-size: 6vw;
+        text-align: center;
+        margin: 0 4vw 4vh;
+      }
+
+      p {
+        font-size: 4.5vw;
+        text-align: center;
+        margin: 0 0 4vh;
+      }
+    }
+
+    .step-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5vw;
+
+      p {
+        font-size: 4.5vw;
+        text-align: center
+      }
+    }
+
+    .action-buttons-single {
+      padding-top: 5vh;
+    }
+  }
+}
