@@ -35,14 +35,17 @@ label {
 
 #{$all-text-inputs},
 select[multiple=multiple] {
-  background-color: #FFF;
-  border: solid 1px $medium-gray;
-  border-radius: 10px;
+  // background-color: #FFF;
+  // border: solid 1px $medium-gray;
+  // border-radius: 10px;
+  // box-sizing: border-box;
+  // color: $medium-gray !important;
+  background-color: rgba(120, 132, 158, .16) !important;
+  border: none !important;
   box-shadow: $form-box-shadow;
-  box-sizing: border-box;
   font-family: $base-font-family;
   font-size: .9vw;
-  color: $medium-gray !important;
+  color: $dark-blue !important;
   margin-bottom: $small-spacing;
   padding: .5em .5em .5em 1em;
   transition: border-color $base-duration $base-timing;
@@ -51,7 +54,8 @@ select[multiple=multiple] {
   text-transform: uppercase;
 
   &::-webkit-input-placeholder {
-    color: $medium-gray;
+    // color: $medium-gray;
+    color: $dark-blue;
     font-weight: normal;
   }
 
@@ -60,7 +64,8 @@ select[multiple=multiple] {
   }
 
   &:focus {
-    border-color: $medium-gray;
+    // border-color: $medium-gray;
+    border-color: $dark-blue;
     box-shadow: $form-box-shadow-focus;
     outline: none;
   }

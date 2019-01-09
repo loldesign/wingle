@@ -336,15 +336,6 @@ ActiveRecord::Schema.define(version: 20190108190830) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "locales", force: :cascade do |t|
-    t.bigint "city_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_locales_on_city_id"
-    t.index ["name"], name: "index_locales_on_name", unique: true
-  end
-
   create_table "lps_candidates", force: :cascade do |t|
     t.string "name"
     t.string "cpf"

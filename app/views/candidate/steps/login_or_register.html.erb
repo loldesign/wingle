@@ -1,9 +1,12 @@
 <section id="login_or_register" class="content">
   <div class="cloud-bg">
     <p class="bold light-green-text">
-      Mercado de trabalho<br>
-      compartilhado na nuvem
+      Bem vindo de volta!
     </p>
+  </div>
+
+  <div class="login-bg-box">
+    <%= image_tag "login_bg.jpg" %>
   </div>
 
   <section class="content-box content-container">
@@ -14,7 +17,8 @@
             <p class="notice"><%= notice %></p>
           </div>
         <% end %>
-
+        
+        <!-- OLDER CPF FIELD -->
         <div class="input string required candidate_name field_with_errors">
           <%= text_field_tag :cpf, '', placeholder: "CPF", class: "cpf", minlength: 14, maxlength: 14 %>
           <% if @errors.present? %>
@@ -22,15 +26,23 @@
           <% end %>
         </div>
 
+        <%#= text_field_tag :email, '', placeholder: "EMAIL", input_html: {type: "email", required: true}  %>
+
         <%= password_field_tag :password, '', placeholder: "SENHA" %>
 
         <%= link_to "RECUPERAR SENHA", new_candidate_password_path %>
       </section>
     <% end %>
   </section>
+  
+  <!-- OLDER ACTION BUTTONS -->
+  <!-- <section class="login-or-register-actions action-buttons-duo">
+    <%#= link_to "SAIBA MAIS", candidate_login_or_register_path, :class => 'waves-effect waves-light btn-default gray-default bold' %>
+    <%#= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
+  </section> -->
 
   <section class="login-or-register-actions action-buttons-duo">
-    <%= link_to "SAIBA MAIS", candidate_login_or_register_path, :class => 'waves-effect waves-light btn-default gray-default bold' %>
-    <%= link_to "CONTINUAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
+    <%= link_to "VOLTAR", root_path, :class => 'waves-effect waves-light btn-default gray-default bold' %>
+    <%= link_to "ENTRAR", 'javascript:void(0);', :class => 'waves-effect waves-light btn-default green-default bold', :onclick => "$('#login_or_register_form').submit()" %>
   </section>
 </section>

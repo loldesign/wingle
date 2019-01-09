@@ -1,9 +1,20 @@
 // MOBILE SCREEN //
 @include media ($mobile) {  
   #login_or_register {
+    .cloud-bg {
+      p {
+        color: $light-blue-nav-text;
+        font-size: 7vw;
+      }
+    }
+
+    .login-bg-box {
+      width: 100%;
+      padding: 10vh 5vw 0;
+      }
+
     .content-box {
       @include span-columns (6 of 6);
-      padding-top: 6vh;
 
       form {
         @include span-columns (4 of 6);
@@ -17,21 +28,22 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        text-decoration: underline;
+        // text-decoration: underline;
+        text-decoration: none;
       }
     }
 
     .action-buttons-duo {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
 
       a {
         @include omega;
+        width: 40%;
 
         &:first-of-type {
-          margin-bottom: 2vh;
+          margin-right: 5vw;
         }
       }
     }
