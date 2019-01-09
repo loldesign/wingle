@@ -51,7 +51,12 @@
             </label>
 
             <div class="box-with-error">
-            	<%= select_tag 'candidate_current_company[company_size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: @current_company.company_size), :class => "full validate", prompt: "PORTE" %>
+              <%= ccc.select :nationality, CandidateCurrentCompany.nationality.options, {include_blank: "Nacionalidade"}, :class => "full validate" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
+            <div class="box-with-error">
+              <%= select_tag 'candidate_current_company[company_size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: @current_company.company_size), :class => "full validate", prompt: "PORTE" %>
               <p class="error-message hide">Obrigatório</p>
             </div>
 
