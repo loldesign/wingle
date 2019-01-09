@@ -1,7 +1,7 @@
 class Candidate::ExperienceController < ApplicationController
   before_action :authenticate_candidate!
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh, :complete, :transition]
-  before_action :set_years_and_months, only: [:second, :fifth]
+  before_action :set_years, only: [:second]
   before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh]
 
   def transition
@@ -132,10 +132,9 @@ class Candidate::ExperienceController < ApplicationController
       candidate_experience_params.present?
     end
 
-    def set_years_and_months
+    def set_years
       manager = CandidateManager.new
       @years  = manager.optionsForSelectYear
-      @months = manager.optionsForSelectMonth
     end
 
     def set_header_options
