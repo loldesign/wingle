@@ -1,7 +1,11 @@
 class CandidateCurrentCompany < ApplicationRecord
+	extend Enumerize
+
 	belongs_to :candidate
 
 	validate :months_between_jan_dec, :end_date_after_start_date, :accept_only_empty_or_all_present_dates
+
+	enumerize :nationality, in: [:national, :multinational]
 
 	def end_date_after_start_date
 		return false unless dates_present? 

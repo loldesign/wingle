@@ -116,7 +116,7 @@ class Candidate::CompanyController < ApplicationController
     end
 
     def candidate_current_company_params
-      params.fetch(:candidate_current_company, {}).permit(:id, :name, :start_date, :end_date, :start_date_month, :start_date_year, :end_date_month, :end_date_year, :currently_work_here, :company_size, :sector, :subsector, :mode, :city, :city_locale, :neighborhood_group, :neighborhood, :corporate_email)
+      params.fetch(:candidate_current_company, {}).permit(:id, :name, :start_date, :end_date, :start_date_month, :start_date_year, :end_date_month, :end_date_year, :currently_work_here, :nationality, :company_size, :sector, :subsector, :mode, :city, :city_locale, :neighborhood_group, :neighborhood, :corporate_email)
     end
 
     def arrayForSelect(min, max)

@@ -41,6 +41,9 @@ pt-BR:
         for:
           candidate: "Candidato"
           company: "Empresa"
+        nationality:
+          national: "Nacional"
+          multinational: "Multinacional"
   resource:
     time:
       formats:
