@@ -1,7 +1,7 @@
 class Candidate::ExperienceController < ApplicationController
   before_action :authenticate_candidate!
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh, :complete, :transition]
-  before_action :set_years_and_months, only: [:first, :fifth]
+  before_action :set_years, only: [:first]
   before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh]
 
   def transition
@@ -17,8 +17,7 @@ class Candidate::ExperienceController < ApplicationController
     # if @candidate_experience.current_title.nil?
     #   redirect_to action: :first
     # else
-      current_title = TitleList.find(@candidate_experience.current_title)
-      @titles = TitleList.where("priority <= ?", current_title.priority).order(priority: :asc)
+      @titles = TitleList.order(priority: :asc)
     # end
   end
 
@@ -132,10 +131,9 @@ class Candidate::ExperienceController < ApplicationController
       candidate_experience_params.present?
     end
 
-    def set_years_and_months
+    def set_years
       manager = CandidateManager.new
       @years  = manager.optionsForSelectYear
-      @months = manager.optionsForSelectMonth
     end
 
     def set_header_options

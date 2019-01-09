@@ -42,4 +42,10 @@ $(document).on('turbolinks:load', function() {
   $(".candidate-contact-actions-container .action-button").click(function(){
     $(this).parents().find('.contact-actions').toggle("slide", { direction: "down" }, 400);
   });
+
+  // COMPANY ABOUT SECTORS LIST //
+  $(".sector-list-item").click(function(){
+    $(this).parent().find(".list-subsectors").slideToggle('.hidden');
+    $(this).find('.icon').toggleClass('rotated');
+  });
 });

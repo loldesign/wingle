@@ -28,19 +28,33 @@
                       </label>
                     </p>
                   </li>
-                  <div class="list-neighborhood hidden">
-                    <ul>
-                      <% city_locale.neighborhoods.each do |neighborhood| %>
-                        <li class="collection-item">
+                  <div class="list-neighborhood-group hidden">
+                    <% city_locale.neighborhood_groups.each do |neighborhood_group| %>
+                      <ul class="neighborhood-group-item-block">
+                        <li class="neighborhood-group-item collection-item">
                           <p>
-                            <label>
-                              <%= radio_button_tag "company_about[neighborhoods][]", neighborhood.id, @company_about.neighborhoods.include?(neighborhood.id) ? true : false, class: "with-gap" %>
-                              <span><%= neighborhood.name %></span>
+                            <label class="neighborhood-group-name">
+                              <span><%= neighborhood_group.name %></span>
+                              <i class="icon ion-md-arrow-dropright"></i>
                             </label>
                           </p>
                         </li>
-                      <% end %>
-                    </ul>
+                        <div class="list-neighborhood hidden">
+                          <ul>
+                            <% neighborhood_group.neighborhoods.each do |neighborhood| %>
+                              <li class="collection-item">
+                                <p>
+                                  <label>
+                                    <%= check_box_tag "company_about[neighborhoods][]", neighborhood.id, @company_about.neighborhoods.include?(neighborhood.id) ? true : false, class: "with-gap" %>
+                                    <span><%= neighborhood.name %></span>
+                                  </label>
+                                </p>
+                              </li>
+                            <% end %>
+                          </ul>
+                        </div>
+                      </ul>
+                    <% end %>
                   </div>
                 </ul>
               <% end %>

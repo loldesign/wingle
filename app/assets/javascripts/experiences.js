@@ -7,41 +7,28 @@ var experiencesSecondStepManager = function(){
 
     var _this = this;
 
-    this.$container.on('change', ['select.years', 'select.months'], function(event) {
+    this.$container.on('change', ['select.years'], function(event) {
       event.preventDefault();
 
-      _this.caulculateTime();
+      _this.calculateTime();
     });
 
-    this.caulculateTime();
+    this.calculateTime();
   }
 
-  this.caulculateTime = function(){
+  this.calculateTime = function(){
     var yearsTotal  = this.sumArray(this.getTotalList($('select.years')))
-    var monthsTotal = this.sumArray(this.getTotalList($('select.months')))
 
-    if(monthsTotal >= 12){
-      var monthsYear = Math.floor(monthsTotal/12)
-      var restMonths = monthsTotal%12
+    this.enableNextButton()
 
-      yearsTotal  = yearsTotal + monthsYear
-      monthsTotal = restMonths
-    }
-
-    if(yearsTotal === 0 && monthsTotal === 0){
-      this.disableNextButton()
-    }else{
-      this.enableNextButton()
-    }
-
-    this.setDisclaimer(yearsTotal, monthsTotal)
+    this.setDisclaimer(yearsTotal)
   }
 
   this.getTotalList = function($Ellist){
     return $.map($Ellist ,function(option) {
       var value = $(option).val();
       if(value){
-        return parseInt(value);
+        return parseFloat(value);
       }else{
         return 0
       }
@@ -60,12 +47,10 @@ var experiencesSecondStepManager = function(){
     $(".action-buttons-duo a.next-step").addClass("disabled")
   }
 
-  this.setDisclaimer = function(years, months){
+  this.setDisclaimer = function(years){
     var yearWord  = years  > 1 ? ' anos'  : ' ano'
-    var monthWord = months > 1 ? ' meses' : ' mês'
-    var andWord   = years  > 0 ? ' e '    : ''
 
-    var text = "Total de " + (years > 0 ? (years + yearWord) : '') + (months > 0 ? (andWord + months + monthWord) : '')
+    var text = "Total de " + (years > 0 ? (years + yearWord) : '0')
 
     this.$disclaimer.text(text)
   }

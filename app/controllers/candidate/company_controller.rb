@@ -108,7 +108,7 @@ class Candidate::CompanyController < ApplicationController
     def candidate_company_params
       if params[:candidate_companies].present?
         params.fetch(:candidate_companies, {}).map do |p|
-          p.permit(:id, :name, :months, :size, :sector, :subsector, :title,
+          p.permit(:id, :name, :months, :nationality, :size, :sector, :subsector, :title,
             :start_date_month, :start_date_year, :end_date_month, :end_date_year
           )
         end

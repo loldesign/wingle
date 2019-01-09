@@ -340,6 +340,9 @@ CompanySize.find_or_initialize_by(name: 'GRANDE CORPORAÇÃO' ).update_attribute
 # Creating First Modes
 # -------
 puts "---> Processing Modes ..."
+# if Mode.find_by(name: 'ACELERADA').nil?
+#   Mode.find_or_initialize_by(name: 'AGRESSIVA' ).update_attributes!(code: 'Amd', description: 'foco no curto prazo, números e performance', name: 'ACELERADA')
+# end
 Mode.find_or_initialize_by(name: 'ACELERADA'   ).update_attributes!(code: 'Amd', description: 'foco no curto prazo, números e performance')
 Mode.find_or_initialize_by(name: 'MODERADA'    ).update_attributes!(code: 'Md' , description: 'foco no médio prazo, negócio e pessoas')
 Mode.find_or_initialize_by(name: 'CONSERVADORA').update_attributes!(code: 'Cmd', description: 'foco no longo prazo, orientada a processos')

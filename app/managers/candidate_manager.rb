@@ -18,11 +18,7 @@ class CandidateManager
   end
 
   def optionsForSelectYear
-    @years = arrayForSelect("ANO", "ANOS", 15)
-  end
-
-  def optionsForSelectMonth
-    @months = arrayForSelect("MÊS", "MESES", 11)
+    @years = arrayForSelect("ANO", "ANOS", 10)
   end
 
   def create_candidate_experience
@@ -161,9 +157,13 @@ class CandidateManager
   private
     def arrayForSelect(singular, plural, max)
       array = []
-      for i in 0..max
+      for i in (0..max).step(0.5)
         if i == 1
           array << ["#{i} #{singular}", "#{i}"]
+        elsif i == 0
+          array << ["Não se aplica", "#{i}"]
+        elsif i == 0.5
+          # Don't add
         else
           array << ["#{i} #{plural}", "#{i}"]
         end
