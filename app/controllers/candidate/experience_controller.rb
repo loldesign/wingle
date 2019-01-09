@@ -1,7 +1,7 @@
 class Candidate::ExperienceController < ApplicationController
   before_action :authenticate_candidate!
   before_action :set_candidate, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh, :complete, :transition]
-  before_action :set_years_and_months, only: [:second, :fifth]
+  before_action :set_years_and_months, only: [:first, :fifth]
   before_action :set_header_options, only: [:first, :second, :third, :fourth, :fifth, :sixth, :seventh]
 
   def transition
@@ -9,35 +9,35 @@ class Candidate::ExperienceController < ApplicationController
   end
 
   def first
-    @title_list = TitleList.order(priority: :asc)
-  end
-
-  def second
     if @candidate_experience.nil?
       CandidateManager.new(candidate: @candidate).create_candidate_experience
       @candidate_experience = @candidate.candidate_experience
     end
 
+    # if @candidate_experience.current_title.nil?
+    #   redirect_to action: :first
+    # else
+      current_title = TitleList.find(@candidate_experience.current_title)
+      @titles = TitleList.where("priority <= ?", current_title.priority).order(priority: :asc)
+    # end
+  end
+
+  def second
+    if params_present && !create_candidate_experience_titles
+      render action: :second
+    end
+
+    @title_list = TitleList.order(priority: :asc)
+  end
+
+  def third
     if params_present
       if @candidate_experience.update_attributes(candidate_experience_params)
         @candidate_experience.title_experiences = [] unless @candidate_experience.title_experiences.present?
         @candidate_experience.save
       else
-        render action: :first
+        render action: :second
       end
-    end
-
-    if @candidate_experience.current_title.nil?
-      redirect_to action: :first
-    else
-      current_title = TitleList.find(@candidate_experience.current_title)
-      @titles = TitleList.where("priority <= ?", current_title.priority).order(priority: :asc)
-    end
-  end
-
-  def third
-    if params_present && !create_candidate_experience_titles
-      render action: :second
     end
 
     @area = Area.all

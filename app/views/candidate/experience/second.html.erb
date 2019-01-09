@@ -1,51 +1,33 @@
-<section id="second_step" class="question-container content experience-step">
+<section id="first_step" class="question-container content experience-step">
   <%= form_tag({controller: "experience", action: "third"}, method: "post", id: "candidate_second") do %>
-    <section class="content-box">
+    <section class="content-box validate-radio-box">
       <ul class="collection with-header">
         <li class="collection-header">
-          <div class="progress ">
-            <div class="determinate" style="width: 25%"></div>
+          <div class="progress">
+            <div class="determinate" style="width: 15%"></div>
           </div>
 
-          <h5 class="center-align section">Qual sua experiência por cargo?</h5>
+          <h5 class="center-align section">Qual o seu cargo atual?</h5>
         </li>
 
-        <% @titles.each_with_index do |title, index| %>
-          <li class="collection-item with-select">
+        <% @title_list.each do |title_list| %>
+          <li class="collection-item">
             <p>
               <label>
-                <span><%= title.name %></span>
+                <%= radio_button_tag "candidate_experience[current_title]", title_list.id, (@candidate_experience && @candidate_experience.current_title == title_list.id) ? true : false, class: "with-gap validate" %>
+                <span><%= title_list.name %></span>
               </label>
             </p>
-            
-            <div class="experience-box-item">
-              <%= hidden_field_tag("candidate_experience[candidate_experience_titles][][title_id]", {}, value: title.id) %>
-              <div class="select-box-with-error">
-                <%= select_tag 'candidate_experience[candidate_experience_titles][][years]', options_for_select(@years, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].years : false), :class => "years custom validate", :include_blank => true %>
-                <p class="error-message hide">Obrigatório</p>
-              </div>
-
-              <p class="separator-responsive-label"><label>E</label></p>
-
-              <div class="select-box-with-error">
-                <%= select_tag 'candidate_experience[candidate_experience_titles][][months]', options_for_select(@months, selected: @candidate_experience.title_experiences.present? && @candidate_experience.title_experiences[index].present? ? @candidate_experience.title_experiences[index].months : false), :class => "months custom validate", :include_blank => true %>
-                <p class="error-message hide">Obrigatório</p>
-              </div>
-            </div>
           </li>
         <% end %>
       </ul>
+      <p class="radio-error-message hide">Favor preencher algum dos campos</p> 
     </section>
-
-    <div class="observation-box">
-      <p class="medium-gray">
-        <strong>Obs:</strong> <span class='total-years-sum'></span>
-      </p>
-    </div>
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_experience_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-step", id: "validate-form-button" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large radio-validate", id: "validate-form-button", data: {with_radios: 'true'} %>
     </section>
   <% end %>
 </section>
+
