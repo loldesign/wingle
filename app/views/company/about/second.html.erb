@@ -13,17 +13,29 @@
         </li>
 
         <% @sector.each do |sector| %>
-          <li class="collection-item">
-            <p>
-              <label>
-                <%= radio_button_tag "company_about[sectors][]", sector.id, @company_about.sectors.include?(sector.id) ? true : false, class: "with-gap" %>
-                  <span>
-                    <%= sector.name %><br>
-                    <strong><%= sector.description %></strong>
-                  </span>
+          <div class="sectors-item-block">
+            <li class="sector-list-item collection-item">
+              <label class="sector-name">
+                <span><%= sector.name %></span>
+                <i class="icon ion-md-arrow-dropright"></i>
               </label>
-            </p>
-          </li>
+            </li>
+
+            <div class="list-subsectors hidden">
+              <% sector.subsectors.each do |subsector| %>
+                <li class="collection-item">
+                  <p>
+                    <label>
+                      <%= radio_button_tag "company_about[sectors][]", subsector.id, @company_about.sectors.include?(subsector.id) ? true : false, class: "with-gap" %>
+                        <span>
+                            <strong><%= subsector.name %></strong>
+                        </span>
+                    </label>
+                  </p>
+                </li>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       </ul>
     </section>

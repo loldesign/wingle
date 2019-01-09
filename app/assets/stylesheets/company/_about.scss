@@ -1,0 +1,45 @@
+#second_step {
+	.collection {
+    .sectors-item-block {
+      border-bottom: 1px solid #e0e0e0;
+
+      .sector-list-item {
+        cursor: pointer;
+
+        .sector-name {
+          font-size: 1.1vw;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+
+          i {
+            font-size: 2rem;
+
+            &.rotated {
+              transform:rotate(90deg);
+              -webkit-transform:rotate(90deg);
+              -moz-transform:rotate(90deg);
+              -o-transform:rotate(90deg);
+            }
+          }
+        }
+      }
+
+      .list-subsectors {
+        span {
+          font-weight: 400;
+        }
+
+        &.hidden {
+          display: none;
+        }
+
+        .action-item{
+          text-align: center;
+        }
+      }
+
+    }
+  }
+}
