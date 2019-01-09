@@ -22,7 +22,7 @@ class Company::AboutController < ApplicationController
       @sector = Sector.all
       render action: :second
     end
-    @mode = Mode.all
+    @mode = Mode.order(id: :asc)
   end
 
   def fourth

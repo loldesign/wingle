@@ -7,7 +7,7 @@
             <div class="determinate" style="width: 75%"></div>
           </div>
 
-          <h5 class="center-align section">Qual a reputação da sua empresa?</h5>
+          <h5 class="center-align section">Qual é a reputação da sua empresa?</h5>
         </li>
         <% @mode.each do |mode| %>
           <li class="collection-item">
@@ -15,7 +15,8 @@
               <label>
                 <%= radio_button_tag "company_about[mode_id]", mode.id, @company_about.present? && @company_about.mode_id == mode.id ? true : false, class: "with-gap" %>
                   <span>
-                    <%= mode.name %>
+                    <%= mode.name %><br>
+                    <strong><%= mode.description %></strong>
                   </span>
               </label>
             </p>
