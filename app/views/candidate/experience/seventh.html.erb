@@ -1,0 +1,47 @@
+<section id="sixth_step" class="question-container content experience-step" data-min="0" data-max="7">
+  <div class="max-option-notice">
+    <p class="gray bold">Limite máximo atingido</p>
+  </div>
+  <%= form_tag({controller: "experience", action: "complete"}, method: "post", id: "candidate_seventh") do %>
+    <section class="content-box">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="progress ">
+            <div class="determinate" style="width: 95%"></div>
+          </div>
+
+          <h5 class="center-align section">Onde você avalia oportunidades?</h5>
+        </li>
+        <% @areas.each do |area| %>
+          <li class="collection-item">
+            <p>
+              <label class="static-label light-green-text">
+                <span>
+                  <%= area.name %>
+                </span>
+              </label>
+            </p>
+          </li>
+          <% area.functions.each do |function| %>
+            <li class="collection-item list-function-area">
+              <p>
+                <label>
+                  <% option_included = Function.by_ids_list(@candidate_experience.functions).map(&:id).include?(function.id) || @candidate_experience.considered_functions.include?(function.id)%>
+                  <%= check_box_tag "candidate_experience[considered_functions][]", function.id, option_included, class: "with-gap" %>
+                  <span>
+                    <%= function.name %>
+                  </span>
+                </label>
+              </p>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </section>
+
+    <section class="action-buttons-duo">
+      <%= link_to "Anterior", candidate_experience_step_6_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large next-step #{@candidate_experience.considered_functions.empty? ? 'disabled' : ''}", onclick: "$('#candidate_seventh').submit()" %>
+    </section>
+  <% end %>
+</section>

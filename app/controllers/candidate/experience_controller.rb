@@ -80,6 +80,27 @@ class Candidate::ExperienceController < ApplicationController
       render action: :fifth
     end
 
+    if @candidate_experience.functions.nil? || @candidate_experience.functions == []
+      redirect_to action: :fifth
+    else
+      @function = Function.by_ids_list(@candidate_experience.functions)
+    end
+  end
+
+  def seventh
+    if params_present
+      if @candidate_experience.update_attributes(candidate_experience_params)
+        @candidate_experience.last_function = nil? unless @candidate_experience.last_function.present?
+        @candidate_experience.save
+      else
+        render action: :second
+      end
+    end
+
+    # if params_present && !create_candidate_experience_last_function
+    #   render action: :fifth
+    # end
+
     if @candidate_experience.areas.nil? || @candidate_experience.areas == []
       redirect_to action: :third
     else
@@ -99,7 +120,7 @@ class Candidate::ExperienceController < ApplicationController
 
     @candidate.completed_experiences! if @candidate.reload.experience?
 
-    redirect_to candidate_home_path
+    redirect_to candidate_third_transition_path
   end
 
   private
@@ -109,7 +130,7 @@ class Candidate::ExperienceController < ApplicationController
     end
 
     def candidate_experience_params
-      params.fetch(:candidate_experience, {}).permit(:current_title, :others_percentage, areas: [], functions: [], disconsidered_functions: [], considered_functions: [],
+      params.fetch(:candidate_experience, {}).permit(:current_title, :others_percentage, :last_function, areas: [], functions: [], disconsidered_functions: [], considered_functions: [],
         candidate_experience_function: [:function_id, :percentage], candidate_experience_titles: [:title_id, :years, :months])
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190109200055) do
+ActiveRecord::Schema.define(version: 20190110172500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20190109200055) do
     t.integer "considered_functions", default: [], array: true
     t.integer "total_functions_percentage", default: 0
     t.integer "others_percentage"
+    t.integer "last_function"
     t.index ["candidate_id"], name: "index_candidate_experiences_on_candidate_id"
   end
 

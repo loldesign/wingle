@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     match 'experiencia/passo-4'         , to: 'experience#fourth'     , as: :experience_step_4        , via: [:get, :post]
     match 'experiencia/passo-5'         , to: 'experience#fifth'      , as: :experience_step_5        , via: [:get, :post]
     match 'experiencia/passo-6'         , to: 'experience#sixth'      , as: :experience_step_6        , via: [:get, :post]
+    match 'experiencia/passo-7'         , to: 'experience#seventh'    , as: :experience_step_7        , via: [:get, :post]
     post  'experiencia/passo-completo'  , to: 'experience#complete'   , as: :experience_step_complete
 
     #### COMPANY SECTOR #####
