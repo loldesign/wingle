@@ -50,6 +50,9 @@ Rails.application.routes.draw do
     match 'empresa/passo-3'             , to: 'company#third'         , as: :company_step_3           , via: [:get, :post]
     post  'empresa/passo-completo'      , to: 'company#complete'      , as: :company_step_complete
 
+    get   'empresa/bairros'             , to: 'company#neighborhoods' , as: :neighborhoods
+    get   'empresa/subsetores'          , to: 'company#subsectors'    , as: :subsectors
+
     #### HABILITY SECTOR #####
     get  'habilidade/passo-1'           , to: 'hability#first'        , as: :hability_step_1
     post 'habilidade/passo-completo'    , to: 'hability#complete'     , as: :hability_step_complete

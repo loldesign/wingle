@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20190110172500) do
     t.integer "end_date_year"
     t.integer "subsector"
     t.string "nationality"
+    t.integer "neighborhood"
+    t.integer "neighborhood_group"
     t.index ["candidate_id"], name: "index_candidate_companies_on_candidate_id"
   end
 

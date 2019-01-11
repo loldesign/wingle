@@ -24,7 +24,14 @@
             <%= select_tag 'candidate_companies[][sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }, selected: company.sector), :class => "full", prompt: "SETOR", id: "candidate_companies_#{index}_sector" %>
             <%= select_tag 'candidate_companies[][subsector]', options_for_select(@subsectors.collect{ |subsector| [subsector.name, subsector.id] }, selected: company.subsector), :class => "full hidden", prompt: "SUBSETOR", id: "candidate_companies_#{index}_subsector" %>
             <%= select_tag 'candidate_companies[][title]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: company.title), :class => "full", prompt: "PERFIL", id: "candidate_companies_#{index}_title" %>
-
+            <div class="two-items">
+              <div class="half">
+                <%= select_tag 'candidate_companies[][neighborhood_group]', options_for_select(@neighborhood_group.collect{ |neighborhood_group| [neighborhood_group.name, neighborhood_group.id, {'data-city-locale-id': neighborhood_group.city_locale.id}] }, selected: company.neighborhood_group), :class => "full", prompt: "LOCALIZAÇÃO", id: "candidate_companies_#{index}_neighborhood_group"  %>
+              </div>
+              <div class="half">
+                <%= select_tag 'candidate_companies[][neighborhood]', options_for_select(@neighborhoods.collect{ |neighborhood| [neighborhood.name, neighborhood.id, {'data-city-locale-id': neighborhood.city_locale.id}] }, selected: company.neighborhood), :class => "full", prompt: "Bairro", id: "candidate_companies_#{index}_neighborhood"  %>
+              </div>
+            </div>
           </li>
         <% end %>
       </ul>

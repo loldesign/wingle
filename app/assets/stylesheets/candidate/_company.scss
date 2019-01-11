@@ -1,129 +1,150 @@
 #first_step {
-	&.company-step {
-		.box-with-error {
-			padding: 3vh 0 0;
+  &.company-step {
+    .box-with-error {
+      padding: 3vh 0 0;
 
-			select {
-				margin-bottom: 2vh !important;
-			}
+      select {
+        margin-bottom: 2vh !important;
+      }
 
-			.box-with-error {
-				padding-top: 0;
-			}
+      .box-with-error {
+        padding-top: 0;
+      }
 
-			&.candidate-company-date {
-				.error-message {
-					position: initial;
-				}
-			}
+      &.candidate-company-date {
+        .error-message {
+          position: initial;
+        }
+      }
 
-			&.neighborhood.hidden,
-			&.subsectors.hidden {
-				display: none;
-			}
-		}
+      &.neighborhood.hidden,
+      &.subsectors.hidden {
+        display: none;
+      }
+    }
 
-		.two-items,
-		.three-items {
-			display: flex;
-			justify-content: space-between;
+    .two-items,
+    .three-items {
+      display: flex;
+      justify-content: space-between;
 
-			.half {
-				width: 50%;
-				display: flex;
-				justify-content: space-between;
-				margin-right: 1vw;
+      .half {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 1vw;
 
-				select {
-					background-size: 4.5%;
-				}
+        select {
+          background-size: 4.5%;
+        }
 
-				&:last-of-type {
-					@include omega;
-				}
+        &:last-of-type {
+          @include omega;
+        }
 
-				.content-box {
-					width: 50%;
-					margin-right: 1vw;
+        .content-box {
+          width: 50%;
+          margin-right: 1vw;
 
-					select {
-						background-size: 7.5%;
-					}
+          select {
+            background-size: 7.5%;
+          }
 
-					&:last-of-type {
-						@include omega;
-					}
-				}
-			}
+          &:last-of-type {
+            @include omega;
+          }
+        }
+      }
 
-			.one-third {
-				width: 32%;
-				float: left;
+      .one-third {
+        width: 32%;
+        float: left;
 
-				select {
-					background-size: 6.5%;
-				}
-			}
-		}
-	}
+        select {
+          background-size: 6.5%;
+        }
+      }
+    }
+  }
 }
 
 #second_step {
-	&.question-container {
-		.content-box {
-			.candidate-companies-form {
-				&.collection.with-input {
-					.candidate-company-item {
-						display: flex;
-						justify-content: space-between;	
-						align-items: center;
+  &.question-container {
+    .content-box {
+      .candidate-companies-form {
+        &.collection.with-input {
+          .candidate-company-item {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
 
-						.responsive-container {
-							width: 90%;
-							float: left;
-							display: flex;
-						}		
-					}
+            .responsive-container {
+              width: 90%;
+              float: left;
+              display: flex;
+            }   
+          }
 
-					label {
-						margin-bottom: .5vh;
-					}
+          label {
+            margin-bottom: .5vh;
+          }
 
-					.candidate-company-date {
-						width: 100%;
-						margin-left: 2%;
+          .candidate-company-date {
+            width: 100%;
+            margin-left: 2%;
 
-						.two-items {
-							display: flex;
-							justify-content: space-between;
+            .two-items {
+              display: flex;
+              justify-content: space-between;
 
-							select {
-								padding-left: 0.5vw;
-								margin-right: .5vw !important;
+              select {
+                padding-left: 0.5vw;
+                margin-right: .5vw !important;
 
-								&:last-of-type {
-									margin-right: 0 !important;
-								}
-							}
-						}
-					}
+                &:last-of-type {
+                  margin-right: 0 !important;
+                }
+              }
+            }
+          }
 
-					.candidate-company-name {
-						width: 100%;
-					}
+          .candidate-company-name {
+            width: 100%;
+          }
 
-					select {
-						margin-bottom: 2vh !important;
-					}
-				}
-			}
-		}
-	}
+          select {
+            margin-bottom: 2vh !important;
+          }
+        }
+      }
+    }
+  }
 }
 
 #third_step {
   &.question-container {
     .content-box {
+      .two-items {
+        margin-top: 3vh;
+        display: flex;
+        justify-content: space-between;
+
+        .half {
+          width: 50%;
+          display: flex;
+          justify-content: space-between;
+          margin-right: 1vw;
+
+          select {
+            background-size: 4.5%;
+          }
+
+          &:last-of-type {
+            @include omega;
+          }
+        }
+      }
+
       .collection {
         .collection-item {
           &.with-select-full {
