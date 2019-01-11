@@ -59,6 +59,9 @@ class Candidate::CompanyController < ApplicationController
       @companies = @candidate.candidate_companies
       load_size_sector_and_profile
       @subsectors = Subsector.all
+
+      @neighborhood_group = NeighborhoodGroup.all
+      @neighborhoods = Neighborhood.all
     end
   end
 
@@ -108,7 +111,8 @@ class Candidate::CompanyController < ApplicationController
     def candidate_company_params
       if params[:candidate_companies].present?
         params.fetch(:candidate_companies, {}).map do |p|
-          p.permit(:id, :name, :months, :nationality, :size, :sector, :subsector, :title,
+          p.permit(:id, :name, :months, :nationality, :size, :sector, :subsector,
+            :title, :neighborhood_group, :neighborhood,
             :start_date_month, :start_date_year, :end_date_month, :end_date_year
           )
         end

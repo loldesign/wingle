@@ -166,10 +166,22 @@ var companiesThirdStepManager = function(){
         _this.populateSubsectors($(this), $('#candidate_companies_'+index+'_subsector'), "")
       });
 
+      $(this).on('change', '#candidate_companies_'+index+'_neighborhood_group', function(event) {
+        event.preventDefault();
+
+        _this.populateNeighborhood($(this), $('#candidate_companies_'+index+'_neighborhood'), "")
+      });
+
       if ($("#candidate_companies_"+index+"_sector").val() != "") {
         var val = $("#candidate_companies_"+index+"_subsector").val()
 
         _this.populateSubsectors($("#candidate_companies_"+index+"_sector"), $("#candidate_companies_"+index+"_subsector"), val)
+      }
+
+      if ($("#candidate_companies_"+index+"_neighborhood_group").val() != "") {
+        var val = $("#candidate_companies_"+index+"_neighborhood").val()
+
+        _this.populateNeighborhood($("#candidate_companies_"+index+"_neighborhood_group"), $("#candidate_companies_"+index+"_neighborhood"), val)
       }
     })
   }
@@ -179,7 +191,7 @@ var companiesThirdStepManager = function(){
       $subsectors.removeClass('hidden');
 
       $.ajax({
-        url: '/candidato/empresa/passo-1/subsectors?sector_id='+$select.val(),
+        url: '/candidato/empresa/subsetores?sector_id='+$select.val(),
         type: 'get',
         dataType: 'json',
       })
@@ -202,6 +214,36 @@ var companiesThirdStepManager = function(){
       });
     } else {
       $subsectors.addClass('hidden');
+    }
+  }
+
+  this.populateNeighborhood = function($select, $subsectors, val) {
+    if ($select.val() != "") {
+
+      $.ajax({
+        url: '/candidato/empresa/bairros?neighborhood_group_id='+$select.val(),
+        type: 'get',
+        dataType: 'json',
+      })
+      .success(function(data) {
+        $subsectors.children('option:not(:first)').remove();
+
+        $.each(data, function(i, obj) {
+          $subsectors.append($("<option />").val(obj.id).text(obj.name));
+        });
+
+        if (val != "") {
+          $subsectors.val(val)
+        }
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      });
+    } else {
+      $subsectors.children('option:not(:first)').remove();
     }
   }
 
