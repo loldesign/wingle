@@ -1,5 +1,5 @@
 var companiesFirstStepManager = function(){
-  this.$container    = $('#first_step.company-step')
+  this.$container    = $('#third_step.company-step')
   this.$localeSelect = $('#candidate_current_company_neighborhood_group')
   this.$endDate      = $('#current_end_date')
 

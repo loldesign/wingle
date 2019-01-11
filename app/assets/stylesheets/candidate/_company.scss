@@ -133,6 +133,29 @@
               }
             }
           }
+
+          .box-with-error {
+          	padding: 3vh 0 0;
+
+          	select {
+          		margin-bottom: 2vh !important;
+          	}
+
+          	.box-with-error {
+          		padding-top: 0;
+          	}
+
+          	&.candidate-company-date {
+          		.error-message {
+          			position: initial;
+          		}
+          	}
+          	
+						&.neighborhood.hidden,
+						&.subsectors.hidden {
+							display: none;
+						}
+          }
         }
       }
     }

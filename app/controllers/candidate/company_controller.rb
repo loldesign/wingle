@@ -3,55 +3,40 @@ class Candidate::CompanyController < ApplicationController
   before_action :set_candidate, only: [:first, :second, :third, :complete]
 
   def first
-    @current_company = @candidate_current_company.present? ? @candidate_current_company : CandidateCurrentCompany.new
-    load_size_sector_and_profile
-    @city = City.all
-    @city_locale = CityLocale.all
-    @neighborhood_group = NeighborhoodGroup.all
-    @months = arrayForSelect(1, 12)
-    @years  = arrayForSelect(1990, Date.today.year)
-
-    if @current_company.sector.present?
-      @subsectors = Subsector.where(sector_id: @current_company.sector)
-    end
-
-    @neighborhoods =[]
-    if @current_company.neighborhood_group.present?
-      @neighborhoods = Neighborhood.where(neighborhood_group_id: @current_company.neighborhood_group)
-    end
-  end
-
-  def second
     @current_company = @candidate_current_company
-
-    if @candidate_current_company.nil?
-      CandidateManager.new(candidate: @candidate).create_candidate_current_company
-      @current_company = @candidate.candidate_current_company
-    end
+    @manager         =  CandidateInfoManager.new(candidate: @candidate)
 
     @months = arrayForSelect(1, 12)
     @years  = arrayForSelect(1990, Date.today.year)
 
-    if params[:candidate_current_company].present?
-      manager = CandidateManager.new(candidate_current_company: @current_company, candidate_current_company_params: candidate_current_company_params)
-      saved = manager.update_candidate_current_companies
-      if !saved
-        @start_date_error_present = @current_company.errors.present? && (@current_company.errors[:start_date_month].present? || @current_company.errors[:start_date_year].present? || @current_company.errors[:start_date].present?)
-        @end_date_error_present   = @current_company.errors.present? && (@current_company.errors[:end_date_month].present? || @current_company.errors[:end_date_year].present?)
-        load_size_sector_and_profile
-        @city = City.all
-        @city_locale = CityLocale.all
-        @neighborhood = Neighborhood.all
-        render action: :first
-      end
-    end
+    # if params[:candidate_current_company].present?
+    #   manager = CandidateManager.new(candidate_current_company: @current_company, candidate_current_company_params: candidate_current_company_params)
+    #   saved = manager.update_candidate_current_companies
+    #   if !saved
+    #     @start_date_error_present = @current_company.errors.present? && (@current_company.errors[:start_date_month].present? || @current_company.errors[:start_date_year].present? || @current_company.errors[:start_date].present?)
+    #     @end_date_error_present   = @current_company.errors.present? && (@current_company.errors[:end_date_month].present? || @current_company.errors[:end_date_year].present?)
+    #     load_size_sector_and_profile
+    #     @city = City.all
+    #     @city_locale = CityLocale.all
+    #     @neighborhood = Neighborhood.all
+    #     render action: :first
+    #   end
+    # end
 
     @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
   end
 
-  def third
+  def second
     manager = CandidateManager.new(candidate: @candidate, candidate_company_params: candidate_company_params)
     manager.create_or_update_candidate_companies
+
+    @companies = @candidate_companies.empty? ? [CandidateCompany.new] : @candidate_companies
+
+    load_size_sector_and_profile
+    @city = City.all
+    @city_locale = CityLocale.all
+    @neighborhood_group = NeighborhoodGroup.all
+    @neighborhoods = Neighborhood.all
 
     if !@candidate.valid? || @candidate.candidate_companies.empty?
       redirect_to action: :first
@@ -60,6 +45,11 @@ class Candidate::CompanyController < ApplicationController
       load_size_sector_and_profile
       @subsectors = Subsector.all
     end
+  end
+
+  def third
+    manager = CandidateManager.new(candidate: @candidate, candidate_company_params: candidate_company_params)
+    manager.create_or_update_candidate_companies
   end
 
   def complete

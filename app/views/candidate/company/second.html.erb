@@ -1,65 +1,88 @@
-<section id="second_step" class="question-container content">
+<section id="third_step" class="question-container content company-step">
   <%= form_tag({controller: "company", action: "third"}, method: "post", id: "candidate_second") do %>
     <section class="content-box">
-      <ul class="collection with-header candidate-companies-form with-input">
+      <ul class="collection with-header">
         <li class="collection-header">
           <div class="progress ">
             <div class="determinate" style="width: 30%"></div>
           </div>
 
-          <h5 class="center-align section">Quais foram as empresas mais relevantes para sua carreira?</h5>
+          <h5 class="center-align section">Conte um pouco mais sobre essas empresas</h5>
         </li>
-        
-        <% @companies.each do |company| %>
-          <%= hidden_field_tag("candidate_companies[][id]", {}, value: company.id) %>
-          <%= fields_for 'candidate_companies[]', company do |co| %>
 
-            <li class="collection-item candidate-company-item">
-              <div class="candidate-company-name">
-                <%= label_tag 'candidate_companies_5_name', 'Nome da empresa' %>
-                <%= co.text_field :name, name: "candidate_companies[][name]", class: "candidate-company-name validate", value: (company.present? && company.name.present?) ? company.name : @current_company.name %>
-                <p class="error-message hide">Obrigatório</p>
-              </div>
-              
-              <div class="responsive-container validate validate-date">
-                <div class="candidate-company-date start_date">
-                  <%= label_tag 'candidate_companies_5_start_date', 'Data de início' %>
-                  <div class="two-items">
-                    <%= co.select :start_date_month, @months, { include_blank: "MÊS", selected: (company.present? && company.start_date_month.present?) ? company.start_date_month : @current_company.start_date_month }, { name: "candidate_companies[][start_date_month]", class: "start_date_month" } %>
+        <% @companies.each_with_index do |company, index| %>
+          <li class="collection-item with-select-full">
+            <p>
+              <label>
+                <span><%= company.name %></span>
+              </label>
+            </p>
 
-                    <%= co.select :start_date_year, @years, { include_blank: "ANO", selected: (company.present? && company.start_date_year.present?) ? company.start_date_year : @current_company.start_date_year }, { name: "candidate_companies[][start_date_year]", class: "start_date_year" } %>
-                  </div>
-                  <p class="error-message hide">Obrigatório</p>
-                </div>
+            <p>
+              <label>
+                <span>
+                  <%= company.start_date_month.to_s.rjust(2,'0') %>/<%= company.start_date_year %> à <%= company.end_date_month.to_s.rjust(2,'0') %>/<%= company.end_date_year %>
+                </span>
+              </label>
+            </p>
+            <% binding.pry %>
+            <!-- OLDER CANDIDATE CURRENT COMPANY FORM FIELDS -->
+            <%#= hidden_field_tag("candidate_companies[][id]", {}, value: company.id, id: "candidate_companies_#{index}_id") %>
+            <%#= select_tag 'candidate_companies[][sector]', options_for_select(@sector.collect{ |sector| [sector.name, sector.id] }, selected: company.sector), :class => "full", prompt: "SETOR", id: "candidate_companies_#{index}_sector" %>
 
-                <div class="candidate-company-date end_date">
-                  <%= label_tag 'candidate_companies_5_end_date', 'Data de fim' %>
-                  <div class="two-items">
-                    <%= co.select :end_date_month, @months, { include_blank: "MÊS", selected: (company.present? && company.end_date_month.present?) ? company.end_date_month : @current_company.end_date_month }, { name: "candidate_companies[][end_date_month]", class: "end_date_month" } %>
+            <%#= select_tag 'candidate_companies[][size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: company.size), :class => "full", prompt: "PORTE", id: "candidate_companies_#{index}_size" %>
 
-                    <%= co.select :end_date_year, @years, { include_blank: "ANO", selected: (company.present? && company.end_date_year.present?) ? company.end_date_year : @current_company.end_date_year}, { name: "candidate_companies[][end_date_year]", class: "end_date_year" } %>
-                  </div>
-                  <p class="error-message hide">Obrigatório</p>
-                </div>
-              </div>
-            </li>
-          <% end %>
+            <%#= select_tag 'candidate_companies[][subsector]', options_for_select(@subsectors.collect{ |subsector| [subsector.name, subsector.id] }, selected: company.subsector), :class => "full hidden", prompt: "SUBSETOR", id: "candidate_companies_#{index}_subsector" %>
+
+            <%#= select_tag 'candidate_companies[][title]', options_for_select(@profile.collect{ |profile| [profile.name, profile.id] }, selected: company.title), :class => "full", prompt: "PERFIL", id: "candidate_companies_#{index}_title" %>
+
+            <!-- NEW CANDIDATE CURRENT COMPANY FORM FIELDS -->
+            <div class="box-with-error">
+              <%= select_tag 'candidate_companies[][company_size]', options_for_select(@size.collect{ |company| [company.name, company.id] }, selected: company.size), :class => "full validate", prompt: "PORTE", id: "candidate_companies_#{index}_company_size" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
+            <div class="box-with-error">
+              <%= select_tag 'candidate_companies[][sector]', options_for_select(@size.collect{ |sector| [sector.name, sector.id] }, selected: company.sector), :class => "full validate", prompt: "SETOR", id: "candidate_companies_#{index}_sector" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
+            <div class="box-with-error subsectors hidden">
+              <%= select_tag 'candidate_companies[][subsector]', options_for_select(@subsectors.collect{ |subsector| [subsector.name, subsector.id] }, selected: company.subsector), :class => "full validate", prompt: "SUBSETOR", id: "candidate_companies_#{index}_subsector" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
+            <div class="box-with-error half">
+              <%= select_tag 'candidate_companies[][city]', options_for_select(@city.collect{ |city| [city.name, city.id] }, selected: company.city), :class => "full validate", prompt: "CIDADE", id: "candidate_companies_#{index}_city" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
+            <div class="box-with-error half">
+              <%= select_tag 'candidate_companies[][city_locale]', options_for_select(@city_locale.collect{ |city_locale| [city_locale.name, city_locale.id] }, selected: company.city_locale), :class => "full validate", prompt: "ZONA", id: "candidate_companies_#{index}_city_locale" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
+            <div class="box-with-error">
+              <%= select_tag 'candidate_companies[][neighborhood_group]', options_for_select(@neighborhood_group.collect{ |neighborhood_group| [neighborhood_group.name, neighborhood_group.id, {'data-city-locale-id': neighborhood_group.city_locale.id}] }, selected: company.neighborhood_group), :class => "full validate", prompt: "LOCALIZAÇÃO", id: "candidate_companies_#{index}_neighborhood_group" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+
+            <div class="box-with-error neighborhood hidden">
+              <%= select_tag 'candidate_companies[][neighborhood]', options_for_select(@neighborhoods.collect{ |neighborhood| [neighborhood.name, neighborhood.id, {'data-city-locale-id': neighborhood.city_locale.id}] }, selected: company.neighborhood), :class => "full validate", prompt: "BAIRRO", id: "candidate_companies_#{index}_neighborhood" %>
+              <p class="error-message hide">Obrigatório</p>
+            </div>
+            
+            <div class="box-with-error">
+              <%= select_tag 'candidate_companies[][nationality]', options_for_select(CandidateCurrentCompany.nationality.options, selected: company.nationality), :class => "full", prompt: "NACIONALIDADE", id: "candidate_companies_#{index}_nationality" %>
+            </div>
+          </li>
         <% end %>
-        
-        <div class="list-item-options">
-          <button id="btn-minus" class="btn-options <%= @companies.count == 1 ? 'hide' : '' %> waves-effect waves-light btn-large grey">
-            <i class="material-icons">remove_circle</i>
-          </button>
-          <button id="btn-plus" class="btn-options waves-effect waves-light btn-large grey">
-            <i class="material-icons">add_circle </i>
-          </button>
-        </div>
       </ul>
     </section>
 
     <section class="action-buttons-duo">
       <%= link_to "Anterior", candidate_company_step_1_path, :class => "waves-effect waves-light btn-large grey lighten-2 black-text" %>
-      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", id: "validate-form-button" %>
+      <%= link_to "Próximo", 'javascript:void(0);', class: "waves-effect waves-light btn-large", onclick: "$('#candidate_second').submit()" %>
     </section>
   <% end %>
 </section>
